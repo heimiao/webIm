@@ -8,6 +8,9 @@ html {
 body{
 	height: 100%;
 }
+ul li{
+	list-style: none;
+}
 .smain{
 	width: 100%;
 	height: 100%;
@@ -68,4 +71,85 @@ body{
 .sItem span{
 	padding-left: 1.5rem;
 }
+/*贫困用户信息采集*/
+.pkhcj{
+	padding: 0;
+	height: 4.5rem;
+	line-height: 4.5rem;
+	overflow: hidden;
 
+}
+.cheader{
+	width:100%;
+	height: 4.5rem;
+	line-height: 4.5rem;
+	background-color: #ea3c4c;
+	font-size:1.8rem ;
+	color: #fff;
+	position: fixed;
+	top:0; left: 0;
+	z-index: 10
+}
+.cheader img{
+	width: 4.75rem;
+	width: 4.75rem;
+}
+.cheaderMain{
+	width: 100%;
+	padding: 0;
+	text-align: center;
+	color: #fff;
+}
+.navs{
+	border: 1px solid #000;
+	padding: 0;
+}
+.pfanhui{
+	width: 10%;
+	float: left;
+}
+.panniu{
+	width: 10%;
+	float: right;
+}
+.pname{
+	width: 80%;
+	float: left;
+}
+.navList img{
+	width: 3.16rem;
+	height:3.16rem;
+	margin-left:2.8rem 
+}
+.navListItem a{
+	color: #000;
+	font-size: 1.4rem;
+}
+.navListItem a:hover{
+	text-decoration: none;
+}
+.navListItem{
+	margin-top:1.6rem; 
+}
+.navListItem span{
+	margin-left:1rem 
+}
+/*基本信息*/
+.pkhcjTitle{
+	width: 100%;
+	height: 4rem;
+	line-height: 4rem;
+	background: #eeeeee;
+	font-size: 1.53rem
+}
+.pkhcjTitle p{
+	margin-top:1rem; 
+	margin-left:1.6rem; 
+	width: 0.3rem;
+	height: 2.2rem;
+	background: #eb3c4d
+}
+.pkhcjTitle span{
+	margin-left:0.8rem 
+
+}
