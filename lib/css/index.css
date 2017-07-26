@@ -1,0 +1,71 @@
+/*首页*/
+html {
+   font-size: 62.5%;
+   /*10 ÷ 16 × 100% = 62.5%*/
+   font-family: "微软雅黑";
+   height: 100%;
+}
+body{
+	height: 100%;
+}
+.smain{
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	background: #f5f5f5;
+}
+.sheader{
+	width:100%;
+	height: 4.5rem;
+	line-height: 4.5rem;
+	background-color: #ea3c4c;
+	font-size:1.8rem ;
+	color: #fff;
+}
+.banner{
+	padding: 0;
+}
+.sbanner{
+	width: 100%;
+	height: 30.5rem;
+	background: url(../img/bg1.jpg) #fff;
+	background-size:100%;
+	background-origin:content-box; 
+	background-position: bottom;
+	background-repeat: no-repeat;
+}
+.bannerTex{
+	font-size: 3rem;
+	color: #000;
+	margin-top:2.8rem ;
+}
+.bannerTex span{
+	font-size: 1.8rem;
+}
+.slist{
+	width: 100%;
+	margin-top: 1rem;
+	background-color: #f5f5f5;
+	padding-bottom: 1rem;
+}
+.sItem{
+	height: 6.5rem;
+	background: #fff;
+	font-size: 1.6rem;
+	line-height: 6.5rem;
+	margin-top: 0.5rem;
+	border-radius: 0.5rem;
+	background-image: url(../img/unfold@3x.png);
+	background-position: right  7px center;
+	background-repeat: no-repeat;
+	background-size: 1.8rem 1.8rem;
+}
+.sItem img{
+	width: 2.8rem;
+	height: 2.8rem;
+	margin-left: 1.5rem;
+}
+.sItem span{
+	padding-left: 1.5rem;
+}
+
