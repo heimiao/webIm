@@ -115,6 +115,7 @@ ul li{
 .pname{
 	width: 80%;
 	float: left;
+	color: #fff;
 }
 .navList img{
 	width: 3.16rem;
@@ -133,6 +134,9 @@ ul li{
 }
 .navListItem span{
 	margin-left:1rem 
+}
+.menuHeader{
+    background: #fff !important;
 }
 /*基本信息*/
 .pkhcjTitle{
@@ -225,5 +229,49 @@ ul li{
 .pkcList select:hover{
 	border:none;box-shadow:none;
 }
-.pkcList select option{
+//致贫原因
+.zpyyTitlecrap{
+    width: 100%;
+     overflow: hidden;
+}
+.zpyyTitle{
+    width: 96%;
+    height: 5.1rem;
+    line-height: 5.1rem;
+    border-bottom:1px solid #bbbbbb ;
+    font-size: 1.33rem;
+    color: #444;
+    float: right;
+  
+    span{
+        color: #666;
+    }
+}
+
+#zpyy{
+    .zpyyMain{
+        width: 96%;
+        margin: 0 auto;
+        overflow: hidden;
+        .zpyyItem{
+            height: 3rem;
+            line-height: 0.4rem;
+            width: auto;
+            padding: 1.6rem;
+            float: left;
+            margin: 0.6rem;
+            border: 1px solid #ea3d4c;
+            border-radius: 2rem;
+            margin-top: 1rem;
+            color: #ea3d4c;
+        }
+    }
+    .zpyyLine{
+        width: 100%;
+        height: 1.2rem;
+        background: #eee;
+    }
+    .zpyySelect{
+        background: #ea3d4c;
+    }
 }
