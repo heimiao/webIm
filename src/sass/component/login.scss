@@ -19,39 +19,44 @@
 	}
 	.infoCon{
 		width: 12.032rem;
+		height: 6.6560000001rem;
 		margin: 0 auto;
 		margin-top: 2.6453333333rem;
 		border-radius: 4px;
 		overflow: hidden;
+		background-image: url('../../assets/img/ios_bj@2x.png');  
+		background-repeat: no-repeat;  
+		background-size: 100%;
 		.pr{
 			position: relative;
 			.infoBox{
 				width: 12.032rem;
 				margin: 0 auto;
 				overflow: hidden;
-				opacity: .7;
-				background-color: #fff;
 				height: 2.2186666667rem;
 				input,select{
 					width: 9.9413333333rem;
-					color: #000;
+					color: #fff;
 					font-size: 0.768rem;
 					position: absolute;
-					top: 0.5973333333rem;
-					left: 2.0906666667rem;
+					top: 0.797333rem;
+					left: 0;
 					z-index: 50;
+					margin-left: 1.1946666667rem;
+					padding-left: 0.913333rem;
 				}
 			}
 			.icon{
 				width: 1.1946666667rem;
 				position: absolute;
-				top: 0.397333rem;
+				top: 0.697333rem;
 				left: 0.5546666667rem;
+				z-index: 60;
 			}
 			.icons{
 				width: 1.1946666667rem;
 				position: absolute;
-				top: 0.397333rem;
+				top: 0.597333rem;
 				right: 0.5546666667rem;
 				z-index: 10;
 			}
@@ -80,6 +85,5 @@
 		appearance:none;
 		-moz-appearance:none;
 		-webkit-appearance:none;
-		opacity: .7;
 	}
 }

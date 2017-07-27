@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="en">
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<meta charset="UTF-8">
+		<title>精准扶贫大数据平台</title>
+		<link rel="stylesheet" href="../../assets/lib/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="../style/index_sass.min.css">
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
+					};
+				if(!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener('DOMContentLoaded', recalc, false);
+			})(document, window);
+		</script>
+	</head>
+
+	<body class="villageCollection">
+		<header>
+			<a href="javascript:history.go(-1)">
+				<div class="back"><img style="width:1.58rem;" src="../../assets/img/icon_28.png" alt=""></div>
+			</a>
+			<div class="collectionTitle">贫困村信息采集</div>
+		</header>
+		<div class="fill"></div>
+		<div class="tab">
+			<div class="tab1">基本情况</div>
+			<div class="tab2">发展现状</div>
+			<div class="tab3">驻村工作队情况</div>	
+		</div>
+				<!-- 基本情况 -->
+		<div class="situation">
+			<div class="item border-b">
+				<div class="name">镇(乡、苏木)</div>
+				<div class="content">
+					<select name="" id="">
+						<option value="">张北镇</option>
+					</select>
+					<img src="../../assets/img/icon2_11@2x.png" alt="">
+				</div>
+			</div>
+
+			<div class="item border-b">
+				<div class="name">行政村</div>
+				<div class="content">
+					<select name="" id="">
+						<option value="">二八地村</option>
+					</select>
+					<img src="../../assets/img/icon2_11@2x.png" alt="">
+				</div>
+			</div>
+
+			<div class="item border-b">
+				<div class="name">村负责人</div>
+				<div class="content">
+					<input type="text" placeholder="请输入村负责人姓名">
+				</div>
+			</div>
+
+			<div class="item border-b">
+				<div class="name">职务级别</div>
+				<div class="content">
+					<input type="text" placeholder="请输入职务级别">
+				</div>
+			</div>
+
+			<div class="item border-b">
+				<div class="name">村办公电话</div>
+				<div class="content">
+					<input type="text" placeholder="请输入村办公电话">
+				</div>
+			</div>
+
+			<div class="item border-b">
+				<div class="name">贫困村属性</div>
+				<div class="content">
+					<select name="" id="">
+						<option value="">贫困村</option>
+					</select>
+					<img src="../../assets/img/icon2_11@2x.png" alt="">
+				</div>
+			</div>
+
+			<div class="item border-b">
+				<div class="name">发展方向属性</div>
+				<div class="content">
+					<select name="" id="">
+						<option value="">中心村镇</option>
+					</select>
+					<img src="../../assets/img/icon2_11@2x.png" alt="">
+				</div>
+			</div>
+			
+			<div class="item border-b">
+				<div class="name">地形地貌属性</div>
+				<div class="content">
+					<select name="" id="">
+						<option value="">山区村镇</option>
+					</select>
+					<img src="../../assets/img/icon2_11@2x.png" alt="">
+				</div>
+			</div>
+
+			<div class="item border-b">
+				<div class="name">中共党员数量(人)</div>
+				<div class="content">
+					<input type="text" placeholder="请输入村中共党员数量">
+				</div>
+			</div>
+			
+			<div class="item border-b">
+				<div class="name">大学生村官数量(人)</div>
+				<div class="content">
+					<input type="text" placeholder="请输入村大学生村官数量">
+				</div>
+			</div>
+			
+			<div class="item border-b">
+				<div class="name">B1自然(村民小组)数(个)</div>
+				<div class="content">
+					<input type="text" placeholder="请输入村民小组数量">
+				</div>
+			</div>
+			
+			<div class="item border-b">
+				<div class="name">B2总户数(户)</div>
+				<div class="content">
+					<input type="text" placeholder="请输入总户数">
+				</div>
+			</div>
+			
+
+			<div class="item border-b">
+				<div class="name">B2a贫困户数(户)</div>
+				<div class="content">
+					<input type="text" placeholder="请输入贫困户数">
+				</div>
+			</div>
+			
+			<div class="item border-b">
+				<div class="name">B2b低保户数(户)</div>
+				<div class="content">
+					<input type="text" placeholder="请输入低保户数">
+				</div>
+			</div>
+			
+			<div class="item border-b">
+				<div class="name">B2c五保户数(户)</div>
+				<div class="content">
+					<input type="text" placeholder="请输入五保户数">
+				</div>
+			</div>
+			
+			<div class="item border-b">
+				<div class="name">B2d一般贫困户数(户)</div>
+				<div class="content">
+					<input type="text" placeholder="请输入一般贫困户数">
+				</div>
+			</div>
+
+			<div class="item border-b">
+				<div class="name">B3总人口数(人)</div>
+				<div class="content">
+					<input type="text" placeholder="请输入总人口数">
+				</div>
+			</div>
+			
+			<div class="item border-b">
+				<div class="name">B3a贫困人口数(人)</div>
+				<div class="content">
+					<input type="text" placeholder="请输入贫困人口数">
+				</div>
+			</div> 
+			
+			<div class="item border-b">
+				<div class="name">B3b低保人口数(人)</div>
+				<div class="content">
+					<input type="text" placeholder="请输入低保人口数">
+				</div>
+			</div> 
+
+			<div class="item border-b">
+				<div class="name">B3c五保人口数(人)</div>
+				<div class="content">
+					<input type="text" placeholder="请输入五保人口数">
+				</div>
+			</div>
+			
+			<div class="item border-b">
+				<div class="name">B3d少数民族人口数(人)</div>
+				<div class="content">
+					<input type="text" placeholder="请输入少数民族人口数">
+				</div>
+			</div>
+			
+
+			<div class="item border-b">
+				<div class="name">B3e妇女人口数(人)</div>
+				<div class="content">
+					<input type="text" placeholder="请输入妇女人口数">
+				</div>
+			</div>
+				
+			<div class="item border-b">
+				<div class="name">B3f残疾人口数(人)</div>
+				<div class="content">
+					<input type="text" placeholder="请输入残疾人口数">
+				</div>
+			</div>
+			
+			<div class="item border-b">
+				<div class="name">B3g一般贫困人口数(人)</div>
+				<div class="content">
+					<input type="text" placeholder="请输入一般贫困人口数">
+				</div>
+			</div>
+
+			<div class="item border-b">
+				<div class="name">H9户籍人口数(人)</div>
+				<div class="content">
+					<input type="text" placeholder="请输入户籍人口数">
+				</div>
+			</div>
+			
+
+			<div class="item border-b">
+				<div class="name">H9a 16周岁以上(不含在校学生)的非国家机关和事业单位工作人员及不属于城镇职工基本养老保险制度覆盖范围的户籍人口数(人)</div>
+				<div class="content">
+					<input type="text" placeholder="请输入人口数">
+				</div>
+			</div>
+
+			<div class="item border-b">
+				<div class="name">B4劳动力人数(人)</div>
+				<div class="content">
+					<input type="text" placeholder="请输入劳动力人口数">
+				</div>
+			</div>
+
+			<div class="item border-b">
+				<div class="name">B4a外出务工人数(人)</div>
+				<div class="content">
+					<input type="text" placeholder="请输入外出务工人口数">
+				</div>
+			</div>
+
+			<div class="item border-b">
+				<div class="name">B5耕地面积(亩)</div>
+				<div class="content">
+					<input type="text" placeholder="请输入耕地面积">
+				</div>
+			</div>
+			
+			<div class="item border-b">
+				<div class="name">B5a有效灌溉面积(亩)</div>
+				<div class="content">
+					<input type="text" placeholder="请输入有效灌溉面积">
+				</div>
+			</div>
+			
+			<div class="item border-b">
+				<div class="name">B6林地面积(亩)</div>
+				<div class="content">
+					<input type="text" placeholder="请输入林地面积">
+				</div>
+			</div>
+			
+			<div class="item border-b">
+				<div class="name">B6a退耕还林面积(亩)</div>
+				<div class="content">
+					<input type="text" placeholder="请输入退耕还林面积">
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../../assets/lib/js/jquery.min.js"></script>
+
+
+</html>

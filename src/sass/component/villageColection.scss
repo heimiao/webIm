@@ -1,0 +1,76 @@
+.villageCollection{
+	background-color: #fff;
+	.fill{
+		width: 100%;
+		height: 1.8773333333rem;
+	}
+	.tab{
+		margin: 0.5546666667rem;
+		overflow: hidden;
+		border: 1px solid #ea3c4c;
+		border-radius: 4px;
+		>div{
+			float: left;
+			color: #ea3c4c;
+			font-size: 0.64rem;
+			width: 33.33333333333333%;
+			text-align: center;
+			padding: 0.2133333333rem 0;
+		}
+		.tab1{
+			background-color: #ea3c4c;
+			color: #fff;
+			border-right: 1px solid #ea3c4c;
+		}
+		.tab2{
+			border-right: 1px solid #ea3c4c;
+		}
+		.tab3{
+			
+		}
+	}
+	.situation{
+		color: #444;
+		font-size: 0.64rem;
+		.item{
+			padding: 0.4266666667rem 0.5973333333rem;
+			overflow: hidden;
+			.name{
+				float: left;
+				line-height: 1.152rem;
+			}
+			.content{
+				float: right;
+				line-height: 1.152rem;
+				img{
+					width: 1.152rem;
+					height: 1.152rem;
+					vertical-align: middle;
+				}
+			}
+		}
+	}
+	.border-b{
+      position: relative;
+    }
+    .border-b:after{
+       content: '';
+       position: absolute;
+       left: 0;
+       bottom:0;
+       background: #d8d8d8;
+       width: 100%;
+       height: 1px;
+       -webkit-transform: scaleY(0.5);
+       transform: scaleY(0.5);
+       -webkit-transform-origin: 0 0;
+       transform-origin: 0 0;
+    }
+    select{
+    	border: none;
+		outline: none;
+		appearance:none;
+		-moz-appearance:none;
+		-webkit-appearance:none;
+    }
+}
