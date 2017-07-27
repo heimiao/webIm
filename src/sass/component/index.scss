@@ -58,7 +58,7 @@ ul li{
 	line-height: 6.5rem;
 	margin-top: 0.5rem;
 	border-radius: 0.5rem;
-	background-image: url(../../assets/img/unfold@3x.png);
+	background-image: url(../img/unfold@3x.png);
 	background-position: right  7px center;
 	background-repeat: no-repeat;
 	background-size: 1.8rem 1.8rem;
@@ -152,4 +152,78 @@ ul li{
 .pkhcjTitle span{
 	margin-left:0.8rem 
 
+}
+.pkcList{
+	border-bottom: 1px solid #bbbbbb;
+	padding: 0;
+	height: 5.1rem;
+	line-height: 5.1rem;
+}
+.padd0{
+	padding: 0;
+}
+.pkcList input{
+	height: 3rem;
+	line-height: 3rem;
+	text-align: right;
+	border: none;
+	padding: 0;
+	
+}
+.pkcRight{
+	float: right;
+	margin-right: 5.5rem;
+}
+.pkcList lable{
+	font-size: 1.33rem;
+	color: #000;
+	padding-left: 20px;
+}
+.pkcList{
+	overflow: hidden;
+	width: 100%;
+	background-image: url(../img/icon_32.png);
+	background-position: right  0rem center;
+	background-repeat: no-repeat;
+	background-size: 4rem 4rem;
+}
+.pkcListTel{
+	overflow: hidden;
+	width: 100%;
+	background-image: none !important;
+}
+.pkctips{
+	font-size: 1.2rem;
+	color: #ea3c4c;
+	margin-top: 1.1rem;
+	padding-left:1rem ;
+	margin-bottom: 5rem;
+}
+.btnpkc{
+	width: 100%;
+	height: 3.6rem;
+	background:#ea3c4c ;
+	border-radius: 0;
+	font-size: 1.53rem;
+	color: #fff;
+	margin-top: 1rem;
+}
+.navbar-fixed-bottom{
+	z-index: 4;
+}
+.pkcList select{
+	margin-top: 10px;
+	direction: rtl;
+	float: right; 
+	position: relative;
+	top: 0;
+	left: 2.8rem;
+	border: none;
+	background: none;
+	box-shadow: none;
+}
+.pkcList select:hover{
+	border:none;box-shadow:none;
+}
+.pkcList select option{
 }
