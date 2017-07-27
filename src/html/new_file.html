@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+		<meta content="yes" name="apple-mobile-web-app-capable" />
+		<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+		<meta content="telephone=no" name="format-detection" />
+		<title>测试UI看好不好用</title>
+		<link rel="stylesheet" href="../../assets/lib/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="../style/index_sass.min.css">
+		<link rel="stylesheet" type="text/css" href="../../assets/lib/ydui/css/ydui.css" />
+		<!-- 引入YDUI自适应解决方案类库 -->
+		<script src="../../assets/lib/ydui/js/ydui.flexible.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<header class="m-navbar">
+			<div class="navbar-center">
+				<span class="navbar-title">顶部导航</span>
+			</div>
+		</header>
+
+		<div class="m-button">
+			<a href="javascript:;" class="btn-block btn-primary" id="J_Btn">Button</a>
+		</div>
+
+		<script src="../../assets/lib/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+
+		<script src="../../assets/lib/ydui/js/ydui.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			(!YDUI.device.isMobile && navigator.userAgent.indexOf('Firefox') >= 0) && YDUI.dialog.alert('PC端请使用谷歌内核浏览器查看！');
+
+			! function($) {
+				$('#J_Btn').on('click', function() {
+					/* 使用：js模块以dialog为例 */
+					YDUI.dialog.alert('我有一个小毛驴我从来也不骑！');
+				});
+			}(jQuery);
+		</script>
+	</body>
+
+</html>
