@@ -38,7 +38,7 @@ header{
 header .back{
 	float: left;
 	position: absolute;
-	top: 0.2rem;
+	top: -0.35rem;
 	left: .2rem;
 }
 header .collectionTitle{
@@ -171,6 +171,7 @@ header .collectionTitle{
 	border-top: 1px solid #ddd;
 	padding-left: 1.28rem;
 	color: #ea3c4c;
+	font-size: 0.64rem;
 }
 .poor .screen-con2 .numList,.poorList,.timeList{
 	display: none;
@@ -185,12 +186,14 @@ header .collectionTitle{
 	border-top: 1px solid #ddd;
 	padding-left: 1.28rem;
 	color: #ea3c4c;
+	font-size: 0.64rem;
 }
 .poor .screen-con2 .timeList>div{
 	border-top: 1px solid #ddd;
 	padding-right: 1.28rem;
 	color: #ea3c4c;
 	text-align: right;
+	font-size: 0.64rem;
 }
 .poor .fill2{
 	display: none;
