@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+   	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta charset="UTF-8">
+    <title>精准扶贫大数据平台</title>
+    
+	<link rel="stylesheet" href="../../assets/lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../style/index_sass.min.css">
+		
+	<script>
+		(function(doc, win) {
+		    var docEl = doc.documentElement,
+		        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+		        recalc = function() {
+		            var clientWidth = docEl.clientWidth;
+		            if (!clientWidth) return;
+		            docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
+		        };
+		    if (!doc.addEventListener) return;
+		    win.addEventListener(resizeEvt, recalc, false);
+		    doc.addEventListener('DOMContentLoaded', recalc, false);
+		})(document, window);
+	</script>
+</head>
+	<body class="">
+		<div class="loginCon">
+			<div class="logoCon">
+				<img src="../../assets/img/logo@2x.png" alt="">
+			</div>
+			<div class="title">大唐网络精准扶贫大数据平台</div>
+			<form action="">
+				<div class="infoCon">
+					<div class="pr">
+						<div class="infoBox">
+							<input type="text" placeholder="请输入用户名">
+						</div>
+						<img class="icon" src="../../assets/img/Login_07@2x.png" alt="">
+					</div>
+					<div class="fillBorder"></div>
+					<div class="pr">
+						<div class="infoBox">
+							<input type="text" placeholder="请输入登录密码">
+						</div>
+						<img class="icon" src="../../assets/img/Login_10@2x.png" src="" alt="">
+					</div>
+					<div class="fillBorder"></div>
+					<div class="pr">
+						<div class="infoBox">
+							<select name="" id="">
+								<option value="">请选择扶贫县</option>
+								<option value="">沽源县</option>
+							</select>
+							<!-- <input type="text" placeholder="请选择扶贫县"> -->
+							<!-- <img src="" alt=""> -->
+						</div>
+						<img class="icon" src="../../assets/img/Login_15@2x.png" src="" alt="">
+						<img class="icons" src="../../assets/img/Login_13@2x.png" src="" alt="">
+					</div>
+				</div>
+				<div class="login">登录</div>
+			</form>
+		</div>
+	</body>
+</html>
