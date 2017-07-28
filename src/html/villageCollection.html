@@ -32,12 +32,13 @@
 		</header>
 		<div class="fill"></div>
 		<div class="tab" id="tab">
-			<div class="tab1 bg">基本情况</div>
-			<div class="tab2">发展现状</div>
-			<div class="tab3">驻村工作队情况</div>	
+			<div class="tab1 bg" data-type="situation">基本情况</div>
+			<div class="tab2" data-type="development">发展现状</div>
+			<div class="tab3" data-type="aa">驻村工作队情况</div>	
 		</div>
+		<div>
 				<!-- 基本情况 -->
-		<div class="situation">
+		<div class="situation" id="situation">
 			<div class="item border-b">
 				<div class="name">镇(乡、苏木)</div>
 				<div class="content">
@@ -309,7 +310,7 @@
 			</div>
 		</div>
 		<!-- 发展现状 -->
-		<div class="development">
+		<div class="development" id="development">
 			<div class="listItem">
 				<div class="title">
 					<img src="../../assets/img/ios_line@2X.png" alt="">
@@ -715,6 +716,11 @@
 
 
 		</div>
+		<!-- 驻村 -->
+		<div id="aa">
+			驻村
+		</div>
+		</div>
 		<div class="footFill"></div>
 		<div class="foot">
 			上传
@@ -724,6 +730,7 @@
 	<script>
 		$("#tab div").click(function(){
 			$(this).addClass('bg').siblings().removeClass('bg');
+			$("#"+$(this).attr('data-type')).show().siblings().hide();
 		})
 	</script>
 

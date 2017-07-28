@@ -45,10 +45,15 @@
 			.content{
 				float: right;
 				line-height: 1.152rem;
+				text-align: right;
+				width: 40%;
 				img{
 					width: 1.152rem;
 					height: 1.152rem;
 					vertical-align: middle;
+				}
+				select{
+					line-height:1rem;
 				}
 			}
 		}
@@ -135,5 +140,6 @@
 		appearance:none;
 		-moz-appearance:none;
 		-webkit-appearance:none;
+		background-color: #fff;
     }
 }
