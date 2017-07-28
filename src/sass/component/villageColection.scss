@@ -1,6 +1,6 @@
 header{
 	width: 100%;
-	height: 3.4rem;
+	height: 4.4rem;
 	background-color: #ea3c4c;
 	padding: 0 0.512rem;
 	position: fixed;
@@ -10,7 +10,7 @@ header{
 header .back{
 	float: left;
 	position: absolute;
-	bottom: 0;
+	bottom: .4rem;
 	left: .2rem;
 	img{
 		width: 3.2rem;
@@ -18,7 +18,7 @@ header .back{
 }
 header .collectionTitle{
 	text-align: center;
-	line-height: 3.4rem;
+	line-height: 4.4rem;
 	color: #fff;
 	font-size: 1.768rem;
 }
@@ -29,7 +29,7 @@ header{
 	background-color: #fff;
 	.fill{
 		width: 100%;
-		height: 3.4rem;
+		height: 4.4rem;
 	}
 	.tab{
 		margin: 1.2rem;
@@ -128,11 +128,11 @@ header{
 	}
 	.footFill{
 		width: 100%;
-		height: 3rem;
+		height: 4rem;
 	}
 	.foot{
 		width: 100%;
-		line-height: 3rem;
+		line-height: 4rem;
 		background-color: #ea3c4c;
 		position: fixed;
 		bottom: 0;

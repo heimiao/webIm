@@ -27,15 +27,15 @@ input{
 	background-color: #f5f5f5;
 }
 .poor .search{
-	float: right;
-	width: 10.582667rem;
-	line-height: 1.1093333333rem;
-	margin-right: 0.512rem;
-	margin-top: 0.384rem;
+	width: 68%;
+	line-height: 2.5rem;
 	background-color: #fff;
 	border-radius: 0.1706666667rem;
 	color: #afb1bd;
-	font-size: 0.64rem;
+	font-size: 1.5rem;
+	position: absolute;
+	top: 1.2rem;
+	left: 3.4rem;
 }
 .poor .search input{
 	width: 100%;
@@ -43,34 +43,35 @@ input{
 	padding-left: 1.024rem;
 }
 .poor .query{
-	float: right;
-	width: 2.3466666667rem;
-	line-height: 1.1946666667rem;
+	width: 4rem;
+	line-height: 2.1rem;
+	position: absolute;
+	top: 1.3rem;
+	right: 0.5rem;
+	color: #afb1bd;
+	font-size: 1.5rem;
 	text-align: center;
 	background-color: #fff;
-	color: #ea3c4c;
-	border-radius: 0.1706666667rem;
-	margin-top: 0.384rem;
-	font-size: 0.64rem;
+	border-radius: 4px;
 }
 .poor .screen-con{
 	position: fixed;
-	top: 3.4rem;
+	top: 4.4rem;
 	left: 0;
 	z-index: 100;
 	width: 100%;
 	background-color: #fff;
-	line-height: 3rem;
+	line-height: 3.5rem;
 }
 .poor .screen-con2{
 	display: none;
 	position: fixed;
-	top: 6.4rem;
+	top: 7.9rem;
 	left: 0;
 	z-index: 90;
 	width: 100%;
 	background-color: #fff;
-	line-height: 3rem;
+	line-height: 3.5rem;
 }
 .poor .screen-con .township,.village,.open{
 	float: left;
@@ -119,7 +120,7 @@ input{
     border-right: 0.4rem solid transparent;
     border-top: .7rem solid #000;
     position: absolute;
-    top: 1.3rem;
+    top: 1.5rem;
     right: 0;
     transition: all .3s;
 }
@@ -151,7 +152,7 @@ input{
 }
 .poor .screen-con .townshipList>div,.villageList>div{
 	border-top: 1px solid #ddd;
-	padding-left: 3rem;
+	padding-left: 1.9rem;
 	color: #ea3c4c;
 	font-size: 1.5rem;
 }
@@ -166,13 +167,13 @@ input{
 }
 .poor .screen-con2 .numList>div,.poorList>div{
 	border-top: 1px solid #ddd;
-	padding-left: 3rem;
+	padding-left: 1.9rem;
 	color: #ea3c4c;
 	font-size: 1.5rem;
 }
 .poor .screen-con2 .timeList>div{
 	border-top: 1px solid #ddd;
-	padding-right: 3rem;
+	padding-right: 2.5rem;
 	color: #ea3c4c;
 	text-align: right;
 	font-size: 1.5rem;
@@ -180,11 +181,11 @@ input{
 .poor .fill2{
 	display: none;
 	width: 100%;
-	height: 3rem;
+	height: 3.5rem;
 }
 .poor .fill{
 	width: 100%;
-	height: 7.2rem;
+	height: 8.7rem;
 }
 .table-striped>thead>tr{
 	background-color: #fff;
@@ -208,12 +209,12 @@ input{
 	width: 100%;
 	height: 3rem;
 }
-.poor .foot{
+.foot{
 	position: fixed;
 	bottom: 0;
 	left: 0;
 	width: 100%;
-	line-height: 3rem;
+	line-height: 4rem;
 }
 .poor .foot .draft{
 	float: left;

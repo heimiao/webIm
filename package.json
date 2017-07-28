@@ -25,6 +25,10 @@
     "jshint": "^2.9.4"
   },
   "dependencies": {
+<<<<<<< HEAD
     "gulp-ng-annotate": "^2.0.0"
+=======
+    "ng-annotate": "^1.2.2"
+>>>>>>> 161450365f58baab91774f788ff9b3f8961b481a
   }
 }
