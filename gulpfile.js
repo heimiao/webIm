@@ -15,6 +15,7 @@ var gulp = require('gulp'), //导入gulp
 	//常用依赖库
 	glp_plumber = require('gulp-plumber'),
 	glp_rename = require('gulp-rename'),
+	glp_ngAnnotate = require('gulp-ng-annotate'),
 	//	sourcemaps = require('gulp-sourcemaps'),
 	paths = {
 		root: './',
@@ -66,6 +67,7 @@ gulp.task('sass', function(cb) {
 //js生成
 gulp.task('js', function(cb) {
 	return gulp.src(paths.source.scripts + '/**/*.js')
+		.pipe(glp_ngAnnotate())
 		.pipe(glp_jshint())
 		.pipe(glp_concat("all.js"))
 		.pipe(glp_plumber())
@@ -104,7 +106,7 @@ gulp.task('webserver', function() {
 			livereload: true,
 			port: '3000',
 			host: 'localhost',
-//			host: '192.168.22.181',
+			//			host: '192.168.22.181',
 			directoryListing: false,
 			defaultFile: "dist/html/index.html",
 			open: true
