@@ -106,10 +106,6 @@ gulp.task('webserver', function() {
 			livereload: true,
 			port: '3000',
 			host: 'localhost',
-<<<<<<< HEAD
-			//			host: '192.168.22.181',
-=======
->>>>>>> cc7d76de519a0df973fa312bd21d3340b25c9306
 			directoryListing: false,
 			defaultFile: "dist/html/index.html",
 			open: true
