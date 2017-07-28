@@ -4,11 +4,7 @@
    	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
     <meta charset="UTF-8">
     <title>精准扶贫大数据平台</title>
-    
-	<link rel="stylesheet" href="../../assets/lib/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../style/index_sass.min.css">
-		
-	<script>
+    <script>
 		(function(doc, win) {
 		    var docEl = doc.documentElement,
 		        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
@@ -22,6 +18,8 @@
 		    doc.addEventListener('DOMContentLoaded', recalc, false);
 		})(document, window);
 	</script>
+	<link rel="stylesheet" href="../../assets/lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../style/index_sass.min.css">
 </head>
 	<body class="">
 		<div class="loginCon">
@@ -31,26 +29,27 @@
 			<div class="title">大唐网络精准扶贫大数据平台</div>
 			<form id="formImg" action="http://123.58.240.75:8081/tpa/dologin" method="post">
 				<div class="infoCon">
-					<div class="pr">
+					 <div class="pr">
 						<div class="infoBox">
-							<input id="userName" name="loginname" type="text" placeholder="请输入用户名">
+							<input style="background-color:#f48490" id="userName" name="loginname" type="text" placeholder="请输入用户名">
 						</div>
 						<img class="icon" src="../../assets/img/Login_07@2x.png" alt="">
 					</div>
-					<div class="fillBorder"></div>
+					
 					<div class="pr">
 						<div class="infoBox">
-							<input id="password" name="password" type="password" placeholder="请输入登录密码">
+							<input style="background-color:#df808f" id="password" name="password" type="password" placeholder="请输入登录密码">
 						</div>
 						<img class="icon" src="../../assets/img/Login_10@2x.png" src="" alt="">
 					</div>
-					<div class="fillBorder"></div>
+					<!-- <div class="fillBorder"></div> -->
+
 					<div class="pr">
 						<div class="infoBox">
-							<select name="" id="">
+							<select style="background-color:#cf7d8f" name="" id="">
 								<option value="">请选择扶贫县</option>
 								<option value="">沽源县</option>
-							</select>
+							</select> 
 							<!-- <input type="text" placeholder="请选择扶贫县"> -->
 							<!-- <img src="" alt=""> -->
 						</div>
