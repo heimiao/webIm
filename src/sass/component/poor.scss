@@ -26,27 +26,6 @@ input{
 .poor{
 	background-color: #f5f5f5;
 }
-header{
-	width: 100%;
-	height: 1.8773333333rem;
-	background-color: #ea3c4c;
-	padding: 0 0.512rem;
-	position: fixed;
-	top: 0;
-	left: 0;
-}
-header .back{
-	float: left;
-	position: absolute;
-	top: -0.35rem;
-	left: .2rem;
-}
-header .collectionTitle{
-	text-align: center;
-	line-height: 1.8773333333rem;
-	color: #fff;
-	font-size: 0.768rem;
-}
 .poor .search{
 	float: right;
 	width: 10.582667rem;
@@ -76,33 +55,36 @@ header .collectionTitle{
 }
 .poor .screen-con{
 	position: fixed;
-	top: 1.8773333333rem;
+	top: 3.4rem;
 	left: 0;
 	z-index: 100;
 	width: 100%;
 	background-color: #fff;
-	line-height: 1.92rem;
+	line-height: 3rem;
 }
 .poor .screen-con2{
 	display: none;
 	position: fixed;
-	top: 3.7973333333rem;
+	top: 6.4rem;
 	left: 0;
 	z-index: 90;
 	width: 100%;
 	background-color: #fff;
-	line-height: 1.92rem;
+	line-height: 3rem;
 }
 .poor .screen-con .township,.village,.open{
 	float: left;
 	color: #000;
-	font-size: 0.64rem;
-	padding-right: 0.7rem;
+	font-size: 1.5rem;
+	padding-right: 1.6rem;
 	position: relative;
 }
+.poor .screen-con .open{
+	padding-right: 2.5rem;
+}
 .poor .screen-con .township{
-	margin-left: 1.28rem;
-	margin-right: 2.2186666667rem;
+	margin-left: 1.9rem;
+	margin-right: 3.7rem;
 }
 .poor .screen-con .village{
 	
@@ -110,39 +92,39 @@ header .collectionTitle{
 .poor .screen-con .open{
 	float: right;
 	color: #ea3c4c;
-	margin-right: 1.0666666667rem;
 }
 .poor .screen-con2 .township,.village,.open{
 	float: left;
 	color: #000;
-	font-size: 0.64rem;
-	padding-right: 0.7rem;
+	font-size: 1.5rem;
+	padding-right: 1.6rem;
 	position: relative;
 }
 .poor .screen-con2 .township{
-	margin-left: 1.28rem;
-	margin-right: 2.2186666667rem;
+	margin-left: 1.9rem;
+	margin-right: 3.7rem;
 }
 .poor .screen-con2 .village{
 	
 }
 .poor .screen-con2 .open{
 	float: right;
-	margin-right: 1.0666666667rem;
+	margin-right: 1.1rem;
+	padding-right: 1.3rem;
 }
 .poor .triangle{
 	width: 0;
     height: 0;
-    border-left: 0.2133333333rem solid transparent;
-    border-right: 0.2133333333rem solid transparent;
-    border-top: 0.3413333333rem solid #000;
+    border-left: 0.4rem solid transparent;
+    border-right: 0.4rem solid transparent;
+    border-top: .7rem solid #000;
     position: absolute;
-    top: 0.8rem;
+    top: 1.3rem;
     right: 0;
     transition: all .3s;
 }
 .poor .township2 .triangle{
-    border-top: 0.3413333333rem solid #ea3c4c;
+    border-top: .7rem solid #ea3c4c;
     transform: rotate(180deg);
     -ms-transform:rotate(180deg);
 	-moz-transform:rotate(180deg);
@@ -161,7 +143,7 @@ header .collectionTitle{
 .poor .screen-con .townshipList,.villageList{
 	display: none;
 	position: absolute;
-	top: 1.92rem;
+	top: 3rem;
 	left: 0;
 	z-index: 100;
 	width: 100%;
@@ -169,14 +151,14 @@ header .collectionTitle{
 }
 .poor .screen-con .townshipList>div,.villageList>div{
 	border-top: 1px solid #ddd;
-	padding-left: 1.28rem;
+	padding-left: 3rem;
 	color: #ea3c4c;
-	font-size: 0.64rem;
+	font-size: 1.5rem;
 }
 .poor .screen-con2 .numList,.poorList,.timeList{
 	display: none;
 	position: absolute;
-	top: 1.92rem;
+	top: 3rem;
 	left: 0;
 	z-index: 100;
 	width: 100%;
@@ -184,61 +166,61 @@ header .collectionTitle{
 }
 .poor .screen-con2 .numList>div,.poorList>div{
 	border-top: 1px solid #ddd;
-	padding-left: 1.28rem;
+	padding-left: 3rem;
 	color: #ea3c4c;
-	font-size: 0.64rem;
+	font-size: 1.5rem;
 }
 .poor .screen-con2 .timeList>div{
 	border-top: 1px solid #ddd;
-	padding-right: 1.28rem;
+	padding-right: 3rem;
 	color: #ea3c4c;
 	text-align: right;
-	font-size: 0.64rem;
+	font-size: 1.5rem;
 }
 .poor .fill2{
 	display: none;
 	width: 100%;
-	height: 1.92rem;
+	height: 3rem;
 }
 .poor .fill{
 	width: 100%;
-	height: 4.1386666666rem;
+	height: 7.2rem;
 }
 .table-striped>thead>tr{
 	background-color: #fff;
 	color: #afb1bd;
-	font-size: 0.64rem;
+	font-size: 1.5rem;
 }
 .table-striped>tbody>tr:nth-of-type(odd){
 	background-color: #f5f5f5;
 	color: #000;
-	font-size: 0.64rem;
+	font-size: 1.5rem;
 }
 .table-striped>tbody>tr:nth-of-type(even){
 	background-color: #fff;
 	color: #000;
-	font-size: 0.64rem;
+	font-size: 1.5rem;
 }
 .table tr>td{
-	padding: 0.512rem 0.3413333333rem !important;
+	padding: 1.2rem .8rem !important;
 }
 .poor .foot-fill{
 	width: 100%;
-	height: 1.792rem;
+	height: 3rem;
 }
 .poor .foot{
 	position: fixed;
 	bottom: 0;
 	left: 0;
 	width: 100%;
-	line-height: 1.792rem;
+	line-height: 3rem;
 }
 .poor .foot .draft{
 	float: left;
 	width: 50%;
 	text-align: center;
 	color: #fff;
-	font-size: 0.768rem;
+	font-size: 1.8rem;
 	background-color: #93959d;
 }
 .poor .foot .addPoor{
@@ -246,7 +228,7 @@ header .collectionTitle{
 	width: 50%;
 	text-align: center;
 	color: #fff;
-	font-size: 0.768rem;
+	font-size: 1.8rem;
 	background-color: #ea3c4c;
 }
 .col-ea3c4c{
