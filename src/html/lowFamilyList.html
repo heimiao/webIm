@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="familyList">
 
 	<head lang="en">
 		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
@@ -7,7 +7,7 @@
 		<title>精准扶贫大数据平台</title>
 		<link rel="stylesheet" href="../../assets/lib/bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" href="../style/index_sass.min.css">
-		<!--<script>
+		<script>
 			(function(doc, win) {
 				var docEl = doc.documentElement,
 					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
@@ -20,13 +20,13 @@
 				win.addEventListener(resizeEvt, recalc, false);
 				doc.addEventListener('DOMContentLoaded', recalc, false);
 			})(document, window);
-		</script>-->
+		</script>
 	</head>
-	
-	<body class="poor">
+
+	<body class="poor" ng-controller="familyListCtro">
 		<header>
 			<a href="javascript:history.go(-1)">
-				<div class="back"><img   src="../../assets/img/icon_28.png" alt=""></div>
+				<div class="back"><img style="width:1.58rem;" src="../../assets/img/icon_28.png" alt=""></div>
 			</a>
 			<div class="query">查询</div>
 			<div class="search">
@@ -195,6 +195,12 @@
 		</footer>
 	</body>
 	<script type="text/javascript" src="../../assets/lib/js/jquery.min.js"></script>
+	<script src="../../assets/lib/angular/angular.min.js" type="text/javascript"></script>
+	<!--<script src="../../assets/lib/angular/angular-ui-router.js" type="text/javascript"></script> 
+	<script src="../../assets/lib/angular/angular-cookies.min.js" type="text/javascript"></script>
+	<script src="../../assets/lib/angular/ng-file-upload-all.min.js" type="text/javascript" charset="utf-8"></script>-->
+
+	<script src="../../dist/script/all.min.js" type="text/javascript" charset="utf-8"></script>
 
 	<script>
 		// 展开 收起

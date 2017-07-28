@@ -6,13 +6,13 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 	//	$httpProvider.interceptors.push("myInterceptor"); 
 	//设置默认的加载模块
 	$urlRouterProvider.otherwise('/low_family_list');
-	$stateProvider.state('low_family_list', {
+	$stateProvider.state('lowFamilyList', {
 		url: '/low_family_list',
-		//		controller: "low_family_list",
+		controller: "lowFamilyListCtro",
 		templateUrl: '../template/lowFamily/lowFamilyList.html'
-	}).state('low_family_info', {
+	}).state('lowFamilyInfo', {
 		url: '/low_family_info',
-		//controller: "low_family_info",
+		controller: "lowFamilyInfoCtro",
 		templateUrl: '../template/lowFamily/lowFamilyInfo.html'
 	})
 });
