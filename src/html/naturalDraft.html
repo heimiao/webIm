@@ -8,28 +8,14 @@
 		<link rel="stylesheet" href="../../assets/lib/bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" href="../style/index_sass.min.css">
 
-		<script>
-			(function(doc, win) {
-				var docEl = doc.documentElement,
-					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
-					recalc = function() {
-						var clientWidth = docEl.clientWidth;
-						if(!clientWidth) return;
-						docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
-					};
-				if(!doc.addEventListener) return;
-				win.addEventListener(resizeEvt, recalc, false);
-				doc.addEventListener('DOMContentLoaded', recalc, false);
-			})(document, window);
-		</script>
 	</head>
 
 	<body class="poor natural">
-		<header >
+		<header>
 			<a href="javascript:history.go(-1)">
-				<div class="back"><img style="width:1.58rem; margin-top: 0.5rem;" src="../../assets/img/icon_28.png" alt=""></div>
+				<div class="back"><img src="../../assets/img/icon_28.png" alt=""></div>
 			</a>
-			自然村信息
+			<div class="collectionTitle">自然村信息采集</div>
 		</header>
 		<div class="fill3"></div>
 		<table class="table table-striped">

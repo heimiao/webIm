@@ -8,28 +8,14 @@
 		<link rel="stylesheet" href="../../assets/lib/bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" href="../style/index_sass.min.css">
 
-		<script>
-			(function(doc, win) {
-				var docEl = doc.documentElement,
-					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
-					recalc = function() {
-						var clientWidth = docEl.clientWidth;
-						if(!clientWidth) return;
-						docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
-					};
-				if(!doc.addEventListener) return;
-				win.addEventListener(resizeEvt, recalc, false);
-				doc.addEventListener('DOMContentLoaded', recalc, false);
-			})(document, window);
-		</script>
 	</head>
 
 	<body class="poor natural">
-		<header >
+		<header>
 			<a href="javascript:history.go(-1)">
-				<div class="back"><img style="width:1.58rem; margin-top: 0.5rem;" src="../../assets/img/icon_28.png" alt=""></div>
+				<div class="back"><img src="../../assets/img/icon_28.png" alt=""></div>
 			</a>
-			自然村信息
+			<div class="collectionTitle">自然村信息</div>
 		</header>
 		<div class="screen-con">
 			<div id="time" class="open naturaltime" onclick="timeList()"><span class="name">年度</span><span class="triangle"></span></div>
@@ -72,7 +58,7 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td class="text-center"><a href="naturalBasic.html">张北镇</a></td>
+					<td class="text-center"><a href="naturalEdite.html">张北镇</a></td>
 					<td class="text-center">黄土湾村</td>
 					<td class="text-center">黄土湾村</td>
 					<td class="text-center">王翠娥</td>			
@@ -162,7 +148,7 @@
 			<a href="naturalDraft.html">
 				<div class="draft">草稿</div>
 			</a>
-			<div class="addPoor">+ 新增自然村</div>
+			<div class="addPoor"><a href="naturalAdd.html" style="color: #fff;">+ 新增自然村</a></div>
 		</footer>
 	</body>
 	<script type="text/javascript" src="../../assets/lib/js/jquery.min.js"></script>
