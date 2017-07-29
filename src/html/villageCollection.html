@@ -21,7 +21,7 @@
 		<div class="tab" id="tab">
 			<div class="tab1 bg" data-type="situation">基本情况</div>
 			<div class="tab2" data-type="development">发展现状</div>
-			<div class="tab3" data-type="aa">驻村工作队情况</div>	
+			<div class="tab3" data-type="taskForse">驻村工作队情况</div>	
 		</div>
 		<div>
 				<!-- 基本情况 -->
@@ -704,10 +704,59 @@
 
 		</div>
 		<!-- 驻村 -->
-		<div id="aa">
-			驻村
+		<div id="taskForse" class="taskForse">
+			<table class="table table-striped">
+			<thead>
+				<tr>
+					<td class="text-center">工作队员姓名</td>
+					<td class="text-center">联系电话</td>
+					<td class="text-center">帮扶开始时间</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr onclick="editTask()">
+					<td class="text-center">梁副(队长)</td>
+					<td class="text-center">13803139720</td>
+					<td class="text-center">2017-01-01</td>
+				</tr>
+				<tr>
+					<td class="text-center">梁副(队长)</td>
+					<td class="text-center">13803139720</td>
+					<td class="text-center">2017-01-01</td>
+				</tr>
+				<tr>
+					<td class="text-center">梁副(队长)</td>
+					<td class="text-center">13803139720</td>
+					<td class="text-center">2017-01-01</td>
+				</tr>
+				<tr>
+					<td class="text-center">梁副(队长)</td>
+					<td class="text-center">13803139720</td>
+					<td class="text-center">2017-01-01</td>
+				</tr>
+				<tr>
+					<td class="text-center">梁副(队长)</td>
+					<td class="text-center">13803139720</td>
+					<td class="text-center">2017-01-01</td>
+				</tr>
+				<tr>
+					<td class="text-center">梁副(队长)</td>
+					<td class="text-center">13803139720</td>
+					<td class="text-center">2017-01-01</td>
+				</tr>
+				<tr>
+					<td class="text-center">梁副(队长)</td>
+					<td class="text-center">13803139720</td>
+					<td class="text-center">2017-01-01</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="add">
+			<a href="addTaskForce.html"><span>+添加驻村工作队员</span></a>
 		</div>
 		</div>
+		</div>
+		<!--  -->
 		<div class="footFill"></div>
 		<div class="foot">
 			上传
@@ -719,6 +768,9 @@
 			$(this).addClass('bg').siblings().removeClass('bg');
 			$("#"+$(this).attr('data-type')).show().siblings().hide();
 		})
+		function editTask(){
+			location.href= 'editTaskForce.html';
+		}
 	</script>
 
 </html>
