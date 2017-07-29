@@ -32,6 +32,13 @@
 			<div class="fillIn">查询</div>
 		</header>
 		<div class="screen-con">
+			<div id="time" class="open" onclick="timeList()"><span class="name">年度</span><span class="triangle"></span></div>
+			<div class="timeList">
+				<div onclick="chooseTime('2017')">2017</div>
+				<div onclick="chooseTime('2016')">2016</div>
+				<div onclick="chooseTime('2015')">2015</div>
+				<div onclick="chooseTime('2014')">2014</div>
+			</div>
 			<div id="township" class="township" onclick="townshipList()">
 				<span class="name">全部乡镇</span><span class="triangle"></span>
 			</div>
@@ -48,9 +55,9 @@
 				<div onclick="chooseVillage('白庙滩乡村')">白庙滩乡村</div>
 				<div onclick="chooseVillage('尚义县村')">尚义县村</div>
 			</div>
-			<div class="open" onclick="openToggle()"><span class="down col-ea3c4c">展开</span><span class="stop col-ea3c4c">收起</span></div>
+			<!-- <div class="open" onclick="openToggle()"><span class="down col-ea3c4c">展开</span><span class="stop col-ea3c4c">收起</span></div> -->
 		</div>
-		<div class="screen-con2" id="screen-con2">
+		<!-- <div class="screen-con2" id="screen-con2">
 			<div id="num" class="township" onclick="numList()"><span class="name">数据状态</span><span class="triangle"></span></div>
 			<div class="numList">
 				<div onclick="chooseNum('数据状态1')">数据状态1</div>
@@ -72,8 +79,8 @@
 				<div onclick="chooseTime('2015')">2015</div>
 				<div onclick="chooseTime('2014')">2014</div>
 			</div>
-		</div>
-		<div class="fill2"></div>
+		</div> -->
+		<!-- <div class="fill2"></div> -->
 		<div class="fill"></div>
 		<table class="table table-striped">
 			<thead>

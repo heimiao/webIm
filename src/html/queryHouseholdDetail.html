@@ -10,13 +10,13 @@
 
 	</head>
 
-	<body style="background: #fff;">
+	<body class="queryHouseHoldDetail" style="background: #fff;">
 		<div class="container-fluid pkhcj">
 			<div class="cheader " style="padding: 0;">
 				<div class="pfanhui pull-left" onclick="javascript:history.go(-1)">
 					<img src="../../assets/img/icon_28.png" />
 				</div>
-				<div class="pname text-center ">贫困用户信息采集</div>
+				<div class="pname text-center ">贫困户数据查询</div>
 				<div class="panniu cd-nav-trigger ">Menu<span></span></div>
 			</div>
 		</div>
@@ -24,205 +24,866 @@
 			<section class="cd-section index cd-selected">
 				<div class="cd-content">
 					<!-- 基本信息 -->
-					<div id="pkcjb"> 
+					<div id="pkcjb" class="shows"> 
 						<div class="pkhcjTitle" id="pkhjbxx">
 							<p class="pull-left"></p><span>基本信息</span>
 						</div>
 						<div class="pkcMain" >
-							<div class="pkcList clearfix">
-								<label for="pkcxz" class="col-xs-4">镇(乡、苏木)</label>
-								<div class="col-xs-5 padd0 pkcRight" >
-									<select class="form-control" id="pkcxz">
-										<option>张北镇</option>
-										<option>1</option>
-									</select>
+							<div class="pkInfoCon border-b">
+								<div class="imgCon">
+									<img src="../../assets/img/head.png" alt="" style="width:100%;height:100%;">
+								</div>
+								<div class="info">
+									<p><span class="name">王老先生</span><span class="sex">男</span><span class="age">85岁</span></p>
+									<p>联系方式: <span class="phone">153123456787</span></p>
+									<p>
+										<span class="infoName">户主</span>
+										<span class="time">2017</span>
+									</p>
 								</div>
 							</div>
-							<div class="pkcList clearfix">
-								<label class="col-xs-4">行政村</label>
-								<div class="col-xs-5 padd0 pkcRight" >
-									<select class="form-control">
-										<option>二八地村</option>
-										<option>2</option>
-									</select>
+							<div class="pkcList pkcListTel clearfix border-b">
+								<label for="pkcxz" class="">镇(乡、苏木)</label>
+								<div class="col-xs-5 padd0 queryRight" >
+									<span>张北镇</span>
 								</div>
 							</div>
-							<div class="pkcList clearfix">
-								<label class="col-xs-4">自然村(屯)</label>
-								<div class="col-xs-5 padd0 pkcRight" >
-									<select class="form-control">
-										<option>自然村</option>
-										<option>2</option>
-									</select>
+							<div class="pkcList pkcListTel clearfix border-b">
+								<label class="">行政村</label>
+								<div class="col-xs-5 padd0 queryRight" >
+									<span>二八地村</span>
 								</div>
 							</div>
-							<div class="pkcList pkcListTel clearfix">
+							<div class="pkcList pkcListTel clearfix border-b">
+								<label class="">自然村(屯)</label>
+								<div class="col-xs-5 padd0 queryRight" >
+									<span>自然村</span>
+								</div>
+							</div>
+							<!-- <div class="pkcList pkcListTel clearfix">
 								<label class="col-xs-4">联系电话</label>
-								<div class="col-xs-5 padd0 pkcRight" >
-									<input type="text" placeholder="请输入电话号码" />
+								<div class="col-xs-5 padd0 queryRight" >
+									<span>150123456789</span>
+								</div>
+							</div> -->
+							<div class="pkcList pkcListTel clearfix border-b">
+								<label class="">开户银行</label>
+								<div class="col-xs-5 padd0 queryRight" >
+									<span>中国农业银行</span>
 								</div>
 							</div>
-							<div class="pkcList clearfix">
-								<label class="col-xs-4">开户银行</label>
-								<div class="col-xs-5 padd0 pkcRight" >
-									<select class="form-control">
-										<option>中国农业银行</option>
-										<option>2</option>
-									</select>
+							<div class="pkcList pkcListTel clearfix border-b">
+								<label class="">银行账号</label>
+								<div class="col-xs-5 padd0 queryRight" >
+									<span>11231458855152222</span>
 								</div>
 							</div>
-							<div class="pkcList clearfix">
-								<label class="col-xs-4">银行账号</label>
-								<div class="col-xs-5 padd0 pkcRight" >
-									<input type="text" placeholder="11111111111" />
+							<div class="pkcList pkcListTel clearfix border-b">
+								<label class="">A18贫困用户属性</label>
+								<div class="col-xs-5 padd0 queryRight" >
+									<span>一般贫困户</span>
 								</div>
 							</div>
-							<div class="pkcList clearfix">
-								<label class="col-xs-5">A18贫困用户属性</label>
-								<div class="col-xs-5 padd0 pkcRight" >
-									<select class="form-control">
-										<option>一般贫困户</option>
-										<option>低保贫困户</option>
-										<option>五保贫困户</option>
-									</select>
+							<div class="pkcList pkcListTel clearfix border-b">
+								<label class="">A19是否军烈属</label>
+								<div class="col-xs-5 padd0 queryRight" >
+									<span>是</span>
 								</div>
 							</div>
-							<div class="pkcList clearfix">
-								<label class="col-xs-4">A19是否军烈属</label>
-								<div class="col-xs-5 padd0 pkcRight" >
-									<select class="form-control">
-										<option>是</option>
-										<option>否</option>
-									</select>
+							<div class="pkcList pkcListTel clearfix border-b">
+								<label class="">A20是否独生子女</label>
+								<div class="col-xs-5 padd0 queryRight" >
+									<span>否</span>
 								</div>
 							</div>
-							<div class="pkcList clearfix">
-								<label class="col-xs-4">A20是否独生子女</label>
-								<div class="col-xs-5 padd0 pkcRight" >
-									<select class="form-control">
-										<option>是</option>
-										<option>否</option>
-									</select>
+							<div class="pkcList pkcListTel clearfix border-b">
+								<label class="">A21是否双女户</label>
+								<div class="col-xs-5 padd0 queryRight" >
+									<span>是</span>
 								</div>
 							</div>
-							<div class="pkcList clearfix">
-								<label class="col-xs-4">A21是否双女户</label>
-								<div class="col-xs-5 padd0 pkcRight" >
-									<select class="form-control">
-										<option>是</option>
-										<option>否</option>
-									</select>
+							<div class="pkcList pkcListTel clearfix border-b">
+								<label class="">A10脱贫状态</label>
+								<div class="col-xs-5 padd0 queryRight" >
+									<span>返贫贫困户</span>
 								</div>
 							</div>
-							<div class="pkcList clearfix">
-								<label class="col-xs-4">A10脱贫状态</label>
-								<div class="col-xs-5 padd0 pkcRight" >
-									<select class="form-control">
-										<option>返贫贫困户</option>
-										<option>历史已脱贫贫困户</option>
-										<option>未脱贫贫困户</option>
-										<option>新脱贫贫困户</option>
-									</select>
+							<div class="pkcList pkcListTel clearfix border-b">
+								<label class="">不脱贫原因</label>
+								<div class="col-xs-5 padd0 queryRight" >
+									<span>不脱贫原因</span>
 								</div>
 							</div>
-							<div class="pkcList clearfix">
-								<label class="col-xs-4">不脱贫原因</label>
-								<div class="col-xs-5 padd0 pkcRight" >
-									<select class="form-control">
-										<option>不脱贫原因</option>
-									</select>
-								</div>
+						</div>
+						<div class="pkhcjTitle">
+							<p class="pull-left"></p><span>治贫原因</span>
+						</div>
+						<div class="pkcList pkcListTel clearfix border-b">
+							<label class="">A22主要治贫原因</label>
+							<div class="col-xs-5 padd0 queryRight" >
+								<span>自身发展动力不足</span>
 							</div>
-							<div class="pkctips">注：已达到脱贫指标，但实际未脱贫的填此项</div>
+						</div>
+						<div class="pkcList pkcListTel clearfix border-b">
+							<label class="">其他治贫原因</label>
+							<div class="col-xs-5 padd0 queryRight" >
+								<span>交通条件落后</span>
+							</div>
+						</div>
+						<div class="pkhcjTitle">
+							<p class="pull-left"></p><span>易地搬迁户需求</span>
+						</div>
+						<div class="pkcList pkcListTel clearfix border-b">
+							<label class="">A44 是否搬迁户</label>
+							<div class="col-xs-5 padd0 queryRight" >
+								<span>是</span>
+							</div>
+						</div>
+						<div class="pkcList pkcListTel clearfix border-b">
+							<label class="">A45 搬迁方式</label>
+							<div class="col-xs-5 padd0 queryRight" >
+								<span>行政区整体搬迁</span>
+							</div>
+						</div>
+						<div class="pkcList pkcListTel clearfix border-b">
+							<label class="">A47 安置方式</label>
+							<div class="col-xs-5 padd0 queryRight" >
+								<span>集中安置</span>
+							</div>
+						</div>
+						<div class="pkcList pkcListTel clearfix border-b">
+							<label class="">A48 安置地</label>
+							<div class="col-xs-5 padd0 queryRight" >
+								<span>县城安置</span>
+							</div>
+						</div>
+						<div class="pkcList pkcListTel clearfix border-b">
+							<label class="">A49 搬迁可能存在的困难</label>
+							<div class="col-xs-5 padd0 queryRight" >
+								<span>搬迁可能存在的困难搬迁可能存在的困难搬迁可能存在的困难</span>
+							</div>
+						</div>
+						<div class="pkcList pkcListTel clearfix border-b">
+							<label class="">搬迁去向</label>
+							<div class="col-xs-5 padd0 queryRight" >
+								<span>县城安县城安置县城安置县城安置县城安置置</span>
+							</div>
+						</div>
+						<div class="pkcList pkcListTel clearfix border-b">
+							<label class="">后续产业</label>
+							<div class="col-xs-5 padd0 queryRight" >
+								<span>清华大学校区清华大学校区清华大学校区</span>
+							</div>
 						</div>
 					</div> 
-					<!-- 基本信息--end -->
-					<!-- 家庭成员信息 没有ui-->
-					<!-- 致贫原因-begin -->
-					<!--<div id="zpyy">
-						<div class="pkhcjTitle" id="pkhjbxx">
-							<p class="pull-left"></p><span>致贫原因</span>
-						</div>
-						<div class="zpyyzy">
-							<div class="zpyyTitlecrap">
-								<div class="zpyyTitle">A22主要致贫原因<span>(单选)<span></div></div>
-							<div class="zpyyMain" id="zpyyList">
-								<div class="zpyyItem" >因病</div>
-								<div class="zpyyItem" >因伤</div>
-								<div class="zpyyItem" >因学</div>
-								<div class="zpyyItem" >因灾</div>
-								<div class="zpyyItem" >缺土地</div>
-								<div class="zpyyItem" >缺水</div>
-								<div class="zpyyItem" >缺技术</div>
-								<div class="zpyyItem" >缺资金</div>
-								<div class="zpyyItem" >缺劳动力</div>
-								<div class="zpyyItem" >交通条件落后</div>
-								<div class="zpyyItem" >自身发展动力不足</div>
+					<!-- 家庭成员信息 -->
+					<section id="family" class="cd-section index cd-selected">
+						<div class="cd-content villageCollection">
+							<div class="pkhcjTitle" id="pkhjbxx">
+								<p class="pull-left"></p><span>家庭成员信息</span>
+							</div>
+							<table class="table table-striped">
+								<thead>
+									<tr>
+										<td class="text-center">姓名</td>
+										<td class="text-center">性别</td>
+										<td class="text-center">年龄</td>
+										<td class="text-center">与户主关系</td>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class="text-center">曹操</td>
+										<td class="text-center">男</td>
+										<td class="text-center">85</td>
+										<td class="text-center">本人</td>
+									</tr>
+									<tr>
+										<td class="text-center">貂蝉</td>
+										<td class="text-center">女</td>
+										<td class="text-center">26</td>
+										<td class="text-center">配偶</td>
+									</tr>
+								</tbody>
+							</table>
+
+							<div class="addPerson situation">
+								<form action="" method="post">
+									<div class="item border-b">
+										<div class="name" style="padding-top:2rem">设置头像</div>
+										<div class="content">
+											<div class="uploadPic">
+												<input type="file" />
+												<img src="../../assets/img/head.png" alt="" style="width:100%;height:100%;" />
+											</div>
+											<img src="../../assets/img/icon2_11@2x.png" alt="">
+										</div>
+									</div>
+									<div class="item border-b">
+										<div class="name">户籍号</div>
+										<div class="content">
+											<span>1000000</span>
+										</div>
+									</div>
+									<div class="item border-b">
+										<div class="name">A1姓名</div>
+										<div class="content">
+											<span>A1姓名</span>
+										</div>
+									</div>
+									<div class="item border-b">
+										<div class="name">A2性别</div>
+										<div class="content">
+											<span>男</span>
+										</div>
+									</div>
+									<div class="item border-b">
+										<div class="name">A2证件号码</div>
+										<div class="content">
+											<span>1011111111111</span>
+										</div>
+									</div>
+									<div class="item border-b">
+										<div class="name">H14年龄</div>
+										<div class="content">
+											<span>25</span>
+										</div>
+									</div>
+									<div class="item border-b">
+										<div class="name">A4与户主关系</div>
+										<div class="content">
+											<span>配偶</span>
+										</div>
+									</div>
+									<div class="item border-b">
+										<div class="name">A5民族</div>
+										<div class="content">
+											<span>汉族</span>
+										</div>
+									</div>
+									<div class="item border-b">
+										<div class="name">A6政治面貌</div>
+										<div class="content">
+											<span>群众</span>
+										</div>
+									</div>
+									<div class="item border-b">
+										<div class="name">A7文化程度</div>
+										<div class="content">
+											<span>初中</span>
+										</div>
+									</div>
+									<div class="item border-b">
+										<div class="name">A8在校生情况</div>
+										<div class="content">
+											<span>良好</span>
+										</div>
+									</div>
+									<div class="item border-b">
+										<div class="name">A9健康状况</div>
+										<div class="content">
+											<span>良好</span>
+										</div>
+									</div>
+									<div class="item border-b">
+										<div class="name">A9健康状况</div>
+										<div class="content">
+											<span>良好</span>
+										</div>
+									</div>
+									<div class="item border-b">
+										<div class="name">A10劳动技能</div>
+										<div class="content">
+											<span>良好</span>
+										</div>
+									</div>
+									<div class="item border-b">
+										<div class="name">A11务工情况</div>
+										<div class="content">
+											<span>良好</span>
+										</div>
+									</div>
+									<div class="item border-b">
+										<div class="name">A12务工时间</div>
+										<div class="content">
+											<span>良好</span>
+										</div>
+									</div>
+									<div class="item border-b">
+										<div class="name">务工地点</div>
+										<div class="content">
+											<span>地点</span>
+										</div>
+									</div>
+									<div class="item border-b">
+										<div class="name">企业名称</div>
+										<div class="content">
+											<span>企业</span>
+										</div>
+									</div>
+									<div class="item border-b">
+										<div class="name">联系电话</div>
+										<div class="content">
+											<span>0102222222</span>
+										</div>
+									</div>
+									<div class="item border-b">
+										<div class="name">A13是否现役军人</div>
+										<div class="content">
+											<span>是</span>
+										</div>
+									</div>
+									<div class="item border-b">
+										<div class="name">A14是否参加大病医疗保险</div>
+										<div class="content">
+											<span>是</span>
+										</div>
+									</div>
+									<div class="item border-b">
+										<div class="name">H1是否参加新型农村合作医疗</div>
+										<div class="content">
+											<span>否</span>
+										</div>
+									</div>
+									<div class="item border-b">
+										<div class="name">H2是否参加城乡居民基本养老保险</div>
+										<div class="content">
+											<span>是</span>
+										</div>
+									</div>
+									<div class="item border-b">
+										<div class="name">H2是否参加城乡居民基本养老保险</div>
+										<div class="content">
+											<span>否</span>
+										</div>
+									</div>
+									<div class="item border-b">
+										<div class="name">H3是否因贫辍学</div>
+										<div class="content">
+											<span>是</span>
+										</div>
+									</div>
+									<div class="item border-b">
+										<div class="name">H4贫困人口类型</div>
+										<div class="content">
+											<span>否</span>
+										</div>
+									</div>
+									<div class="item border-b">
+										<div class="name">H5是否常住人口</div>
+										<div class="content">
+											<span>是</span>
+										</div>
+									</div>
+									<div class="item border-b">
+										<div class="name">H6人员变更</div>
+										<div class="content">
+											<span>否</span>
+										</div>
+									</div>
+								</form>
 							</div>
 						</div>
-						
-						<div class="zpyyLine"></div>
-						<div class="zpyyzy" style="padding-bottom: 10rem;">
-							<div class="zpyyTitlecrap"><div class="zpyyTitle">A23其他致贫原因<span>(最多选俩项)<span></div></div>
-							<div class="zpyyMain">
-								<div class="zpyyItem" >因病</div>
-								<div class="zpyyItem" >因伤</div>
-								<div class="zpyyItem" >因学</div>
-								<div class="zpyyItem" >因灾</div>
-								<div class="zpyyItem" >缺土地</div>
-								<div class="zpyyItem" >缺水</div>
-								<div class="zpyyItem" >缺技术</div>
-								<div class="zpyyItem" >缺资金</div>
-								<div class="zpyyItem" >缺劳动力</div>
-								<div class="zpyyItem" >交通条件落后</div>
-								<div class="zpyyItem" >自身发展动力不足</div>
+					</section>
+
+						<!-- 收入情况 -->
+						<section id="income" class="cd-section index cd-selected">
+							<div class="cd-content villageCollection">
+								<div class="pkhcjTitle" id="pkhjbxx">
+									<p class="pull-left"></p><span>收入情况</span>
+								</div>
+								<div class="addPerson situation">
+									<form action="" method="post">
+										<div class="item border-b">
+											<div class="name">A39工资性收入（元）</div>
+											<div class="content">
+												<span>10000</span>
+											</div>
+										</div>
+										<div class="item border-b">
+											<div class="name">A40 生产经营性收入（元）</div>
+											<div class="content">
+												<span>10000</span>
+											</div>
+										</div>
+										<div class="item border-b">
+											<div class="name">A41 财产性收入（元） </div>
+											<div class="content">
+												<span>10000</span>
+											</div>
+										</div>
+										<div class="item border-b">
+											<div class="name">A42 转移性收入（元）</div>
+											<div class="content">
+												<span>10000</span>
+											</div>
+										</div>
+										<div class="item border-b">
+											<div class="name">A42a 计划生育金（元）</div>
+											<div class="content">
+												<span>10000</span>
+											</div>
+										</div>
+										<div class="item border-b">
+											<div class="name">A42b 低保金（元）</div>
+											<div class="content">
+												<span>10000</span>
+											</div>
+										</div>
+										<div class="item border-b">
+											<div class="name">A42c 五保金（元）</div>
+											<div class="content">
+												<span>10000</span>
+											</div>
+										</div>
+										<div class="item border-b">
+											<div class="name">A42d 养老保险金（元）</div>
+											<div class="content">
+												<span>10000</span>
+											</div>
+										</div>
+										<div class="item border-b">
+											<div class="name">A42e 生态补偿金（元）</div>
+											<div class="content">
+												<span>10000</span>
+											</div>
+										</div>
+										<div class="item border-b">
+											<div class="name">A42f 其他转移性收入（元）</div>
+											<div class="content">
+												<span>10000</span>
+											</div>
+										</div>
+										<div class="item border-b">
+											<div class="name">H6 家庭实物折算款</div>
+											<div class="content">
+												<span>10000</span>
+											</div>
+										</div>
+										<div class="item border-b">
+											<div class="name">H7 人均纯收入（元）</div>
+											<div class="content">
+												<span>10000</span>
+											</div>
+										</div>
+										<div class="item border-b">
+											<div class="name">A43 生产经营性支出（元）</div>
+											<div class="content">
+												<span>10000</span>
+											</div>
+										</div>
+										<div class="item border-b">
+											<div class="name">A43a 家庭经营费用支出（元） </div>
+											<div class="content">
+												<span>10000</span>
+											</div>
+										</div>
+										<div class="item border-b">
+											<div class="name">A43b税费支出（元） </div>
+											<div class="content">
+												<span>10000</span>
+											</div>
+										</div>
+										<div class="item border-b">
+											<div class="name">A43c 其他生产经营性支出（元）</div>
+											<div class="content">
+												<span>10000</span>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</section>
+						<!-- 生产生活状况-->
+						<section id="production" class="cd-section index cd-selected">
+							<div class="cd-content villageCollection">
+								<div class="pkhcjTitle" id="pkhjbxx">
+									<p class="pull-left"></p><span>生产生活条件</span>
+								</div>
+								<div class="addPerson situation">
+									<form action="" method="post">
+										<div class="item border-b">
+											<div class="name">A24 耕地面积（亩）</div>
+											<div class="content">
+												<span>10000</span>
+											</div>
+										</div>
+										<div class="item border-b">
+											<div class="name">A24a 有效灌溉面积（亩）</div>
+											<div class="content">
+												<span>10000</span>
+											</div>
+										</div>
+										<div class="item border-b">
+											<div class="name">A25 林地面积（亩） </div>
+											<div class="content">
+												<span>10000</span>
+											</div>
+										</div>
+										<div class="item border-b">
+											<div class="name">A25a 退耕还林面积(亩) </div>
+											<div class="content">
+												<span>10000</span>
+											</div>
+										</div>
+										<div class="item border-b">
+											<div class="name">A25b 林果面积（亩）</div>
+											<div class="content">
+												<span>10000</span>
+											</div>
+										</div>
+										<div class="item border-b">
+											<div class="name">A26 牧草地面积（亩）</div>
+											<div class="content">
+												<span>10000</span>
+											</div>
+										</div>
+										<div class="item border-b">
+											<div class="name">A27 水面面积（亩）</div>
+											<div class="content">
+												<span>10000</span>
+											</div>
+										</div>
+										<div class="item border-b">
+											<div class="name">A28 是否通生产用电</div>
+											<div class="content">
+												<span>是</span>
+											</div>
+										</div>
+										<div class="item border-b">
+											<div class="name">A29 与村主干路距离（公里）</div>
+											<div class="content">
+												<span>10000</span>
+											</div>
+										</div>
+										<div class="item border-b">
+											<div class="name">A30 入户路类型</div>
+											<div class="content">
+												<span>是</span>
+											</div>
+										</div>
+										<div class="item border-b">
+											<div class="name">A31 住房面积（平方米）</div>
+											<div class="content">
+												<span>10000</span>
+											</div>
+										</div>
+										<div class="item border-b">
+											<div class="name">A32 是否通生活用电</div>
+											<div class="content">
+												<span>是</span>
+											</div>
+										</div>
+										<div class="item border-b">
+											<div class="name">A33 饮水是否困难 </div>
+											<div class="content">
+												<span>是</span>
+											</div>
+										</div>
+										<div class="item border-b">
+											<div class="name">A34 饮水是否安全 </div>
+											<div class="content">
+												<span>是</span>
+											</div>
+										</div>
+										<div class="item border-b">
+											<div class="name">A35 主要燃料类型 </div>
+											<div class="content">
+												<span>是</span>
+											</div>
+										</div>
+										<div class="item border-b">
+											<div class="name">A36 是否加入农民专业合作社</div>
+											<div class="content">
+												<span>否</span>
+											</div>
+										</div>
+										<div class="item border-b">
+											<div class="name">A37 有无卫生厕所</div>
+											<div class="content">
+												<span>有</span>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</section>
+						<!-- 帮扶责任人 -->
+						<section id="help" class="cd-section index cd-selected">
+							<div class="cd-content villageCollection">
+								<div class="pkhcjTitle" id="pkhjbxx">
+									<p class="pull-left"></p><span>帮扶责任人</span>
+								</div>
+								<table class="table table-striped">
+									<thead>
+										<tr>
+											<td class="text-center">姓名</td>
+											<td class="text-center">性别</td>
+											<td class="text-center">帮扶开始时间</td>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td class="text-center">曹操</td>
+											<td class="text-center">男</td>
+											<td class="text-center">2017-01-01</td>
+										</tr>
+										<tr>
+											<td class="text-center">貂蝉</td>
+											<td class="text-center">女</td>
+											<td class="text-center">2017-01-01</td>
+										</tr>
+									</tbody>
+								</table>
+
+								<div class="addPerson situation">
+									<form action="" method="post">
+										<div class="item border-b">
+											<div class="name">姓名</div>
+											<div class="content">
+												<span>姓名</span>
+											</div>
+										</div>
+										<div class="item border-b">
+											<div class="name">性别</div>
+											<div class="content">
+												<span>男</span>
+											</div>
+										</div>
+										<div class="item border-b">
+											<div class="name">证件号码</div>
+											<div class="content">
+												<span>122255544444</span>
+											</div>
+										</div>
+										<div class="item border-b">
+											<div class="name">政治面貌</div>
+											<div class="content">
+												<span>党员</span>
+											</div>
+										</div>
+										<div class="item border-b">
+											<div class="name">帮扶单位名称</div>
+											<div class="content">
+												<span>政府</span>
+											</div>
+										</div>
+										<div class="item border-b">
+											<div class="name">帮扶开始时间</div>
+											<div class="content">
+												<span>2017.12.12</span>
+											</div>
+										</div>
+										<div class="item border-b">
+											<div class="name">帮扶结束时间</div>
+											<div class="content">
+												<span>2017.12.14</span>
+											</div>
+										</div>
+										<div class="item border-b">
+											<div class="name">隶属关系</div>
+											<div class="content">
+												<span>初中</span>
+											</div>
+										</div>
+										<div class="item border-b">
+											<div class="name">单位地址</div>
+											<div class="content">
+												<span>地址</span>
+											</div>
+										</div>
+										<div class="item border-b">
+											<div class="name">联系电话</div>
+											<div class="content">
+												<span>1155123588142</span>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</section>
+						<!-- 扶贫成效 -->
+						<section id="results" class="cd-section index cd-selected">
+							<div class="cd-content villageCollection">
+								<div class="pkhcjTitle" id="pkhjbxx">
+									<p class="pull-left"></p><span>扶贫成效</span>
+								</div>
+
+								<div class="situation">
+									<form action="" method="post">
+										<div class="item border-b">
+											<div class="name">F1 就业帮扶金（元）</div>
+											<div class="content">
+												<span>10000</span>
+											</div>
+										</div>
+										<div class="item border-b">
+											<div class="name">F2 低保金（元） </div>
+											<div class="content">
+												<span>10000</span>
+											</div>
+										</div>
+										<div class="item border-b">
+											<div class="name">F3 五保金（元） </div>
+											<div class="content">
+												<span>10000</span>
+											</div>
+										</div>
+										<div class="item border-b">
+											<div class="name">F4 养老金（元） </div>
+											<div class="content">
+												<span>10000</span>
+											</div>
+										</div>
+										<div class="item border-b">
+											<div class="name">F5 危房改造补贴（元） </div>
+											<div class="content">
+												<span>10000</span>
+											</div>
+										</div>
+										<div class="item border-b">
+											<div class="name">F6 教育补贴（元） </div>
+											<div class="content">
+												<span>10000</span>
+											</div>
+										</div>
+										<div class="item border-b">
+											<div class="name">F7 基本医保报销（元） </div>
+											<div class="content">
+												<span>10000</span>
+											</div>
+										</div>
+										<div class="item border-b">
+											<div class="name">F8 大病保险报销（元） </div>
+											<div class="content">
+												<span>10000</span>
+											</div>
+										</div>
+										<div class="item border-b">
+											<div class="name">F9 医疗救助（元） </div>
+											<div class="content">
+												<span>10000</span>
+											</div>
+										</div>
+										<div class="item border-b">
+											<div class="name">F10 双女户补贴（元） </div>
+											<div class="content">
+												<span>10000</span>
+											</div>
+										</div>
+										<div class="item border-b">
+											<div class="name">F11 粮食综合直补（元） </div>
+											<div class="content">
+												<span>10000</span>
+											</div>
+										</div>
+										<div class="item border-b">
+											<div class="name">F12 退耕还林补贴（元） </div>
+											<div class="content">
+												<span>10000</span>
+											</div>
+										</div>
+										<div class="item border-b">
+											<div class="name">F13 草原奖补（元） </div>
+											<div class="content">
+												<span>10000</span>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</section>
+						<!-- 项目成效 -->
+							<div class="effectiveness" id="effectiveness">
+							<div class="projectCon">
+								<div class="projectItem">
+									<div class="projectNum">
+										<span class="num">10004</span><br>
+										<span>NUMBER</span>
+									</div>
+									<div class="projectTitle">
+										<div class="name">下八角地膜玉米项目信息</div>
+										<div class="profit">项目收益: <span>￥100000</span></div>
+									</div>
+								</div>
+								<div class="projectItem">
+									<div class="projectNum">
+										<span class="num">10004</span><br>
+										<span>NUMBER</span>
+									</div>
+									<div class="projectTitle">
+										<div class="name">下八角地膜玉米项目信息</div>
+										<div class="profit">项目收益: <span>￥100000</span></div>
+									</div>
+								</div>
+								<div class="projectItem">
+									<div class="projectNum">
+										<span class="num">10004</span><br>
+										<span>NUMBER</span>
+									</div>
+									<div class="projectTitle">
+										<div class="name">下八角地膜玉米项目信息</div>
+										<div class="profit">项目收益: <span>￥100000</span></div>
+									</div>
+								</div>
+								<div class="projectItem">
+									<div class="projectNum">
+										<span class="num">10004</span><br>
+										<span>NUMBER</span>
+									</div>
+									<div class="projectTitle">
+										<div class="name">下八角地膜玉米项目信息</div>
+										<div class="profit">项目收益: <span>￥100000</span></div>
+									</div>
+								</div>
+								<div class="projectItem">
+									<div class="projectNum">
+										<span class="num">10004</span><br>
+										<span>NUMBER</span>
+									</div>
+									<div class="projectTitle">
+										<div class="name">下八角地膜玉米项目信息</div>
+										<div class="profit">项目收益: <span>￥100000</span></div>
+									</div>
+								</div>
 							</div>
 						</div>
-<<<<<<< HEAD
-					</div>
-=======
-						
-						
-						
-						
-						
-					</div>-->
->>>>>>> cc7d76de519a0df973fa312bd21d3340b25c9306
+						<!--  -->
 				</div>
 			</section>
 		</main>
-		<nav class="navbar-fixed-bottom">
-			<button class="btn btnpkc">上传</button>
-		</nav>
 		<!-- 导航部分 -->
 		<nav class="cd-nav-container" id="cd-nav">
 			<header class="menuHeader">
 				<a href="#0" class="cd-close-nav">Close</a>
 			</header>
-			<div class="navList">
-				<div class="navListItem">
-					<a href="#"><img src="../../assets/img/icon_07.png"><span>基本信息</span></a>
+			<div class="navList" id="navList">
+				<div class="navListItem" data-type="pkcjb">
+					<img src="../../assets/img/icon_07.png"><span>基本信息</span>
 				 </div>
-				<div class="navListItem">
-					<a href="#"><img src="../../assets/img/icon_10.png"><span>家庭成员信息</span></a>
+				<div class="navListItem" data-type="family">
+					<img src="../../assets/img/icon_10.png"><span>家庭成员信息</span>
 				</div>
-				<div class="navListItem">
-					<a href="#"><img src="../../assets/img/icon_12.png"><span>致贫原因</span></a>
+				<!-- <div class="navListItem" data-type="eliminate">
+					<img src="../../assets/img/icon_12.png"><span>致贫原因</span>
+				</div> -->
+				<div class="navListItem" data-type="income">
+					<img src="../../assets/img/icon_14.png"><span>收入情况</span>
 				</div>
-				<div class="navListItem">
-					<a href="#"><img src="../../assets/img/icon_14.png"><span>收入情况</span></a>
+				<div class="navListItem" data-type="production">
+					<img src="../../assets/img/icon_16.png"><span>生产生活条件</span>
 				</div>
-				<div class="navListItem">
-					<a href="#"><img src="../../assets/img/icon_16.png"><span>生产生活条件</span></a>
+				<!-- <div class="navListItem" data-type="elsewhere">
+					<img src="../../assets/img/icon_18.png"><span>异地搬迁户需求</span>
+				</div> -->
+				<div class="navListItem" data-type="help">
+					<img src="../../assets/img/icon_20.png"><span>帮扶责任人</span>
 				</div>
-				<div class="navListItem">
-					<a href="#"><img src="../../assets/img/icon_18.png"><span>异地搬迁户需求</span></a>
+				<div class="navListItem" data-type="results">
+					<img src="../../assets/img/icon_22.png"><span>扶贫成效</span>
 				</div>
-				<div class="navListItem">
-					<a href="#"><img src="../../assets/img/icon_20.png"><span>帮扶责任人</span></a>
-				</div>
-				<div class="navListItem">
-					<a href="#"><img src="../../assets/img/icon_22.png"><span>扶贫成效</span></a>
+				<div class="navListItem" data-type="effectiveness">
+					<img src="../../assets/img/icon_22.png"><span>项目成效</span>
 				</div>
 			</div>
 
@@ -242,6 +903,14 @@
 			<script type="text/javascript" src="../../assets/lib/js/modernizr.js"></script>
 			<script type="text/javascript" src="../../assets/lib/bootstrap/js/bootstrap.min.js"></script>
 			<script type="text/javascript" src="../script/all.min.js"></script>
+			<script>
+				$("#navList .navListItem").click(function(){
+					$(".scale-down").removeClass("scale-down")
+					$(".cd-nav-container").removeClass("is-visible")
+					$(".cd-overlay").removeClass("is-visible")
+					$("#"+$(this).attr("data-type")).addClass("shows").siblings().removeClass("shows")
+				})
+			</script>
 	</body>
 
 </html>
