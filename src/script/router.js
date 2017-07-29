@@ -173,11 +173,229 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 				}
 			}
 		})
-		//自然村 
+		//自然村首页
 		.state('naturalVillage', {
 			url: '/natural_village?id&type',
 			controller: "naturalVillage",
 			templateUrl: '../template/natural/naturalVillage.html'
+		})
+		//自然村草稿
+		.state('naturalDraft', {
+			url: '/natural_draft?id&type',
+			controller: "naturalDraft",
+			templateUrl: '../template/natural/naturalDraft.html'
+		})
+		//自然村新增
+		.state('naturalAdd', {
+			url: '/natural_Add?id&type',
+			controller: "naturalAdd",
+			templateUrl: '../template/natural/naturalAdd.html'
+		})
+		//自然村编辑
+		.state('naturalEdite', {
+			url: '/natural_Edite?id&type',
+			controller: "naturalEdite",
+			templateUrl: '../template/natural/naturalEdite.html'
+		})
+		
+		
+		//扶贫项目首页
+		.state('project', {
+			url: '/project?id&type',
+			controller: "project",
+			templateUrl: '../template/project/project.html'
+		})
+		
+		//扶贫项目新增
+		.state('projectAdd', {
+			url: '/project_Add?id&type',
+			controller: "projectAdd",
+			templateUrl: '../template/project/projectAdd.html'
+		})
+		
+		//扶贫项目草稿
+		.state('projectDraft', {
+			url: '/project_Draft?id&type',
+			controller: "projectDraft",
+			templateUrl: '../template/project/projectDraft.html'
+		})
+		
+		//扶贫项目编辑
+		.state('projectEdit', {
+			url: '/project_Edit?id&type',
+			controller: "projectEdit",
+			templateUrl: '../template/project/projectEdit.html'
+		})
+		//扶贫项目 新增 涉及贫困村
+		.state('projectAddsjpkc', {
+			url: '/project_Addsjpkc?id&type',
+			controller: "projectAddsjpkc",
+			templateUrl: '../template/project/projectAddsjpkc.html'
+		})
+		
+		
+		//扶贫项目 新增 涉及贫困户
+		.state('projectAddsjpkh', {
+			url: '/project_Addsjpkh?id&type',
+			controller: "projectAddsjpkh",
+			templateUrl: '../template/project/projectAddsjpkh.html'
+		})
+		
+		//扶贫项目 编辑 涉及贫困户
+		.state('projecEditsjpkh', {
+			url: '/project_Editsjpkh?id&type',
+			controller: "projecEditsjpkh",
+			templateUrl: '../template/project/projecEditsjpkh.html'
+		})
+		
+		//扶贫项目 编辑 涉及贫困户
+		.state('projectEditsjpkc', {
+			url: '/project_Editsjpkc?id&type',
+			controller: "projectEditsjpkc",
+			templateUrl: '../template/project/projectEditsjpkc.html'
+		})
+		
+		//扶贫数据 自然村 查询
+		.state('queryNatural', {
+			url: '/query_Natural?id&type',
+			controller: "queryNatural",
+			templateUrl: '../template/natural/queryNatural.html'
+		})
+		
+		//扶贫数据 自然村 查询列表
+		.state('queryNaturalResult', {
+			url: '/queryNatural_Result?id&type',
+			controller: "queryNaturalResult",
+			templateUrl: '../template/natural/queryNaturalResult.html'
+		})
+		
+		//扶贫数据 自然村 查询列表详情
+		.state('queryNaturalDetails', {
+			url: '/queryNatural_Details?id&type',
+			controller: "queryNaturalDetails",
+			templateUrl: '../template/natural/queryNaturalDetails.html'
+		})
+		
+		//扶贫数据 扶贫项目 查询
+		.state('queryProject', {
+			url: '/query_Project?id&type',
+			controller: "queryProject",
+			templateUrl: '../template/project/queryProject.html'
+		})
+		
+		//扶贫数据 扶贫项目 查询列表
+		.state('queryProjectResult', {
+			url: '/queryProject_Result?id&type',
+			controller: "queryProjectResult",
+			templateUrl: '../template/project/queryProjectResult.html'
+		})
+		
+		//扶贫数据 扶贫项目 查询列表详情queryprojectDetails.html
+		.state('queryprojectDetails', {
+			url: '/queryproject_Details?id&type',
+			controller: "queryprojectDetails",
+			templateUrl: '../template/project/queryprojectDetails.html'
+		})
+		//贫困村 
+		.state('poorVillage', {
+			url: '/poorVillage',
+			controller: "poorVillage",
+			templateUrl: '../template/village/poorVillage.html'
+		})
+		.state('villageDraft', {
+			url: '/villageDraft',
+			controller: "villageDraft",
+			templateUrl: '../template/village/villageDraft.html'
+		})
+		.state('villageCollection', {
+			url: '/villageCollection',
+			controller: "villageCollection",
+			templateUrl: '../template/village/villageCollection.html'
+		})
+		.state('addTaskForce', {
+			url: '/addTaskForce',
+			controller: "addTaskForce",
+			templateUrl: '../template/village/addTaskForce.html'
+		})
+		.state('editTaskForce', {
+			url: '/editTaskForce',
+			controller: "editTaskForce",
+			templateUrl: '../template/village/editTaskForce.html'
+		})
+		// 工作日志
+		.state('workLog', {
+			url: '/workLog',
+			controller: "workLog",
+			templateUrl: '../template/village/workLog.html'
+		})
+		.state('workLogDetail', {
+			url: '/workLogDetail',
+			controller: "workLogDetail",
+			templateUrl: '../template/village/workLogDetail.html'
+		})
+		// 通知
+		.state('notice', {
+			url: '/notice',
+			controller: "notice",
+			templateUrl: '../template/village/notice.html'
+		})
+		.state('noticeDetail', {
+			url: '/noticeDetail',
+			controller: "noticeDetail",
+			templateUrl: '../template/village/noticeDetail.html'
+		})
+		// 扶贫数据 查询 贫困户
+		.state('queryHousehold', {
+			url: '/queryHousehold',
+			controller: "queryHousehold",
+			templateUrl: '../template/village/queryHousehold.html'
+		})
+		.state('queryHouseholdList', {
+			url: '/queryHouseholdList',
+			controller: "queryHouseholdList",
+			templateUrl: '../template/village/queryHouseholdList.html'
+		})
+		.state('queryHouseholdDetail', {
+			url: '/queryHouseholdDetail',
+			controller: "queryHouseholdDetail",
+			templateUrl: '../template/village/queryHouseholdDetail.html'
+		})
+		.state('queryFamily', {
+			url: '/queryFamily',
+			controller: "queryFamily",
+			templateUrl: '../template/village/queryFamily.html'
+		})
+		.state('queryHelp', {
+			url: '/queryHelp',
+			controller: "queryHelp",
+			templateUrl: '../template/village/queryHelp.html'
+		})
+		// 扶贫数据 查询 贫困村
+		.state('queryVillage', {
+			url: '/queryVillage',
+			controller: "queryVillage",
+			templateUrl: '../template/village/queryVillage.html'
+		})
+		.state('queryVillageList', {
+			url: '/queryVillageList',
+			controller: "queryVillageList",
+			templateUrl: '../template/village/queryVillageList.html'
+		})
+		.state('queryHouseholdDetail', {
+			url: '/queryHouseholdDetail',
+			controller: "queryHouseholdDetail",
+			templateUrl: '../template/village/queryHouseholdDetail.html'
+		})
+		.state('queryTaskForceDetail', {
+			url: '/queryTaskForceDetail',
+			controller: "queryTaskForceDetail",
+			templateUrl: '../template/village/queryTaskForceDetail.html'
+		})
+		// 登录
+		.state('login', {
+			url: '/login',
+			controller: "login",
+			templateUrl: '../template/village/login.html'
 		})
 
 });

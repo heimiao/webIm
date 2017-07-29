@@ -1,0 +1,61 @@
+
+	<div>
+		<div class="query queryNatural">
+			<header>
+				<a href="javascript:history.go(-1)"><div class="back"><img src="../../assets/img/icon_28.png" alt=""></div></a>
+				<div class="queryCon">
+					<img class="search" src="../../assets/img/search.png" alt="">
+					<input type="text" placeholder="扶贫项目查询,输入项目名称">
+				</div>
+				<div class="queryBtn">
+					<a href="#/queryProject_Result">查询</a>
+				</div>
+			</header>
+			<div class="fill"></div>
+			<div class="conditionCon">
+				<div class="item border-b">
+					<div class="yearName">年度</div>
+					<div class="year">
+						<select name="" id="">
+							<option value="">2017</option>
+						</select>
+						<img src="../../assets/img/icon2_11@2x.png" alt="">
+					</div>
+				</div>
+				<div class="item border-b">
+					<div class="yearName">乡镇</div>
+					<div class="year">
+						<select name="" id="">
+							<option value="">张北镇</option>
+						</select>
+						<img src="../../assets/img/icon2_11@2x.png" alt="">
+					</div>
+				</div>
+				<div class="item border-b">
+					<div class="yearName">行政村</div>
+					<div class="year">
+						<select name="" id="">
+							<option value="">二八地村</option>
+						</select>
+						<img src="../../assets/img/icon2_11@2x.png" alt="">
+					</div>
+				</div>
+				
+			</div>
+
+			<div class="attribute">
+				<div class="title border-b">项目所属</div>
+				<div class="tab" id="attribute" >
+					<div class="tab1 bg">贫困村项目</div>
+					<div class="tab2">贫困户项目</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="../../assets/lib/js/jquery.min.js"></script>
+		<script>
+			$("#attribute div").click(function(){
+				$(this).addClass('bg').siblings().removeClass('bg');
+			})
+		</script>
+	</div>
+

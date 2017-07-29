@@ -20,6 +20,34 @@
 				background-color: #fff;
 				border-radius: 4px;
 			}
+			.opens{
+				float: left;
+				position: relative;
+				padding-right: 1rem;
+				width: 33.33333333333333%;
+				text-align: center;
+			}
+			.timeList>div{    
+				border-top: 1px solid #ddd;
+			    padding-left: 1.9rem;
+			    color: #ea3c4c;
+			    font-size: 1.5rem;
+			}
+			.poor .screen-con .township{
+				margin: 0;
+			}
+			.township,.village{
+				width: 33.33333333333333%;
+				text-align: center;
+			}
+			.triangle{
+				right: 1.7rem !important;
+			}
+			.villageList>div{
+				text-align: right;
+				padding-right: 1.6rem;
+			}
+
 		</style>
 	</head>
 
@@ -32,7 +60,7 @@
 			<div class="fillIn">查询</div>
 		</header>
 		<div class="screen-con">
-			<div id="time" class="open" onclick="timeList()"><span class="name">年度</span><span class="triangle"></span></div>
+			<div id="time" class="opens" onclick="timeList()"><span class="name">年度</span><span class="triangle"></span></div>
 			<div class="timeList">
 				<div onclick="chooseTime('2017')">2017</div>
 				<div onclick="chooseTime('2016')">2016</div>
@@ -48,7 +76,7 @@
 				<div onclick="chooseTownship('白庙滩乡')">白庙滩乡</div>
 				<div onclick="chooseTownship('尚义县')">尚义县</div>
 			</div>
-			<div id="village" class="village" onclick="villageList()"><span class="name">全部行政村</span><span class="triangle"></span></div>
+			<div id="village" class="village" onclick="villageList()" style="float: right"><span class="name">全部行政村</span><span class="triangle"></span></div>
 			<div class="villageList">
 				<div onclick="chooseVillage('张北镇村')">张北镇村</div>
 				<div onclick="chooseVillage('沽源县村')">沽源县村</div>
@@ -201,33 +229,6 @@
 	<script type="text/javascript" src="../../assets/lib/js/jquery.min.js"></script>
 
 	<script>
-		// 展开 收起
-		function openToggle() {
-			$("#screen-con2").slideToggle(200)
-			$(".fill2").slideToggle(200)
-			$(".open").toggleClass("open2")
-
-			$(".townshipList").slideUp(200)
-			$("#township").removeClass("township2")
-			$("#township .name").removeClass("col-ea3c4c")
-
-			$(".villageList").slideUp(200)
-			$("#village").removeClass("township2")
-			$("#village .name").removeClass("col-ea3c4c")
-
-			$(".numList").slideUp(200)
-			$("#num").removeClass("township2")
-			$("#num .name").removeClass("col-ea3c4c")
-
-			$(".poorList").slideUp(200)
-			$("#poor").removeClass("township2")
-			$("#poor .name").removeClass("col-ea3c4c")
-
-			$(".timeList").slideUp(200)
-			$("#time").removeClass("township2")
-			$("#time .name").removeClass("col-ea3c4c")
-
-		}
 		// 全部乡镇列表
 		function townshipList() {
 			$(".townshipList").slideToggle(200)
@@ -237,14 +238,6 @@
 			$(".villageList").slideUp(200)
 			$("#village").removeClass("township2")
 			$("#village .name").removeClass("col-ea3c4c")
-
-			$(".numList").slideUp(200)
-			$("#num").removeClass("township2")
-			$("#num .name").removeClass("col-ea3c4c")
-
-			$(".poorList").slideUp(200)
-			$("#poor").removeClass("township2")
-			$("#poor .name").removeClass("col-ea3c4c")
 
 			$(".timeList").slideUp(200)
 			$("#time").removeClass("township2")
@@ -260,63 +253,10 @@
 			$("#township").removeClass("township2")
 			$("#township .name").removeClass("col-ea3c4c")
 
-			$(".numList").slideUp(200)
-			$("#num").removeClass("township2")
-			$("#num .name").removeClass("col-ea3c4c")
-
-			$(".poorList").slideUp(200)
-			$("#poor").removeClass("township2")
-			$("#poor .name").removeClass("col-ea3c4c")
-
 			$(".timeList").slideUp(200)
 			$("#time").removeClass("township2")
 			$("#time .name").removeClass("col-ea3c4c")
 		}
-		//数据状态
-		function numList() {
-			$(".numList").slideToggle(200)
-			$("#num").toggleClass("township2")
-			$("#num .name").toggleClass("col-ea3c4c")
-
-			$(".townshipList").slideUp(200)
-			$("#township").removeClass("township2")
-			$("#township .name").removeClass("col-ea3c4c")
-
-			$(".villageList").slideUp(200)
-			$("#village").removeClass("township2")
-			$("#village .name").removeClass("col-ea3c4c")
-
-			$(".poorList").slideUp(200)
-			$("#poor").removeClass("township2")
-			$("#poor .name").removeClass("col-ea3c4c")
-
-			$(".timeList").slideUp(200)
-			$("#time").removeClass("township2")
-			$("#time .name").removeClass("col-ea3c4c")
-		}
-		//贫困情况
-		function poorList() {
-			$(".poorList").slideToggle(200)
-			$("#poor").toggleClass("township2")
-			$("#poor .name").toggleClass("col-ea3c4c")
-
-			$(".townshipList").slideUp(200)
-			$("#township").removeClass("township2")
-			$("#township .name").removeClass("col-ea3c4c")
-
-			$(".villageList").slideUp(200)
-			$("#village").removeClass("township2")
-			$("#village .name").removeClass("col-ea3c4c")
-
-			$(".numList").slideUp(200)
-			$("#num").removeClass("township2")
-			$("#num .name").removeClass("col-ea3c4c")
-
-			$(".timeList").slideUp(200)
-			$("#time").removeClass("township2")
-			$("#time .name").removeClass("col-ea3c4c")
-		}
-
 		function timeList() {
 			$(".timeList").slideToggle(200)
 			$("#time").toggleClass("township2")
@@ -329,14 +269,6 @@
 			$(".villageList").slideUp(200)
 			$("#village").removeClass("township2")
 			$("#village .name").removeClass("col-ea3c4c")
-
-			$(".numList").slideUp(200)
-			$("#num").removeClass("township2")
-			$("#num .name").removeClass("col-ea3c4c")
-
-			$(".poorList").slideUp(200)
-			$("#poor").removeClass("township2")
-			$("#poor .name").removeClass("col-ea3c4c")
 		}
 		//选择乡镇
 		function chooseTownship(text) {
@@ -352,26 +284,31 @@
 			$("#village").removeClass("township2")
 			$("#village .name").removeClass("col-ea3c4c")
 		}
-		// 选择数据状态
-		function chooseNum(text) {
-			$("#num .name").html(text)
-			$(".numList").slideUp(200)
-			$("#num").removeClass("township2")
-			$("#num .name").removeClass("col-ea3c4c")
-		}
-		// 选择贫困情况
-		function choosePoor(text) {
-			$("#poor .name").html(text)
-			$(".poorList").slideUp(200)
-			$("#poor").removeClass("township2")
-			$("#poor .name").removeClass("col-ea3c4c")
-		}
 		// 选择时间
 		function chooseTime(text) {
 			$("#time .name").html(text)
 			$(".timeList").slideUp(200)
 			$("#time").removeClass("township2")
 			$("#time .name").removeClass("col-ea3c4c")
+		}
+		/**********请求列表******/ 
+		var baseUrl = "http://123.58.240.75:8081/tpa";
+		var tokenId = window.localStorage.getItem("token");
+		for(var i=0,str='';i<5;i++){
+			str+='<div onclick="chooseTime(\''+2017+'\')">2017</div>'
+		}
+		$(".timeList").html(str)
+		function getVillageList(){
+			$.ajax({
+				url:baseUrl+'/zcjg/queryForZc?lx=01&token='+tokenId,
+			    type:"POST",  
+			    data:null,
+			    dataType:"json",
+			    contentType:"application/json",
+			    success:function(data){  
+			    						
+			    }
+      		})
 		}
 	</script>
 
