@@ -96,13 +96,39 @@
 			<a href="naturalDraft.html">
 				<div class="draft"><a href="projectDraft.html">草稿</a></div>
 			</a>
-			<div class="addPoor"><a href="naturalAdd.html" style="color: #fff;">+ 新增项目</a></div>
+			<div class="addPoor"><a href="projectAdd.html" style="color: #fff;">+ 新增项目</a></div>
 		</footer>
 	</body>
 	<script type="text/javascript" src="../../assets/lib/js/jquery.min.js"></script>
-
+	
 	<script>
-		
+		// 展开 收起
+		function openToggle() {
+			$("#screen-con2").slideToggle(200)
+			$(".fill2").slideToggle(200)
+			$(".open").toggleClass("open2")
+
+			$(".townshipList").slideUp(200)
+			$("#township").removeClass("township2")
+			$("#township .name").removeClass("col-ea3c4c")
+
+			$(".villageList").slideUp(200)
+			$("#village").removeClass("township2")
+			$("#village .name").removeClass("col-ea3c4c")
+
+			$(".numList").slideUp(200)
+			$("#num").removeClass("township2")
+			$("#num .name").removeClass("col-ea3c4c")
+
+			$(".poorList").slideUp(200)
+			$("#poor").removeClass("township2")
+			$("#poor .name").removeClass("col-ea3c4c")
+
+			$(".timeList").slideUp(200)
+			$("#time").removeClass("township2")
+			$("#time .name").removeClass("col-ea3c4c")
+
+		}
 		// 全部乡镇列表
 		function townshipList() {
 			$(".townshipList").slideToggle(200)
@@ -125,7 +151,72 @@
 			$("#time").removeClass("township2")
 			$("#time .name").removeClass("col-ea3c4c")
 		}
-		
+		//全部行政村
+		function villageList() {
+			$(".villageList").slideToggle(200)
+			$("#village").toggleClass("township2")
+			$("#village .name").toggleClass("col-ea3c4c")
+
+			$(".townshipList").slideUp(200)
+			$("#township").removeClass("township2")
+			$("#township .name").removeClass("col-ea3c4c")
+
+			$(".numList").slideUp(200)
+			$("#num").removeClass("township2")
+			$("#num .name").removeClass("col-ea3c4c")
+
+			$(".poorList").slideUp(200)
+			$("#poor").removeClass("township2")
+			$("#poor .name").removeClass("col-ea3c4c")
+
+			$(".timeList").slideUp(200)
+			$("#time").removeClass("township2")
+			$("#time .name").removeClass("col-ea3c4c")
+		}
+		//数据状态
+		function numList() {
+			$(".numList").slideToggle(200)
+			$("#num").toggleClass("township2")
+			$("#num .name").toggleClass("col-ea3c4c")
+
+			$(".townshipList").slideUp(200)
+			$("#township").removeClass("township2")
+			$("#township .name").removeClass("col-ea3c4c")
+
+			$(".villageList").slideUp(200)
+			$("#village").removeClass("township2")
+			$("#village .name").removeClass("col-ea3c4c")
+
+			$(".poorList").slideUp(200)
+			$("#poor").removeClass("township2")
+			$("#poor .name").removeClass("col-ea3c4c")
+
+			$(".timeList").slideUp(200)
+			$("#time").removeClass("township2")
+			$("#time .name").removeClass("col-ea3c4c")
+		}
+		//贫困情况
+		function poorList() {
+			$(".poorList").slideToggle(200)
+			$("#poor").toggleClass("township2")
+			$("#poor .name").toggleClass("col-ea3c4c")
+
+			$(".townshipList").slideUp(200)
+			$("#township").removeClass("township2")
+			$("#township .name").removeClass("col-ea3c4c")
+
+			$(".villageList").slideUp(200)
+			$("#village").removeClass("township2")
+			$("#village .name").removeClass("col-ea3c4c")
+
+			$(".numList").slideUp(200)
+			$("#num").removeClass("township2")
+			$("#num .name").removeClass("col-ea3c4c")
+
+			$(".timeList").slideUp(200)
+			$("#time").removeClass("township2")
+			$("#time .name").removeClass("col-ea3c4c")
+		}
 
 		function timeList() {
 			$(".timeList").slideToggle(200)
@@ -148,7 +239,20 @@
 			$("#poor").removeClass("township2")
 			$("#poor .name").removeClass("col-ea3c4c")
 		}
-		
+		//选择乡镇
+		function chooseTownship(text) {
+			$("#township .name").html(text)
+			$(".townshipList").slideUp(200)
+			$("#township").removeClass("township2")
+			$("#township .name").removeClass("col-ea3c4c")
+		}
+		// 选择行政村
+		function chooseVillage(text) {
+			$("#village .name").html(text)
+			$(".villageList").slideUp(200)
+			$("#village").removeClass("township2")
+			$("#village .name").removeClass("col-ea3c4c")
+		}
 		// 选择时间
 		function chooseTime(text) {
 			$("#time .name").html(text)
