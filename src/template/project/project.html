@@ -1,0 +1,250 @@
+<div class="poor project">
+		<header>
+			<a href="javascript:history.go(-1)">
+				<div class="back"><img src="../../assets/img/icon_28.png" alt=""></div>
+			</a>
+			<div class="collectionTitle">扶贫项目信息</div>
+		</header>
+		<div class="screen-con">
+			<div id="time" class="open naturaltime" onclick="timeList()"><span class="name">年度</span><span class="triangle"></span></div>
+			<div class="timeList">
+				<div onclick="chooseTime('2017')">2018</div>
+				<div onclick="chooseTime('2016')">2016</div>
+				<div onclick="chooseTime('2015')">2015</div>
+				<div onclick="chooseTime('2014')">2014</div>
+			</div>
+			<div id="township" class="township" onclick="townshipList()">
+				<span class="name">项目类型</span><span class="triangle"></span>
+			</div>
+			<div class="townshipList">
+				<div onclick="chooseTownship('1')">1</div>
+				<div onclick="chooseTownship('2')">2</div>
+				<div onclick="chooseTownship('3')">3</div>
+				<div onclick="chooseTownship('4')">4</div>
+			</div>
+			
+			
+		</div>
+		
+		<div class="fill2"></div>
+		<div class="fill"></div>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<td class="text-left projectName">项目名称</td>
+					<td class="text-center">项目所属</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr onclick="location.href='#/project_Edit'">
+					<td class="text-left projectName" >扶贫项目名称</td>
+					<td class="text-center">贫困村</td>		
+				</tr>
+				<tr>
+					<td class="text-left projectName">扶贫项目名称</td>
+					<td class="text-center">贫困村</td>	
+				</tr>
+				<tr>
+					<td class="text-left projectName">扶贫项目名称</td>
+					<td class="text-center">贫困村</td>	
+				</tr>
+				<tr>
+					<td class="text-left projectName">扶贫项目名称</td>
+					<td class="text-center">贫困村</td>	
+				</tr>
+				<tr>
+					<td class="text-left projectName">扶贫项目名称</td>
+					<td class="text-center">贫困村</td>	
+				</tr>
+				<tr>
+					<td class="text-left projectName">扶贫项目名称</td>
+					<td class="text-center">贫困村</td>	
+				</tr>
+				<tr>
+					<td class="text-left projectName">扶贫项目名称</td>
+					<td class="text-center">贫困村</td>	
+				</tr>
+				<tr>
+					<td class="text-left projectName">扶贫项目名称</td>
+					<td class="text-center">贫困村</td>	
+				</tr>
+				<tr>
+					<td class="text-left projectName">扶贫项目名称</td>
+					<td class="text-center">贫困村</td>	
+				</tr>
+				<tr>
+					<td class="text-left projectName">扶贫项目名称</td>
+					<td class="text-center">贫困村</td>	
+				</tr>
+				
+			</tbody>
+		</table>
+		<div class="foot-fill"></div>
+		<footer class="foot">
+			<a href="naturalDraft.html">
+				<div class="draft"><a href="#/project_Draft">草稿</a></div>
+			</a>
+			<div class="addPoor"><a href="#/project_Add" style="color: #fff;">+ 新增项目</a></div>
+		</footer>
+	</div>
+	<script type="text/javascript" src="../../assets/lib/js/jquery.min.js"></script>
+	
+	<script>
+		// 展开 收起
+		function openToggle() {
+			$("#screen-con2").slideToggle(200)
+			$(".fill2").slideToggle(200)
+			$(".open").toggleClass("open2")
+
+			$(".townshipList").slideUp(200)
+			$("#township").removeClass("township2")
+			$("#township .name").removeClass("col-ea3c4c")
+
+			$(".villageList").slideUp(200)
+			$("#village").removeClass("township2")
+			$("#village .name").removeClass("col-ea3c4c")
+
+			$(".numList").slideUp(200)
+			$("#num").removeClass("township2")
+			$("#num .name").removeClass("col-ea3c4c")
+
+			$(".poorList").slideUp(200)
+			$("#poor").removeClass("township2")
+			$("#poor .name").removeClass("col-ea3c4c")
+
+			$(".timeList").slideUp(200)
+			$("#time").removeClass("township2")
+			$("#time .name").removeClass("col-ea3c4c")
+
+		}
+		// 全部乡镇列表
+		function townshipList() {
+			$(".townshipList").slideToggle(200)
+			$("#township").toggleClass("township2")
+			$("#township .name").toggleClass("col-ea3c4c")
+
+			$(".villageList").slideUp(200)
+			$("#village").removeClass("township2")
+			$("#village .name").removeClass("col-ea3c4c")
+
+			$(".numList").slideUp(200)
+			$("#num").removeClass("township2")
+			$("#num .name").removeClass("col-ea3c4c")
+
+			$(".poorList").slideUp(200)
+			$("#poor").removeClass("township2")
+			$("#poor .name").removeClass("col-ea3c4c")
+
+			$(".timeList").slideUp(200)
+			$("#time").removeClass("township2")
+			$("#time .name").removeClass("col-ea3c4c")
+		}
+		//全部行政村
+		function villageList() {
+			$(".villageList").slideToggle(200)
+			$("#village").toggleClass("township2")
+			$("#village .name").toggleClass("col-ea3c4c")
+
+			$(".townshipList").slideUp(200)
+			$("#township").removeClass("township2")
+			$("#township .name").removeClass("col-ea3c4c")
+
+			$(".numList").slideUp(200)
+			$("#num").removeClass("township2")
+			$("#num .name").removeClass("col-ea3c4c")
+
+			$(".poorList").slideUp(200)
+			$("#poor").removeClass("township2")
+			$("#poor .name").removeClass("col-ea3c4c")
+
+			$(".timeList").slideUp(200)
+			$("#time").removeClass("township2")
+			$("#time .name").removeClass("col-ea3c4c")
+		}
+		//数据状态
+		function numList() {
+			$(".numList").slideToggle(200)
+			$("#num").toggleClass("township2")
+			$("#num .name").toggleClass("col-ea3c4c")
+
+			$(".townshipList").slideUp(200)
+			$("#township").removeClass("township2")
+			$("#township .name").removeClass("col-ea3c4c")
+
+			$(".villageList").slideUp(200)
+			$("#village").removeClass("township2")
+			$("#village .name").removeClass("col-ea3c4c")
+
+			$(".poorList").slideUp(200)
+			$("#poor").removeClass("township2")
+			$("#poor .name").removeClass("col-ea3c4c")
+
+			$(".timeList").slideUp(200)
+			$("#time").removeClass("township2")
+			$("#time .name").removeClass("col-ea3c4c")
+		}
+		//贫困情况
+		function poorList() {
+			$(".poorList").slideToggle(200)
+			$("#poor").toggleClass("township2")
+			$("#poor .name").toggleClass("col-ea3c4c")
+
+			$(".townshipList").slideUp(200)
+			$("#township").removeClass("township2")
+			$("#township .name").removeClass("col-ea3c4c")
+
+			$(".villageList").slideUp(200)
+			$("#village").removeClass("township2")
+			$("#village .name").removeClass("col-ea3c4c")
+
+			$(".numList").slideUp(200)
+			$("#num").removeClass("township2")
+			$("#num .name").removeClass("col-ea3c4c")
+
+			$(".timeList").slideUp(200)
+			$("#time").removeClass("township2")
+			$("#time .name").removeClass("col-ea3c4c")
+		}
+
+		function timeList() {
+			$(".timeList").slideToggle(200)
+			$("#time").toggleClass("township2")
+			$("#time .name").toggleClass("col-ea3c4c")
+
+			$(".townshipList").slideUp(200)
+			$("#township").removeClass("township2")
+			$("#township .name").removeClass("col-ea3c4c")
+
+			$(".villageList").slideUp(200)
+			$("#village").removeClass("township2")
+			$("#village .name").removeClass("col-ea3c4c")
+
+			$(".numList").slideUp(200)
+			$("#num").removeClass("township2")
+			$("#num .name").removeClass("col-ea3c4c")
+
+			$(".poorList").slideUp(200)
+			$("#poor").removeClass("township2")
+			$("#poor .name").removeClass("col-ea3c4c")
+		}
+		//选择乡镇
+		function chooseTownship(text) {
+			$("#township .name").html(text)
+			$(".townshipList").slideUp(200)
+			$("#township").removeClass("township2")
+			$("#township .name").removeClass("col-ea3c4c")
+		}
+		// 选择行政村
+		function chooseVillage(text) {
+			$("#village .name").html(text)
+			$(".villageList").slideUp(200)
+			$("#village").removeClass("township2")
+			$("#village .name").removeClass("col-ea3c4c")
+		}
+		// 选择时间
+		function chooseTime(text) {
+			$("#time .name").html(text)
+			$(".timeList").slideUp(200)
+			$("#time").removeClass("township2")
+			$("#time .name").removeClass("col-ea3c4c")
+		}

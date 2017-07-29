@@ -173,11 +173,129 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 				}
 			}
 		})
-		//自然村 
+		//自然村首页
 		.state('naturalVillage', {
 			url: '/natural_village?id&type',
 			controller: "naturalVillage",
 			templateUrl: '../template/natural/naturalVillage.html'
 		})
+		//自然村草稿
+		.state('naturalDraft', {
+			url: '/natural_draft?id&type',
+			controller: "naturalDraft",
+			templateUrl: '../template/natural/naturalDraft.html'
+		})
+		//自然村新增
+		.state('naturalAdd', {
+			url: '/natural_Add?id&type',
+			controller: "naturalAdd",
+			templateUrl: '../template/natural/naturalAdd.html'
+		})
+		//自然村编辑
+		.state('naturalEdite', {
+			url: '/natural_Edite?id&type',
+			controller: "naturalEdite",
+			templateUrl: '../template/natural/naturalEdite.html'
+		})
+		
+		
+		//扶贫项目首页
+		.state('project', {
+			url: '/project?id&type',
+			controller: "project",
+			templateUrl: '../template/project/project.html'
+		})
+		
+		//扶贫项目新增
+		.state('projectAdd', {
+			url: '/project_Add?id&type',
+			controller: "projectAdd",
+			templateUrl: '../template/project/projectAdd.html'
+		})
+		
+		//扶贫项目草稿
+		.state('projectDraft', {
+			url: '/project_Draft?id&type',
+			controller: "projectDraft",
+			templateUrl: '../template/project/projectDraft.html'
+		})
+		
+		//扶贫项目编辑
+		.state('projectEdit', {
+			url: '/project_Edit?id&type',
+			controller: "projectEdit",
+			templateUrl: '../template/project/projectEdit.html'
+		})
+		//扶贫项目 新增 涉及贫困村
+		.state('projectAddsjpkc', {
+			url: '/project_Addsjpkc?id&type',
+			controller: "projectAddsjpkc",
+			templateUrl: '../template/project/projectAddsjpkc.html'
+		})
+		
+		
+		//扶贫项目 新增 涉及贫困户
+		.state('projectAddsjpkh', {
+			url: '/project_Addsjpkh?id&type',
+			controller: "projectAddsjpkh",
+			templateUrl: '../template/project/projectAddsjpkh.html'
+		})
+		
+		//扶贫项目 编辑 涉及贫困户
+		.state('projecEditsjpkh', {
+			url: '/project_Editsjpkh?id&type',
+			controller: "projecEditsjpkh",
+			templateUrl: '../template/project/projecEditsjpkh.html'
+		})
+		
+		//扶贫项目 编辑 涉及贫困户
+		.state('projectEditsjpkc', {
+			url: '/project_Editsjpkc?id&type',
+			controller: "projectEditsjpkc",
+			templateUrl: '../template/project/projectEditsjpkc.html'
+		})
+		
+		//扶贫数据 自然村 查询
+		.state('queryNatural', {
+			url: '/query_Natural?id&type',
+			controller: "queryNatural",
+			templateUrl: '../template/natural/queryNatural.html'
+		})
+		
+		//扶贫数据 自然村 查询列表
+		.state('queryNaturalResult', {
+			url: '/queryNatural_Result?id&type',
+			controller: "queryNaturalResult",
+			templateUrl: '../template/natural/queryNaturalResult.html'
+		})
+		
+		//扶贫数据 自然村 查询列表详情
+		.state('queryNaturalDetails', {
+			url: '/queryNatural_Details?id&type',
+			controller: "queryNaturalDetails",
+			templateUrl: '../template/natural/queryNaturalDetails.html'
+		})
+		
+		//扶贫数据 扶贫项目 查询
+		.state('queryProject', {
+			url: '/query_Project?id&type',
+			controller: "queryProject",
+			templateUrl: '../template/project/queryProject.html'
+		})
+		
+		//扶贫数据 扶贫项目 查询列表
+		.state('queryProjectResult', {
+			url: '/queryProject_Result?id&type',
+			controller: "queryProjectResult",
+			templateUrl: '../template/project/queryProjectResult.html'
+		})
+		
+		//扶贫数据 扶贫项目 查询列表详情queryprojectDetails.html
+		.state('queryprojectDetails', {
+			url: '/queryproject_Details?id&type',
+			controller: "queryprojectDetails",
+			templateUrl: '../template/project/queryprojectDetails.html'
+		})
+		
 
 });
