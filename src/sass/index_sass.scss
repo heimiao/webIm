@@ -33,8 +33,6 @@
 //  @include radius(25px);
 //  outline: none;
 //}
-
-
 //导入模块样式
 @import "component/home";
 @import "component/index";
@@ -44,21 +42,9 @@
 @import "component/workLog";
 @import "component/villageColection";
 @import "component/natural";
-<<<<<<< HEAD
-
-//贫困户
-@import "component/lowFamily";
-
-@import "component/project";
-@import "component/queryNatural";
-@import "component/notice";
-@import "component/query";
-
-=======
 //贫困户
 @import "component/lowFamily";
 @import "component/project";
 @import "component/queryNatural";
 @import "component/notice";
 @import "component/query";
->>>>>>> 986ca810eb328247aa7ec942df9634412d0fc0db
