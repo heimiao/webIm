@@ -28,6 +28,13 @@
     @include radius(25px);
 }
 
+//.btn_add {
+//  @include data-btn(auto, auto, #ea3c4c);
+//  @include radius(25px);
+//  outline: none;
+//}
+
+
 //导入模块样式
 @import "component/home";
 @import "component/index";
@@ -37,6 +44,8 @@
 @import "component/workLog";
 @import "component/villageColection";
 @import "component/natural";
+//贫困户
+@import "component/lowFamily";
 @import "component/project";
 @import "component/queryNatural";
 @import "component/notice";

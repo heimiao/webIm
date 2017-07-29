@@ -1,85 +1,52 @@
 <div style="background: #fff;">
-
 	<div class="container-fluid pkhcj">
 		<div class="cheader " style="padding: 0;">
 			<div class="pfanhui pull-left" onclick="javascript:history.go(-1)">
 				<img src="../../assets/img/icon_28.png" />
 			</div>
 			<div class="pname text-center ">贫困用户信息采集</div>
-			<div class="panniu cd-nav-trigger ">Menu<span></span></div>
+			<div class="panniu cd-nav-trigger" ng-click="lowFamilyInfo.changeMenu(true)">Menu<span></span></div>
 		</div>
 	</div>
-	<!--
-	        	作者：maweichao90@126.com
-	        	时间：2017-07-28
-	        	描述：贫困户
-	 -->
-	<form action="" method="post">
-		<!-- 基本信息 -->
-		<div ng-include="'../template/lowFamily/lowFamilyInfo/baseInfo.html'" ng-controller="lowFamilyInfoCtro">
-		</div>
-		<!-- 家庭成员信息-->
-		<div ng-include="'../template/lowFamily/lowFamilyInfo/baseInfo.html'" ng-controller="lowFamilyInfoCtro">
-		</div>
-		<!-- 致贫原因-->
-		<div ng-include="'../template/lowFamily/lowFamilyInfo/povertyCauses.html'" ng-controller="lowFamilyInfoCtro">
-		</div>
-		<!-- 收入情况-->
-		<div ng-include="'../template/lowFamily/lowFamilyInfo/baseInfo.html'" ng-controller="lowFamilyInfoCtro">
-		</div>
-		<!-- 生产生活条件-->
-		<div ng-include="'../template/lowFamily/lowFamilyInfo/baseInfo.html'" ng-controller="lowFamilyInfoCtro">
-		</div>
-		<!-- 易地搬迁户需求-->
-		<div ng-include="'../template/lowFamily/lowFamilyInfo/baseInfo.html'" ng-controller="lowFamilyInfoCtro">
-		</div>
-		<!-- 帮扶责任人-->
-		<div ng-include="'../template/lowFamily/lowFamilyInfo/baseInfo.html'" ng-controller="lowFamilyInfoCtro">
-		</div>
-		<!-- 扶贫成效-->
-		<div ng-include="'../template/lowFamily/lowFamilyInfo/baseInfo.html'" ng-controller="lowFamilyInfoCtro">
-		</div>
-		<!-- 项目成就-->
-		<div ng-include="'../template/lowFamily/lowFamilyInfo/baseInfo.html'" ng-controller="lowFamilyInfoCtro">
-
-		</div>
-		<nav class="navbar-fixed-bottom">
-			<button class="btn btnpkc">上传</button>
-		</nav>
-	</form>
+	<main ng-class="{'scale-down':lowFamilyInfo.menu}">
+		<div class="contaner" ui-view></div>
+	</main>
+	<nav class="navbar-fixed-bottom">
+		<button class="btn btnpkc" ng-click="lowFamilyInfo.uploadSource()">上传</button>
+	</nav>
 	<!-- 导航部分 -->
-	<nav class="cd-nav-container" id="cd-nav">
+	<nav ng-class="{'is-visible':lowFamilyInfo.menu,'cd-nav-container':true}">
 		<header class="menuHeader">
-			<a href="#0" class="cd-close-nav">Close</a>
+			<a href="javascript:void(0)" class="cd-close-nav" ng-click="lowFamilyInfo.changeMenu(false)">Close</a>
 		</header>
 		<div class="navList">
 			<div class="navListItem">
-				<a href="#"><img src="../../assets/img/icon_07.png"><span>基本信息</span></a>
+				<a href="javascript:void(0)" ui-sref="lowFamily.baseInfo({id:1234})"><img src="../../assets/img/icon_07.png"><span>基本信息</span></a>
 			</div>
 			<div class="navListItem">
-				<a href="#"><img src="../../assets/img/icon_10.png"><span>家庭成员信息</span></a>
+				<a href="javascript:void(0)" ui-sref="lowFamily.familyMember({id:1234})"><img src="../../assets/img/icon_10.png"><span>家庭成员信息</span></a>
 			</div>
 			<div class="navListItem">
-				<a href="#"><img src="../../assets/img/icon_12.png"><span>致贫原因</span></a>
+				<a href="javascript:void(0)" ui-sref="lowFamily.causes({id:1234})"><img src="../../assets/img/icon_12.png"><span>致贫原因</span></a>
 			</div>
 			<div class="navListItem">
-				<a href="#"><img src="../../assets/img/icon_14.png"><span>收入情况</span></a>
+				<a href="javascript:void(0)" ui-sref="lowFamily.income({id:1234})"><img src="../../assets/img/icon_14.png"><span>收入情况</span></a>
 			</div>
 			<div class="navListItem">
-				<a href="#"><img src="../../assets/img/icon_16.png"><span>生产生活条件</span></a>
+				<a href="javascript:void(0)" ui-sref="lowFamily.lifeCondition({id:1234})"><img src="../../assets/img/icon_16.png"><span>生产生活条件</span></a>
 			</div>
 			<div class="navListItem">
-				<a href="#"><img src="../../assets/img/icon_18.png"><span>异地搬迁户需求</span></a>
+				<a href="javascript:void(0)" ui-sref="lowFamily.plantRelocation({id:1234})"><img src="../../assets/img/icon_18.png"><span>易地搬迁户需求</span></a>
 			</div>
 			<div class="navListItem">
-				<a href="#"><img src="../../assets/img/icon_20.png"><span>帮扶责任人</span></a>
+				<a href="javascript:void(0)" ui-sref="lowFamily.responsibilityPerson({id:1234})"><img src="../../assets/img/icon_20.png"><span>帮扶责任人</span></a>
 			</div>
 			<div class="navListItem">
-				<a href="#"><img src="../../assets/img/icon_22.png"><span>扶贫成效</span></a>
+				<a href="javascript:void(0)" ui-sref="lowFamily.povertyAlleviationResult({id:1234})"><img src="../../assets/img/icon_22.png"><span>扶贫成效</span></a>
 			</div>
 		</div>
 	</nav>
-	<div class="cd-overlay">
+	<div ng-class="{'is-visible':lowFamilyInfo.menu,'cd-overlay':true}">
 		<!-- shadow layer visible when navigation is visible -->
 	</div>
 </div>

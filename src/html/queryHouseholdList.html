@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 		<meta charset="UTF-8">
 		<title>精准扶贫大数据平台</title>
-		
+
 		<link rel="stylesheet" href="../../assets/lib/bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" href="../style/index_sass.min.css">
 
@@ -43,7 +43,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
+				<tr onclick="houseHoldDetail()">
 					<td class="text-center">张北镇</td>
 					<td class="text-center">黄土湾村</td>
 					<td class="text-center">王翠娥</td>
@@ -141,6 +141,12 @@
 				</tr>
 			</tbody>
 		</table>
+		<script type="text/javascript" src="../../assets/lib/js/jquery.min.js"></script>
+		<script>
+			function houseHoldDetail(){
+				location.href='queryHouseholdDetail.html'
+			}
+		</script>
 	</body>
 
 </html>

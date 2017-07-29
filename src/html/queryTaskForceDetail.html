@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="en">
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<meta charset="UTF-8">
+		<title>精准扶贫大数据平台</title>
+		
+		<link rel="stylesheet" href="../../assets/lib/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="../style/index_sass.min.css">
+	</head>
+
+	<body class="villageCollection">
+		<header>
+			<a href="javascript:history.go(-1)">
+				<div class="back"><img src="../../assets/img/icon_28.png" alt=""></div>
+			</a>
+			<div class="collectionTitle">贫困村数据查询</div>
+		</header>
+		<div class="fill"></div>
+		<div>
+		<!-- 添加task -->
+		<div class="taskCon" id="taskCon">
+			<div class="listItem">
+				<div class="title">
+					<img src="../../assets/img/ios_line@2X.png" alt="">
+					<span class="titles">驻村工作队情况</span>
+				</div>
+				<div class="item border-b">
+					<div class="name">驻村工作队员姓名</div>
+					<div class="content">
+						<span>姓名</span>
+					</div>
+				</div>
+				<div class="item border-b">
+					<div class="name">政治面貌</div>
+					<div class="content">
+						<span>党员</span>
+					</div>
+				</div>
+				<div class="item border-b">
+					<div class="name">证件号码</div>
+					<div class="content">
+						<span>1111111111111111111</span>
+					</div>
+				</div>
+				<div class="item border-b">
+					<div class="name">帮扶(派驻)</div>
+					<div class="content">
+						<span>帮扶</span>
+					</div>
+				</div>
+				<div class="item border-b">
+					<div class="name">单位名称</div>
+					<div class="content">
+						<span>政府</span>
+					</div>
+				</div>
+				<div class="item border-b">
+					<div class="name">单位隶属关系</div>
+					<div class="content">
+						<span>关系</span>
+					</div>
+				</div>
+				<div class="item border-b">
+					<div class="name">联系电话</div>
+					<div class="content">
+						<span>15012345678</span>
+					</div>
+				</div>
+				<div class="item border-b">
+					<div class="name">驻村开始时间</div>
+					<div class="content">
+						<span>2017.12.12</span>
+					</div>
+				</div>
+				<div class="item border-b">
+					<div class="name">驻村结束时间</div>
+					<div class="content">
+						<span>2017.12.15</span>
+					</div>
+				</div>
+				<div class="item border-b">
+					<div class="name">是否队长</div>
+					<div class="content">
+						<span>是</span>
+					</div>
+				</div>
+				<div class="item border-b">
+					<div class="name">是否第一书记</div>
+					<div class="content">
+						<span>否</span>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		
+		</div>
+	
+	</body>
+	<script type="text/javascript" src="../../assets/lib/js/jquery.min.js"></script>
+	<script>
+		$("#tab div").click(function(){
+			$(this).addClass('bg').siblings().removeClass('bg');
+			$("#"+$(this).attr('data-type')).show().siblings().hide();
+		})
+	</script>
+
+</html>
