@@ -1,0 +1,37 @@
+<div>
+	<!-- 导航部分 -->
+	<nav ng-class="{'is-visible':lowFamilyInfo.menu,'cd-nav-container':true}">
+		<header class="menuHeader">
+			<a href="javascript:void(0)" class="cd-close-nav" ng-click="lowFamilyInfo.changeMenu(false)">Close</a>
+		</header>
+		<div class="navList">
+			<div class="navListItem">
+				<a href="javascript:void(0)" ui-sref="lowFamily.baseInfo({id:1234})"><img src="../../assets/img/icon_07.png"><span>基本信息</span></a>
+			</div>
+			<div class="navListItem">
+				<a href="javascript:void(0)" ui-sref="lowFamily.familyMember({id:1234})"><img src="../../assets/img/icon_10.png"><span>家庭成员信息</span></a>
+			</div>
+			<div class="navListItem">
+				<a href="javascript:void(0)" ui-sref="lowFamily.causes({id:1234})"><img src="../../assets/img/icon_12.png"><span>致贫原因</span></a>
+			</div>
+			<div class="navListItem">
+				<a href="javascript:void(0)" ui-sref="lowFamily.income({id:1234})"><img src="../../assets/img/icon_14.png"><span>收入情况</span></a>
+			</div>
+			<div class="navListItem">
+				<a href="javascript:void(0)" ui-sref="lowFamily.lifeCondition({id:1234})"><img src="../../assets/img/icon_16.png"><span>生产生活条件</span></a>
+			</div>
+			<div class="navListItem">
+				<a href="javascript:void(0)" ui-sref="lowFamily.plantRelocation({id:1234})"><img src="../../assets/img/icon_18.png"><span>易地搬迁户需求</span></a>
+			</div>
+			<div class="navListItem">
+				<a href="javascript:void(0)" ui-sref="lowFamily.responsibilityPerson({id:1234})"><img src="../../assets/img/icon_20.png"><span>帮扶责任人</span></a>
+			</div>
+			<div class="navListItem">
+				<a href="javascript:void(0)" ui-sref="lowFamily.povertyAlleviationResult({id:1234})"><img src="../../assets/img/icon_22.png"><span>扶贫成效</span></a>
+			</div>
+		</div>
+	</nav>
+	<div ng-class="{'is-visible':lowFamilyInfo.menu,'cd-overlay':true}">
+		<!-- shadow layer visible when navigation is visible -->
+	</div>
+</div>

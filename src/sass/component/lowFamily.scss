@@ -8,10 +8,18 @@
         background-size: 100%;
         //      padding: .25rem 1rem;
         width: 15rem;
-        height:2.8rem;
+        height: 2.8rem;
         outline: none;
-        color:#fff;
+        color: #fff;
         font-size: 1.8rem;
+        a {
+            color: #fff;
+            direction: none;
+            &:active,
+            &:hover {
+                text-decoration: none;
+            }
+        }
     }
 }
 
