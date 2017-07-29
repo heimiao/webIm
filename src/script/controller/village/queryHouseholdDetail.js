@@ -1,26 +1,26 @@
-myApp.controller("queryHouseholdDetail", ["$scope", "$state", "$http", "$stateParams",
+myApp.controller("householdDetail", ["$scope", "$state", "$http", "$stateParams",
 	function($scope, $state, $http, $stateParams) {
-		var lowFamilyInfo = {} || lowFamilyInfo;
-		lowFamilyInfo.urlParam = $stateParams;
-		lowFamilyInfo.sendParam = {};
+		var queryHouseholdDetail = {} || queryHouseholdDetail;
+		queryHouseholdDetail.urlParam = $stateParams;
+		queryHouseholdDetail.sendParam = {};
 
-		lowFamilyInfo.uploadSource = function() {
+		queryHouseholdDetail.uploadSource = function() {
 			console.log(12123123);
 
 			//根据贫困户id
 		}
 
-		console.log(lowFamilyInfo.urlParam);
+		console.log(queryHouseholdDetail.urlParam);
 
-		/*lowFamilyInfo.menu=false;
-		lowFamilyInfo.changeMenu=function(args){
-			lowFamilyInfo.menu=args;
-			console.log(lowFamilyInfo.menu);
+		/*queryHouseholdDetail.menu=false;
+		queryHouseholdDetail.changeMenu=function(args){
+			queryHouseholdDetail.menu=args;
+			console.log(queryHouseholdDetail.menu);
 		}*/
 
 		//调用列表
 		//		$state.go('lowFamily.baseInfo'); //默认显示第一个tab
 		//根据角色遍历响应的菜单
-		$scope.lowFamilyInfo = lowFamilyInfo;
+		$scope.queryHouseholdDetail = queryHouseholdDetail;
 	}
 ]);

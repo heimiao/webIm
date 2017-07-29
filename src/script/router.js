@@ -13,7 +13,6 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 			controller: "lowFamilyListCtro",
 			templateUrl: 'dist/template/lowFamily/lowFamilyList.html'
 		})
-
 		//贫困户草稿列表
 		.state('lowFamilyDraft', {
 			url: '/low_family_draft',
@@ -351,9 +350,9 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 			controller: "queryHouseholdList",
 			templateUrl: 'dist/template/village/queryHouseholdList.html'
 		})
-		.state('queryHouseholdDetail', {
+		.state('householdDetail', {
 			url: '/queryHouseholdDetail',
-			controller: "queryHouseholdDetail",
+			controller: "householdDetail",
 			templateUrl: 'dist/template/village/queryHouseholdDetail.html'
 		})
 		.state('queryFamily', {
