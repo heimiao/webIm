@@ -296,6 +296,106 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 			controller: "queryprojectDetails",
 			templateUrl: '../template/project/queryprojectDetails.html'
 		})
-		
+		//贫困村 
+		.state('poorVillage', {
+			url: '/poorVillage',
+			controller: "poorVillage",
+			templateUrl: '../template/village/poorVillage.html'
+		})
+		.state('villageDraft', {
+			url: '/villageDraft',
+			controller: "villageDraft",
+			templateUrl: '../template/village/villageDraft.html'
+		})
+		.state('villageCollection', {
+			url: '/villageCollection',
+			controller: "villageCollection",
+			templateUrl: '../template/village/villageCollection.html'
+		})
+		.state('addTaskForce', {
+			url: '/addTaskForce',
+			controller: "addTaskForce",
+			templateUrl: '../template/village/addTaskForce.html'
+		})
+		.state('editTaskForce', {
+			url: '/editTaskForce',
+			controller: "editTaskForce",
+			templateUrl: '../template/village/editTaskForce.html'
+		})
+		// 工作日志
+		.state('workLog', {
+			url: '/workLog',
+			controller: "workLog",
+			templateUrl: '../template/village/workLog.html'
+		})
+		.state('workLogDetail', {
+			url: '/workLogDetail',
+			controller: "workLogDetail",
+			templateUrl: '../template/village/workLogDetail.html'
+		})
+		// 通知
+		.state('notice', {
+			url: '/notice',
+			controller: "notice",
+			templateUrl: '../template/village/notice.html'
+		})
+		.state('noticeDetail', {
+			url: '/noticeDetail',
+			controller: "noticeDetail",
+			templateUrl: '../template/village/noticeDetail.html'
+		})
+		// 扶贫数据 查询 贫困户
+		.state('queryHousehold', {
+			url: '/queryHousehold',
+			controller: "queryHousehold",
+			templateUrl: '../template/village/queryHousehold.html'
+		})
+		.state('queryHouseholdList', {
+			url: '/queryHouseholdList',
+			controller: "queryHouseholdList",
+			templateUrl: '../template/village/queryHouseholdList.html'
+		})
+		.state('queryHouseholdDetail', {
+			url: '/queryHouseholdDetail',
+			controller: "queryHouseholdDetail",
+			templateUrl: '../template/village/queryHouseholdDetail.html'
+		})
+		.state('queryFamily', {
+			url: '/queryFamily',
+			controller: "queryFamily",
+			templateUrl: '../template/village/queryFamily.html'
+		})
+		.state('queryHelp', {
+			url: '/queryHelp',
+			controller: "queryHelp",
+			templateUrl: '../template/village/queryHelp.html'
+		})
+		// 扶贫数据 查询 贫困村
+		.state('queryVillage', {
+			url: '/queryVillage',
+			controller: "queryVillage",
+			templateUrl: '../template/village/queryVillage.html'
+		})
+		.state('queryVillageList', {
+			url: '/queryVillageList',
+			controller: "queryVillageList",
+			templateUrl: '../template/village/queryVillageList.html'
+		})
+		.state('queryHouseholdDetail', {
+			url: '/queryHouseholdDetail',
+			controller: "queryHouseholdDetail",
+			templateUrl: '../template/village/queryHouseholdDetail.html'
+		})
+		.state('queryTaskForceDetail', {
+			url: '/queryTaskForceDetail',
+			controller: "queryTaskForceDetail",
+			templateUrl: '../template/village/queryTaskForceDetail.html'
+		})
+		// 登录
+		.state('login', {
+			url: '/login',
+			controller: "login",
+			templateUrl: '../template/village/login.html'
+		})
 
 });
