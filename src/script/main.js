@@ -1,4 +1,4 @@
-jQuery(document).ready(function($){
+/*jQuery(document).ready(function($){
 	//open navigation clicking the menu icon
 	$('.cd-nav-trigger').on('click', function(event){
 		event.preventDefault();
@@ -56,4 +56,4 @@ jQuery(document).ready(function($){
 			section.prev('.cd-section').remove();
 		}
 	}
-});
+});*/
