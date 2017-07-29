@@ -11,116 +11,94 @@ body{
 ul li{
 	list-style: none;
 }
-.smain{
-	width: 100%;
-	height: 100%;
-	padding: 0;
-	background: #f5f5f5;
-}
-.sheader{
-	width:100%;
-	height: 4.5rem;
-	line-height: 4.5rem;
-	background-color: #ea3c4c;
-	font-size:1.8rem ;
-	color: #fff;
-}
-.banner{
-	padding: 0;
-}
-.sbanner{
-	width: 100%;
-	height: 20.06rem;
-	background: url(../../assets/img/ios_index_bj@3X.png) #fff;
-	background-size:100%;
-	background-origin:content-box; 
-	background-position: bottom;
-	background-repeat: no-repeat;
-}
-.bannerTex{
-	font-size: 3rem;
-	color: #000;
-	margin-top:2.8rem ;
-}
-.bannerTex span{
-	font-size: 1.8rem;
-}
-.slist{
-	width: 100%;
-	margin-top: 1rem;
-	background-color: #f5f5f5;
-	padding-bottom: 1rem;
-}
-.sItem{
-	height: 10rem;
-	background: #fff;
-	font-size: 1.6rem;
-	margin-top: 0.5rem;
-	border-radius: 0.5rem;
-}
-.dataAcquisition{
-    border-bottom: 1px solid #e5e5e5;
-    height: 4rem;
-    line-height: 4rem;
-    width: 94%;
-    margin: 0 auto;
-    font-size: 1.53rem;
-    color: #000;
-    .Acquisitioncj{
-        margin-left:0.5rem ;
-        margin-top: 2rem;
-        position: relative;
-        top: 0.4rem;
-        left: 0;
-    }
-    .Acquisitionen{
-        font-size: 1.2rem;
-        color: #444;
-        position: relative;
-        top: 0.4rem;
-        left: 0;
-    }
-}
-.AcquisitionItem{
-    width: 92%;
-    margin: 0 auto;
-    font-size: 1.66rem;
-    >div{
+.queryNatural{
+    .tab5{
+        width: 40%;
+        border: 1px solid red;
+        height: 1rem;
         float: left;
-        width: 25%;
-        margin-top: 2.4rem;
-        color: #444;
-        height: 1.66rem;
-        line-height: 1.66rem;
-    }
-    .pkcball{
-        border-left:1px solid #e5e5e5;
-        border-right:1px solid #e5e5e5;
-    }
-    .pkcbr{
-        border-right:1px solid #e5e5e5;
-    }
-    .pkczh{
-        padding-left: 4px;
-    }
-    :hover{
+        height: 2.2rem;
+        text-align: center;
+        border-radius: 14px;
         color: #ea3c4c;
-        text-decoration: none;
+        margin-top: 1rem;
     }
 }
-.sItem img{
-	width: 2.2rem;
-	height: 2.2rem;
+.naturaldetails{
+    margin-top: 4rem;
+    .sjpkctitle{
+       margin-top: 1rem;
+       font-size: 1.533rem;
+       padding: 0 1rem;
+       height: 3rem;
+       p{
+           width: .5rem;
+           height: 2rem;
+           background: #eb3c4d;
+           float: left;
+           border-radius:0.2rem ;
+       }
+   }
+   .naturaldetailsTitle{
+       text-align: center;
+       font-size: 1.6rem;
+       color: red;
+       color: #444;
+       height: 3.6rem;
+   }
+   .natural_border{
+       border-bottom: 1px solid #bbbbbb;
+   }
+   .detailsmx{
+       margin: 1rem 0;
+       >div{
+           height: 4rem;
+           line-height: 4rem;
+            padding-left: 1rem;
+       }
+       img{
+           width: 1.8rem;
+           margin-right: 0.5rem;
+       }
+      
+   }
+   .naturalbg{
+       background: #eeeeee ;
+       height: 4rem;
+       line-height: 4rem;
+       p{
+           margin-top: 1rem;
+       }
+   }
+   .situation{
+       input{
+           text-align: right;
+           color: #000;
+           padding-right: 1rem;
+           font-size: 1.8rem;
+       }
+       input:disabled{
+            border: 1px solid #fff;
+            background-color: #fff;
+            color:#000;
+            box-shadow: none !important;
+            -webkit-appearance: none; 
+        }
+   }
+   .shengchandetails{
+       input:disabled{
+           text-align: right;
+           color: blue;
+           font-size: 1.8rem;
+           padding-right: 1rem;
+       }
+       select:disabled{
+           text-align: right;
+           color: #8f8f8f;
+           font-size: 1.6rem;
+           padding-right: 1rem;
+       }
+   }
+   
 }
-.sItemRecord{
-    height: 4.33rem !important;
-    .dataAcquisition{
-        border: none;
-    }
-    background-image: url(../../assets/img/Android_index_icon_13.png);
-    background-position: right  1.6rem center;
-    background-repeat: no-repeat;
-    background-size: 1.8rem 1.8rem;
-}
-
 
