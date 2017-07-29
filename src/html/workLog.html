@@ -4,20 +4,6 @@
    	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
     <meta charset="UTF-8">
     <title>精准扶贫大数据平台</title>
-    <script>
-		(function(doc, win) {
-		    var docEl = doc.documentElement,
-		        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
-		        recalc = function() {
-		            var clientWidth = docEl.clientWidth;
-		            if (!clientWidth) return;
-		            docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
-		        };
-		    if (!doc.addEventListener) return;
-		    win.addEventListener(resizeEvt, recalc, false);
-		    doc.addEventListener('DOMContentLoaded', recalc, false);
-		})(document, window);
-	</script>
 	<link rel="stylesheet" href="../../assets/lib/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../style/index_sass.min.css">
 		
@@ -26,12 +12,13 @@
 	<body class="bodyCon">
 		<div class="workCon">
 			<header>
-				<a href="javascript:history.go(-1)"><div class="back"><img style="width:1.58rem;" src="../../assets/img/icon_28.png" alt=""></div></a>
+				<a href="javascript:history.go(-1)"><div class="back"><img src="../../assets/img/icon_28.png" alt=""></div></a>
 				<div class="collectionTitle">工作日志</div>
 				<div class="fillIn">填写</div>
 			</header>
 			<div class="fill"></div>
 			<div class="workList">
+			<a href="workLogDetail.html">
 				<div class="workItem">
 					<div class="title">
 						<div class="time">2017.02.03</div>
@@ -41,7 +28,7 @@
 					<div class="content">
 						到村开展进一步打捞精准扶贫工作，入户摸底贫困户。入户进一步了解农户生产生活现状。帮助王小明家联系买化肥。化肥化肥化肥化肥化肥化肥化肥化肥化肥化肥化肥化肥。
 					</div>
-				</div>
+				</div></a>
 
 				<div class="workItem">
 					<div class="title">
