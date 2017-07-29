@@ -116,4 +116,47 @@ html {
        width: 15rem !important;
        text-align: right;
    }
+   .detailsmx{
+       margin: 1rem 0;
+       >div{
+           height: 4rem;
+           line-height: 4rem;
+            padding-left: 1rem;
+       }
+       img{
+           width: 1.8rem;
+           margin-right: 0.5rem;
+       }
+      
+   }
+   .naturaldetailsTitle{
+       text-align: center;
+       font-size: 1.8rem;
+       color: red;
+       color: #444;
+       height: 2.6rem;
+   }
+}
+.queryprojectd{
+    .situation{
+       input{
+           text-align: right;
+           color: #000;
+           padding-right: 1rem;
+           font-size: 1.8rem;
+       }
+       input:disabled{
+            border: 1px solid #fff;
+            background-color: #fff;
+            color:#000;
+            box-shadow: none !important;
+            -webkit-appearance: none; 
+        }
+   }
+   .projectcx{
+       textarea{
+           max-height: 10rem;
+           margin-top: -1rem;
+       }
+   }
 }

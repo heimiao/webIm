@@ -1,17 +1,36 @@
 <!DOCTYPE html>
 <html>
-<head lang="en">
-   	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-    <meta charset="UTF-8">
-    <title>精准扶贫大数据平台</title>
-	<link rel="stylesheet" href="../../assets/lib/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../style/index_sass.min.css">	
+
+	<head lang="en">
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<meta charset="UTF-8">
+		<title>精准扶贫大数据平台</title>
+
+		<link rel="stylesheet" href="../../assets/lib/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="../style/index_sass.min.css">
+
+		<!--<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
+					};
+				if(!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener('DOMContentLoaded', recalc, false);
+			})(document, window);
+		</script>-->
+	</head>
 	
-</head>
 	<body class="">
 		<header>
-			<a href="javascript:history.go(-1)"><div class="back"><img src="../../assets/img/icon_28.png" alt=""></div></a>
-			<div class="collectionTitle">贫困村数据查询</div>
+			<a href="javascript:history.go(-1)">
+				<div class="back"><img  src="../../assets/img/icon_28.png" alt=""></div>
+			</a>
+			<div class="collectionTitle">贫困户信息采集</div>
 		</header>
 		<div class="fill"></div>
 		<table class="table table-striped" style="margin-top: 5.2rem">
@@ -24,7 +43,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr onclick="villageDetail()">
+				<tr onclick="houseHoldDetail()">
 					<td class="text-center">张北镇</td>
 					<td class="text-center">黄土湾村</td>
 					<td class="text-center">王翠娥</td>
@@ -124,9 +143,10 @@
 		</table>
 		<script type="text/javascript" src="../../assets/lib/js/jquery.min.js"></script>
 		<script>
-			function villageDetail(){
-				location.href="queryVillageDetail.html"
+			function houseHoldDetail(){
+				location.href='queryHouseholdDetail.html'
 			}
 		</script>
 	</body>
+
 </html>
