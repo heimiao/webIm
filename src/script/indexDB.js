@@ -51,7 +51,6 @@ window.IDBKeyRange = window.IDBKeyRange ||
 		},
 		save: function(args) {
 			//var p = new Promise(function(resolve, reject) {});
-
 			db.open(function() {
 				var store, request,
 					mode = 'readwrite';
@@ -81,8 +80,9 @@ window.IDBKeyRange = window.IDBKeyRange ||
 				cursor.onerror = args.error;
 			});
 		},
-		get: function(args) {
-			id = parseInt(args.data.index_id);
+		getById: function(args) {
+			var id = parseInt(args.param.index_id);
+			console.log(id);
 			db.open(function() {
 				var store = db.getObjectStore(args.rqstName),
 					request = store.get(id);
@@ -93,7 +93,7 @@ window.IDBKeyRange = window.IDBKeyRange ||
 			});
 		},
 		'delete': function(args) {
-			id = parseInt(args.data.index_id);
+			var id = parseInt(args.param.index_id);
 			db.open(function() {
 				var
 					mode = 'readwrite',
@@ -136,7 +136,7 @@ window.IDBKeyRange = window.IDBKeyRange ||
 							console.error("删除数据错误，请查看参数是否正确");
 						}
 						break;
-					case "create":
+					case "put":
 						try {
 							db.save(data);
 						} catch(e) {
@@ -152,19 +152,11 @@ window.IDBKeyRange = window.IDBKeyRange ||
 						break;
 					case "selectById":
 						try {
-							db.get(data);
+							db.getById(data);
 						} catch(e) {
-							console.error("查询数据错误，请查看参数是否正确");
+							console.error(e);
+							console.error("根据条件查询数据错误，请查看条件是否正确");
 						}
-						break;
-					case "update":
-						try {
-							db.save(data);
-						} catch(e) {
-							console.error("更新数据错误，请查看参数是否正确");
-						}
-						break;
-					default:
 						break;
 				}
 			} catch(e) {
