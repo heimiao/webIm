@@ -123,6 +123,7 @@ window.IDBKeyRange = window.IDBKeyRange ||
 		"success": function() {},
 		'error': function() {},
 	}
+
 	var dt = {
 		//贫困户接口
 		request: function(data) {
@@ -137,7 +138,6 @@ window.IDBKeyRange = window.IDBKeyRange ||
 						break;
 					case "create":
 						try {
-//							data.data.index_id = "";
 							db.save(data);
 						} catch(e) {
 							console.error("新增数据错误，请查看参数是否正确");
@@ -145,11 +145,14 @@ window.IDBKeyRange = window.IDBKeyRange ||
 						break;
 					case "select":
 						try {
-							if(data.param) {
-								db.get(data);
-							} else {
-								db.getAll(data);
-							}
+							db.getAll(data);
+						} catch(e) {
+							console.error("查询数据错误，请查看参数是否正确");
+						}
+						break;
+					case "selectById":
+						try {
+							db.get(data);
 						} catch(e) {
 							console.error("查询数据错误，请查看参数是否正确");
 						}

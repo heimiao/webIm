@@ -8,13 +8,12 @@ myApp.controller("lowFamilyInfoCtro", ["$scope", "$state", "$http", "$stateParam
 			console.log(12123123);
 			//根据贫困户id
 		}
-		
-		
+
 		dt.request({
 			rqstName: "low_family", //'low_family', 'low_village', 'nature_village', 'relief_project'
-			type: "create", //select,delete,create,update,
+			type: "create", //select,delete,create,update,selectById,
 			data: {
-				index_id:1,
+//				index_id: 2,
 				name: 123,
 				age: 34,
 				asese: 78
@@ -23,10 +22,21 @@ myApp.controller("lowFamilyInfoCtro", ["$scope", "$state", "$http", "$stateParam
 				console.log(args);
 			},
 			'error': function(args) {
-
+				
 			}
 		});
 
+		dt.request({
+			rqstName: "low_family", //'low_family', 'low_village', 'nature_village', 'relief_project'
+			type: "selectById", //select,delete,create,update,selectById,
+			param: {index_id:1},
+			success: function(args) {
+				console.log(args);
+			},
+			'error': function(args) {
+
+			}
+		});
 		/*lowFamilyInfo.menu=false;
 		lowFamilyInfo.changeMenu=function(args){
 			lowFamilyInfo.menu=args;

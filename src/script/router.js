@@ -8,6 +8,12 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 	$urlRouterProvider.otherwise('/login');
 	$stateProvider
 		//贫困户列表
+		.state('home', {
+			url: '/home',
+			//			controller: "lowFamilyListCtro",
+			templateUrl: 'dist/template/home.html'
+		})
+		//贫困户列表
 		.state('lowFamilyList', {
 			url: '/low_family_list',
 			controller: "lowFamilyListCtro",
