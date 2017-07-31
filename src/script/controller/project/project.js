@@ -4,7 +4,7 @@ myApp.controller("project", ["$scope", "$state", "$http", "$stateParams",
 		project.urlParam = $stateParams;
 		project.sendParam = {};
 
-		lowFamilyInfo.uploadSource = function() {
+		project.uploadSource = function() {
 			console.log(12123123);
 
 			//根据贫困户id
