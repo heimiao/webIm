@@ -9,6 +9,8 @@ myApp.controller("login", ["$scope", "$state", "$http", "$stateParams",
 
 			//根据贫困户id
 		}
+			
+		// $state.go("home");
 
 		console.log(login.urlParam);
 
