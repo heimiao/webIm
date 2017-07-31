@@ -3,7 +3,10 @@ myApp.controller("poorVillage", ["$scope", "$state", "$http", "$stateParams",
 		var poorVillage = {} || poorVillage;
 		poorVillage.urlParam = $stateParams;
 		poorVillage.sendParam = {};
-		$http.post("http://123.58.240.75:8081/tpa/zcjg/queryForZc?lx=01",null).then(function(res){
+		var data={
+			
+		}
+		$http.post(config.path.townShip).success(function(res){
 			console.log(1)
 			console.log(res)
 

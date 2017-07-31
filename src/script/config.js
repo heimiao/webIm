@@ -1,8 +1,9 @@
-var baseUrl = "";
+var baseUrl = "http://123.58.240.75:8081/tpa";
 var config = {
 	//请求路径
 	path: {
-		login: baseUrl + ""
+		login: baseUrl + "/dotpalogin",
+		townShip: baseUrl+ "/zcjg/queryForZc",  //获取乡镇列表
 	},
 	//系统基本信息配置
 	sysInfo: {

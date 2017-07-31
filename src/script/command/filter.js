@@ -7,10 +7,11 @@ myApp.factory('myInterceptor', function($q, $cookies, $cookieStore) {
 			/*	if(typeof($cookieStore.get("cookie")) == "string") {
 					console.log("拦截到的是字符串");
 				} else*/
-			if(localStorage.getItem("token")) {
+			if(localStorage.getItem("token")) {  
 				config.headers = config.headers || {};
 				config.headers.token = localStorage.getItem("token");
 				config.headers.inter_type = "app";
+				console.log(JSON.stringify(config));
 			}
 			$("#loading").show();
 			return config || $q.when(config);
