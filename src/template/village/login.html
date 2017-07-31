@@ -40,41 +40,4 @@
 				<div class="login" ng-click="logIn()">登录</div>
 			
 		</div>
-<<<<<<< HEAD
-		<script type="text/javascript" src="../../assets/lib/js/jquery.min.js"></script>
-		<script src="//oss.maxcdn.com/jquery.form/3.50/jquery.form.min.js"></script>
-		<script>
-		function logIn(){
-			// $("#app").val(1);
-			if(!$("#userName").val()){
-				alert("用户名不能为空")
-				return
-			}
-			if(!$("#password").val()){
-				alert("密码不能为空")
-				return
-			}
-			$("#formImg").ajaxSubmit(function(res){
-				//alert(1)
-				if(res.success){
-					//alert(1)
-					window.localStorage.setItem("token", res.message)
-					window.location.href="#/index.html"
-				}else{
-					alert(res.message)
-				}
-			})
-			// $.ajax({
-			// 	url:'http://123.58.240.75:8081/tpa/dologin?loginname='+$("#userName").val+'&password='+$("#password").val+'&app='+1,
-			//     type:"GET",  
-			//     data:null,
-			//     dataType:"json",
-			//     contentType:"application/json",
-			//     success:function(data){  
-			    						
-			//     }
-   //    		})
-		}
-		</script>
-=======
->>>>>>> 93bbacff4883c9c573615206dd48fa5249fdcf9e
+
