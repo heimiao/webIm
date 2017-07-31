@@ -137,7 +137,7 @@ window.IDBKeyRange = window.IDBKeyRange ||
 						break;
 					case "create":
 						try {
-							data.data.index_id = "";
+//							data.data.index_id = "";
 							db.save(data);
 						} catch(e) {
 							console.error("新增数据错误，请查看参数是否正确");

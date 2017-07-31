@@ -8,13 +8,16 @@ myApp.controller("lowFamilyInfoCtro", ["$scope", "$state", "$http", "$stateParam
 			console.log(12123123);
 			//根据贫困户id
 		}
+		
+		
 		dt.request({
 			rqstName: "low_family", //'low_family', 'low_village', 'nature_village', 'relief_project'
 			type: "create", //select,delete,create,update,
 			data: {
+				index_id:1,
 				name: 123,
 				age: 34,
-				asese: 56
+				asese: 78
 			},
 			success: function(args) {
 				console.log(args);
