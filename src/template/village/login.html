@@ -4,18 +4,18 @@
 				<img src="../../assets/img/logo@2x.png" alt="">
 			</div>
 			<div class="title">大唐网络精准扶贫大数据平台</div>
-			<form id="formImg" action="http://123.58.240.75:8081/tpa/dotpalogin" method="post">
+			<form id="formImg" action="" method="post">
 				<div class="infoCon">
 					 <div class="pr">
 						<div class="infoBox">
-							<input id="userName" name="loginname" type="text" placeholder="请输入用户名">
+							<input id="userName" ng-model="userName" name="loginname" type="text" placeholder="请输入用户名">
 						</div>
 						<img class="icon" src="../../assets/img/1080_07.png" alt="">
 					</div>
 					
 					<div class="pr">
 						<div class="infoBox">
-							<input id="password" name="password" type="password" placeholder="请输入登录密码">
+							<input id="password" ng-model="password" name="password" type="password" placeholder="请输入登录密码">
 						</div>
 						<img class="icon" src="../../assets/img/1080_10.png" src="" alt="">
 					</div>
@@ -37,9 +37,10 @@
 				<!-- <input id="app" type="text" name="app" value="" hidden="hidden"/> -->
                 <input type="submit" hidden="hidden" />
 			</form>
-				<div class="login" onclick="logIn()">登录</div>
+				<div class="login" ng-click="logIn()">登录</div>
 			
 		</div>
+<<<<<<< HEAD
 		<script type="text/javascript" src="../../assets/lib/js/jquery.min.js"></script>
 		<script src="//oss.maxcdn.com/jquery.form/3.50/jquery.form.min.js"></script>
 		<script>
@@ -75,3 +76,5 @@
    //    		})
 		}
 		</script>
+=======
+>>>>>>> 93bbacff4883c9c573615206dd48fa5249fdcf9e

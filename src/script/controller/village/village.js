@@ -3,18 +3,14 @@ myApp.controller("poorVillage", ["$scope", "$state", "$http", "$stateParams",
 		var poorVillage = {} || poorVillage;
 		poorVillage.urlParam = $stateParams;
 		poorVillage.sendParam = {};
-
-		poorVillage.uploadSource = function() {
-			console.log(12123123);
-
-			poorVillage.test=[{id:1,name:'test'}]
-				 
-
-			//根据贫困户id
+		var data={
+			
 		}
+		$http.post(config.path.townShip).success(function(res){
+			console.log(1)
+			console.log(res)
 
-
-		console.log(poorVillage.urlParam);
+		})
 
 		/*poorVillage.menu=false;
 		poorVillage.changeMenu=function(args){

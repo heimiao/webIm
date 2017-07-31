@@ -7,10 +7,11 @@ myApp.factory('myInterceptor', function($q, $cookies, $cookieStore) {
 			/*	if(typeof($cookieStore.get("cookie")) == "string") {
 					console.log("拦截到的是字符串");
 				} else*/
-			if(localStorage.getItem("token")) {
+			if(localStorage.getItem("token")) {  
 				config.headers = config.headers || {};
 				config.headers.token = localStorage.getItem("token");
 				config.headers.inter_type = "app";
+				console.log(JSON.stringify(config));
 			}
 			$("#loading").show();
 			return config || $q.when(config);
@@ -50,3 +51,20 @@ myApp.factory('myInterceptor', function($q, $cookies, $cookieStore) {
 		}
 	};
 });
+
+//保存服务
+myApp.factory("postForm",
+	function($http) {
+		return {
+			saveFrm: function(url, data) {
+				return $http.post(url, data, {
+					headers: {
+						'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+					},
+					transformRequest: function(request) {
+						return $.param(request);
+					}
+				});
+			}
+		};
+	});
