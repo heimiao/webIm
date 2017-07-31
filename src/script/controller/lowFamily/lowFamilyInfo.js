@@ -17,6 +17,6 @@ myApp.controller("lowFamilyInfoCtro", ["$scope", "$state", "$http", "$stateParam
 		//调用列表
 		//		$state.go('lowFamily.baseInfo'); //默认显示第一个tab
 		//根据角色遍历响应的菜单
-		$scope.lowFamilyInfo = lowFamilyInfo;
+		$scope.lowFamilyInfo = lowFamilyInfo; 
 	}
 ]);

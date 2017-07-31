@@ -1,5 +1,5 @@
 //经纪人列表
-myApp.controller("lowFamilyListCtro", ["$scope", "$state", "$filter", "$http", "$stateParams",function($scope, $state, $filter, $http, $stateParams) {
+myApp.controller("lowFamilyListCtro", ["$scope", "$state", "$filter", "$http", "$stateParams", function($scope, $state, $filter, $http, $stateParams) {
 	var lowFamilyList = {} || lowFamilyList;
 	//获取参数
 	lowFamilyList.urlParam = $stateParams;
@@ -10,7 +10,10 @@ myApp.controller("lowFamilyListCtro", ["$scope", "$state", "$filter", "$http", "
 	};
 	lowFamilyList.list = {};
 	//获取当前用户信息  
-
+	$scope.post(config.path.lowFamilyList, data).success(function(data) {
+		console.log(data);
+	})
+	
 	//根据角色遍历响应的菜单
 	$scope.lowFamilyList = lowFamilyList;
 }]);
