@@ -12,10 +12,12 @@ var config = {
 	//系统基本信息配置
 	sysInfo: {
 		page: {
-
+			limit: 15,
+			start: 0,
 		},
 		selects: {
-
+			//系统默认下拉框
+			
 		}
 	},
 	//系统状态配置

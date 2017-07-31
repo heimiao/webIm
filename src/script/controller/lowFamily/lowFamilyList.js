@@ -11,7 +11,6 @@ myApp.controller("lowFamilyListCtro", ["$scope", "$state", "$filter", "$http", "
 		start: 0,
 	};
 	lowFamilyList.list = {};
-	console.log(111111);
 	//获取当前用户信息  
 	/*	$http.post(config.path.lowFamilyList).success(function(data) {
 			console.log(data);

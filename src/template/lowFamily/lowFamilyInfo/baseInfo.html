@@ -9,7 +9,7 @@
 				<div class="pkcList clearfix">
 					<label for="pkcxz" class="col-xs-4">镇(乡、苏木)</label>
 					<div class="col-xs-5 padd0 pkcRight">
-						<select class="form-control" id="pkcxz">
+						<select class="form-control" id="pkcxz" ng-model="low_family_baseInfo.formInfo.qyxz">
 							<option>张北镇</option>
 							<option>1</option>
 						</select>
@@ -18,7 +18,7 @@
 				<div class="pkcList clearfix">
 					<label class="col-xs-4">行政村</label>
 					<div class="col-xs-5 padd0 pkcRight">
-						<select class="form-control">
+						<select class="form-control" ng-model="low_family_baseInfo.formInfo.qyxzc">
 							<option>二八地村</option>
 							<option>2</option>
 						</select>
@@ -27,7 +27,7 @@
 				<div class="pkcList clearfix">
 					<label class="col-xs-4">自然村(屯)</label>
 					<div class="col-xs-5 padd0 pkcRight">
-						<select class="form-control">
+						<select class="form-control" ng-model="low_family_baseInfo.formInfo.qyzrc">
 							<option>自然村</option>
 							<option>2</option>
 						</select>
@@ -36,28 +36,30 @@
 				<div class="pkcList pkcListTel clearfix">
 					<label class="col-xs-4">联系电话</label>
 					<div class="col-xs-5 padd0 pkcRight">
-						<input type="text" placeholder="请输入电话号码" />
+						<input type="text" placeholder="请输入电话号码" ng-model="low_family_baseInfo.formInfo.lxdh" />
 					</div>
 				</div>
 				<div class="pkcList clearfix">
 					<label class="col-xs-4">开户银行</label>
 					<div class="col-xs-5 padd0 pkcRight">
-						<select class="form-control">
+						<select class="form-control" ng-model="low_family_baseInfo.formInfo.khyh">
 							<option>中国农业银行</option>
 							<option>2</option>
 						</select>
 					</div>
 				</div>
+
 				<div class="pkcList clearfix">
 					<label class="col-xs-4">银行账号</label>
 					<div class="col-xs-5 padd0 pkcRight">
-						<input type="text" placeholder="11111111111" />
+						<input type="text" placeholder="银行账号" ng-model="low_family_baseInfo.formInfo.yhzh" />
 					</div>
 				</div>
+
 				<div class="pkcList clearfix">
 					<label class="col-xs-5">A18贫困用户属性</label>
 					<div class="col-xs-5 padd0 pkcRight">
-						<select class="form-control">
+						<select class="form-control" ng-model="low_family_baseInfo.formInfo.bhksx">
 							<option>一般贫困户</option>
 							<option>低保贫困户</option>
 							<option>五保贫困户</option>
@@ -67,7 +69,7 @@
 				<div class="pkcList clearfix">
 					<label class="col-xs-4">A19是否军烈属</label>
 					<div class="col-xs-5 padd0 pkcRight">
-						<select class="form-control">
+						<select class="form-control" ng-model="low_family_baseInfo.formInfo.sfjls">
 							<option>是</option>
 							<option>否</option>
 						</select>
@@ -76,7 +78,7 @@
 				<div class="pkcList clearfix">
 					<label class="col-xs-4">A20是否独生子女</label>
 					<div class="col-xs-5 padd0 pkcRight">
-						<select class="form-control">
+						<select class="form-control" ng-model="low_family_baseInfo.formInfo.sfdsznh">
 							<option>是</option>
 							<option>否</option>
 						</select>
@@ -85,7 +87,7 @@
 				<div class="pkcList clearfix">
 					<label class="col-xs-4">A21是否双女户</label>
 					<div class="col-xs-5 padd0 pkcRight">
-						<select class="form-control">
+						<select class="form-control" ng-model="low_family_baseInfo.formInfo.sfsnh">
 							<option>是</option>
 							<option>否</option>
 						</select>
@@ -94,7 +96,7 @@
 				<div class="pkcList clearfix">
 					<label class="col-xs-4">A10脱贫状态</label>
 					<div class="col-xs-5 padd0 pkcRight">
-						<select class="form-control">
+						<select class="form-control" ng-model="low_family_baseInfo.formInfo.tpqk">
 							<option>返贫贫困户</option>
 							<option>历史已脱贫贫困户</option>
 							<option>未脱贫贫困户</option>
@@ -105,13 +107,13 @@
 				<div class="pkcList clearfix">
 					<label class="col-xs-4">不脱贫原因</label>
 					<div class="col-xs-5 padd0 pkcRight">
-						<select class="form-control">
+						<select class="form-control" ng-model="low_family_baseInfo.formInfo.test">
 							<option>不脱贫原因</option>
 						</select>
 					</div>
 				</div>
 				<div class="pkctips">注：已达到脱贫指标，但实际未脱贫的填此项</div>
 			</div>
-		</div> 
+		</div>
 	</div>
 </section>
