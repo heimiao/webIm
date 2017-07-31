@@ -3,13 +3,19 @@ myApp.controller("naturalVillage", ["$scope", "$state", "$http", "$stateParams",
 		var naturalVillage = {} || naturalVillage;
 		naturalVillage.urlParam = $stateParams;
 		naturalVillage.sendParam = {};
-
-		naturalVillage.uploadSource = function() {
+			alert();
+	/*	naturalVillage.uploadSource = function() {
 			console.log(12123123);
-
 			//根据贫困户id
-		}
-
+		}*/
+		
+		
+		
+		console.log(config.path.naturalVillage);
+		
+		$http.post(config.path.naturalVillage,{}).success(function(data){
+			console.log(data)
+		})
 		console.log(naturalVillage.urlParam);
 
 		/*naturalVillage.menu=false;

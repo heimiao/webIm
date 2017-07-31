@@ -107,7 +107,7 @@ gulp.task('webserver', function() {
 			port: '3000',
 			host: 'localhost',
 			directoryListing: false,
-			defaultFile: "index.html",
+			gdefaultFile: "index.html",
 			open: true
 		}));
 });
