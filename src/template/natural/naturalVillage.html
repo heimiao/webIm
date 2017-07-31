@@ -8,12 +8,15 @@
 		<div class="screen-con">
 			<div id="time" class="open naturaltime" onclick="timeList()"><span class="name">年度</span><span class="triangle"></span></div>
 			<div class="timeList">
-				<div onclick="chooseTime('2017')">2018</div>
+				<div onclick="chooseTime('2020')">2020</div>
+				<div onclick="chooseTime('2019')">2019</div>
+				<div onclick="chooseTime('2018')">2018</div>
+				<div onclick="chooseTime('2017')">2017</div>
 				<div onclick="chooseTime('2016')">2016</div>
 				<div onclick="chooseTime('2015')">2015</div>
 				<div onclick="chooseTime('2014')">2014</div>
 			</div>
-			<div id="township" class="township" onclick="townshipList()">
+			<!--<div id="township" class="township" onclick="townshipList()">
 				<span class="name">全部乡镇</span><span class="triangle"></span>
 			</div>
 			<div class="townshipList">
@@ -28,7 +31,7 @@
 				<div onclick="chooseVillage('沽源县村')">沽源县村</div>
 				<div onclick="chooseVillage('白庙滩乡村')">白庙滩乡村</div>
 				<div onclick="chooseVillage('尚义县村')">尚义县村</div>
-			</div>
+			</div>-->
 			
 			
 		</div>
@@ -38,96 +41,17 @@
 		<table class="table table-striped">
 			<thead>
 				<tr>
-					<td class="text-center">乡镇</td>
+					<!--<td class="text-center">乡镇</td>-->
 					<td class="text-center">行政村</td>
 					<td class="text-center">自然村</td>
 					<td class="text-center">村负责人</td>
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td class="text-center"><a href="#/natural_Edite">张北镇</a></td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">王翠娥</td>			
-				</tr>
-				<tr>
-					<td class="text-center">张北镇</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">王翠娥</td>
-				</tr>
-				<tr>
-					<td class="text-center">张北镇</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">王翠娥</td>
-				</tr>
-				<tr>
-					<td class="text-center">张北镇</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">王翠娥</td>
-				</tr>
-				<tr>
-					<td class="text-center">张北镇</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">王翠娥</td>
-				</tr>
-				<tr>
-					<td class="text-center">张北镇</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">王翠娥</td>
-				</tr>
-				<tr>
-					<td class="text-center">张北镇</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">王翠娥</td>
-				</tr>
-				<tr>
-					<td class="text-center">张北镇</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">王翠娥</td>
-				</tr>
-				<tr>
-					<td class="text-center">张北镇</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">王翠娥</td>
-				</tr>
-				<tr>
-					<td class="text-center">张北镇</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">王翠娥</td>
-				</tr>
-				<tr>
-					<td class="text-center">张北镇</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">王翠娥</td>
-				</tr>
-				<tr>
-					<td class="text-center">张北镇</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">王翠娥</td>
-				</tr>
-				<tr>
-					<td class="text-center">张北镇</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">王翠娥</td>
-				</tr>
-				<tr>
-					<td class="text-center">张北镇</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">王翠娥</td>
+				<tr ng-repeat="item in natural.list" ui-sref="naturalEdite({id:item.id})">
+					<td class="text-center" ng-bind="item"></td>
+					<td class="text-center" ng-bind="item"></td>
+					<td class="text-center" ng-bind="item.fzr"></td>			
 				</tr>
 			</tbody>
 		</table>
@@ -138,7 +62,7 @@
 			</a>
 			<!--<div class="addPoor"><a href="naturalAdd.html" style="color: #fff;">+ 新增自然村</a></div>-->
 			<div class="addPoor">
-				<a href="#/natural_Add" style="color: #fff;">
+				<a style="color: #fff;" ui-sref="naturalAdd">
 					+ 新增自然村
 				</a>
 			</div>

@@ -28,7 +28,7 @@ myApp.controller("low_family_baseCtro", ["$scope", "$rootScope", "$state", "$htt
 				});
 			}
 		}
-
+			
 		$rootScope.$on('$routeChangeSuccess', function() {})
 		/*$scope.$watch('$viewContentLoading', function(event, viewConfig) {
 			//			alert('模板加载完成前');

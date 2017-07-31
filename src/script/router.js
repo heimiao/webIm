@@ -257,7 +257,7 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 			templateUrl: 'dist/template/project/projecEditsjpkh.html'
 		})
 
-		//扶贫项目 编辑 涉及贫困户
+		//扶贫项目 编辑 涉及贫困村
 		.state('projectEditsjpkc', {
 			url: '/project_Editsjpkc?id&type',
 			controller: "projectEditsjpkc",
