@@ -50,3 +50,20 @@ myApp.factory('myInterceptor', function($q, $cookies, $cookieStore) {
 		}
 	};
 });
+
+//保存服务
+myApp.factory("postForm",
+	function($http) {
+		return {
+			saveFrm: function(url, data) {
+				return $http.post(url, data, {
+					headers: {
+						'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+					},
+					transformRequest: function(request) {
+						return $.param(request);
+					}
+				});
+			}
+		};
+	});
