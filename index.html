@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<<<<<<< HEAD
 <html ng-app="myApp">
 
 	<head>
@@ -12,66 +11,16 @@
 		<link rel="stylesheet" href="./assets/lib/bootstrap/css/bootstrap.min.css">
 		<!--<link rel="stylesheet" href="./assets/lib/ydui/css/ydui.css" />-->
 		<link rel="stylesheet" href="./dist/style/index_sass.min.css">
-		
-		<!--<script src="./assets/lib/ydui/js/ydui.flexible.js" type="text/javascript" charset="utf-8"></script>-->
-		<!--<script type="text/javascript">
-=======
-<html ng-app="myApp"> 
-		<head>
-			<meta charset="UTF-8">
-			<title></title>
-			<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
-			<meta content="yes" name="apple-mobile-web-app-capable" />
-			<meta content="black" name="apple-mobile-web-app-status-bar-style" />
-			<meta content="telephone=no" name="format-detection" />
-
-			<link rel="stylesheet" href="./assets/lib/bootstrap/css/bootstrap.min.css">
-			<!--<link rel="stylesheet" href="./assets/lib/ydui/css/ydui.css" />-->
-			<link rel="stylesheet" href="./dist/style/index_sass.min.css">
-
-			<!--<script src="./assets/lib/ydui/js/ydui.flexible.js" type="text/javascript" charset="utf-8"></script>-->
-			<!--<script type="text/javascript">
->>>>>>> a96f5baa2434b34294e94d601a490870680ad10b
-				(function(doc, win) {
-					var docEl = doc.documentElement,
-						resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
-						recalc = function() {
-							var clientWidth = docEl.clientWidth;
-							if(!clientWidth) return;
-							docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
-						};
-					if(!doc.addEventListener) return;
-					win.addEventListener(resizeEvt, recalc, false);
-					doc.addEventListener('DOMContentLoaded', recalc, false);
-				})(document, window);
-			</script>-->
 	</head>
 
 	<body>
-		<div ui-view> </div>
+		<div ui-view style="height: 100%;"> </div>
 		<script src="./assets/lib/js/jquery.min.js" type="text/javascript"></script>
 		<script src="./assets/lib/angular/angular.min.js" type="text/javascript"></script>
 		<script src="./assets/lib/angular/angular-ui-router.js" type="text/javascript"></script>
 		<script src="./assets/lib/angular/angular-cookies.min.js" type="text/javascript"></script>
 		<script src="./assets/lib/angular/ng-file-upload-all.min.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript" src="./dist/script/all.min.js"></script>
-
-<<<<<<< HEAD
-		<!--<script type="text/javascript">
-=======
-		<body >
-			<div ui-view style="height: 100%;" > </div>
-			<script src="./assets/lib/js/jquery.min.js" type="text/javascript"></script>
-			<script src="./assets/lib/angular/angular.min.js" type="text/javascript"></script>
-			<script src="./assets/lib/angular/angular-ui-router.js" type="text/javascript"></script>
-			<script src="./assets/lib/angular/angular-cookies.min.js" type="text/javascript"></script>
-			<script src="./assets/lib/angular/ng-file-upload-all.min.js" type="text/javascript" charset="utf-8"></script>
-			<script type="text/javascript" src="./dist/script/all.min.js"></script>
-			
-			<!--<script type="text/javascript">
->>>>>>> a96f5baa2434b34294e94d601a490870680ad10b
-				var myApp = angular.module("myApp", ['ui.router', 'ngCookies', 'ngFileUpload']);
-			</script>-->
 	</body>
 
 </html>
