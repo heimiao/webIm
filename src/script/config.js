@@ -4,6 +4,9 @@ var config = {
 	path: {
 		login: baseUrl + "/dotpalogin",
 		townShip: baseUrl+ "/zcjg/queryForZc",  //获取乡镇列表
+		townShip: baseUrl+ "/zcjg/queryForZc",  //获取乡镇列表
+		naturalVillage: baseUrl+ "/zrc/queryForPage",  //自然村列表
+		//naturalbianji: baseUrl+ "/zrc/naturalEdite",  //自然村详情编辑
 	},
 	//系统基本信息配置
 	sysInfo: {
