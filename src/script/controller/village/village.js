@@ -3,10 +3,11 @@ myApp.controller("poorVillage", ["$scope", "$state", "$http", "$stateParams",
 		var poorVillage = {} || poorVillage;
 		poorVillage.urlParam = $stateParams;
 		poorVillage.sendParam = {};
-		var data={
-			
-		}
-		$http.post(config.path.townShip).success(function(res){
+		// var data={
+		// 	"lx": 01
+		// }
+		console.log("123333"+JSON.stringify(config));
+		$http.post(config.path.townShip,null).success(function(res){
 			console.log(1)
 			console.log(res)
 

@@ -3,7 +3,7 @@ var config = {
 	//请求路径
 	path: {
 		login: baseUrl + "/dotpalogin",
-		townShip: baseUrl+ "/zcjg/queryForZc",  //获取乡镇列表
+		townShip: baseUrl+ "/zcjg/queryForZc?lx=01",  //获取乡镇列表
 	},
 	//系统基本信息配置
 	sysInfo: {
