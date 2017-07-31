@@ -8,29 +8,29 @@
 				<div class="infoCon">
 					 <div class="pr">
 						<div class="infoBox">
-							<input style="background-color:#f48490" id="userName" name="loginname" type="text" placeholder="请输入用户名">
+							<input id="userName" name="loginname" type="text" placeholder="请输入用户名">
 						</div>
-						<img class="icon" src="../../assets/img/Login_07@2x.png" alt="">
+						<img class="icon" src="../../assets/img/1080_07.png" alt="">
 					</div>
 					
 					<div class="pr">
 						<div class="infoBox">
-							<input style="background-color:#df808f" id="password" name="password" type="password" placeholder="请输入登录密码">
+							<input id="password" name="password" type="password" placeholder="请输入登录密码">
 						</div>
-						<img class="icon" src="../../assets/img/Login_10@2x.png" src="" alt="">
+						<img class="icon" src="../../assets/img/1080_10.png" src="" alt="">
 					</div>
 					<!-- <div class="fillBorder"></div> -->
 
 					<div class="pr">
 						<div class="infoBox">
-							<select style="background-color:#cf7d8f" name="" id="">
+							<select name="" id="">
 								<option value="">请选择扶贫县</option>
 								<option value="">沽源县</option>
 							</select> 
 							<!-- <input type="text" placeholder="请选择扶贫县"> -->
 							<!-- <img src="" alt=""> -->
 						</div>
-						<img class="icon" src="../../assets/img/Login_15@2x.png" src="" alt="">
+						<img class="icon" src="../../assets/img/1080_15.png" src="" alt="">
 						<img class="icons" src="../../assets/img/Login_13@2x.png" src="" alt="">
 					</div>
 				</div>
@@ -54,9 +54,9 @@
 				return
 			}
 			$("#formImg").ajaxSubmit(function(res){
-				alert(1)
+				//alert(1)
 				if(res.success){
-					alert(1)
+					//alert(1)
 					window.localStorage.setItem("token", res.message)
 					window.location.href="index.html"
 				}else{
