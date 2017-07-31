@@ -6,6 +6,8 @@ var config = {
 		//贫困村
 		lowFamilyList: baseUrl + "/pkh/queryForPage",
 		lowFamilyById: baseUrl + "/pkh/queryForId",
+		login: baseUrl + "/dotpalogin",
+		townShip: baseUrl + "/zcjg/queryForZc", //获取乡镇列表
 	},
 	//系统基本信息配置
 	sysInfo: {

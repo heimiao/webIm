@@ -1,4 +1,4 @@
-var familyInfo = angular.module("familyInfo", ['ngFileUpload']);
+/*var familyInfo = angular.module("familyInfo", ['ngFileUpload']);
 
 familyInfo.controller("familyInfoCtro", ["$scope", "$filter", "$http", function($scope, $filter, $http) {
 	var familyInfo = {} || familyInfo;
@@ -9,4 +9,4 @@ familyInfo.controller("familyInfoCtro", ["$scope", "$filter", "$http", function(
 	familyInfo.list = {};
 	$scope.familyInfo = familyInfo;
 
-}]);
+}]);*/

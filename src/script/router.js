@@ -4,6 +4,13 @@ var myApp = angular.module("myApp", ['ui.router', 'ngCookies', 'ngFileUpload']);
 myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 	//添加拦截器
 	$httpProvider.interceptors.push("myInterceptor");
+
+	/*if(!$httpProvider.defaults.headers.get) {
+		$httpProvider.defaults.headers.get = {};
+	}
+	$httpProvider.defaults.headers.get['token'] = localStorage.getItem("token");
+	$httpProvider.defaults.headers.get['inter_type'] = 'app';*/
+
 	//设置默认的加载模块
 	$urlRouterProvider.otherwise('/login');
 	$stateProvider

@@ -8,6 +8,7 @@ myApp.controller("lowFamilyInfoCtro", ["$scope", "$state", "$http", "$stateParam
 			console.log(12123123);
 			//根据贫困户id
 		}
+		$http.post(config.path.byId)
 		/*lowFamilyInfo.menu=false;
 		lowFamilyInfo.changeMenu=function(args){
 			lowFamilyInfo.menu=args;

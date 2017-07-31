@@ -68,101 +68,11 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<td class="text-center">张北镇</td>
-				<td class="text-center">黄土湾村</td>
-				<td class="text-center">王翠娥</td>
-				<td class="text-center">低保贫困户</td>
-			</tr>
-			<tr>
-				<td class="text-center">张北镇</td>
-				<td class="text-center">黄土湾村</td>
-				<td class="text-center">王翠娥</td>
-				<td class="text-center">低保贫困户</td>
-			</tr>
-			<tr>
-				<td class="text-center">张北镇</td>
-				<td class="text-center">黄土湾村</td>
-				<td class="text-center">王娥</td>
-				<td class="text-center">贫困户</td>
-			</tr>
-			<tr>
-				<td class="text-center">张北镇</td>
-				<td class="text-center">黄土湾村</td>
-				<td class="text-center">王翠娥</td>
-				<td class="text-center">低保贫困户</td>
-			</tr>
-			<tr>
-				<td class="text-center">张北dd镇</td>
-				<td class="text-center">黄土村</td>
-				<td class="text-center">王娥</td>
-				<td class="text-center">贫困户</td>
-			</tr>
-			<tr>
-				<td class="text-center">张北dd镇</td>
-				<td class="text-center">黄土村</td>
-				<td class="text-center">王娥</td>
-				<td class="text-center">贫困户</td>
-			</tr>
-			<tr>
-				<td class="text-center">张北镇</td>
-				<td class="text-center">黄土湾村</td>
-				<td class="text-center">王翠娥</td>
-				<td class="text-center">低保贫困户</td>
-			</tr>
-			<tr>
-				<td class="text-center">张北镇</td>
-				<td class="text-center">黄土湾村</td>
-				<td class="text-center">王娥</td>
-				<td class="text-center">贫困户</td>
-			</tr>
-			<tr>
-				<td class="text-center">张北镇</td>
-				<td class="text-center">黄土湾村</td>
-				<td class="text-center">王翠娥</td>
-				<td class="text-center">低保贫困户</td>
-			</tr>
-			<tr>
-				<td class="text-center">张北dd镇</td>
-				<td class="text-center">黄土村</td>
-				<td class="text-center">王娥</td>
-				<td class="text-center">贫困户</td>
-			</tr>
-			<tr>
-				<td class="text-center">张北dd镇</td>
-				<td class="text-center">黄土村</td>
-				<td class="text-center">王娥</td>
-				<td class="text-center">贫困户</td>
-			</tr>
-			<tr>
-				<td class="text-center">张北镇</td>
-				<td class="text-center">黄土湾村</td>
-				<td class="text-center">王翠娥</td>
-				<td class="text-center">低保贫困户</td>
-			</tr>
-			<tr>
-				<td class="text-center">张北镇</td>
-				<td class="text-center">黄土湾村</td>
-				<td class="text-center">王娥</td>
-				<td class="text-center">贫困户</td>
-			</tr>
-			<tr>
-				<td class="text-center">张北镇</td>
-				<td class="text-center">黄土湾村</td>
-				<td class="text-center">王翠娥</td>
-				<td class="text-center">低保贫困户</td>
-			</tr>
-			<tr>
-				<td class="text-center">张北dd镇</td>
-				<td class="text-center">黄土村</td>
-				<td class="text-center">王娥</td>
-				<td class="text-center">贫困户</td>
-			</tr>
-			<tr>
-				<td class="text-center">张北dd镇</td>
-				<td class="text-center">黄土村</td>
-				<td class="text-center">王娥</td>
-				<td class="text-center">贫困户</td>
+			<tr ng-repeat="item in lowFamilyList.list">
+				<td class="text-center" ng-bind="item">张北镇</td>
+				<td class="text-center" ng-bind="item">黄土湾村</td>
+				<td class="text-center" ng-bind="item.hzxm">王翠娥</td>
+				<td class="text-center" ng-bind="item.bhksx">低保贫困户</td>
 			</tr>
 		</tbody>
 	</table>
@@ -178,4 +88,178 @@
         -->
 		<a href="#/low_family/low_family_base?id=1234" ui-sref="lowFamily.baseInfo({id:1234})" class="addPoor">+ 新增贫困户</a>
 	</footer>
+	<script>
+		// 展开 收起
+		function openToggle() {
+			$("#screen-con2").slideToggle(200)
+			$(".fill2").slideToggle(200)
+			$(".open").toggleClass("open2")
+
+			$(".townshipList").slideUp(200)
+			$("#township").removeClass("township2")
+			$("#township .name").removeClass("col-ea3c4c")
+
+			$(".villageList").slideUp(200)
+			$("#village").removeClass("township2")
+			$("#village .name").removeClass("col-ea3c4c")
+
+			$(".numList").slideUp(200)
+			$("#num").removeClass("township2")
+			$("#num .name").removeClass("col-ea3c4c")
+
+			$(".poorList").slideUp(200)
+			$("#poor").removeClass("township2")
+			$("#poor .name").removeClass("col-ea3c4c")
+
+			$(".timeList").slideUp(200)
+			$("#time").removeClass("township2")
+			$("#time .name").removeClass("col-ea3c4c")
+
+		}
+		// 全部乡镇列表
+		function townshipList() {
+			$(".townshipList").slideToggle(200)
+			$("#township").toggleClass("township2")
+			$("#township .name").toggleClass("col-ea3c4c")
+
+			$(".villageList").slideUp(200)
+			$("#village").removeClass("township2")
+			$("#village .name").removeClass("col-ea3c4c")
+
+			$(".numList").slideUp(200)
+			$("#num").removeClass("township2")
+			$("#num .name").removeClass("col-ea3c4c")
+
+			$(".poorList").slideUp(200)
+			$("#poor").removeClass("township2")
+			$("#poor .name").removeClass("col-ea3c4c")
+
+			$(".timeList").slideUp(200)
+			$("#time").removeClass("township2")
+			$("#time .name").removeClass("col-ea3c4c")
+		}
+		//全部行政村
+		function villageList() {
+			$(".villageList").slideToggle(200)
+			$("#village").toggleClass("township2")
+			$("#village .name").toggleClass("col-ea3c4c")
+
+			$(".townshipList").slideUp(200)
+			$("#township").removeClass("township2")
+			$("#township .name").removeClass("col-ea3c4c")
+
+			$(".numList").slideUp(200)
+			$("#num").removeClass("township2")
+			$("#num .name").removeClass("col-ea3c4c")
+
+			$(".poorList").slideUp(200)
+			$("#poor").removeClass("township2")
+			$("#poor .name").removeClass("col-ea3c4c")
+
+			$(".timeList").slideUp(200)
+			$("#time").removeClass("township2")
+			$("#time .name").removeClass("col-ea3c4c")
+		}
+		//数据状态
+		function numList() {
+			$(".numList").slideToggle(200)
+			$("#num").toggleClass("township2")
+			$("#num .name").toggleClass("col-ea3c4c")
+
+			$(".townshipList").slideUp(200)
+			$("#township").removeClass("township2")
+			$("#township .name").removeClass("col-ea3c4c")
+
+			$(".villageList").slideUp(200)
+			$("#village").removeClass("township2")
+			$("#village .name").removeClass("col-ea3c4c")
+
+			$(".poorList").slideUp(200)
+			$("#poor").removeClass("township2")
+			$("#poor .name").removeClass("col-ea3c4c")
+
+			$(".timeList").slideUp(200)
+			$("#time").removeClass("township2")
+			$("#time .name").removeClass("col-ea3c4c")
+		}
+		//贫困情况
+		function poorList() {
+			$(".poorList").slideToggle(200)
+			$("#poor").toggleClass("township2")
+			$("#poor .name").toggleClass("col-ea3c4c")
+
+			$(".townshipList").slideUp(200)
+			$("#township").removeClass("township2")
+			$("#township .name").removeClass("col-ea3c4c")
+
+			$(".villageList").slideUp(200)
+			$("#village").removeClass("township2")
+			$("#village .name").removeClass("col-ea3c4c")
+
+			$(".numList").slideUp(200)
+			$("#num").removeClass("township2")
+			$("#num .name").removeClass("col-ea3c4c")
+
+			$(".timeList").slideUp(200)
+			$("#time").removeClass("township2")
+			$("#time .name").removeClass("col-ea3c4c")
+		}
+
+		function timeList() {
+			$(".timeList").slideToggle(200)
+			$("#time").toggleClass("township2")
+			$("#time .name").toggleClass("col-ea3c4c")
+
+			$(".townshipList").slideUp(200)
+			$("#township").removeClass("township2")
+			$("#township .name").removeClass("col-ea3c4c")
+
+			$(".villageList").slideUp(200)
+			$("#village").removeClass("township2")
+			$("#village .name").removeClass("col-ea3c4c")
+
+			$(".numList").slideUp(200)
+			$("#num").removeClass("township2")
+			$("#num .name").removeClass("col-ea3c4c")
+
+			$(".poorList").slideUp(200)
+			$("#poor").removeClass("township2")
+			$("#poor .name").removeClass("col-ea3c4c")
+		}
+		//选择乡镇
+		function chooseTownship(text) {
+			$("#township .name").html(text)
+			$(".townshipList").slideUp(200)
+			$("#township").removeClass("township2")
+			$("#township .name").removeClass("col-ea3c4c")
+		}
+		// 选择行政村
+		function chooseVillage(text) {
+			$("#village .name").html(text)
+			$(".villageList").slideUp(200)
+			$("#village").removeClass("township2")
+			$("#village .name").removeClass("col-ea3c4c")
+		}
+		// 选择数据状态
+		function chooseNum(text) {
+			$("#num .name").html(text)
+			$(".numList").slideUp(200)
+			$("#num").removeClass("township2")
+			$("#num .name").removeClass("col-ea3c4c")
+		}
+		// 选择贫困情况
+		function choosePoor(text) {
+			$("#poor .name").html(text)
+			$(".poorList").slideUp(200)
+			$("#poor").removeClass("township2")
+			$("#poor .name").removeClass("col-ea3c4c")
+		}
+		// 选择时间
+		function chooseTime(text) {
+			$("#time .name").html(text)
+			$(".timeList").slideUp(200)
+			$("#time").removeClass("township2")
+			$("#time .name").removeClass("col-ea3c4c")
+		}
+	</script>
 </div>

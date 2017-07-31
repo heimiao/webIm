@@ -1,5 +1,5 @@
-myApp.controller("login", ["$scope", "$state", "$http", "$stateParams",
-	function($scope, $state, $http, $stateParams) {
+myApp.controller("login", ["$scope", "$state", "$http", "$stateParams","postForm",
+	function($scope, $state, $http, $stateParams,postForm) {
 		var login = {} || login;
 		login.urlParam = $stateParams;
 		login.sendParam = {};
@@ -9,9 +9,29 @@ myApp.controller("login", ["$scope", "$state", "$http", "$stateParams",
 
 			//根据贫困户id
 		}
+		$scope.logIn=function (){
+			if(!$scope.userName){
+				alert("用户名不能为空")
+				return;
+			}
+			if(!$scope.password){
+				alert("密码不能为空")
+				return;
+			}
+			var data={
+				"loginname": $scope.userName,
+				"password": $scope.password
+			}
+			postForm.saveFrm(config.path.login,data).success(function(res){
+				if(res.success){
+					window.localStorage.setItem("token", res.message)
+					$state.go("home");
+				}
+			})
+		}
+		
 
-		console.log(login.urlParam);
-
+		// $state.go("home");
 		/*login.menu=false;
 		login.changeMenu=function(args){
 			login.menu=args;
