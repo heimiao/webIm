@@ -1,0 +1,91 @@
+@import "../mixins/mixins";
+.myAlert {
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    right: 0px;
+    position: fixed;
+    z-index: 99999;
+    .alert_shade {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        z-index: 99999;
+        background: grey;
+        @include opacity(50);
+        z-index: 0;
+        align-items: center;
+    }
+    .alert_content {
+        max-width: 500px;
+        margin: 40% auto;
+        width: 80%;
+        background: #fff;
+        position: relative;
+        @include radius(10px);
+        z-index: 2;
+        @include box-shadow(0px 0px 2px 0px #fff);
+        .alert_header {
+            width: 100%;
+            height: 30px;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            .alert_title {
+                display: inline-block;
+                line-height: 30px;
+                font-size: 14px;
+                padding: 0px 15px;
+                font-weight: bold;
+                margin: 0px;
+            }
+            .alert_cancel {
+                position: absolute;
+                right: 15px;
+                top: 8px;
+            }
+        }
+        .alert_body {
+            padding: 15px;
+        }
+        .alert_footer {
+            line-height: 35px;
+            border-top: 1px solid #eee;
+            padding: 6px 15px;
+            text-align: right;
+        }
+    }
+}
+
+.hint {
+    .alert_shade {
+        background: transparent;
+    }
+    .alert_header,
+    .alert_footer {
+        display: none;
+    }
+    .alert_content {
+        max-width: 200px;
+        width: 60%;
+        color: #fff;
+        background: transparent;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        @include box-shadow( 0px 0px 5px 0px #000);
+    }
+    .hint_shade {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        @include opacity(60);
+        background: #000;
+    }
+    .hint_cont {
+        position: relative;
+        z-index: 1;
+    }
+}
