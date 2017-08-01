@@ -77,7 +77,6 @@ myApp.controller("poorVillage", ["$scope", "$state", "$http", "$stateParams","$t
 							}
 						}
 						if(num == 1){
-							$(".end").html("")
 							$timeout(function(){
 								for(var r=0;r<res.results.length;r++){
 									poorVillage.list.push(res.results[r]);
