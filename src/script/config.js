@@ -7,19 +7,12 @@ var config = {
 		lowFamilyList: baseUrl + "/pkh/queryForPage",
 		lowFamilyById: baseUrl + "/pkh/queryForId",
 		login: baseUrl + "/dotpalogin",
-<<<<<<< HEAD
 		townShip: baseUrl+ "/zcjg/queryForZc",  //获取乡镇列表
 		naturalVillage: baseUrl+ "/zrc/queryForPage",  //自然村列表
 		townShip: baseUrl+ "/zcjg/queryForZc?lx=01",  //获取乡镇列表
 		villageAll: baseUrl + "/zcjg/queryForZc?lx=02", //获取所有行政村列表
 		villageList: baseUrl + "/pkc/queryForPage", //获取贫困村列表
 		queryForZcVillage: baseUrl+　"/zcjg/queryForZc", //根据id 查询行政村和或者乡镇
-=======
-		townShip: baseUrl + "/zcjg/queryForZc", //获取乡镇列表
-		naturalVillage: baseUrl + "/zrc/queryForPage", //自然村列表
-		villageAll: baseUrl + "/zcjg/queryForZc?lx=02&fid=", //获取所有行政村列表
-		villageList: baseUrl + "/pkc/queryForPage"
->>>>>>> 1bf4c6aa86aa50b4d391ea06bcfdc5f3b54ed1d0
 	},
 	//系统基本信息配置
 	sysInfo: {
