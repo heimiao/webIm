@@ -14,61 +14,41 @@
 			<input type="text" placeholder="贫困户查询,输入姓名、证件号码">
 		</div>
 	</header>
-
 	<div class="screen-con">
 		<my-select my-ng-click="lowFamilyList.getVillagesByTown" my-ng-model="lowFamilyList.sendParam.qyxz" source="lowFamilyList.townList" my-init="全部行镇"></my-select>
 		<my-select my-ng-click="lowFamilyList.getVillagesId" my-ng-model="lowFamilyList.sendParam.qyxzc" source="lowFamilyList.town_VillagesList" my-init="全部行政村"></my-select>
-
 		<div class="open" onclick="openToggle()"><span class="down col-ea3c4c">展开</span><span class="stop col-ea3c4c">收起</span></div>
 	</div>
 	<div class="screen-con2" id="screen-con2">
 		<my-select my-ng-model="lowFamilyList.sendParam.sjzt" source="lowFamilyList.otherSelect.dataStatusObj" my-init="数据状态"></my-select>
 		<my-select my-ng-model="lowFamilyList.sendParam.tpqk" source="lowFamilyList.otherSelect.tpqkObj" my-init="脱贫情况"></my-select>
 		<my-select my-ng-model="lowFamilyList.sendParam.nd" source="lowFamilyList.otherSelect.yearObj" my-init="年度"></my-select>
-
-		<!--
-		<div id="num" class="township" onclick="numList()"><span class="name">数据状态</span><span class="triangle"></span></div>
-		<div class="numList">
-			<div onclick="chooseNum('数据状态1')">数据状态1</div>
-			<div onclick="chooseNum('数据状态12')">数据状态12</div>
-			<div onclick="chooseNum('数据状态2')">数据状态2</div>
-			<div onclick="chooseNum('数据状态3')">数据状态3</div>
-		</div>
-		<div id="poor" class="village" onclick="poorList()"><span class="name">脱贫情况</span><span class="triangle"></span></div>
-		<div class="poorList">
-			<div onclick="choosePoor('张北镇村')">张北镇村</div>
-			<div onclick="choosePoor('沽源县村')">沽源县村</div>
-			<div onclick="choosePoor('白庙滩乡村')">白庙滩乡村</div>
-			<div onclick="choosePoor('尚义县村')">尚义县村</div>
-		</div>
-		<div id="time" class="open" onclick="timeList()"><span class="name">年度</span><span class="triangle"></span></div>
-		<div class="timeList">
-			<div onclick="chooseTime('2017')">2017</div>
-			<div onclick="chooseTime('2016')">2016</div>
-			<div onclick="chooseTime('2015')">2015</div>
-			<div onclick="chooseTime('2014')">2014</div>
-		</div>-->
 	</div>
-	<div class="fill2"></div>
-	<div class="fill"></div>
-	<table class="table table-striped">
-		<thead>
-			<tr>
-				<td class="text-center">乡镇</td>
-				<td class="text-center">村</td>
-				<td class="text-center">户主</td>
-				<td class="text-center">贫困户类型</td>
-			</tr>
-		</thead>
-		<tbody>
-			<tr ng-repeat="item in lowFamilyList.list">
-				<td class="text-center" ng-bind="item.qyxz.name">张北镇</td>
-				<td class="text-center" ng-bind="item.qyxzc.name">黄土湾村</td>
-				<td class="text-center" ng-bind="item.hzxm">王翠娥</td>
-				<td class="text-center" ng-bind="item.bhksx.name">低保贫困户</td>
-			</tr>
-		</tbody>
-	</table>
+
+	<!--<div class="fill2"></div>
+	<div class="fill"></div>-->
+
+	<div pull-loading  load-low-family-list="lowFamilyList.getLowFamilyList">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<td class="text-center">乡镇</td>
+					<td class="text-center">村</td>
+					<td class="text-center">户主</td>
+					<td class="text-center">贫困户类型</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in lowFamilyList.list">
+					<td class="text-center" ng-bind="item.qyxz.name">张北镇</td>
+					<td class="text-center" ng-bind="item.qyxzc.name">黄土湾村</td>
+					<td class="text-center" ng-bind="item.hzxm">王翠娥</td>
+					<td class="text-center" ng-bind="item.bhksx.name">低保贫困户</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
 	<div class="foot-fill"></div>
 	<footer class="foot">
 		<a href="javascript:void(0)" ui-sref="lowFamilyDraft({id:1234})">
@@ -104,152 +84,6 @@
 			$("#poor").removeClass("township2")
 			$("#poor .name").removeClass("col-ea3c4c")
 
-			$(".timeList").slideUp(200)
-			$("#time").removeClass("township2")
-			$("#time .name").removeClass("col-ea3c4c")
-
-		}
-		// 全部乡镇列表
-		function townshipList() {
-			$(".townshipList").slideToggle(200)
-			$("#township").toggleClass("township2")
-			$("#township .name").toggleClass("col-ea3c4c")
-
-			$(".villageList").slideUp(200)
-			$("#village").removeClass("township2")
-			$("#village .name").removeClass("col-ea3c4c")
-
-			$(".numList").slideUp(200)
-			$("#num").removeClass("township2")
-			$("#num .name").removeClass("col-ea3c4c")
-
-			$(".poorList").slideUp(200)
-			$("#poor").removeClass("township2")
-			$("#poor .name").removeClass("col-ea3c4c")
-
-			$(".timeList").slideUp(200)
-			$("#time").removeClass("township2")
-			$("#time .name").removeClass("col-ea3c4c")
-		}
-		//全部行政村
-		function villageList() {
-			$(".villageList").slideToggle(200)
-			$("#village").toggleClass("township2")
-			$("#village .name").toggleClass("col-ea3c4c")
-
-			$(".townshipList").slideUp(200)
-			$("#township").removeClass("township2")
-			$("#township .name").removeClass("col-ea3c4c")
-
-			$(".numList").slideUp(200)
-			$("#num").removeClass("township2")
-			$("#num .name").removeClass("col-ea3c4c")
-
-			$(".poorList").slideUp(200)
-			$("#poor").removeClass("township2")
-			$("#poor .name").removeClass("col-ea3c4c")
-
-			$(".timeList").slideUp(200)
-			$("#time").removeClass("township2")
-			$("#time .name").removeClass("col-ea3c4c")
-		}
-		//数据状态
-		function numList() {
-			$(".numList").slideToggle(200)
-			$("#num").toggleClass("township2")
-			$("#num .name").toggleClass("col-ea3c4c")
-
-			$(".townshipList").slideUp(200)
-			$("#township").removeClass("township2")
-			$("#township .name").removeClass("col-ea3c4c")
-
-			$(".villageList").slideUp(200)
-			$("#village").removeClass("township2")
-			$("#village .name").removeClass("col-ea3c4c")
-
-			$(".poorList").slideUp(200)
-			$("#poor").removeClass("township2")
-			$("#poor .name").removeClass("col-ea3c4c")
-
-			$(".timeList").slideUp(200)
-			$("#time").removeClass("township2")
-			$("#time .name").removeClass("col-ea3c4c")
-		}
-		//贫困情况
-		function poorList() {
-			$(".poorList").slideToggle(200)
-			$("#poor").toggleClass("township2")
-			$("#poor .name").toggleClass("col-ea3c4c")
-
-			$(".townshipList").slideUp(200)
-			$("#township").removeClass("township2")
-			$("#township .name").removeClass("col-ea3c4c")
-
-			$(".villageList").slideUp(200)
-			$("#village").removeClass("township2")
-			$("#village .name").removeClass("col-ea3c4c")
-
-			$(".numList").slideUp(200)
-			$("#num").removeClass("township2")
-			$("#num .name").removeClass("col-ea3c4c")
-
-			$(".timeList").slideUp(200)
-			$("#time").removeClass("township2")
-			$("#time .name").removeClass("col-ea3c4c")
-		}
-
-		function timeList() {
-			$(".timeList").slideToggle(200)
-			$("#time").toggleClass("township2")
-			$("#time .name").toggleClass("col-ea3c4c")
-
-			$(".townshipList").slideUp(200)
-			$("#township").removeClass("township2")
-			$("#township .name").removeClass("col-ea3c4c")
-
-			$(".villageList").slideUp(200)
-			$("#village").removeClass("township2")
-			$("#village .name").removeClass("col-ea3c4c")
-
-			$(".numList").slideUp(200)
-			$("#num").removeClass("township2")
-			$("#num .name").removeClass("col-ea3c4c")
-
-			$(".poorList").slideUp(200)
-			$("#poor").removeClass("township2")
-			$("#poor .name").removeClass("col-ea3c4c")
-		}
-		//选择乡镇
-		function chooseTownship(text) {
-			$("#township .name").html(text)
-			$(".townshipList").slideUp(200)
-			$("#township").removeClass("township2")
-			$("#township .name").removeClass("col-ea3c4c")
-		}
-		// 选择行政村
-		function chooseVillage(text) {
-			$("#village .name").html(text)
-			$(".villageList").slideUp(200)
-			$("#village").removeClass("township2")
-			$("#village .name").removeClass("col-ea3c4c")
-		}
-		// 选择数据状态
-		function chooseNum(text) {
-			$("#num .name").html(text)
-			$(".numList").slideUp(200)
-			$("#num").removeClass("township2")
-			$("#num .name").removeClass("col-ea3c4c")
-		}
-		// 选择贫困情况
-		function choosePoor(text) {
-			$("#poor .name").html(text)
-			$(".poorList").slideUp(200)
-			$("#poor").removeClass("township2")
-			$("#poor .name").removeClass("col-ea3c4c")
-		}
-		// 选择时间
-		function chooseTime(text) {
-			$("#time .name").html(text)
 			$(".timeList").slideUp(200)
 			$("#time").removeClass("township2")
 			$("#time .name").removeClass("col-ea3c4c")

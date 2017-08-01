@@ -4,7 +4,7 @@ myApp.controller("lowFamilyListCtro", ["$scope", "$state", "$filter", "$http", "
 	//获取参数
 	lowFamilyList.urlParam = $stateParams;
 	lowFamilyList.sendParam = {
-		nd: 2017
+		nd: 2016
 	};
 	lowFamilyList.page = {
 		limit: 15,
@@ -17,7 +17,6 @@ myApp.controller("lowFamilyListCtro", ["$scope", "$state", "$filter", "$http", "
 		tpqkObj: config.sysValue.tpqk,
 	};
 
-
 	lowFamilyList.list = {};
 
 	lowFamilyList.townList = {};
@@ -29,17 +28,25 @@ myApp.controller("lowFamilyListCtro", ["$scope", "$state", "$filter", "$http", "
 	//获取总列表  
 	var sumSendParam = angular.extend({}, lowFamilyList.page, lowFamilyList.sendParam)
 
-	lowFamilyList.getLowFamilyList = function() {
+	lowFamilyList.getLowFamilyList = function(me) {
+		console.log(me);
 		//获取当前用户信息  
 		postForm.saveFrm(config.path.lowFamilyList, sumSendParam).success(function(data) {
 			var pretreatmentAry = data.results;
+				
 			lowFamilyList.list = fupin.mapArray(pretreatmentAry, config.sysValue.bhksx, "bhksx", "value");
 			//调用镇
-			if(JSON.stringify(lowFamilyList.townList) == "{}")
+			if(JSON.stringify(lowFamilyList.townList) == "{}") {
 				lowFamilyList.getTownVillages("01", "qyxz");
+			} else {
+				lowFamilyList.list = fupin.mapArray(lowFamilyList.townLis, pretreatmentAry, name, "id");
+			}
 			//调用村
-			if(JSON.stringify(lowFamilyList.villagesList) == "{}")
+			if(JSON.stringify(lowFamilyList.villagesList) == "{}") {
 				lowFamilyList.getTownVillages("02", "qyxzc");
+			} else {
+				lowFamilyList.list = fupin.mapArray(lowFamilyList.villagesList, pretreatmentAry, name, "id");
+			}
 		})
 	}
 
@@ -55,16 +62,6 @@ myApp.controller("lowFamilyListCtro", ["$scope", "$state", "$filter", "$http", "
 			if(args == "02") {
 				lowFamilyList.villagesList = data;
 			}
-			/*var localData = {};
-			localData[args == 1 ? "townList" : "villagesList"] = dataList;
-			dt.request({
-				rqstName: "other", //'low_family', 'low_village', 'nature_village', 'relief_project'
-				type: "put", //select,delete,put,selectById,
-				data: localData,
-				success: function(args) {
-					console.log(args);
-				}
-			});*/
 
 			lowFamilyList.list = fupin.mapArray(lowFamilyList.list, dataList, name, "id");
 		})

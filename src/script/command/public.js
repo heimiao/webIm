@@ -38,7 +38,7 @@ myApp.directive('mySelect', [function() {
 		replace: true,
 		link: function(scope, element, attr, ngModel) {
 			$(element).find(".township").click(function() {
-				
+
 				console.log(scope.source);
 				var str = "";
 				if(scope.source.length > 0) {
@@ -59,6 +59,30 @@ myApp.directive('mySelect', [function() {
 				if(scope.myNgClick)
 					scope.myNgClick(scope.myNgModel);
 			});
+		}
+	};
+}])
+
+myApp.directive('pullLoading', [function() {
+	return {
+		restrict: 'ECMA',
+		scope: {
+			loadLowFamilyList: '=',
+		},
+		link: function(scope, element, attr, ngModel) {
+			$(element).dropload({
+				//获取列表
+				domDown: {
+					domClass: 'dropload-down',
+					domRefresh: '<div class="dropload-refresh"></div>',
+					domUpdate: '<div class="dropload-update">↓释放加载</div>',
+					domLoad: '<div class="dropload-load"><span class="loading"></span>加载中...</div>'
+				},
+				//上拉加载
+				loadDownFn: function(me) {
+					scope.loadLowFamilyList(me);
+				}
+			})
 		}
 	};
 }])
