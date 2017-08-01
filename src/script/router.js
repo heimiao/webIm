@@ -4,6 +4,13 @@ var myApp = angular.module("myApp", ['ui.router', 'ngCookies', 'ngFileUpload']);
 myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 	//添加拦截器
 	$httpProvider.interceptors.push("myInterceptor");
+
+	/*if(!$httpProvider.defaults.headers.get) {
+		$httpProvider.defaults.headers.get = {};
+	}
+	$httpProvider.defaults.headers.get['token'] = localStorage.getItem("token");
+	$httpProvider.defaults.headers.get['inter_type'] = 'app';*/
+
 	//设置默认的加载模块
 	$urlRouterProvider.otherwise('/login');
 	$stateProvider
@@ -29,14 +36,14 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 			url: '/low_family',
 			controller: "lowFamilyInfoCtro",
 			abstract: true,
-			templateUrl: 'dist/template/lowFamily/lowFamilyInfo.html'
+			templateUrl: 'dist/template/lowFamily/lowFamilyInfo.html',
 		})
 		//贫困户基本信息
 		.state('lowFamily.baseInfo', {
 			url: '/low_family_base?id&type',
-			//controller: "lowFamilyInfoCtro",
 			views: {
 				'': {
+					controller: "low_family_baseCtro",
 					templateUrl: 'dist/template/lowFamily/lowFamilyInfo/container.html'
 				},
 				'form@lowFamily.baseInfo': {
@@ -49,11 +56,12 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 		})
 		//贫困户家庭成员
 		.state('lowFamily.familyMember', {
-			url: '/low_family_family_member?id&type',
+			url: '/low_family__member?id&type',
 			//			controller: "order_list",
 			//			templateUrl: 'dist/template/lowFamily/lowFamilyInfo/familyInfo.html'
 			views: {
 				'': {
+					controller: "low_family_memberCtro",
 					templateUrl: 'dist/template/lowFamily/lowFamilyInfo/container.html'
 				},
 				'form@lowFamily.familyMember': {
@@ -66,7 +74,7 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 		})
 		.state('addFamilyMember', {
 			url: '/add_family_member?id&type',
-			//			controller: "order_list",
+			controller: "addFamilyMemberCtro",
 			templateUrl: 'dist/template/lowFamily/addFamilyMember.html'
 		})
 		//致贫原因
@@ -398,5 +406,34 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 			controller: "login",
 			templateUrl: 'dist/template/village/login.html'
 		})
+
+});
+
+myApp.run(function($location, $rootScope, $stateParams) {
+	//路由监听事件 
+	$rootScope.$on('$stateChangeStart',
+		function(event, toState, toParams, fromState, fromParams) {
+			/*console.log(event);
+			console.log(toState);
+			console.log(toParams);
+			console.log(fromState);
+			console.log(fromParams);*/
+			/*if(toState.name == "homePage") {
+				//获取参数之后可以调请求判断需要渲染什么页面，渲染不同的页面通过 $location 实现 
+				if(toParams.id == 10) {
+					//$location.path();//获取路由地址 
+					// $location.path('/validation').replace(); 
+					// event.preventDefault()可以阻止模板解析 
+				}
+			}*/
+		})
+	// stateChangeSuccess 当模板解析完成后触发 
+	$rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
+
+	})
+	// $stateChangeError 当模板解析过程中发生错误时触发 
+	$rootScope.$on('$stateChangeError', function(event, toState, toParams, fromState, fromParams, error) {
+
+	})
 
 });
