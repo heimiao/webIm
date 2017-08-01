@@ -49,8 +49,8 @@
 			</thead>
 			<tbody>
 				<tr ng-repeat="item in natural.list" ui-sref="naturalEdite({id:item.id})">
-					<td class="text-center" ng-bind="item"></td>
-					<td class="text-center" ng-bind="item"></td>
+					<td class="text-center" ng-bind="item.lsxzc"></td>
+					<td class="text-center" ng-bind="item.zrcmc"></td>
 					<td class="text-center" ng-bind="item.fzr"></td>			
 				</tr>
 			</tbody>
@@ -71,53 +71,6 @@
 	<script type="text/javascript" src="../../assets/lib/js/jquery.min.js"></script>
 
 	<script>
-		
-		// 全部乡镇列表
-		function townshipList() {
-			$(".townshipList").slideToggle(200)
-			$("#township").toggleClass("township2")
-			$("#township .name").toggleClass("col-ea3c4c")
-
-			$(".villageList").slideUp(200)
-			$("#village").removeClass("township2")
-			$("#village .name").removeClass("col-ea3c4c")
-
-			$(".numList").slideUp(200)
-			$("#num").removeClass("township2")
-			$("#num .name").removeClass("col-ea3c4c")
-
-			$(".poorList").slideUp(200)
-			$("#poor").removeClass("township2")
-			$("#poor .name").removeClass("col-ea3c4c")
-
-			$(".timeList").slideUp(200)
-			$("#time").removeClass("township2")
-			$("#time .name").removeClass("col-ea3c4c")
-		}
-		//全部行政村
-		function villageList() {
-			$(".villageList").slideToggle(200)
-			$("#village").toggleClass("township2")
-			$("#village .name").toggleClass("col-ea3c4c")
-
-			$(".townshipList").slideUp(200)
-			$("#township").removeClass("township2")
-			$("#township .name").removeClass("col-ea3c4c")
-
-			$(".numList").slideUp(200)
-			$("#num").removeClass("township2")
-			$("#num .name").removeClass("col-ea3c4c")
-
-			$(".poorList").slideUp(200)
-			$("#poor").removeClass("township2")
-			$("#poor .name").removeClass("col-ea3c4c")
-
-			$(".timeList").slideUp(200)
-			$("#time").removeClass("township2")
-			$("#time .name").removeClass("col-ea3c4c")
-		}
-		
-		
 		function timeList() {
 			$(".timeList").slideToggle(200)
 			$("#time").toggleClass("township2")
@@ -139,20 +92,7 @@
 			$("#poor").removeClass("township2")
 			$("#poor .name").removeClass("col-ea3c4c")
 		}
-		//选择乡镇
-		function chooseTownship(text) {
-			$("#township .name").html(text)
-			$(".townshipList").slideUp(200)
-			$("#township").removeClass("township2")
-			$("#township .name").removeClass("col-ea3c4c")
-		}
-		// 选择行政村
-		function chooseVillage(text) {
-			$("#village .name").html(text)
-			$(".villageList").slideUp(200)
-			$("#village").removeClass("township2")
-			$("#village .name").removeClass("col-ea3c4c")
-		}
+		
 		
 		// 选择时间
 		function chooseTime(text) {
