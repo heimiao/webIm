@@ -7,13 +7,11 @@ myApp.factory('myInterceptor', function($q, $cookies, $cookieStore) {
 			/*	if(typeof($cookieStore.get("cookie")) == "string") {
 					console.log("拦截到的是字符串");
 				} else*/
-			if(localStorage.getItem("token")) {  
+			if(localStorage.getItem("token")) {
 				config.headers = config.headers || {};
 				config.headers.token = localStorage.getItem("token");
 				config.headers.inter_type = "app";
-				console.log(JSON.stringify(config));
 			}
-			$("#loading").show();
 			return config || $q.when(config);
 		},
 		// 可选，拦截失败的请求
@@ -29,16 +27,14 @@ myApp.factory('myInterceptor', function($q, $cookies, $cookieStore) {
 		response: function(response) {
 			// 进行预处理
 			try {
-				if(response.data.data.code == 24006) {
-					//$.alertError("token超时，强行退出")
+				if(response.results == 1001 || response.results == 1002 || response.results == 1003) {
+					alert(response.message);
 					localStorage.token = ""
 					window.location.href = "./";
 				}
 			} catch(e) {}
-			$("#loading").hide();
 			return response || $q.when(reponse);
 		},
-
 		// 可选，拦截失败的响应
 		responseError: function(rejection) {
 			// 对失败的响应进行处理
