@@ -25,6 +25,14 @@ var config = {
 	},
 	//系统状态配置
 	sysValue: {
+		//数据状态
+		dataStatus: [{
+			name: "正确数据",
+			value: "0",
+		}, {
+			name: "有误数据",
+			value: "1",
+		}],
 		//贫困户属性
 		bhksx: [{
 				value: "ybpkh",
@@ -789,6 +797,35 @@ var config = {
 				value: "56",
 				name: "珞巴族"
 			}
+		],
+		year: [{
+				name: "2013",
+				value: "01",
+			},
+			{
+				name: "2014",
+				value: "02",
+			},
+			{
+				name: "2015",
+				value: "03",
+			},
+			{
+				name: "2016",
+				value: "04",
+			},
+			{
+				name: "2017",
+				value: "05",
+			},
+			{
+				name: "2018",
+				value: "06",
+			},
+			{
+				name: "2019",
+				value: "07",
+			},
 		]
 	}
 }

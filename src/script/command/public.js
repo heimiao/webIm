@@ -17,4 +17,48 @@ myApp.directive('menu', [function() {
 
 		}
 	};
+}]);
+myApp.directive('mySelect', [function() {
+	return {
+		restrict: 'ECMA',
+		scope: {
+			source: '=',
+			myNgModel: '=',
+			myNgClick: '=',
+			myInit: "@",
+		},
+		template: '<div>' +
+			'<div  class="township">' +
+			'<span class="name" ng-bind="myInit">全部行政村</span><span class="triangle"></span>' +
+			'</div>' +
+			'<div class="townshipList">' +
+			'<div id="">全部</div>' +
+			'</div>' +
+			'</div>',
+		replace: true,
+		link: function(scope, element, attr, ngModel) {
+			$(element).find(".township").click(function() {
+				
+				console.log(scope.source);
+				var str = "";
+				if(scope.source.length > 0) {
+					$.each(scope.source, function(index, item) {
+						str += "<div id=" + (item.id || item.value) + ">" + item.name + "</div>"
+					});
+				}
+				$(this).next(".townshipList").html(str);
+				$(this).next(".townshipList").slideToggle(200);
+				$(this).toggleClass("township2")
+				$(this).find(".name").toggleClass("col-ea3c4c");
+			})
+			$(element).on("click", ".townshipList>div", function() {
+				$(this).parent().slideToggle(200);
+				$(element).find(".township").toggleClass("township2");
+				$(element).find(".name").toggleClass("col-ea3c4c").html($(this).html());
+				scope.myNgModel = $(this).attr("id");
+				if(scope.myNgClick)
+					scope.myNgClick(scope.myNgModel);
+			});
+		}
+	};
 }])

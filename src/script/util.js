@@ -3,11 +3,11 @@
 (function(_w, $) {
 	'use strict';
 	var fupin = {
-		mapArray: function(aryA, aryB, strA, strB, isKey) {
+		mapArray: function(aryA, aryB, strA, strB,isKeys) {
 			//把数组B的字段映射合并到数组A中
 			$.each(aryA, function(index, item) {
 				$.each(aryB, function(i, m) {
-					if(isKey) {
+					if(isKeys) {
 						if(strA == m[strB]) {
 							item[strA] = m;
 						}
