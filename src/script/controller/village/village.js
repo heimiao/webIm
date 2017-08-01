@@ -1,29 +1,40 @@
-myApp.controller("poorVillage", ["$scope", "$state", "$http", "$stateParams","postForm",
-	function($scope, $state, $http, $stateParams, postForm) {
+myApp.controller("poorVillage", ["$scope", "$state", "$http", "$stateParams","$timeout","postForm",
+	function($scope, $state, $http, $stateParams,$timeout, postForm) {
 		var poorVillage = {} || poorVillage;
 		poorVillage.urlParam = $stateParams;
 		poorVillage.sendParam = {};
-		poorVillage.list = {}; //查询列表
+		poorVillage.list = []; //查询列表
 		poorVillage.townShip = []; //全部乡镇列表
-		poorVillage.villageList = []; //全部行政村列表
-		poorVillage.sendParam.townShipId = null;
-		poorVillage.sendParam.villageListId = null;
-		poorVillage.sendParam.year = null;
-		poorVillage.sendParam.time = null;
+		poorVillage.villageList = []; //根据乡镇查询行政村
+		poorVillage.villageListAll = []; //获取全部行政村
+		poorVillage.sendParam.townShipId = null; //查询条件乡镇
+		poorVillage.sendParam.villageListId = null; //查询条件 行政村
+		poorVillage.sendParam.time = null;  // 查询条件 年度时间
+		poorVillage.noDataType = false;
+		poorVillage.noDataName = null;
+		poorVillage.start = 0; //请求的条数
+		// 获取所有乡镇
 		$http.post(config.path.townShip,null).success(function(res){
 			poorVillage.townShip = res;
 		})
+		// 获取所有行政村
+		$http.post(config.path.villageAll,null).success(function(res){
+			poorVillage.villageListAll = res;
+			poorVillage.start = 0;
+			poorVillage.getVillageList(); //首页加载列表数据
+		})
+		// 选择查询条件  乡镇
 		poorVillage.chooseTownship=function(name,id){
 			poorVillage.sendParam.townShipId = id;
 			$("#township .name").html(name)
 			$(".townshipList").slideUp(200)
 			$("#township").removeClass("township2")
 			$("#township .name").removeClass("col-ea3c4c")
-			$http.post(config.path.villageAll+id,null).success(function(res){
+			$http.post(config.path.villageAll+"&fid="+id,null).success(function(res){
 				poorVillage.villageList = res;
-				console.log(poorVillage.villageList)
 			})
 		}
+		// 选择查询条件  行政村
 		poorVillage.chooseVillage=function(name,id){
 			poorVillage.sendParam.villageListId = id;
 			$("#village .name").html(name)
@@ -31,6 +42,7 @@ myApp.controller("poorVillage", ["$scope", "$state", "$http", "$stateParams","po
 			$("#village").removeClass("township2")
 			$("#village .name").removeClass("col-ea3c4c")
 		}
+		// 选择查询条件  年度时间
 		poorVillage.chooseTime=function(time){
 			poorVillage.sendParam.time = time;
 			$("#time .name").html(time)
@@ -38,38 +50,79 @@ myApp.controller("poorVillage", ["$scope", "$state", "$http", "$stateParams","po
 			$("#time").removeClass("township2")
 			$("#time .name").removeClass("col-ea3c4c")
 		}
-
-		// $http.post(config.path.villageList+'nd='+poorVillage.sendParam.time+'&limit=10&start=0&qyxz='+poorVillage.sendParam.townShipId+'&qyxzc='+poorVillage.sendParam.villageListId,null).success(function(res){
-		// 	poorVillage.townShip = res;
-		// })
-		poorVillage.datas = {
-			"nd": poorVillage.sendParam.time,
-			"limit":　10,
-			"start": 0,
-			"qyxz": poorVillage.sendParam.townShipId,
-			"qyxzc": poorVillage.sendParam.villageListId,
+		//  封装方法  获取列表
+		poorVillage.getVillageList=function (me, num){
+			poorVillage.datas = {
+				"nd": poorVillage.sendParam.time,
+				"limit":　10,
+				"start": poorVillage.start,
+				"qyxz": poorVillage.sendParam.townShipId,
+				"qyxzc": poorVillage.sendParam.villageListId,
+			}
+			postForm.saveFrm(config.path.villageList,poorVillage.datas).success(function(res){
+				if(res.success){
+					if(res.results){
+						poorVillage.noDataType = false;
+						for(var r=0;r<res.results.length;r++){
+							res.results[r].pkcsx = res.results[r].pkcsx == "01"?"贫困村":res.results[r].pkcsx == "02"?"十二五贫困村":res.results[r].pkcsx == "03"?"十三五贫困村":res.results[r].pkcsx == "04"?"非贫困村":"无";
+							for(var i=0;i<poorVillage.townShip.length;i++){
+								if(res.results[r].qyxz == poorVillage.townShip[i].id){
+									res.results[r].qyxz = poorVillage.townShip[i].name
+								}
+							}
+							for(var i=0;i<poorVillage.villageListAll.length;i++){
+								if(res.results[r].qyxzc == poorVillage.villageListAll[i].id){
+									res.results[r].qyxzc = poorVillage.villageListAll[i].name
+								}
+							}
+						}
+						if(num == 1){
+							$(".end").html("")
+							$timeout(function(){
+								for(var r=0;r<res.results.length;r++){
+									poorVillage.list.push(res.results[r]);
+								}
+			             		// 每次数据加载完，必须重置
+			             		me.resetload();
+			           		},1000);
+						}else{
+							poorVillage.list = res.results;
+						}
+						poorVillage.start= poorVillage.start + res.results.length;
+					}else{
+						if(num == 1){
+							me.resetload();
+							poorVillage.noDataName = "没有更多了";
+							poorVillage.noDataType = true;
+						}else{
+							poorVillage.noDataName = "暂无数据";
+							poorVillage.noDataType = true;
+						}
+						
+ 					}
+				}
+			})
 		}
-		postForm.saveFrm(config.path.villageList,poorVillage.datas).success(function(res){
-			if(res.success){
-				for(var r=0;r<res.results.length;r++){
-					for(var i=0;i<poorVillage.townShip.length;i++){
-						if(res.results[r].qyxz == poorVillage.townShip[i].id){
-							res.results[r].qyxz = poorVillage.townShip[i].name
-						}
-					}
-				}
-				for(var r=0;r<res.results.length;r++){
-					for(var i=0;i<poorVillage.villageList.length;i++){
-						if(res.results[r].qyxzc == poorVillage.villageList[i].id){
-							res.results[r].qyxzc = poorVillage.villageList[i].name
-						}
-					}
-				}
-				poorVillage.list = res.results;
+		// 查询
+		poorVillage.queryBtn=function(){
+			poorVillage.start = 0;
+			poorVillage.getVillageList();
+		}
+
+		// 上拉加载
+		var dropload = $('.droploadTable').dropload({
+			//获取列表
+			domDown: {
+				domClass: 'dropload-down',
+				domRefresh: '<div class="dropload-refresh"></div>',
+				domUpdate: '<div class="dropload-update">↓释放加载</div>',
+				domLoad: '<div class="dropload-load"><span class="loading"></span>加载中...</div>'
+			},				
+			//上拉加载
+			loadDownFn: function(me) {
+				poorVillage.getVillageList(me,1);
 			}
 		})
-		 // poorVillage.list=data.poorVillage.results;
-		
 		/*poorVillage.menu=false;
 		poorVillage.changeMenu=function(args){
 			poorVillage.menu=args;
