@@ -229,4 +229,27 @@ header{
 		-webkit-appearance:none;
 		background-color: #fff;
     }
+    .villageSituation,.villageDevelopment{
+    	.labels{
+    		width: 100% !important;
+    		height: 100% !important;
+    	}
+    	.pr{
+    		position: relative;
+    	}
+    	.selects{
+    		padding-right: 2.3rem;
+    		position: absolute;
+    		top: 0; 
+    		right:0;
+    	}
+    	.rightPro{
+    		position: absolute;
+    		top: 0; 
+    		right:0
+    	}
+    	.content{
+    		width: 26% !important;
+    	}
+    }
 }

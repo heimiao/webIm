@@ -13,7 +13,7 @@ window.IDBKeyRange = window.IDBKeyRange ||
 	'use strict';
 	var db = {
 		version: 1, // important: only use whole numbers!
-		objectStoreNameAry: ['low_family', 'low_village', 'nature_village', 'relief_project'],
+		objectStoreNameAry: ['low_family', 'low_village', 'nature_village', 'relief_project','other'],
 		instance: {},
 		upgrade: function(e) {
 			var _db = e.target.result,

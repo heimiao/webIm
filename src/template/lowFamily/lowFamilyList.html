@@ -19,10 +19,7 @@
 			<span class="name">全部乡镇</span><span class="triangle"></span>
 		</div>
 		<div class="townshipList">
-			<div onclick="chooseTownship('张北镇')">张北镇</div>
-			<div onclick="chooseTownship('沽源县')">沽源县</div>
-			<div onclick="chooseTownship('白庙滩乡')">白庙滩乡</div>
-			<div onclick="chooseTownship('尚义县')">尚义县</div>
+			<div ng-repeat="item in lowFamilyList.townList" ng-click="chooseTownship('张北镇')"><span ng-bind="item.name">张北镇</span></div>
 		</div>
 		<div id="village" class="village" onclick="villageList()"><span class="name">全部行政村</span><span class="triangle"></span></div>
 		<div class="villageList">
@@ -69,10 +66,10 @@
 		</thead>
 		<tbody>
 			<tr ng-repeat="item in lowFamilyList.list">
-				<td class="text-center" ng-bind="item">张北镇</td>
-				<td class="text-center" ng-bind="item">黄土湾村</td>
+				<td class="text-center" ng-bind="item.qyxz.name">张北镇</td>
+				<td class="text-center" ng-bind="item.qyxzc.name">黄土湾村</td>
 				<td class="text-center" ng-bind="item.hzxm">王翠娥</td>
-				<td class="text-center" ng-bind="item.bhksx">低保贫困户</td>
+				<td class="text-center" ng-bind="item.bhksx.name">低保贫困户</td>
 			</tr>
 		</tbody>
 	</table>
