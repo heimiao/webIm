@@ -3,15 +3,24 @@ myApp.controller("villageCollection", ["$scope", "$state", "$http", "$stateParam
 		var villageCollection = {} || villageCollection;
 		villageCollection.urlParam = $stateParams;
 		villageCollection.sendParam = {};
-		$scope.qyxz = 1;
+		villageCollection.townShip = []; //全部乡镇列表
+		villageCollection.villageListAll = []; //获取全部行政村
+		villageCollection.pkcsx = "01"; //贫困村属性默认选中
+		villageCollection.fzfxsx = "zx"; //发展方向属性 默认选中
+		villageCollection.dxdmsx = "sq"; //地形地貌属性 默认选中
+		// 获取所有乡镇
+		$http.post(config.path.townShip,null).success(function(res){
+			villageCollection.qyxz = res[0].id;
+			villageCollection.townShip = res;
+		})
+		// 获取所有行政村
+		$http.post(config.path.villageAll,null).success(function(res){
+			villageCollection.qyxzc = res[0].id;
+			villageCollection.villageListAll = res;
+		})
 
-		villageCollection.uploadSource = function() {
-			console.log(12123123);
 
-			//根据贫困户id
-		}
 
-		console.log(villageCollection.urlParam);
 
 		/*lowFamilyInfo.menu=false;
 		lowFamilyInfo.changeMenu=function(args){
