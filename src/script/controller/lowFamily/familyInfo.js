@@ -1,3 +1,4 @@
+//家庭成员
 myApp.controller("low_family_memberCtro", ["$scope", "$rootScope", "$state", "$http", "$stateParams",
 	function($scope, $rootScope, $state, $http, $stateParams) {
 		var low_family_member = {} || low_family_member;
@@ -13,8 +14,9 @@ myApp.controller("low_family_memberCtro", ["$scope", "$rootScope", "$state", "$h
 		/*$scope.goback = function() {
 
 		}*/
+		if(low_family_member.urlParam.id) {
 
-		 
+		}
 
 		//根据角色遍历响应的菜单
 		$scope.low_family_member = low_family_member;

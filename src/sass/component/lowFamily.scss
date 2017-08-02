@@ -44,6 +44,29 @@
     }
 }
 
+.check_radio {
+    .default {
+        position: relative;
+        display: inline-block;
+        padding: 5px 15px;
+        border: 1px solid red;
+        color: #EA3C4C;
+        font-weight: 1.33rem;
+        @include radius(15px);
+        input[type="checkbox"],
+        input[type="radio"] {
+            font-size: 100%;
+            position: absolute;
+            background: transparent;
+            @include opacity(0);
+        }
+    }
+    .cked {
+        background: #EA3C4C;
+        color: #fff;
+    }
+}
+
 //易地搬迁需求
 .formModal {}
 
@@ -57,4 +80,3 @@
     clear: both;
     content: "";
 }
- 

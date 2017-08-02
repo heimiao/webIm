@@ -39,7 +39,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="item in lowFamilyList.list">
+				<tr ng-repeat="item in lowFamilyList.list" ui-sref="lowFamily.baseInfo({id:item.id,type:'base'})">
 					<td class="text-center" ng-bind="item.qyxz.name">张北镇</td>
 					<td class="text-center" ng-bind="item.qyxzc.name">黄土湾村</td>
 					<td class="text-center" ng-bind="item.hzxm">王翠娥</td>
