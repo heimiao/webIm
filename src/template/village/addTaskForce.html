@@ -1,10 +1,13 @@
 <link rel="stylesheet" href="../../assets/lib/date/css/mobiscroll.css">
+<style>
+	.villageCollection .villageSituation .content{
+		width: 36% !important;
+	}
+</style>
 <div class="villageCollection">
 <div class="villageSituation">
 		<header>
-			<a href="javascript:history.go(-1)">
-				<div class="back"><img src="../../assets/img/icon_28.png" alt=""></div>
-			</a>
+			<div class="back" ng-click="addTaskForce.back()"><img src="../../assets/img/icon_28.png" alt=""></div>
 			<div class="collectionTitle">贫困村信息采集</div>
 		</header>
 		<div class="fill"></div>
@@ -29,8 +32,19 @@
 						<div class="name">政治面貌</div>
 						<div class="content pr">
 							<select class="selects" name="" id="zzmm" ng-model="addTaskForce.zzmm">
-								<option value="">党员</option>
-								<option value="">团员</option>
+								<option value="01">中共党员</option>
+								<option value="02">中共预备党员</option>
+								<option value="03">共青团员</option>
+								<option value="04">民革会员</option>
+								<option value="05">民盟盟员</option>
+								<option value="06">民建会员</option>
+								<option value="07">民进会员</option>
+								<option value="08">农工党党员</option>
+								<option value="09">致公党党员</option>
+								<option value="10">九三学社社员</option>
+								<option value="11">台盟盟员</option>
+								<option value="12">无党派民主人士</option>
+								<option value="13">群众</option>
 							</select>
 							<img class="rightPro" src="../../assets/img/icon2_11@2x.png" alt="">
 						</div>
@@ -57,8 +71,13 @@
 						<div class="name">单位隶属关系</div>
 						<div class="content pr">
 							<select class="selects" name="" id="dwlsgx" ng-model="addTaskForce.dwlsgx">
-								<option value="">关系</option>
-								<option value="">关系</option>
+								<option value="01">中央</option>
+								<option value="02">省</option>
+								<option value="03">市</option>
+								<option value="04">县</option>
+								<option value="05">乡镇</option>
+								<option value="06">部队</option>
+								<option value="07">其他</option>
 							</select>
 							<img class="rightPro" src="../../assets/img/icon2_11@2x.png" alt="">
 						</div>
@@ -95,8 +114,8 @@
 						<div class="name">是否队长</div>
 						<div class="content pr">
 							<select class="selects" name="" id="sfdz" ng-model="addTaskForce.sfdz">
-								<option value="">是</option>
-								<option value="">否</option>
+								<option value="是">是</option>
+								<option value="否">否</option>
 							</select>
 							<img class="rightPro" src="../../assets/img/icon2_11@2x.png" alt="">
 						</div>
@@ -107,8 +126,8 @@
 						<div class="name">是否第一书记</div>
 						<div class="content pr">
 							<select class="selects" name="" id="sfdysj" ng-model="addTaskForce.sfdysj">
-								<option value="">是</option>
-								<option value="">否</option>
+								<option value="是">是</option>
+								<option value="否">否</option>
 							</select>
 							<img class="rightPro" src="../../assets/img/icon2_11@2x.png" alt="">
 						</div>
@@ -123,9 +142,9 @@
 		</div>
 		<!--  -->
 		<div class="footFill"></div>
-		<a href="#/villageCollection"><div class="foot">
+		<div class="foot" ng-click="addTaskForce.addTask()">
 			添加
-		</div></a>
+		</div>
 	</div>
 </div>
 	<script type="text/javascript" src="../../assets/lib/js/jquery.min.js"></script>

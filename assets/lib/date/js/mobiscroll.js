@@ -3060,12 +3060,12 @@ $(function () {
         theme: 'android-ics light', //皮肤样式
         display: 'modal', //显示方式
         mode: 'scroller', //日期选择模式
-        dateFormat: 'yyyy-mm-dd',
+        dateFormat: 'yyyy.mm.dd',
         lang: 'zh',
         showNow: true,
         nowText: "今天",
         startYear: currYear - 1900, //开始年份
-        endYear: currYear + 0 //结束年份
+        endYear: currYear + 100 //结束年份
     };
     $("#star_time").mobiscroll($.extend(opt['date'], opt['default']));
     $("#end_time").mobiscroll($.extend(opt['date'], opt['default']));
@@ -3082,6 +3082,6 @@ $(function () {
         var d=today.getDate();
         return h+"-"+m+"-"+d;
     }
-    document.getElementById("star_time").value = today();
-    document.getElementById("end_time").value = today();
+   // document.getElementById("star_time").value = today();
+   // document.getElementById("end_time").value = today();
 });
