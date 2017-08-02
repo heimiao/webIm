@@ -4,17 +4,15 @@ myApp.controller("login", ["$scope", "$state", "$http", "$stateParams","postForm
 		login.urlParam = $stateParams;
 		login.sendParam = {};
 		login.countyList = []; //县城以及对应的url
-		$http.post(config.path.getbaseUrl,null).success(function(res){
+		$http.post(config.getbaseUrl,null).success(function(res){
 			if(res.success){
 				login.url = res.results[0].url;
-				base.baseUrl = res.results[0].url;
+				config.changePath(res.results[0].url);
 				login.countyList = res.results;
 			}
 		})
 		login.change=function(){
-			alert(login.url)
-			base.baseUrl = login.url;
-
+			config.changePath(login.url);
 		}
 		$scope.logIn=function (){
 			if(!$scope.userName){

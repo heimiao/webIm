@@ -144,11 +144,7 @@ myApp.controller("villageCollection", ["$scope", "$state", "$http", "$stateParam
 		villageCollection.taskForceList = JSON.parse(window.localStorage.getItem("taskForceList"));
 
 		//上传所有的数据
-		villageCollection.uploadSave=function(){
-			if(!villageCollection.situationList.cfzr){
-				alert("请完善信息")
-			}
-			var data={
+		villageCollection.localData={
 				  	'qyxz': villageCollection.situationList.qyxz,
 					'qyxzc': villageCollection.situationList.qyxzc,
 					'cfzr': villageCollection.situationList.cfzr,
@@ -233,28 +229,42 @@ myApp.controller("villageCollection", ["$scope", "$state", "$http", "$stateParam
 					'xzcxxy': villageCollection.developmentList.xzcxxy,
 				    "zcgzdqk": JSON.parse(window.localStorage.getItem("taskForceList")), 
 				}
-			postForm.saveFrm(config.path.addVillage,{"data": JSON.stringify(data)}).success(function(res){
+		villageCollection.uploadSave=function(){
+			if(!villageCollection.situationList.cfzr){
+				alert("请完善信息")
+			}
+			postForm.saveFrm(config.path.addVillage,{"data": JSON.stringify(villageCollection.localData)}).success(function(res){
 				$state.go("poorVillage");
 			}).error(function(){
 				//保存，或者修改，如果有index_id则为修改没有则为添加
 				dt.request({
 					rqstName: "low_village", //'low_family', 'low_village', 'nature_village', 'relief_project'
 					type: "put", //select,delete,put,selectById,
-					data: {
-						data
-					},
+					data: villageCollection.localData,
 					success: function(args) {
 						fupin.alert("已保存到草稿")
 						$state.go("poorVillage");
 					},
 					error: function(args) {
+
 					}
 				});
-			})
+			 })
 		}
 		villageCollection.back=function(){
 			fupin.confirm("是否保存为草稿", function() {
-				
+				dt.request({
+					rqstName: "low_village", //'low_family', 'low_village', 'nature_village', 'relief_project'
+					type: "put", //select,delete,put,selectById,
+					data: villageCollection.localData,
+					success: function(args) {
+						fupin.alert("已保存到草稿")
+						$state.go("poorVillage");
+					},
+					error: function(args) {
+
+					}
+				});
 			}, function() {
 			 	$state.go("poorVillage");
 			});
