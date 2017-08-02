@@ -1,17 +1,55 @@
-myApp.controller("low_family_baseCtro", ["$scope", "$rootScope", "$state", "$http", "$stateParams",
-	function($scope, $rootScope, $state, $http, $stateParams) {
+myApp.controller("low_family_baseCtro", ["$scope", "$rootScope", "$state", "$http", "$stateParams", "postForm",
+	function($scope, $rootScope, $state, $http, $stateParams, postForm) {
 		var low_family_baseInfo = {} || low_family_baseInfo;
 		low_family_baseInfo.urlParam = $stateParams;
 		low_family_baseInfo.sendParam = {};
+		low_family_baseInfo.otherSelect = {
+			townList: [],
+			villagesList: [],
+			naturalVillageList: []
+		};
+		//获取城镇
+		low_family_baseInfo.getTownVillages = function() {
+			postForm.saveFrm(config.path.townShip, {
+				lx: "01"
+			}).success(function(data) {
+				low_family_baseInfo.otherSelect.townList = data;
+			})
+		}
 
+		low_family_baseInfo.getTownVillages();
+		//根据乡镇获取对应村庄
+		low_family_baseInfo.getVillagesByTown = function() {
+			low_family_baseInfo.otherSelect.villagesList = [];
+			low_family_baseInfo.otherSelect.naturalVillageList = [];
+			low_family_baseInfo.formInfo.qyzrc = "";
+			low_family_baseInfo.formInfo.qyxzc = "";
+			postForm.saveFrm(config.path.townShip, {
+				lx: "02",
+				fid: low_family_baseInfo.formInfo.qyxz || "",
+			}).success(function(data) {
+				low_family_baseInfo.otherSelect.villagesList = data;
+			})
+		}
+		low_family_baseInfo.getNaturalVillagesByTown = function() {
+			low_family_baseInfo.otherSelect.naturalVillageList = [];
+			low_family_baseInfo.formInfo.qyzrc = "";
+			postForm.saveFrm(config.path.townShip, {
+				lx: "03",
+				fid: low_family_baseInfo.formInfo.qyxzc || ""
+			}).success(function(data) {
+				low_family_baseInfo.otherSelect.naturalVillageList = data;
+			})
+		}
+		
+		
 		low_family_baseInfo.formInfo = {};
-
 		if(low_family_baseInfo.urlParam.id) {
 			//
 			//			console.log($state);
 		}
 
-		$scope.goback = function() {
+		/*$scope.goback = function() {
 			//调用本地数据库保存
 			if(confirm("确定保存为草稿吗？")) {
 				//如果表单没变化则不提示保存草稿
@@ -27,8 +65,8 @@ myApp.controller("low_family_baseCtro", ["$scope", "$rootScope", "$state", "$htt
 					'error': function(args) {}
 				});
 			}
-		}
-			
+		}*/
+
 		$rootScope.$on('$routeChangeSuccess', function() {})
 		/*$scope.$watch('$viewContentLoading', function(event, viewConfig) {
 			//			alert('模板加载完成前');

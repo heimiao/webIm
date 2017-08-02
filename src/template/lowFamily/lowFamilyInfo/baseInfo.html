@@ -9,27 +9,21 @@
 				<div class="pkcList clearfix">
 					<div for="pkcxz" class="col-xs-4">镇(乡、苏木)</div>
 					<div class="col-xs-5 padd0 pkcRight">
-						<select class="form-control" id="pkcxz" ng-model="low_family_baseInfo.formInfo.qyxz">
-							<option>张北镇</option>
-							<option>1</option>
+						<select class="form-control" id="pkcxz" ng-model="low_family_baseInfo.formInfo.qyxz" ng-options="item.id as item.name for item in low_family_baseInfo.otherSelect.townList" ng-change="low_family_baseInfo.getVillagesByTown()">
 						</select>
 					</div>
 				</div>
 				<div class="pkcList clearfix">
 					<div class="col-xs-4">行政村</div>
 					<div class="col-xs-5 padd0 pkcRight">
-						<select class="form-control" ng-model="low_family_baseInfo.formInfo.qyxzc">
-							<option>二八地村</option>
-							<option>2</option>
+						<select class="form-control" ng-model="low_family_baseInfo.formInfo.qyxzc" ng-options="item.id as item.name for item in low_family_baseInfo.otherSelect.villagesList" ng-change="low_family_baseInfo.getNaturalVillagesByTown()">
 						</select>
 					</div>
 				</div>
 				<div class="pkcList clearfix">
 					<div class="col-xs-4">自然村(屯)</div>
 					<div class="col-xs-5 padd0 pkcRight">
-						<select class="form-control" ng-model="low_family_baseInfo.formInfo.qyzrc">
-							<option>自然村</option>
-							<option>2</option>
+						<select class="form-control" ng-model="low_family_baseInfo.formInfo.qyzrc" ng-options="item.id as item.name for item in low_family_baseInfo.otherSelect.naturalVillageList">
 						</select>
 					</div>
 				</div>

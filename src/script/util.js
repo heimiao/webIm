@@ -91,11 +91,11 @@
 			$(document).find(".myAlert").remove();
 		}
 	}
-	$.alert = function(opt) {
+	fupin.alert = function(opt) {
 		methodAlert.create(opt, "alert");
 		methodAlert.init();
 	};
-	$.confirm = function(option, sure, cancel) {
+	fupin.confirm = function(option, sure, cancel) {
 		methodAlert.create(option, "confirm");
 		methodAlert.init(sure, cancel);
 	};
