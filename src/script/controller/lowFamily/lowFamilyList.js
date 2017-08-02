@@ -109,6 +109,7 @@ myApp.controller("lowFamilyListCtro", ["$scope", "$state", "$filter", "$http", "
 
 	//根据乡镇获取对应村庄
 	lowFamilyList.getVillagesByTown = function(id) {
+		lowFamilyList.sendParam.qyxzc = "";
 		postForm.saveFrm(config.path.townShip, {
 			lx: "02",
 			fid: id
