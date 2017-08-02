@@ -13,6 +13,10 @@ myApp.controller("poorVillage", ["$scope", "$state", "$http", "$stateParams","$t
 		poorVillage.noDataType = false;
 		poorVillage.noDataName = null;
 		poorVillage.start = 0; //请求的条数
+		//清除添加时本地存储的数据
+		window.localStorage.removeItem("situationList");
+		window.localStorage.removeItem("developmentList");
+		window.localStorage.removeItem('taskForceList');
 		// 获取所有乡镇
 		$http.post(config.path.townShip,null).success(function(res){
 			poorVillage.townShip = res;

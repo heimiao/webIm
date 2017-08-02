@@ -1,10 +1,15 @@
+<link rel="stylesheet" href="../../assets/lib/date/css/mobiscroll.css">
+<style>
+	.villageCollection .villageSituation .content{
+		width: 36% !important;
+	}
+</style>
 <div class="villageCollection">
+<div class="villageSituation">
 		<header>
-			<a href="javascript:history.go(-1)">
-				<div class="back"><img src="../../assets/img/icon_28.png" alt=""></div>
-			</a>
+			<div class="back" ng-click="editTaskForce.back()"><img src="../../assets/img/icon_28.png" alt=""></div>
 			<div class="collectionTitle">贫困村信息采集</div>
-			<div class="delete">删除</div>
+			<div class="delete" ng-click="editTaskForce.deleteBtn()">删除</div>
 		</header>
 		<div class="fill"></div>
 		<div>
@@ -16,107 +21,135 @@
 					<span class="titles">驻村工作队情况</span>
 				</div>
 				<div class="item border-b">
-					<div class="name">驻村工作队员姓名</div>
-					<div class="content">
-						<input type="text" placeholder="请输入姓名">
-					</div>
+					<label class="labels" for="bfdwzcgzdyxm">
+						<div class="name">驻村工作队员姓名</div>
+						<div class="content">
+							<input id="bfdwzcgzdyxm" type="text" placeholder="请输入姓名" ng-model="editTaskForce.bfdwzcgzdyxm">
+						</div>
+					</label>
 				</div>
 				<div class="item border-b">
-					<div class="name">政治面貌</div>
-					<div class="content">
-						<select name="" id="">
-							<option value="">党员</option>
-							<option value="">团员</option>
-						</select>
-						<img src="../../assets/img/icon2_11@2x.png" alt="">
-					</div>
+					<label class="labels" for="zzmm">
+						<div class="name">政治面貌</div>
+						<div class="content pr">
+							<select class="selects" name="" id="zzmm" ng-model="editTaskForce.zzmm">
+								<option value="01">中共党员</option>
+								<option value="02">中共预备党员</option>
+								<option value="03">共青团员</option>
+								<option value="04">民革会员</option>
+								<option value="05">民盟盟员</option>
+								<option value="06">民建会员</option>
+								<option value="07">民进会员</option>
+								<option value="08">农工党党员</option>
+								<option value="09">致公党党员</option>
+								<option value="10">九三学社社员</option>
+								<option value="11">台盟盟员</option>
+								<option value="12">无党派民主人士</option>
+								<option value="13">群众</option>
+							</select>
+							<img class="rightPro" src="../../assets/img/icon2_11@2x.png" alt="">
+						</div>
+					</label>
 				</div>
 				<div class="item border-b">
-					<div class="name">证件号码</div>
-					<div class="content">
-						<input type="text" placeholder="请输入证件号码">
-					</div>
+					<label class="labels" for="zjhm">
+						<div class="name">证件号码</div>
+						<div class="content">
+							<input id="zjhm" type="text" placeholder="请输入证件" ng-model="editTaskForce.zjhm">
+						</div>
+					</label>
 				</div>
 				<div class="item border-b">
-					<div class="name">帮扶(派驻)</div>
-					<div class="content">
-						<input type="text" placeholder="请输入帮扶">
-					</div>
+					<label class="labels" for="bfdwmc">
+						<div class="name">帮扶(派驻)单位名称</div>
+						<div class="content">
+							<input id="bfdwmc" type="text" placeholder="请输入帮扶" ng-model="editTaskForce.bfdwmc">
+						</div>
+					</label>
 				</div>
 				<div class="item border-b">
-					<div class="name">单位名称</div>
-					<div class="content">
-						<input type="text" placeholder="请输入单位名称">
-					</div>
+					<label class="labels" for="dwlsgx">
+						<div class="name">单位隶属关系</div>
+						<div class="content pr">
+							<select class="selects" name="" id="dwlsgx" ng-model="editTaskForce.dwlsgx">
+								<option value="01">中央</option>
+								<option value="02">省</option>
+								<option value="03">市</option>
+								<option value="04">县</option>
+								<option value="05">乡镇</option>
+								<option value="06">部队</option>
+								<option value="07">其他</option>
+							</select>
+							<img class="rightPro" src="../../assets/img/icon2_11@2x.png" alt="">
+						</div>
+					</label>
 				</div>
 				<div class="item border-b">
-					<div class="name">单位隶属关系</div>
-					<div class="content">
-						<select name="" id="">
-							<option value="">关系</option>
-							<option value="">关系</option>
-						</select>
-						<img src="../../assets/img/icon2_11@2x.png" alt="">
-					</div>
+					<label class="labels" for="lxdh">
+						<div class="name">联系电话</div>
+						<div class="content">
+							<input id="lxdh" type="number" placeholder="请输入电话" ng-model="editTaskForce.lxdh">
+						</div>
+					</label>
 				</div>
 				<div class="item border-b">
-					<div class="name">联系电话</div>
-					<div class="content">
-						<input type="number" placeholder="请输入电话">
-					</div>
+					<label class="labels" for="star_time">
+						<div class="name">驻村开始时间</div>
+						<div class="content pr">
+							<input class="selects" type="text" name="s_time" placeholder="开始时间" id="star_time" style="line-height: 2.3rem;width:100%">
+							<img class="rightPro" src="../../assets/img/icon2_11@2x.png" alt="">
+						</div>
+					</label>
 				</div>
 				<div class="item border-b">
-					<div class="name">驻村开始时间</div>
-					<div class="content">
-						<select name="" id="">
-							<option value="">2017.12.12</option>
-							<option value="">2017.12.12</option>
-						</select>
-						<img src="../../assets/img/icon2_11@2x.png" alt="">
-					</div>
+					<label class="labels" for="end_time">
+						<div class="name">驻村结束时间</div>
+						<div class="content pr">
+							<input class="selects" type="text" name="s_time" placeholder="结束时间" id="end_time" style="line-height: 2.3rem">
+							<img class="rightPro" src="../../assets/img/icon2_11@2x.png" alt="">
+						</div>
+					</label>
 				</div>
 				<div class="item border-b">
-					<div class="name">驻村结束时间</div>
-					<div class="content">
-						<select name="" id="">
-							<option value="">2017.12.12</option>
-							<option value="">2017.12.12</option>
-						</select>
-						<img src="../../assets/img/icon2_11@2x.png" alt="">
-					</div>
+					<label class="labels" for="sfdz">
+						<div class="name">是否队长</div>
+						<div class="content pr">
+							<select class="selects" name="" id="sfdz" ng-model="editTaskForce.sfdz">
+								<option value="是">是</option>
+								<option value="否">否</option>
+							</select>
+							<img class="rightPro" src="../../assets/img/icon2_11@2x.png" alt="">
+						</div>
+					</label>
 				</div>
 				<div class="item border-b">
-					<div class="name">是否队长</div>
-					<div class="content">
-						<select name="" id="">
-							<option value="">是</option>
-							<option value="">否</option>
-						</select>
-						<img src="../../assets/img/icon2_11@2x.png" alt="">
-					</div>
-				</div>
-				<div class="item border-b">
-					<div class="name">是否第一书记</div>
-					<div class="content">
-						<select name="" id="">
-							<option value="">是</option>
-							<option value="">否</option>
-						</select>
-						<img src="../../assets/img/icon2_11@2x.png" alt="">
-					</div>
+					<label class="labels" for="sfdysj">
+						<div class="name">是否第一书记</div>
+						<div class="content pr">
+							<select class="selects" name="" id="sfdysj" ng-model="editTaskForce.sfdysj">
+								<option value="是">是</option>
+								<option value="否">否</option>
+							</select>
+							<img class="rightPro" src="../../assets/img/icon2_11@2x.png" alt="">
+						</div>
+					</label>
 				</div>
 			</div>
+
+		
 
 		</div>
 		
 		</div>
 		<!--  -->
 		<div class="footFill"></div>
-		<a href="villageCollection.html"><div class="foot">
+		<div class="foot" ng-click="editTaskForce.save()">
 			保存
-		</div></a>
+		</div>
 	</div>
+</div>
 	<script type="text/javascript" src="../../assets/lib/js/jquery.min.js"></script>
+    <script src="../../assets/lib/date/js/mobiscroll.js" type="text/javascript"></script>
 	<script>
 		$("#tab div").click(function(){
 			$(this).addClass('bg').siblings().removeClass('bg');

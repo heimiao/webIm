@@ -317,7 +317,7 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 			templateUrl: 'dist/template/village/villageDraft.html'
 		})
 		.state('villageCollection', {
-			url: '/villageCollection',
+			url: '/villageCollection?type',
 			controller: "villageCollection",
 			templateUrl: 'dist/template/village/villageCollection.html'
 		})
@@ -327,7 +327,7 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 			templateUrl: 'dist/template/village/addTaskForce.html'
 		})
 		.state('editTaskForce', {
-			url: '/editTaskForce',
+			url: '/editTaskForce?id',
 			controller: "editTaskForce",
 			templateUrl: 'dist/template/village/editTaskForce.html'
 		})
