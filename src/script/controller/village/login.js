@@ -3,11 +3,16 @@ myApp.controller("login", ["$scope", "$state", "$http", "$stateParams","postForm
 		var login = {} || login;
 		login.urlParam = $stateParams;
 		login.sendParam = {};
-
-		login.uploadSource = function() {
-			console.log(12123123);
-
-			//根据贫困户id
+		login.countyList = []; //县城以及对应的url
+		$http.post(config.getbaseUrl,null).success(function(res){
+			if(res.success){
+				login.url = res.results[0].url;
+				config.changePath(res.results[0].url);
+				login.countyList = res.results;
+			}
+		})
+		login.change=function(){
+			config.changePath(login.url);
 		}
 		$scope.logIn=function (){
 			if(!$scope.userName){

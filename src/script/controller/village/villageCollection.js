@@ -22,7 +22,7 @@ myApp.controller("villageCollection", ["$scope", "$state", "$http", "$stateParam
 		villageCollection.developmentList.sfyncsw = "有"; //是否有农村书屋
 		villageCollection.developmentList.sfydgnhds = "有"; //是否有多功能活动室
 		villageCollection.developmentList.sfywhxckpcl = "有"; //是否有文化科普廊
-		
+
 		if($stateParams.type == 1){
 			$('.tab3').addClass('bg').siblings().removeClass('bg');
 			$("#"+$('.tab3').attr('data-type')).show().siblings().hide();
@@ -144,8 +144,7 @@ myApp.controller("villageCollection", ["$scope", "$state", "$http", "$stateParam
 		villageCollection.taskForceList = JSON.parse(window.localStorage.getItem("taskForceList"));
 
 		//上传所有的数据
-		villageCollection.uploadSave=function(){
-			var data={
+		villageCollection.localData={
 				  	'qyxz': villageCollection.situationList.qyxz,
 					'qyxzc': villageCollection.situationList.qyxzc,
 					'cfzr': villageCollection.situationList.cfzr,
@@ -230,10 +229,47 @@ myApp.controller("villageCollection", ["$scope", "$state", "$http", "$stateParam
 					'xzcxxy': villageCollection.developmentList.xzcxxy,
 				    "zcgzdqk": JSON.parse(window.localStorage.getItem("taskForceList")), 
 				}
-			postForm.saveFrm(config.path.addVillage,{"data": JSON.stringify(data)}).success(function(res){
-				console.log(res)
-			})
+		villageCollection.uploadSave=function(){
+			if(!villageCollection.situationList.cfzr){
+				alert("请完善信息")
+			}
+			postForm.saveFrm(config.path.addVillage,{"data": JSON.stringify(villageCollection.localData)}).success(function(res){
+				$state.go("poorVillage");
+			}).error(function(){
+				//保存，或者修改，如果有index_id则为修改没有则为添加
+				dt.request({
+					rqstName: "low_village", //'low_family', 'low_village', 'nature_village', 'relief_project'
+					type: "put", //select,delete,put,selectById,
+					data: villageCollection.localData,
+					success: function(args) {
+						fupin.alert("已保存到草稿")
+						$state.go("poorVillage");
+					},
+					error: function(args) {
+
+					}
+				});
+			 })
 		}
+		villageCollection.back=function(){
+			fupin.confirm("是否保存为草稿", function() {
+				dt.request({
+					rqstName: "low_village", //'low_family', 'low_village', 'nature_village', 'relief_project'
+					type: "put", //select,delete,put,selectById,
+					data: villageCollection.localData,
+					success: function(args) {
+						fupin.alert("已保存到草稿")
+						$state.go("poorVillage");
+					},
+					error: function(args) {
+
+					}
+				});
+			}, function() {
+			 	$state.go("poorVillage");
+			});
+		}
+		
 		/*lowFamilyInfo.menu=false;
 		lowFamilyInfo.changeMenu=function(args){
 			lowFamilyInfo.menu=args;

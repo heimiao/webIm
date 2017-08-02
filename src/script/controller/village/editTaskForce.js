@@ -37,12 +37,11 @@ myApp.controller("editTaskForce", ["$scope", "$state", "$http", "$stateParams",
 
 		}
 		editTaskForce.back=function(){
-			/*$.confirm("内容框框", function() {
-				console.log("确定按钮");
+			fupin.confirm("是否保存为草稿", function() {
+				editTaskForce.save();
 			}, function() {
-				console.log("取消按钮");
-			});*/
-			$.alert("tishi")
+				window.history.back() 
+			});
 		}
 		/*lowFamilyInfo.menu=false;
 		lowFamilyInfo.changeMenu=function(args){

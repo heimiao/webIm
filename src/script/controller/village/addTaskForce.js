@@ -25,7 +25,11 @@ myApp.controller("addTaskForce", ["$scope", "$state", "$http", "$stateParams",
 			$state.go("villageCollection",{type: 1});
 		}
 		addTaskForce.back=function(){
-			history.go(-1)
+			fupin.confirm("是否保存为草稿", function() {
+				addTaskForce.addTask();
+			}, function() {
+				window.history.back() 
+			});
 		}
 		/*lowFamilyInfo.menu=false;
 		lowFamilyInfo.changeMenu=function(args){
