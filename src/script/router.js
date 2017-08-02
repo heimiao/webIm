@@ -184,6 +184,12 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 				}
 			}
 		})
+		//贫困户查询页面
+		.state('querylowFamilyCondition', {
+			url: '/query_low_family_condition',
+		 	controller: "querylowFamilyConditionCtro",
+		 	templateUrl: 'dist/template/lowFamily/searchLowFamily/queryHousehold.html'
+		})
 		//自然村首页
 		.state('naturalVillage', {
 			url: '/natural_village?id&type',

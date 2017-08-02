@@ -1,11 +1,17 @@
+<<<<<<< HEAD
 var base={
 	baseUrl: 'http://123.58.240.75:8081/tpa',
 }
+=======
+var baseUrl = "http://123.58.240.75:8081/tpa";
+
+>>>>>>> 4cfcd1b4ccdb4ae02b6f55e299889592ec380188
 var config = {
 	//请求路径
 	path: {
 		getbaseUrl: base.baseUrl+'/zjzd/getBaseUrlList?lx=11',
 		//贫困村
+<<<<<<< HEAD
 		lowFamilyList: base.baseUrl + "/pkh/queryForPage",
 		lowFamilyById: base.baseUrl + "/pkh/queryForId",
 		login: base.baseUrl + "/dotpalogin",
@@ -16,6 +22,28 @@ var config = {
 		villageList: base.baseUrl + "/pkc/queryForPage", //获取贫困村列表
 		queryForZcVillage: base.baseUrl+　"/zcjg/queryForZc", //根据id 查询行政村和或者乡镇
 		addVillage: base.baseUrl+"/pkc/add", //添加贫困村信息
+=======
+		lowFamilyList: "/pkh/queryForPage",
+		lowFamilyById: "/pkh/queryForId",
+		login: "/dotpalogin",
+		//townShip: baseUrl+ "/zcjg/queryForZc",  //获取乡镇列表
+		naturalVillage: "/zrc/queryForPage", //自然村列表
+		townShip: "/zcjg/queryForZc?lx=01", //获取乡镇列表
+		villageAll: "/zcjg/queryForZc?lx=02", //获取所有行政村列表
+		villageList: "/pkc/queryForPage", //获取贫困村列表
+		queryForZcVillage: "/zcjg/queryForZc", //根据id 查询行政村和或者乡镇
+		addVillage: "/pkc/add", //添加贫困村信息
+	},
+	changePath: function(args) {
+		var ary = {};
+		for(var item in this.path) {
+			if(args)
+				ary[item] = args + this.path[item];
+			else
+				ary[item] = this.path[item];
+		}
+		angular.extend(this.path, ary);
+>>>>>>> 4cfcd1b4ccdb4ae02b6f55e299889592ec380188
 	},
 	//系统基本信息配置
 	sysInfo: {
@@ -30,6 +58,19 @@ var config = {
 	},
 	//系统状态配置
 	sysValue: {
+		khyh: [{
+			name: "招商银行",
+			value: "招商银行",
+		}, {
+			name: "农业也银行",
+			value: "农业也银行",
+		}, {
+			name: "工商银行",
+			value: "工商银行",
+		}, {
+			name: "人民银行",
+			value: "人民银行",
+		}],
 		//数据状态
 		dataStatus: [{
 			name: "正确数据",
@@ -834,3 +875,5 @@ var config = {
 		]
 	}
 }
+
+config.changePath(baseUrl);

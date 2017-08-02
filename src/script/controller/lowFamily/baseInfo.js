@@ -3,10 +3,23 @@ myApp.controller("low_family_baseCtro", ["$scope", "$rootScope", "$state", "$htt
 		var low_family_baseInfo = {} || low_family_baseInfo;
 		low_family_baseInfo.urlParam = $stateParams;
 		low_family_baseInfo.sendParam = {};
+
+		var all = {
+			name: "",
+			value: "",
+			id: ""
+		};
+		config.sysValue.bhksx.splice(0, 0, all);
+		config.sysValue.tpqk.splice(0, 0, all);
+		config.sysValue.khyh.splice(0, 0, all);
+
 		low_family_baseInfo.otherSelect = {
 			townList: [],
 			villagesList: [],
-			naturalVillageList: []
+			naturalVillageList: [],
+			bhksxList: config.sysValue.bhksx, //贫困户属性
+			tpqkList: config.sysValue.tpqk, //脱贫情况
+			khyhList: config.sysValue.khyh, //开户银行
 		};
 		//获取城镇
 		low_family_baseInfo.getTownVillages = function() {
@@ -16,7 +29,6 @@ myApp.controller("low_family_baseCtro", ["$scope", "$rootScope", "$state", "$htt
 				low_family_baseInfo.otherSelect.townList = data;
 			})
 		}
-
 		low_family_baseInfo.getTownVillages();
 		//根据乡镇获取对应村庄
 		low_family_baseInfo.getVillagesByTown = function() {
@@ -41,8 +53,7 @@ myApp.controller("low_family_baseCtro", ["$scope", "$rootScope", "$state", "$htt
 				low_family_baseInfo.otherSelect.naturalVillageList = data;
 			})
 		}
-		
-		
+
 		low_family_baseInfo.formInfo = {};
 		if(low_family_baseInfo.urlParam.id) {
 			//

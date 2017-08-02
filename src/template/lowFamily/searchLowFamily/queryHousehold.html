@@ -1,0 +1,69 @@
+<div class="query">
+	<header>
+		<a href="javascript:history.go(-1)">
+			<div class="back"><img src="../../assets/img/icon_28.png" alt=""></div>
+		</a>
+		<div class="queryCon">
+			<img class="search" src="../../assets/img/search.png" alt="">
+			<input type="text" placeholder="贫困户查询,输入姓名、证件号码">
+		</div>
+		<a href="queryHouseholdList.html">
+			<div class="queryBtn" ng-click="query_low_family_condition.search()">
+				查询
+			</div>
+		</a>
+	</header>
+	<div class="fill"></div>
+	<div class="conditionCon">
+		<div class="item border-b">
+			<div class="yearName">年度</div>
+			<div class="year">
+				<select name="" ng-options="item.value as item.name for item in query_low_family_condition.otherSelect.yearObj"></select>
+				<img src="../../assets/img/icon2_11@2x.png" alt="">
+			</div>
+		</div>
+		<div class="item border-b">
+			<div class="yearName">乡镇</div>
+			<div class="year">
+				<select name="" ng-model="query_low_family_condition.sendParam.qyxz" ng-options="item.id as item.name for item in query_low_family_condition.townList" ng-change="query_low_family_condition.getVillagesByTown()">
+				</select>
+				<img src="../../assets/img/icon2_11@2x.png" alt="">
+			</div>
+		</div>
+		<div class="item border-b">
+			<div class="yearName">行政村</div>
+			<div class="year">
+				<select name="" ng-model="query_low_family_condition.sendParam.qyxzc" ng-options="item.id as item.name for item in query_low_family_condition.town_VillagesList">
+				</select>
+				<img src="../../assets/img/icon2_11@2x.png" alt="">
+			</div>
+		</div>
+	</div>
+
+	<div class="dataState">
+		<div class="title border-b">数据状态</div>
+		<div class="tab" id="dataState">
+			<span ng-repeat="item in query_low_family_condition.otherSelect.dataStatusObj">
+				<div class="tab1 bg" my-ng-model="query_low_family_condition.sendParam.sjzt" ng-bind="item.name">全部数据</div>
+			</span>
+		</div>
+	</div>
+	<div class="poverty">
+		<div class="title border-b">脱贫情况</div>
+		<div class="tab" id="poverty">
+			<div class="statisticsNo bg" ng-model="query_low_family_condition.sendParam.tpqk">统计全部</div>
+			<div class="history">历史已脱贫贫困户</div>
+			<div class="tab1">返贫贫困户</div>
+			<div class="tab2">未脱贫贫困户</div>
+			<div class="tab3">新脱贫贫困户</div>
+		</div>
+	</div>
+</div>
+<!--<script>
+	$("#dataState div").click(function() {
+		$(this).addClass('bg').siblings().removeClass('bg');
+	})
+	$("#poverty div").click(function() {
+		$(this).addClass('bg').siblings().removeClass('bg');
+	})
+</script>-->
