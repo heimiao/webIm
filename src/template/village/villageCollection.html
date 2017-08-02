@@ -18,7 +18,7 @@
 				<label class="labels" for="qyxz">
 					<div class="name">镇(乡、苏木)</div>
 					<div class="content pr">
-						<select dir="rtl" class="selects" name="" id="qyxz" ng-model="villageCollection.qyxz" ng-options="item.id as item.name for item in villageCollection.townShip"></select>
+						<select dir="rtl" class="selects" name="" id="qyxz" ng-model="villageCollection.situationList.qyxz" ng-options="item.id as item.name for item in villageCollection.townShip" ng-change="villageCollection.changeTown()"></select>
 						<img class="rightPro" src="../../assets/img/icon2_11@2x.png" alt="">
 					</div>
 				</label>
@@ -28,7 +28,7 @@
 				<label class="labels" for="qyxzc">
 					<div class="name">行政村</div>
 					<div class="content pr">
-						<select dir="rtl" class="selects" name="" id="qyxzc" ng-model="villageCollection.qyxzc" ng-options="item.id as item.name for item in villageCollection.villageListAll"></select>
+						<select dir="rtl" class="selects" name="" id="qyxzc" ng-model="villageCollection.situationList.qyxzc" ng-options="item.id as item.name for item in villageCollection.villageListAll"></select>
 						<img class="rightPro" src="../../assets/img/icon2_11@2x.png" alt="">
 					</div>
 				</label>
@@ -38,7 +38,7 @@
 				<label for="cfzr" class="labels">
 					<div class="name">村负责人</div>
 					<div class="content">
-						<input id="cfzr" type="text" placeholder="请输入姓名" ng-model="villageCollection.cfzr">
+						<input id="cfzr" type="text" placeholder="请输入姓名" ng-model="villageCollection.situationList.cfzr">
 					</div>
 				</label>
 			</div>
@@ -47,7 +47,7 @@
 				<label for="zwjb" class="labels">
 					<div class="name">职务级别</div>
 					<div class="content">
-						<input id="zwjb" type="text" placeholder="请输入级别" ng-model="villageCollection.zwjb">
+						<input id="zwjb" type="text" placeholder="请输入级别" ng-model="villageCollection.situationList.zwjb">
 					</div>
 				</label>
 			</div>
@@ -56,7 +56,7 @@
 				<label for="cbgdh" class="labels">
 					<div class="name">村办公电话</div>
 					<div class="content">
-						<input id="cbgdh" type="number" placeholder="请输入电话" ng-model="villageCollection.cbgdh">
+						<input id="cbgdh" type="number" placeholder="请输入电话" ng-model="villageCollection.situationList.cbgdh">
 					</div>
 				</label>
 			</div>
@@ -65,7 +65,7 @@
 				<label for="pkcsx" class="labels">
 					<div class="name">贫困村属性</div>
 					<div class="content pr">
-						<select dir="rtl" class="selects" name="" id="pkcsx" ng-model="villageCollection.pkcsx">
+						<select dir="rtl" class="selects" name="" id="pkcsx" ng-model="villageCollection.situationList.pkcsx">
 							<option value="01">贫困村</option>
 							<option value="02">十二五贫困村</option>
 							<option value="03">十三五贫困村</option>
@@ -80,7 +80,7 @@
 				<label for="fzfxsx" class="labels">
 					<div class="name">发展方向属性</div>
 					<div class="content pr">
-						<select dir="rtl" class="selects" name="" id="fzfxsx" ng-model="villageCollection.fzfxsx">
+						<select dir="rtl" class="selects" name="" id="fzfxsx" ng-model="villageCollection.situationList.fzfxsx">
 							<option value="zx">中心村镇</option>
 							<option value="gd">过渡村镇</option>
 							<option value="yb">一般村镇</option>
@@ -94,7 +94,7 @@
 				<label for="dxdmsx" class="labels">
 					<div class="name">地形地貌属性</div>
 					<div class="content pr">
-						<select dir="rtl" class="selects" name="" id="dxdmsx" ng-model="villageCollection.dxdmsx">
+						<select dir="rtl" class="selects" name="" id="dxdmsx" ng-model="villageCollection.situationList.dxdmsx">
 							<option value="sq">山区村镇</option>
 							<option value="ql">丘陵村镇</option>
 							<option value="pb">平坝村镇</option>
@@ -108,7 +108,7 @@
 				<label for="zgdyrs" class="labels">
 					<div class="name">中共党员数量(人)</div>
 					<div class="content">
-						<input id="zgdyrs" type="number" placeholder="请输入数量" ng-model="villageCollection.zgdyrs">
+						<input id="zgdyrs" type="number" placeholder="请输入数量" ng-model="villageCollection.situationList.zgdyrs">
 					</div>
 				</label>
 			</div>
@@ -117,7 +117,7 @@
 				<label for="dxscgrs" class="labels">
 					<div class="name">大学生村官数量(人)</div>
 					<div class="content">
-						<input id="dxscgrs" type="number" placeholder="请输入数量" ng-model="villageCollection.dxscgrs">
+						<input id="dxscgrs" type="number" placeholder="请输入数量" ng-model="villageCollection.situationList.dxscgrs">
 					</div>
 				</label>
 			</div>
@@ -126,7 +126,7 @@
 				<label for="zrcs" class="labels">
 					<div class="name">B1 自然(村民小组)数(个)</div>
 					<div class="content">
-						<input id="zrcs" type="number" placeholder="请输入数量" ng-model="villageCollection.zrcs">
+						<input id="zrcs" type="number" placeholder="请输入数量" ng-model="villageCollection.situationList.zrcs">
 					</div>
 				</label>
 			</div>
@@ -135,7 +135,7 @@
 				<label for="zhs" class="labels">
 					<div class="name">B2 总户数(户)</div>
 					<div class="content">
-						<input id="zhs" type="number" placeholder="请输入户数" ng-model="villageCollection.zhs">
+						<input id="zhs" type="number" placeholder="请输入户数" ng-model="villageCollection.situationList.zhs">
 					</div>
 				</label>
 			</div>
@@ -145,7 +145,7 @@
 				<label for="pkhs" class="labels">
 					<div class="name">B2a 贫困户数(户)</div>
 					<div class="content">
-						<input id="pkhs" type="number" placeholder="请输入户数" ng-model="villageCollection.pkhs">
+						<input id="pkhs" type="number" placeholder="请输入户数" ng-model="villageCollection.situationList.pkhs">
 					</div>
 				</label>
 			</div>
@@ -154,7 +154,7 @@
 				<label for="dbhs" class="labels">
 					<div class="name">B2b 低保户数(户)</div>
 					<div class="content">
-						<input id="dbhs" type="number" placeholder="请输入户数" ng-model="villageCollection.dbhs">
+						<input id="dbhs" type="number" placeholder="请输入户数" ng-model="villageCollection.situationList.dbhs">
 					</div>
 				</label>
 			</div>
@@ -163,7 +163,7 @@
 				<label for="wbhs" class="labels">
 					<div class="name">B2c 五保户数(户)</div>
 					<div class="content">
-						<input id="wbhs" type="number" placeholder="请输入户数" ng-model="villageCollection.wbhs">
+						<input id="wbhs" type="number" placeholder="请输入户数" ng-model="villageCollection.situationList.wbhs">
 					</div>
 				</label>
 			</div>
@@ -172,7 +172,7 @@
 				<label for="ybpkhs" class="labels">
 					<div class="name">B2d 一般贫困户数(户)</div>
 					<div class="content">
-						<input id="ybpkhs" type="number" placeholder="请输入户数" ng-model="villageCollection.ybpkhs">
+						<input id="ybpkhs" type="number" placeholder="请输入户数" ng-model="villageCollection.situationList.ybpkhs">
 					</div>
 				</label>
 			</div>
@@ -181,7 +181,7 @@
 				<label for="zrks" class="labels">
 					<div class="name">B3 总人口数(人)</div>
 					<div class="content">
-						<input id="zrks" type="number" placeholder="请输入人数" ng-model="villageCollection.zrks">
+						<input id="zrks" type="number" placeholder="请输入人数" ng-model="villageCollection.situationList.zrks">
 					</div>
 				</label>
 			</div>
@@ -190,7 +190,7 @@
 				<label for="pkrks" class="labels">
 					<div class="name">B3a 贫困人口数(人)</div>
 					<div class="content">
-						<input id="pkrks" type="number" placeholder="请输入人数" ng-model="villageCollection.pkrks">
+						<input id="pkrks" type="number" placeholder="请输入人数" ng-model="villageCollection.situationList.pkrks">
 					</div>
 				</label>
 			</div> 
@@ -199,7 +199,7 @@
 				<label for="dbrks" class="labels">
 					<div class="name">B3b 低保人口数(人)</div>
 					<div class="content">
-						<input id="dbrks" type="number" placeholder="请输入人数" ng-model="villageCollection.dbrks">
+						<input id="dbrks" type="number" placeholder="请输入人数" ng-model="villageCollection.situationList.dbrks">
 					</div>
 				</label>
 			</div> 
@@ -208,7 +208,7 @@
 				<label for="whrks" class="labels">
 					<div class="name">B3c 五保人口数(人)</div>
 					<div class="content">
-						<input id="whrks" type="number" placeholder="请输入人数" ng-model="villageCollection.whrks">
+						<input id="whrks" type="number" placeholder="请输入人数" ng-model="villageCollection.situationList.whrks">
 					</div>
 				</label>
 			</div>
@@ -217,7 +217,7 @@
 				<label for="ssmzrks" class="labels">
 					<div class="name">B3d 少数民族人口数(人)</div>
 					<div class="content">
-						<input id="ssmzrks" type="number" placeholder="请输入人数" ng-model="villageCollection.ssmzrks">
+						<input id="ssmzrks" type="number" placeholder="请输入人数" ng-model="villageCollection.situationList.ssmzrks">
 					</div>
 				</label>
 			</div>
@@ -227,7 +227,7 @@
 				<label for="fnrks" class="labels">
 					<div class="name">B3e 妇女人口数(人)</div>
 					<div class="content">
-						<input id="fnrks" type="number" placeholder="请输入人数" ng-model="villageCollection.fnrks">
+						<input id="fnrks" type="number" placeholder="请输入人数" ng-model="villageCollection.situationList.fnrks">
 					</div>
 				</label>
 			</div>
@@ -236,7 +236,7 @@
 				<label for="cjrks" class="labels">
 					<div class="name">B3f 残疾人口数(人)</div>
 					<div class="content">
-						<input id="cjrks" type="number" placeholder="请输入人数" ng-model="villageCollection.cjrks">
+						<input id="cjrks" type="number" placeholder="请输入人数" ng-model="villageCollection.situationList.cjrks">
 					</div>
 				</label>
 			</div>
@@ -245,7 +245,7 @@
 				<label for="ybpkrks" class="labels">
 					<div class="name">B3g 一般贫困人口数(人)</div>
 					<div class="content">
-						<input id="ybpkrks" type="number" placeholder="请输入人数" ng-model="villageCollection.ybpkrks">
+						<input id="ybpkrks" type="number" placeholder="请输入人数" ng-model="villageCollection.situationList.ybpkrks">
 					</div>
 				</label>	
 			</div>
@@ -254,7 +254,7 @@
 				<label for="hjrks" class="labels">
 					<div class="name">H9 户籍人口数(人)</div>
 					<div class="content">
-						<input id="hjrks" type="number" placeholder="请输入人数" ng-model="villageCollection.hjrks">
+						<input id="hjrks" type="number" placeholder="请输入人数" ng-model="villageCollection.situationList.hjrks">
 					</div>
 				</label>
 			</div>
@@ -264,7 +264,7 @@
 				<label for="h9a" class="labels">
 					<div class="name">H9a 16周岁以上(不含在校学生)的非国家机关和事业单位工作人员及不属于城镇职工基本养老保险制度覆盖范围的户籍人口数(人)</div>
 					<div class="content">
-						<input id="h9a" type="number" placeholder="请输入人数" ng-model="villageCollection.h9a">
+						<input id="h9a" type="number" placeholder="请输入人数" ng-model="villageCollection.situationList.h9a">
 					</div>
 				</label>
 			</div>
@@ -273,7 +273,7 @@
 				<label for="ldlrs" class="labels">
 					<div class="name">B4 劳动力人数(人)</div>
 					<div class="content">
-						<input id="ldlrs" type="number" placeholder="请输入人数" ng-model="villageCollection.ldlrs">
+						<input id="ldlrs" type="number" placeholder="请输入人数" ng-model="villageCollection.situationList.ldlrs">
 					</div>
 				</label>
 			</div>
@@ -282,7 +282,7 @@
 				<label for="wcwgrs" class="labels">
 					<div class="name">B4a 外出务工人数(人)</div>
 					<div class="content">
-						<input id="wcwgrs" type="number" placeholder="请输入人数" ng-model="villageCollection.wcwgrs">
+						<input id="wcwgrs" type="number" placeholder="请输入人数" ng-model="villageCollection.situationList.wcwgrs">
 					</div>
 				</label>
 			</div>
@@ -291,7 +291,7 @@
 				<label for="gdmj" class="labels">
 					<div class="name">B5 耕地面积(亩)</div>
 					<div class="content">
-						<input id="gdmj" type="number" placeholder="请输入面积" ng-model="villageCollection.gdmj">
+						<input id="gdmj" type="number" placeholder="请输入面积" ng-model="villageCollection.situationList.gdmj">
 					</div>
 				</label>
 			</div>
@@ -300,7 +300,7 @@
 				<label for="yxgkmj" class="labels">
 					<div class="name">B5a 有效灌溉面积(亩)</div>
 					<div class="content">
-						<input id="yxgkmj" type="number" placeholder="请输入面积" ng-model="villageCollection.yxgkmj">
+						<input id="yxgkmj" type="number" placeholder="请输入面积" ng-model="villageCollection.situationList.yxgkmj">
 					</div>
 				</label>
 			</div>
@@ -309,7 +309,7 @@
 				<label for="ldmj" class="labels">
 					<div class="name">B6 林地面积(亩)</div>
 					<div class="content">
-						<input id="ldmj" type="number" placeholder="请输入面积" ng-model="villageCollection.ldmj">
+						<input id="ldmj" type="number" placeholder="请输入面积" ng-model="villageCollection.situationList.ldmj">
 					</div>
 				</label>
 			</div>
@@ -318,7 +318,7 @@
 				<label for="tghlmj" class="labels">
 					<div class="name">B6a 退耕还林面积(亩)</div>
 					<div class="content">
-						<input id="tghlmj" type="number" placeholder="请输入面积" ng-model="villageCollection.tghlmj">
+						<input id="tghlmj" type="number" placeholder="请输入面积" ng-model="villageCollection.situationList.tghlmj">
 					</div>
 				</label>
 			</div>
@@ -327,7 +327,7 @@
 				<label for="lgmj" class="labels">
 					<div class="name">B6b 林果面积(亩)</div>
 					<div class="content">
-						<input id="lgmj" type="number" placeholder="请输入面积" ng-model="villageCollection.lgmj">
+						<input id="lgmj" type="number" placeholder="请输入面积" ng-model="villageCollection.situationList.lgmj">
 					</div>
 				</label>
 			</div>
@@ -336,7 +336,7 @@
 				<label for="mcdmj" class="labels">
 					<div class="name">B7 牧草地面积(亩)</div>
 					<div class="content">
-						<input id="mcdmj" type="number" placeholder="请输入面积" ng-model="villageCollection.mcdmj">
+						<input id="mcdmj" type="number" placeholder="请输入面积" ng-model="villageCollection.situationList.mcdmj">
 					</div>
 				</label>
 			</div>
@@ -345,7 +345,7 @@
 				<label for="smmj" class="labels">
 					<div class="name">B8 水面面积(亩)</div>
 					<div class="content">
-						<input id="smmj" type="number" placeholder="请输入面积" ng-model="villageCollection.smmj">
+						<input id="smmj" type="number" placeholder="请输入面积" ng-model="villageCollection.situationList.smmj">
 					</div>
 				</label>
 			</div>
@@ -354,7 +354,7 @@
 				<label for="czrks" class="labels">
 					<div class="name">H13 常住人口数(人)</div>
 					<div class="content">
-						<input id="czrks" type="number" placeholder="请输入人数" ng-model="villageCollection.czrks">
+						<input id="czrks" type="number" placeholder="请输入人数" ng-model="villageCollection.situationList.czrks">
 					</div>
 				</label>
 			</div>
@@ -370,7 +370,7 @@
 					<label for="nmnrjcsr" class="labels">
 						<div class="name">B9 农民年人均纯收入(元)</div>
 						<div class="content">
-							<input id="nmnrjcsr" type="number" placeholder="请输入收入" ng-model="villageCollection.nmnrjcsr">
+							<input id="nmnrjcsr" type="number" placeholder="请输入收入" ng-model="villageCollection.developmentList.nmnrjcsr">
 						</div>
 					</label>
 				</div>
@@ -378,7 +378,7 @@
 					<label for="cjjtjjsr" class="labels">
 						<div class="name">B10 村级集体经济收入(万元)</div>
 						<div class="content">
-							<input id="cjjtjjsr" type="number" placeholder="请输入收入" ng-model="villageCollection.cjjtjjsr">
+							<input id="cjjtjjsr" type="number" placeholder="请输入收入" ng-model="villageCollection.developmentList.cjjtjjsr">
 						</div>
 					</label>
 				</div>
@@ -386,7 +386,7 @@
 					<label for="ncgfhzzzgs" class="labels">
 						<div class="name">H10 农村股份合作组织个数(元)</div>
 						<div class="content">
-							<input id="ncgfhzzzgs" type="number" placeholder="请输入个数" ng-model="villageCollection.ncgfhzzzgs">
+							<input id="ncgfhzzzgs" type="number" placeholder="请输入个数" ng-model="villageCollection.developmentList.ncgfhzzzgs">
 						</div>
 					</label>
 				</div>
@@ -401,7 +401,7 @@
 					<label for="cjxxnchzylrs" class="labels">
 						<div class="name">B11 参加新型农村合作医疗人数(人)</div>
 						<div class="content">
-							<input id="cjxxnchzylrs" type="number" placeholder="请输入人数" ng-model="villageCollection.cjxxnchzylrs">
+							<input id="cjxxnchzylrs" type="number" placeholder="请输入人数" ng-model="villageCollection.developmentList.cjxxnchzylrs">
 						</div>
 					</label>
 				</div>
@@ -409,7 +409,7 @@
 					<label for="cjcxjmjbylbxrs" class="labels">
 						<div class="name">B12 参加城乡居民基本养老保险人数(人)</div>
 						<div class="content">
-							<input id="cjcxjmjbylbxrs" type="number" placeholder="请输入人数" ng-model="villageCollection.cjcxjmjbylbxrs">
+							<input id="cjcxjmjbylbxrs" type="number" placeholder="请输入人数" ng-model="villageCollection.developmentList.cjcxjmjbylbxrs">
 						</div>
 					</label>
 				</div>
@@ -417,7 +417,7 @@
 					<label for="cjczzgjbylbxrs" class="labels">
 						<div class="name">B13 参加城镇职工基本养老保险人数(人)</div>
 						<div class="content">
-							<input id="cjczzgjbylbxrs" type="number" placeholder="请输入人数" ng-model="villageCollection.cjczzgjbylbxrs">
+							<input id="cjczzgjbylbxrs" type="number" placeholder="请输入人数" ng-model="villageCollection.developmentList.cjczzgjbylbxrs">
 						</div>
 					</label>
 				</div>
@@ -432,9 +432,9 @@
 					<label for="xzcdxzsftlq" class="labels">
 						<div class="name">B14 行政村到乡镇是否通沥青(水泥)(路)</div>
 						<div class="content pr">
-							<select class="selects" name="" id="xzcdxzsftlq" ng-model="villageCollection.xzcdxzsftlq">
-								<option value="">是</option>
-								<option value="">否</option>
+							<select class="selects" name="" id="xzcdxzsftlq" ng-model="villageCollection.developmentList.xzcdxzsftlq">
+								<option value="是">是</option>
+								<option value="否">否</option>
 							</select>
 							<img class="rightPro" src="../../assets/img/icon2_11@2x.png" alt="">
 						</div>
@@ -444,9 +444,9 @@
 					<label for="cnzydlsfyh" class="labels">
 						<div class="name">H11 村内主要道路是否硬化</div>
 						<div class="content pr">
-							<select class="selects" name="" id="cnzydlsfyh" ng-model="villageCollection.cnzydlsfyh">
-								<option value="">是</option>
-								<option value="">否</option>
+							<select class="selects" name="" id="cnzydlsfyh" ng-model="villageCollection.developmentList.cnzydlsfyh">
+								<option value="是">是</option>
+								<option value="否">否</option>
 							</select>
 							<img class="rightPro" src="../../assets/img/icon2_11@2x.png" alt="">
 						</div>
@@ -456,7 +456,7 @@
 					<label for="cnzydlc" class="labels">
 						<div class="name">H11a 村内主要道路长(米)</div>
 						<div class="content">
-							<input id="cnzydlc" type="number" placeholder="请输入米数" ng-model="villageCollection.cnzydlc">
+							<input id="cnzydlc" type="number" placeholder="请输入米数" ng-model="villageCollection.developmentList.cnzydlc">
 						</div>
 					</label>
 				</div>
@@ -464,19 +464,15 @@
 					<label for="cnzydlk" class="labels">
 						<div class="name">H11b 村内主要道路宽(米)</div>
 						<div class="content">
-							<input id="cnzydlk" type="number" placeholder="请输入米数" ng-model="villageCollection.cnzydlk">
+							<input id="cnzydlk" type="number" placeholder="请输入米数" ng-model="villageCollection.developmentList.cnzydlk">
 						</div>
 					</label>
 				</div>
 				<div class="item border-b">
 					<label for="cnzydllds" class="labels">
 						<div class="name">H12 村内主要道路路灯数(盏)</div>
-						<div class="content pr">
-							<select class="selects" name="" id="cnzydllds" ng-model="villageCollection.cnzydllds">
-								<option value="">是</option>
-								<option value="">否</option>
-							</select>
-							<img class="rightPro" src="../../assets/img/icon2_11@2x.png" alt="">
+						<div class="content">
+							<input id="cnzydllds" type="number" placeholder="请输入盏数" ng-model="villageCollection.developmentList.cnzydllds">
 						</div>
 					</label>
 				</div>
@@ -484,9 +480,9 @@
 					<label for="xzcsftkybc" class="labels">
 						<div class="name">B15 行政村是否通客运班车</div>
 						<div class="content pr">
-							<select class="selects" name="" id="xzcsftkybc" ng-model="villageCollection.xzcsftkybc">
-								<option value="">是</option>
-								<option value="">否</option>
+							<select class="selects" name="" id="xzcsftkybc" ng-model="villageCollection.developmentList.xzcsftkybc">
+								<option value="是">是</option>
+								<option value="否">否</option>
 							</select>
 							<img class="rightPro" src="../../assets/img/icon2_11@2x.png" alt="">
 						</div>
@@ -503,7 +499,7 @@
 					<label for="wsxysaqh" class="labels">
 						<div class="name">B16 未实现饮水安全户(户)</div>
 						<div class="content">
-							<input id="wsxysaqh" type="number" placeholder="请输入户数" ng-model="villageCollection.wsxysaqh">
+							<input id="wsxysaqh" type="number" placeholder="请输入户数" ng-model="villageCollection.developmentList.wsxysaqh">
 						</div>
 					</label>
 				</div>
@@ -511,14 +507,14 @@
 					<label for="ysknhs" class="labels">
 						<div class="name">B17 饮水困难户数(户)</div>
 						<div class="content">
-							<input id="ysknhs" type="number" placeholder="请输入户数" ng-model="villageCollection.ysknhs">
+							<input id="ysknhs" type="number" placeholder="请输入户数" ng-model="villageCollection.developmentList.ysknhs">
 						</div>
 					</label>
 				</div>
 				<div class="item border-b">
 					<div class="name">H17 饮水安全户数(户)</div>
 					<div class="content">
-						<span>{{villageCollection.zhs}}</span>
+						<span>{{villageCollection.situationList.zhs}}</span>
 					</div>
 				</div>
 			</div>
@@ -532,7 +528,7 @@
 					<label for="wtshyddzrcs" class="labels">
 						<div class="name">B18 未通生活用电的自然村数(个)</div>
 						<div class="content">
-							<input id="wtshyddzrcs" type="number" placeholder="请输入村数" ng-model="villageCollection.wtshyddzrcs">
+							<input id="wtshyddzrcs" type="number" placeholder="请输入村数" ng-model="villageCollection.developmentList.wtshyddzrcs">
 						</div>
 					</label>
 				</div>
@@ -540,7 +536,7 @@
 					<label for="wtscyddzrcs" class="labels">
 						<div class="name">B19 未通生产用电的自然村数(个)</div>
 						<div class="content">
-							<input id="wtscyddzrcs" type="number" placeholder="请输入村数" ng-model="villageCollection.wtscyddzrcs">
+							<input id="wtscyddzrcs" type="number" placeholder="请输入村数" ng-model="villageCollection.developmentList.wtscyddzrcs">
 						</div>
 					</label>
 				</div>
@@ -548,7 +544,7 @@
 					<label for="wtshydhs" class="labels">
 						<div class="name">B20 未通生活用电户数(户)</div>
 						<div class="content">
-							<input id="wtshydhs" type="number" placeholder="请输入户数" ng-model="villageCollection.wtshydhs">
+							<input id="wtshydhs" type="number" placeholder="请输入户数" ng-model="villageCollection.developmentList.wtshydhs">
 						</div>
 					</label>
 				</div>
@@ -556,7 +552,7 @@
 					<label for="ydscyhzrcs" class="labels">
 						<div class="name">B21 已通生产用电自然村(20户以上)数(个)</div>
 						<div class="content">
-							<input id="ydscyhzrcs" type="number" placeholder="请输入个数" ng-model="villageCollection.ydscyhzrcs">
+							<input id="ydscyhzrcs" type="number" placeholder="请输入个数" ng-model="villageCollection.developmentList.ydscyhzrcs">
 						</div>
 					</label>
 				</div>
@@ -571,7 +567,7 @@
 					<label for="wfhs" class="labels">
 						<div class="name">B22 危房户数(户)</div>
 						<div class="content">
-							<input id="wfhs" type="number" placeholder="请输入户数" ng-model="villageCollection.wfhs">
+							<input id="wfhs" type="number" placeholder="请输入户数" ng-model="villageCollection.developmentList.wfhs">
 						</div>
 					</label>
 				</div>
@@ -586,7 +582,7 @@
 					<label for="hnzyhzsgs" class="labels">
 						<div class="name">B23 农民专业合作社个数(个)</div>
 						<div class="content">
-							<input id="hnzyhzsgs" type="number" placeholder="请输入个数" ng-model="villageCollection.hnzyhzsgs">
+							<input id="hnzyhzsgs" type="number" placeholder="请输入个数" ng-model="villageCollection.developmentList.hnzyhzsgs">
 						</div>
 					</label>
 				</div>
@@ -594,7 +590,7 @@
 					<label for="cjnmzyhzspkhs" class="labels">
 						<div class="name">B24 参加农民专业合作社贫困户数(户)</div>
 						<div class="content">
-							<input id="cjnmzyhzspkhs" type="number" placeholder="请输入户数" ng-model="villageCollection.cjnmzyhzspkhs">
+							<input id="cjnmzyhzspkhs" type="number" placeholder="请输入户数" ng-model="villageCollection.developmentList.cjnmzyhzspkhs">
 						</div>
 					</label>
 				</div>
@@ -609,7 +605,7 @@
 					<label for="kzxclydhs" class="labels">
 						<div class="name">B25 开展乡村旅游的户数(户)</div>
 						<div class="content">
-							<input id="kzxclydhs" type="number" placeholder="请输入户数" ng-model="villageCollection.kzxclydhs">
+							<input id="kzxclydhs" type="number" placeholder="请输入户数" ng-model="villageCollection.developmentList.kzxclydhs">
 						</div>
 					</label>
 				</div>
@@ -617,7 +613,7 @@
 					<label for="xclycyrys" class="labels">
 						<div class="name">B26 乡村旅游从业人员数(人)</div>
 						<div class="content">
-							<input id="xclycyrys" type="number" placeholder="请输入人数" ng-model="villageCollection.xclycyrys">
+							<input id="xclycyrys" type="number" placeholder="请输入人数" ng-model="villageCollection.developmentList.xclycyrys">
 						</div>
 					</label>
 				</div>
@@ -625,7 +621,7 @@
 					<label for="jynjldhs" class="labels">
 						<div class="name">B27 经营农家乐的户数(户)</div>
 						<div class="content">
-							<input id="jynjldhs" type="number" placeholder="请输入户数" ng-model="villageCollection.jynjldhs">
+							<input id="jynjldhs" type="number" placeholder="请输入户数" ng-model="villageCollection.developmentList.jynjldhs">
 						</div>
 					</label>
 				</div>
@@ -633,7 +629,7 @@
 					<label for="jynjlhsnjsr" class="labels">
 						<div class="name">B28 经营农家乐户数年均收入(元)</div>
 						<div class="content">
-							<input id="jynjlhsnjsr" type="number" placeholder="请输入元数" ng-model="villageCollection.jynjlhsnjsr">
+							<input id="jynjlhsnjsr" type="number" placeholder="请输入元数" ng-model="villageCollection.developmentList.jynjlhsnjsr">
 						</div>
 					</label>
 				</div>
@@ -648,7 +644,7 @@
 					<label for="xzcwssgs" class="labels">
 						<div class="name">B29 行政村卫生室个数(个)</div>
 						<div class="content">
-							<input id="xzcwssgs" type="number" placeholder="请输入个数" ng-model="villageCollection.xzcwssgs">
+							<input id="xzcwssgs" type="number" placeholder="请输入个数" ng-model="villageCollection.developmentList.xzcwssgs">
 						</div>
 					</label>
 				</div>
@@ -656,7 +652,7 @@
 					<label for="xzcwssjzmj" class="labels">
 						<div class="name">B29a 行政村卫生室建筑面积(平方米)</div>
 						<div class="content">
-							<input id="xzcwssjzmj" type="number" placeholder="请输入面积" ng-model="villageCollection.xzcwssjzmj">
+							<input id="xzcwssjzmj" type="number" placeholder="请输入面积" ng-model="villageCollection.developmentList.xzcwssjzmj">
 						</div>
 					</label>
 				</div>
@@ -664,9 +660,9 @@
 					<label for="sfzdszlsyffs" class="labels">
 						<div class="name">B29b 是否诊断室、治疗室、药房分社</div>
 						<div class="content pr">
-							<select class="selects" name="" id="sfzdszlsyffs" ng-model="villageCollection.sfzdszlsyffs">
-								<option value="">是</option>
-								<option value="">否</option>
+							<select class="selects" name="" id="sfzdszlsyffs" ng-model="villageCollection.developmentList.sfzdszlsyffs">
+								<option value="是">是</option>
+								<option value="否">否</option>
 							</select>
 							<img class="rightPro" src="../../assets/img/icon2_11@2x.png" alt="">
 						</div>
@@ -676,9 +672,9 @@
 					<label for="ylsbsfqq" class="labels">
 						<div class="name">B29c 医疗设备是否齐全</div>
 						<div class="content pr">
-							<select class="selects" name="" id="ylsbsfqq" ng-model="villageCollection.ylsbsfqq">
-								<option value="">是</option>
-								<option value="">否</option>
+							<select class="selects" name="" id="ylsbsfqq" ng-model="villageCollection.developmentList.ylsbsfqq">
+								<option value="是">是</option>
+								<option value="否">否</option>
 							</select>
 							<img class="rightPro" src="../../assets/img/icon2_11@2x.png" alt="">
 						</div>
@@ -688,7 +684,7 @@
 					<label for="xzczyys" class="labels">
 						<div class="name">B30 行政村职业(助理)医师(人)</div>
 						<div class="content">
-							<input id="xzczyys" type="number" placeholder="请输入人数" ng-model="villageCollection.xzczyys">
+							<input id="xzczyys" type="number" placeholder="请输入人数" ng-model="villageCollection.developmentList.xzczyys">
 						</div>
 					</label>
 				</div>
@@ -696,7 +692,7 @@
 					<label for="xzcggwscsgs" class="labels">
 						<div class="name">B31 行政村公共卫生厕所个数(个)</div>
 						<div class="content">
-							<input id="xzcggwscsgs" type="number" placeholder="请输入个数" ng-model="villageCollection.xzcggwscsgs">
+							<input id="xzcggwscsgs" type="number" placeholder="请输入个数" ng-model="villageCollection.developmentList.xzcggwscsgs">
 						</div>
 					</label>
 				</div>
@@ -704,7 +700,7 @@
 					<label for="xzcscshljjcdfdgs" class="labels">
 						<div class="name">B32 行政村生产生活垃圾集中堆放点个数(个)</div>
 						<div class="content">
-							<input id="xzcscshljjcdfdgs" type="number" placeholder="请输入个数" ng-model="villageCollection.xzcscshljjcdfdgs">
+							<input id="xzcscshljjcdfdgs" type="number" placeholder="请输入个数" ng-model="villageCollection.developmentList.xzcscshljjcdfdgs">
 						</div>
 					</label>
 				</div>
@@ -719,7 +715,7 @@
 					<label for="xzcwhsgs" class="labels">
 						<div class="name">B33 行政村文化(图书)室个数(个)</div>
 						<div class="content">
-							<input id="xzcwhsgs" type="number" placeholder="请输入个数" ng-model="villageCollection.xzcwhsgs">
+							<input id="xzcwhsgs" type="number" placeholder="请输入个数" ng-model="villageCollection.developmentList.xzcwhsgs">
 						</div>
 					</label>
 				</div>
@@ -727,9 +723,9 @@
 					<label for="ywbyxt" class="labels">
 						<div class="name">B33a 有无表演戏台</div>
 						<div class="content pr">
-							<select class="selects" name="" id="ywbyxt" ng-model="villageCollection.ywbyxt">
-								<option value="">有</option>
-								<option value="">无</option>
+							<select class="selects" name="" id="ywbyxt" ng-model="villageCollection.developmentList.ywbyxt">
+								<option value="有">有</option>
+								<option value="无">无</option>
 							</select>
 							<img class="rightPro" src="../../assets/img/icon2_11@2x.png" alt="">
 						</div>
@@ -739,9 +735,9 @@
 					<label for="ywwtgc" class="labels">
 						<div class="name">B33b 有无文体广场</div>
 						<div class="content pr">
-							<select class="selects" name="" id="ywwtgc" ng-model="villageCollection.ywwtgc">
-								<option value="">有</option>
-								<option value="">无</option>
+							<select class="selects" name="" id="ywwtgc" ng-model="villageCollection.developmentList.ywwtgc">
+								<option value="有">有</option>
+								<option value="无">无</option>
 							</select>
 							<img class="rightPro" src="../../assets/img/icon2_11@2x.png" alt="">
 						</div>
@@ -751,7 +747,7 @@
 					<label for="wtgcmj" class="labels">
 						<div class="name">B33c 文体广场面积(平方米)</div>
 						<div class="content">
-							<input id="wtgcmj" type="number" placeholder="请输入面积" ng-model="villageCollection.wtgcmj">
+							<input id="wtgcmj" type="number" placeholder="请输入面积" ng-model="villageCollection.developmentList.wtgcmj">
 						</div>
 					</label>
 				</div>
@@ -759,9 +755,9 @@
 					<label for="ywtyqc" class="labels">
 						<div class="name">B33d 有无体育器材</div>
 						<div class="content pr">
-							<select class="selects" name="" id="ywtyqc" ng-model="villageCollection.ywtyqc">
-								<option value="">有</option>
-								<option value="">无</option>
+							<select class="selects" name="" id="ywtyqc" ng-model="villageCollection.developmentList.ywtyqc">
+								<option value="有">有</option>
+								<option value="无">无</option>
 							</select>
 							<img class="rightPro" src="../../assets/img/icon2_11@2x.png" alt="">
 						</div>
@@ -771,9 +767,9 @@
 					<label for="sfyncsw" class="labels">
 						<div class="name">B33e 是否有农村书屋(含电子阅览室)</div>
 						<div class="content pr">
-							<select class="selects" name="" id="sfyncsw" ng-model="villageCollection.sfyncsw">
-								<option value="">有</option>
-								<option value="">无</option>
+							<select class="selects" name="" id="sfyncsw" ng-model="villageCollection.developmentList.sfyncsw">
+								<option value="有">有</option>
+								<option value="无">无</option>
 							</select>
 							<img class="rightPro" src="../../assets/img/icon2_11@2x.png" alt="">
 						</div>
@@ -783,9 +779,9 @@
 					<label for="sfydgnhds" class="labels">
 						<div class="name">B33f 是否有多功能活动室</div>
 						<div class="content pr">
-							<select class="selects" name="" id="sfydgnhds" ng-model="villageCollection.sfydgnhds">
-								<option value="">有</option>
-								<option value="">无</option>
+							<select class="selects" name="" id="sfydgnhds" ng-model="villageCollection.developmentList.sfydgnhds">
+								<option value="有">有</option>
+								<option value="无">无</option>
 							</select>
 							<img class="rightPro" src="../../assets/img/icon2_11@2x.png" alt="">
 						</div>
@@ -794,10 +790,10 @@
 				<div class="item border-b">
 					<label for="sfywhxckpcl" class="labels">
 						<div class="name">B33g 是否有文化宣传科普长廊</div>
-						<div class="content">
-							<select class="selects" name="" id="sfywhxckpcl" ng-model="villageCollection.sfywhxckpcl">
-								<option value="">有</option>
-								<option value="">无</option>
+						<div class="content pr">
+							<select class="selects" name="" id="sfywhxckpcl" ng-model="villageCollection.developmentList.sfywhxckpcl">
+								<option value="有">有</option>
+								<option value="无">无</option>
 							</select>
 							<img class="rightPro" src="../../assets/img/icon2_11@2x.png" alt="">
 						</div>
@@ -807,7 +803,7 @@
 					<label for="whxckpclcd" class="labels">
 						<div class="name">B33h 文化宣传科普长廊长度(米)</div>
 						<div class="content">
-							<input id="whxckpclcd" type="number" placeholder="请输入米数" ng-model="villageCollection.whxckpclcd">
+							<input id="whxckpclcd" type="number" placeholder="请输入米数" ng-model="villageCollection.developmentList.whxckpclcd">
 						</div>
 					</label>
 				</div>
@@ -822,7 +818,7 @@
 					<label for="tkdhs" class="labels">
 						<div class="name">B34 通宽带户数(户)</div>
 						<div class="content">
-							<input id="tkdhs" type="number" placeholder="请输入户数" ng-model="villageCollection.tkdhs">
+							<input id="tkdhs" type="number" placeholder="请输入户数" ng-model="villageCollection.developmentList.tkdhs">
 						</div>
 					</label>
 				</div>
@@ -830,7 +826,7 @@
 					<label for="sysjswdhs" class="labels">
 						<div class="name">B35 能用手机上网的户数(户)</div>
 						<div class="content">
-							<input id="sysjswdhs" type="number" placeholder="请输入户数" ng-model="villageCollection.sysjswdhs">
+							<input id="sysjswdhs" type="number" placeholder="请输入户数" ng-model="villageCollection.developmentList.sysjswdhs">
 						</div>
 					</label>
 				</div>
@@ -838,7 +834,7 @@
 					<label for="tkddcxxgs" class="labels">
 						<div class="name">B36 通宽带的村小学个数(个)</div>
 						<div class="content">
-							<input id="tkddcxxgs" type="number" placeholder="请输入个数" ng-model="villageCollection.tkddcxxgs">
+							<input id="tkddcxxgs" type="number" placeholder="请输入个数" ng-model="villageCollection.developmentList.tkddcxxgs">
 						</div>
 					</label>
 				</div>
@@ -846,7 +842,7 @@
 					<label for="yddzrcztkddcs" class="labels">
 						<div class="name">B37 已通电自然村(20户以上)中通宽带的村数</div>
 						<div class="content">
-							<input id="yddzrcztkddcs" type="number" placeholder="请输入个数" ng-model="villageCollection.yddzrcztkddcs">
+							<input id="yddzrcztkddcs" type="number" placeholder="请输入个数" ng-model="villageCollection.developmentList.yddzrcztkddcs">
 						</div>
 					</label>
 				</div>
@@ -854,7 +850,7 @@
 					<label for="xzcxxy" class="labels">
 						<div class="name">B38 行政村信息员(人)</div>
 						<div class="content">
-							<input id="xzcxxy" type="number" placeholder="请输入人数" ng-model="villageCollection.xzcxxy">
+							<input id="xzcxxy" type="number" placeholder="请输入人数" ng-model="villageCollection.developmentList.xzcxxy">
 						</div>
 					</label>
 				</div>
@@ -873,40 +869,13 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr onclick="editTask()">
-					<td class="text-center">梁副(队长)</td>
-					<td class="text-center">13803139720</td>
-					<td class="text-center">2017-01-01</td>
+				<tr ng-show="villageCollection.taskForceList.length>0" ng-repeat="item in villageCollection.taskForceList" ui-sref="editTaskForce({id:$index})">
+					<td class="text-center" ng-bind="item.bfdwzcgzdyxm"></td>
+					<td class="text-center" ng-bind="item.lxdh"></td>
+					<td class="text-center" ng-bind="item.zcsjb"></td>
 				</tr>
-				<tr>
-					<td class="text-center">梁副(队长)</td>
-					<td class="text-center">13803139720</td>
-					<td class="text-center">2017-01-01</td>
-				</tr>
-				<tr>
-					<td class="text-center">梁副(队长)</td>
-					<td class="text-center">13803139720</td>
-					<td class="text-center">2017-01-01</td>
-				</tr>
-				<tr>
-					<td class="text-center">梁副(队长)</td>
-					<td class="text-center">13803139720</td>
-					<td class="text-center">2017-01-01</td>
-				</tr>
-				<tr>
-					<td class="text-center">梁副(队长)</td>
-					<td class="text-center">13803139720</td>
-					<td class="text-center">2017-01-01</td>
-				</tr>
-				<tr>
-					<td class="text-center">梁副(队长)</td>
-					<td class="text-center">13803139720</td>
-					<td class="text-center">2017-01-01</td>
-				</tr>
-				<tr>
-					<td class="text-center">梁副(队长)</td>
-					<td class="text-center">13803139720</td>
-					<td class="text-center">2017-01-01</td>
+				<tr ng-show="villageCollection.taskForceList.length==0">
+					<td style="text-align: center;" colspan="4">暂无数据</td>
 				</tr>
 			</tbody>
 		</table>
@@ -917,17 +886,7 @@
 		</div>
 		<!--  -->
 		<div class="footFill"></div>
-		<div class="foot">
+		<div class="foot" ng-click="villageCollection.uploadSave()">
 			上传
 		</div>
 	</div>
-	<script type="text/javascript" src="../../assets/lib/js/jquery.min.js"></script>
-	<script>
-		$("#tab div").click(function(){
-			$(this).addClass('bg').siblings().removeClass('bg');
-			$("#"+$(this).attr('data-type')).show().siblings().hide();
-		})
-		function editTask(){
-			location.href= '#/editTaskForce';
-		}
-	</script>

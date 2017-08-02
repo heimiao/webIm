@@ -184,6 +184,12 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 				}
 			}
 		})
+		//贫困户查询页面
+		.state('querylowFamilyCondition', {
+			url: '/query_low_family_condition',
+		 	controller: "querylowFamilyConditionCtro",
+		 	templateUrl: 'dist/template/lowFamily/searchLowFamily/queryHousehold.html'
+		})
 		//自然村首页
 		.state('naturalVillage', {
 			url: '/natural_village?id&type',
@@ -317,7 +323,7 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 			templateUrl: 'dist/template/village/villageDraft.html'
 		})
 		.state('villageCollection', {
-			url: '/villageCollection',
+			url: '/villageCollection?type',
 			controller: "villageCollection",
 			templateUrl: 'dist/template/village/villageCollection.html'
 		})
@@ -327,7 +333,7 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 			templateUrl: 'dist/template/village/addTaskForce.html'
 		})
 		.state('editTaskForce', {
-			url: '/editTaskForce',
+			url: '/editTaskForce?id',
 			controller: "editTaskForce",
 			templateUrl: 'dist/template/village/editTaskForce.html'
 		})

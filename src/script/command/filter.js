@@ -7,10 +7,10 @@ myApp.factory('myInterceptor', function($q, $cookies, $cookieStore) {
 			/*	if(typeof($cookieStore.get("cookie")) == "string") {
 					console.log("拦截到的是字符串");
 				} else*/
+			config.headers.inter_type = "app";
 			if(localStorage.getItem("token")) {
 				config.headers = config.headers || {};
 				config.headers.token = localStorage.getItem("token");
-				config.headers.inter_type = "app";
 			}
 			return config || $q.when(config);
 		},
@@ -27,10 +27,9 @@ myApp.factory('myInterceptor', function($q, $cookies, $cookieStore) {
 		response: function(response) {
 			// 进行预处理
 			try {
-				if(response.results == 1001 || response.results == 1002 || response.results == 1003) {
-					alert(response.message);
+				if(response.data.results == 1001 || response.data.results == 1002 || response.data.results == 1003) {
 					localStorage.token = ""
-					window.location.href = "./";
+					location.href="./"
 				}
 			} catch(e) {}
 			return response || $q.when(reponse);

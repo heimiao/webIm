@@ -17,10 +17,14 @@ myApp.controller("lowFamilyListCtro", ["$scope", "$state", "$filter", "$http", "
 		value: "",
 		id: ""
 	};
+
+	config.sysValue.year.splice(0, 0, all);
+	config.sysValue.dataStatus.splice(0, 0, all);
+	config.sysValue.tpqk.splice(0, 0, all);
 	lowFamilyList.otherSelect = {
-		yearObj: config.sysValue.year.splice(0, 0, all),
-		dataStatusObj: config.sysValue.dataStatus.splice(0, 0, all),
-		tpqkObj: config.sysValue.tpqk.splice(0, 0, all),
+		yearObj: config.sysValue.year,
+		dataStatusObj: config.sysValue.dataStatus,
+		tpqkObj: config.sysValue.tpqk,
 	};
 
 	lowFamilyList.list = [];
@@ -34,10 +38,28 @@ myApp.controller("lowFamilyListCtro", ["$scope", "$state", "$filter", "$http", "
 	/*$scope.$watch(lowFamilyList.sendParam, function(newValue, oldValue, scope) {
 		console.log(oldValue);
 	});*/
-
+	function isCardNo(card) {
+		// 身份证号码为15位或者18位，15位时全为数字，18位前17位为数字，最后一位是校验位，可能为数字或字符X 
+		var reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+		if(reg.test(card) === false) {
+			return false;
+		} else {
+			return true;
+		}
+	}
 	//获取总列表  
 	lowFamilyList.getLowFamilyList = function(me, start) {
 		lowFamilyList.page.start = start == 1 ? start - 1 : lowFamilyList.page.start;
+		//lowFamilyList.sendParam.search//判断该字段类型
+		if(lowFamilyList.sendParam.search) {
+			if(isCardNo(lowFamilyList.sendParam.search)) {
+				lowFamilyList.sendParam.hzsfz = lowFamilyList.sendParam.search;
+				lowFamilyList.sendParam.hzxm = "";
+			} else {
+				lowFamilyList.sendParam.hzxm = lowFamilyList.sendParam.search;
+				lowFamilyList.sendParam.hzsfz = "";
+			}
+		}
 		var sumSendParam = angular.extend({}, lowFamilyList.page, lowFamilyList.sendParam)
 		//获取当前用户信息  
 		postForm.saveFrm(config.path.lowFamilyList, sumSendParam).success(function(data) {
@@ -87,6 +109,7 @@ myApp.controller("lowFamilyListCtro", ["$scope", "$state", "$filter", "$http", "
 
 	//根据乡镇获取对应村庄
 	lowFamilyList.getVillagesByTown = function(id) {
+		lowFamilyList.sendParam.qyxzc = "";
 		postForm.saveFrm(config.path.townShip, {
 			lx: "02",
 			fid: id

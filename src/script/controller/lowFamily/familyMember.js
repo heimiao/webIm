@@ -7,13 +7,15 @@ myApp.controller("low_family_memberCtro", ["$scope", "$rootScope", "$state", "$h
 
 		if(low_family_member.urlParam.id) {
 			//
-			//			console.log($state);
+			//console.log($state);
 		}
-		
+
 		/*$scope.goback = function() {
 
 		}*/
-		
+
+		 
+
 		//根据角色遍历响应的菜单
 		$scope.low_family_member = low_family_member;
 	}
