@@ -2,6 +2,7 @@ myApp.controller("naturalVillage", ["$scope", "$state", "$http", "$stateParams",
 	"postForm",function($scope, $state, $http, $stateParams,postForm) {
 		//获取行政村
 		var natural = {} || natural;
+		natural.nd
 		natural.xingzheng = {
 			lx:'02',
 			fid:"",

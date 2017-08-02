@@ -1,6 +1,6 @@
 var baseUrl = "http://123.58.240.75:8081/tpa";
 //var baseUrl = "http://192.168.22.182:8080/tpa";
-//var baseUrl = "http://192.168.169.56:8080/tpa";
+//var baseUrl = "http://192.168.20.160:8080/tpa";
 var config = {
 	//请求路径
 	path: {
@@ -14,6 +14,7 @@ var config = {
 
 		xingzhengName:baseUrl+"/zcjg/queryForZc", //行政村名字列表
 		zrcDetails:baseUrl+"/zrc/queryForId", //自然村列表详情
+		zrcEdit:baseUrl+"/zrc/update", //自然村编辑
 		addzrc:baseUrl+"/zrc/add", //添加自然村
 
 		townShip: baseUrl+ "/zcjg/queryForZc?lx=01",  //获取乡镇列表

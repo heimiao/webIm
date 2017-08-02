@@ -1,4 +1,4 @@
-myApp.controller("naturalEdite", ["$scope", "$state", "$http", "$stateParams",
+myApp.controller("naturalEdite345", ["$scope", "$state", "$http", "$stateParams",
 	"postForm",function($scope, $state, $http, $stateParams,postForm) {
 		var zrcDetails = {} || zrcDetails;
 		zrcDetails.urlParam = $stateParams;
@@ -8,11 +8,14 @@ myApp.controller("naturalEdite", ["$scope", "$state", "$http", "$stateParams",
 			id:$stateParams.id,
 		}; 
 		zrcDetails.list = {};
+		console.log(zrcDetails.sendParam);
 		$http.post(config.path.zrcDetails+"?id="+zrcDetails.canshu.id)
 		.success(function(res){
 			console.log(res);
 			zrcDetails.list=res;
+			console.log(zrcDetails.list.fzr);
 		});
+
 
 		//获取行政村
 		zrcDetails.xingzhengcun={};
@@ -29,7 +32,9 @@ myApp.controller("naturalEdite", ["$scope", "$state", "$http", "$stateParams",
 			})
 		}
 		zrcDetails.xingzhengcun();
-		
+		zrcDetails.getzrc=function(){ 
+			zrcDetails.zirancun12() 
+		}
 
 		//获取全部自然村
 		zrcDetails.zirancun = {
@@ -37,31 +42,32 @@ myApp.controller("naturalEdite", ["$scope", "$state", "$http", "$stateParams",
 			fid:''
 		};
 		zrcDetails.zirancun12=function(){
-			zrcDetails.zirancun.fid=zrcDetails.list.lsxzc;
+			//zrcDetails.zirancun.fid=zrcDetails.sendParam.lsxzc;
 			postForm.saveFrm(config.path.xingzhengName,zrcDetails.zirancun)
 			.success(function(res){
 			 	zrcDetails.zirancun.list=res;
-			 	
 			})
 		}
-		//根据行政村关联自然村
-		zrcDetails.getzrc=function(){ 
-			zrcDetails.zirancun12() 
-		}
+		// zrcDetails.zirancun12() 
 
-		//更新数据
-		zrcDetails.zrcEdit=function(){
-			delete zrcDetails.list.exproperty;
-			postForm.saveFrm(config.path.zrcEdit,zrcDetails.list)
-			.success(function(res){
-				alert('上传成功')
-				//console.log(zrcDetails.list.exproperty)
-			})
-		}
+
+		
+		
+
+		
+		
+
 
 		
 	
-
+		//编辑自然村（更新数据）
+		zrcDetails.zrcEdit=function(){
+			postForm.saveFrm(config.path.zrcEdit,zrcDetails.list)
+			.success(function(res){
+				alert('123')
+				console.log(zrcDetails.list.sftkd)
+			})
+		}
 		
 		/*natural.menu=false;
 		natural.changeMenu=function(args){
