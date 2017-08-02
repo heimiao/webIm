@@ -38,8 +38,6 @@ myApp.directive('mySelect', [function() {
 		replace: true,
 		link: function(scope, element, attr, ngModel) {
 			$(element).find(".township").click(function() {
-
-				console.log(scope.source);
 				var str = "";
 				if(scope.source.length > 0) {
 					$.each(scope.source, function(index, item) {
@@ -56,8 +54,9 @@ myApp.directive('mySelect', [function() {
 				$(element).find(".township").toggleClass("township2");
 				$(element).find(".name").toggleClass("col-ea3c4c").html($(this).html());
 				scope.myNgModel = $(this).attr("id");
-				if(scope.myNgClick)
+				if(scope.myNgClick) {
 					scope.myNgClick(scope.myNgModel);
+				}
 			});
 		}
 	};
