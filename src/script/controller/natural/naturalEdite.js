@@ -5,6 +5,7 @@ myApp.controller("naturalEdite", ["$scope", "$state", "$http", "$stateParams",
 		zrcDetails.sendParam = {
 			id:$stateParams.id,
 		};
+		alert($stateParams.id)
 		zrcDetails.list = {};
 		console.log(zrcDetails.sendParam);
 		postForm.saveFrm(config.path.zrcDetails,zrcDetails.sendParam)

@@ -48,7 +48,7 @@ myApp.controller("naturalVillage", ["$scope", "$state", "$http", "$stateParams",
 		natural.sendParam = {
 			name:"",
 			time:"",
-			nd:2016,
+			nd:2017,
 		};
 		natural.list = {};
 		natural.page = {

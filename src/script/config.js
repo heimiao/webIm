@@ -11,12 +11,11 @@ var config = {
 		login: baseUrl + "/dotpalogin",
 		townShip: baseUrl+ "/zcjg/queryForZc",  //获取乡镇列表
 		naturalVillage: baseUrl+ "/zrc/queryForPage",  //自然村列表
-<<<<<<< HEAD
+
 		xingzhengName:baseUrl+"/zcjg/queryForZc", //行政村名字列表
 		zrcDetails:baseUrl+"/zrc/queryForId", //自然村列表详情
 		addzrc:baseUrl+"/zrc/add", //添加自然村
-=======
->>>>>>> c315dcab629336b1ef4e4b93848b1e7fd477019d
+
 		townShip: baseUrl+ "/zcjg/queryForZc?lx=01",  //获取乡镇列表
 		villageAll: baseUrl + "/zcjg/queryForZc?lx=02", //获取所有行政村列表
 		villageList: baseUrl + "/pkc/queryForPage", //获取贫困村列表
