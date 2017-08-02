@@ -16,7 +16,6 @@ myApp.controller("low_family_baseCtro", ["$scope", "$rootScope", "$state", "$htt
 				low_family_baseInfo.otherSelect.townList = data;
 			})
 		}
-
 		low_family_baseInfo.getTownVillages();
 		//根据乡镇获取对应村庄
 		low_family_baseInfo.getVillagesByTown = function() {
