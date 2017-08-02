@@ -34,10 +34,15 @@ myApp.controller("editTaskForce", ["$scope", "$state", "$http", "$stateParams",
 				$state.go("villageCollection",{type: 1});
 		}
 		editTaskForce.deleteBtn=function(){
-			
+
 		}
 		editTaskForce.back=function(){
-			history.go(-1)
+			/*$.confirm("内容框框", function() {
+				console.log("确定按钮");
+			}, function() {
+				console.log("取消按钮");
+			});*/
+			$.alert("tishi")
 		}
 		/*lowFamilyInfo.menu=false;
 		lowFamilyInfo.changeMenu=function(args){
