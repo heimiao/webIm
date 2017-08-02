@@ -5,12 +5,13 @@ myApp.controller("lowFamilyInfoCtro", ["$scope", "$state", "$http", "$stateParam
 
 		lowFamilyInfo.sendParam = {};
 
+		
 		/*lowFamilyInfo.menu=false;
 		lowFamilyInfo.changeMenu=function(args){
 			lowFamilyInfo.menu=args;
 			console.log(lowFamilyInfo.menu);
 		}*/
-		
+
 		/*$scope.goback = function() {
 			alert();
 		}*/
