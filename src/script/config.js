@@ -17,13 +17,14 @@ var config = {
 		addVillage: "/pkc/add", //添加贫困村信息
 	},
 	changePath: function(args) {
-		var ary = {};
+		var ary = {},
+			_url = this.oldBaseUrl ? this.oldBaseUrl : baseUrl;
 		for(var item in this.path) {
-			if(args)
-				ary[item] = args + this.path[item];
-			else
-				ary[item] = this.path[item];
+			if(args) {
+				ary[item] = this.oldBaseUrl ? this.path[item].replace(_url, args) : args + this.path[item]
+			}
 		}
+		this.oldBaseUrl = args;
 		angular.extend(this.path, ary);
 	},
 	//系统基本信息配置
@@ -856,5 +857,4 @@ var config = {
 		]
 	}
 }
-
 config.changePath(baseUrl);

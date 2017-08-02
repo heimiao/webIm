@@ -22,6 +22,8 @@ myApp.controller("querylowFamilyConditionCtro", ["$scope", "$rootScope", "$state
 		query_low_family_condition.townList = {};
 		query_low_family_condition.town_VillagesList = {};
 
+		config.changePath("http://baidu.com")
+
 		//获取城镇
 		query_low_family_condition.getTownVillages = function(args, name) {
 			postForm.saveFrm(config.path.townShip, {
@@ -30,6 +32,7 @@ myApp.controller("querylowFamilyConditionCtro", ["$scope", "$rootScope", "$state
 				query_low_family_condition.townList = data;
 			})
 		}
+
 		query_low_family_condition.getTownVillages();
 		//根据乡镇获取对应村庄
 		query_low_family_condition.getVillagesByTown = function(id) {
@@ -41,6 +44,11 @@ myApp.controller("querylowFamilyConditionCtro", ["$scope", "$rootScope", "$state
 				query_low_family_condition.town_VillagesList = data;
 			})
 		}
+
+
+		
+		
+		
 
 		query_low_family_condition.search = function() {
 
