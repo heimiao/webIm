@@ -27,10 +27,9 @@ myApp.factory('myInterceptor', function($q, $cookies, $cookieStore) {
 		response: function(response) {
 			// 进行预处理
 			try {
-				if(response.results == 1001 || response.results == 1002 || response.results == 1003) {
-					alert(response.message);
+				if(response.data.results == 1001 || response.data.results == 1002 || response.data.results == 1003) {
 					localStorage.token = ""
-					window.location.href = "./";
+					$state.go("login");
 				}
 			} catch(e) {}
 			return response || $q.when(reponse);
