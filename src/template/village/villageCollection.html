@@ -400,7 +400,7 @@
 				</div>
 				<div class="item border-b">
 					<label for="ncgfhzzzgs" class="labels">
-						<div class="name">H10 农村股份合作组织个数(元)</div>
+						<div class="name">H10 农村股份合作组织个数</div>
 						<div class="content">
 							<input id="ncgfhzzzgs" type="number" placeholder="请输入个数" ng-model="villageCollection.developmentList.ncgfhzzzgs">
 						</div>
@@ -446,7 +446,7 @@
 				</div>
 				<div class="item border-b">
 					<label for="xzcdxzsftlq" class="labels">
-						<div class="name">B14 行政村到乡镇是否通沥青(水泥)(路)</div>
+						<div class="name">B14 行政村到乡镇是否通沥青(水泥)路</div>
 						<div class="content pr">
 							<select class="selects" name="" id="xzcdxzsftlq" ng-model="villageCollection.developmentList.xzcdxzsftlq">
 								<option value="是">是</option>
@@ -828,7 +828,7 @@
 			<div class="listItem">
 				<div class="title">
 					<img src="../../assets/img/ios_line@2X.png" alt="">
-					<span class="titles">文化建设</span>
+					<span class="titles">贫困村信息化</span>
 				</div>
 				<div class="item border-b">
 					<label for="tkdhs" class="labels">
@@ -846,22 +846,25 @@
 						</div>
 					</label>
 				</div>
-				<div class="item border-b">
-					<label for="tkddcxxgs" class="labels">
-						<div class="name">B36 通宽带的村小学个数(个)</div>
-						<div class="content">
-							<input id="tkddcxxgs" type="number" placeholder="请输入个数" ng-model="villageCollection.developmentList.tkddcxxgs">
-						</div>
-					</label>
-				</div>
+				
 				<div class="item border-b">
 					<label for="yddzrcztkddcs" class="labels">
-						<div class="name">B37 已通电自然村(20户以上)中通宽带的村数</div>
+						<div class="name">B36 已通电自然村(20户以上)中通宽带的村数</div>
 						<div class="content">
 							<input id="yddzrcztkddcs" type="number" placeholder="请输入个数" ng-model="villageCollection.developmentList.yddzrcztkddcs">
 						</div>
 					</label>
 				</div>
+
+				<div class="item border-b">
+					<label for="tkddcxxgs" class="labels">
+						<div class="name">B37 通宽带的村小学个数(个)</div>
+						<div class="content">
+							<input id="tkddcxxgs" type="number" placeholder="请输入个数" ng-model="villageCollection.developmentList.tkddcxxgs">
+						</div>
+					</label>
+				</div>
+
 				<div class="item border-b">
 					<label for="xzcxxy" class="labels">
 						<div class="name">B38 行政村信息员(人)</div>
@@ -895,8 +898,8 @@
 				</tr>
 			</tbody>
 		</table>
-		<div class="add">
-			<a href="#/addTaskForce"><span>+添加驻村工作队员</span></a>
+		<div class="add" ui-sref="addTaskForce">
+			<span>+添加驻村工作队员</span>
 		</div>
 		</div>
 		</div>
