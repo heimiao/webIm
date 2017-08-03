@@ -131,7 +131,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr ng-hide="poorVillage.noDataType" ng-repeat="item in poorVillage.list">
+					<tr ng-hide="poorVillage.noDataType" ng-repeat="item in poorVillage.list" ui-sref="editVillageCollection({editId:item.id})">
 						<td class="text-center" ng-bind="item.qyxz"></td>
 						<td class="text-center" ng-bind="item.qyxzc"></td>
 						<td class="text-center" ng-bind="item.cfzr"></td>

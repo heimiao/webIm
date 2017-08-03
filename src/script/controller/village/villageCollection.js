@@ -22,12 +22,37 @@ myApp.controller("villageCollection", ["$scope", "$state", "$http", "$stateParam
 		villageCollection.developmentList.sfyncsw = "有"; //是否有农村书屋
 		villageCollection.developmentList.sfydgnhds = "有"; //是否有多功能活动室
 		villageCollection.developmentList.sfywhxckpcl = "有"; //是否有文化科普廊
-
-		if($stateParams.type == 1){
+		villageCollection.alert = false; //弹窗显示 
+		if(window.localStorage.getItem("situationList") != '' && window.localStorage.getItem("situationList") != null && window.localStorage.getItem("situationList") != undefined && window.localStorage.getItem("situationList") != 'null' && window.localStorage.getItem("developmentList") != '' && window.localStorage.getItem("developmentList") != null && window.localStorage.getItem("developmentList") != undefined && window.localStorage.getItem("developmentList") != 'null'){
 			$('.tab3').addClass('bg').siblings().removeClass('bg');
 			$("#"+$('.tab3').attr('data-type')).show().siblings().hide();
 			villageCollection.situationList = JSON.parse(window.localStorage.getItem("situationList"));
 			villageCollection.developmentList = JSON.parse(window.localStorage.getItem("developmentList"));
+			// 获取本地添加驻村工作情况列表数据  
+			villageCollection.taskForceList = JSON.parse(window.localStorage.getItem("taskForceList"));
+		}
+		// 获取所有乡镇
+		$http.post(config.path.townShip,null).success(function(res){
+			villageCollection.townShip = res;
+			if(window.localStorage.getItem("situationList") != '' && window.localStorage.getItem("situationList") != null && window.localStorage.getItem("situationList") != undefined && window.localStorage.getItem("situationList") != 'null' && window.localStorage.getItem("developmentList") != '' && window.localStorage.getItem("developmentList") != null && window.localStorage.getItem("developmentList") != undefined && window.localStorage.getItem("developmentList") != 'null'){
+				villageCollection.getVillageList(villageCollection.situationList.qyxz); //获取乡镇对应的行政村
+			}else{
+				villageCollection.situationList.qyxz = res[0].id;
+				villageCollection.getVillageList(res[0].id, 1); //获取乡镇对应的行政村
+			}
+		})
+		// 乡镇变化行政村跟随变化
+		villageCollection.changeTown=function(){
+			villageCollection.getVillageList(villageCollection.situationList.qyxz, 1); //获取乡镇对应的行政村
+		}
+		// 获取所有行政村
+		villageCollection.getVillageList= function(id, num){
+			$http.post(config.path.villageAll+"&fid="+id,null).success(function(res){
+				if(num == 1){
+					villageCollection.situationList.qyxzc = res[0].id;
+				}
+				villageCollection.villageListAll = res;
+			})
 		}
 		$("#tab div").click(function(){
 			$(this).addClass('bg').siblings().removeClass('bg');
@@ -123,28 +148,50 @@ myApp.controller("villageCollection", ["$scope", "$state", "$http", "$stateParam
 				window.localStorage.setItem("developmentList", JSON.stringify(villageCollection.developmentList))
 			}
 		})
-		// 获取所有乡镇
-		$http.post(config.path.townShip,null).success(function(res){
-			villageCollection.situationList.qyxz = res[0].id;
-			villageCollection.townShip = res;
-			villageCollection.getVillageList(res[0].id); //获取乡镇对应的行政村
-		})
-		// 乡镇变化行政村跟随变化
-		villageCollection.changeTown=function(){
-			villageCollection.getVillageList(villageCollection.situationList.qyxz); //获取乡镇对应的行政村
-		}
-		// 获取所有行政村
-		villageCollection.getVillageList= function(id){
-			$http.post(config.path.villageAll+"&fid="+id,null).success(function(res){
-				villageCollection.situationList.qyxzc = res[0].id;
-				villageCollection.villageListAll = res;
-			})
-		}
-		// 获取本地添加驻村工作情况列表数据 
-		villageCollection.taskForceList = JSON.parse(window.localStorage.getItem("taskForceList"));
+		villageCollection.uploadSave=function(){
+			if(!villageCollection.situationList.cfzr){
+				alert("请完善信息")
+				return;
+			}
+			villageCollection.getAllData();
+			postForm.saveFrm(config.path.addVillage,{"data": JSON.stringify(villageCollection.localData)}).success(function(res){
+				window.history.back();
+			}).error(function(){
+				//保存，或者修改，如果有index_id则为修改没有则为添加
+				villageCollection.queryName();
+				dt.request({
+					rqstName: "low_village", //'low_family', 'low_village', 'nature_village', 'relief_project'
+					type: "put", //select,delete,put,selectById,
+					data: {
+						'data':villageCollection.localData,
+						'qyxzName': villageCollection.qyxzName,
+						'qyxzcName': villageCollection.qyxzcName
+					},
+					success: function(args) {
+						fupin.alert("已保存到草稿")
+						window.history.back();
+					},
+					error: function(args) {
 
-		//上传所有的数据
-		villageCollection.localData={
+					}
+				});
+			 })
+		}
+		villageCollection.queryName=function(){
+			for(var i=0;i<villageCollection.townShip.length;i++){
+				if(villageCollection.situationList.qyxz == villageCollection.townShip[i].id){
+					villageCollection.qyxzName = villageCollection.townShip[i].name;
+				}
+			}
+			for(var i=0;i<villageCollection.villageListAll.length;i++){
+				if(villageCollection.situationList.qyxzc == villageCollection.villageListAll[i].id){
+					villageCollection.qyxzcName = villageCollection.villageListAll[i].name;
+				}
+			}
+		}
+		villageCollection.getAllData=function(){
+			//上传所有的数据
+			villageCollection.localData={
 				  	'qyxz': villageCollection.situationList.qyxz,
 					'qyxzc': villageCollection.situationList.qyxzc,
 					'cfzr': villageCollection.situationList.cfzr,
@@ -229,46 +276,62 @@ myApp.controller("villageCollection", ["$scope", "$state", "$http", "$stateParam
 					'xzcxxy': villageCollection.developmentList.xzcxxy,
 				    "zcgzdqk": JSON.parse(window.localStorage.getItem("taskForceList")), 
 				}
-		villageCollection.uploadSave=function(){
-			if(!villageCollection.situationList.cfzr){
-				alert("请完善信息")
-			}
-			postForm.saveFrm(config.path.addVillage,{"data": JSON.stringify(villageCollection.localData)}).success(function(res){
-				$state.go("poorVillage");
-			}).error(function(){
-				//保存，或者修改，如果有index_id则为修改没有则为添加
-				dt.request({
-					rqstName: "low_village", //'low_family', 'low_village', 'nature_village', 'relief_project'
-					type: "put", //select,delete,put,selectById,
-					data: villageCollection.localData,
-					success: function(args) {
-						fupin.alert("已保存到草稿")
-						$state.go("poorVillage");
-					},
-					error: function(args) {
-
-					}
-				});
-			 })
 		}
+
+		// 弹窗
 		villageCollection.back=function(){
-			fupin.confirm("是否保存为草稿", function() {
-				dt.request({
-					rqstName: "low_village", //'low_family', 'low_village', 'nature_village', 'relief_project'
-					type: "put", //select,delete,put,selectById,
-					data: villageCollection.localData,
-					success: function(args) {
-						fupin.alert("已保存到草稿")
-						$state.go("poorVillage");
-					},
-					error: function(args) {
-
-					}
-				});
-			}, function() {
-			 	$state.go("poorVillage");
-			});
+			villageCollection.getAllData();
+			villageCollection.alert = true;
 		}
+		villageCollection.confirm=function(){
+			villageCollection.queryName();
+			dt.request({
+				rqstName: "low_village", //'low_family', 'low_village', 'nature_village', 'relief_project'
+				type: "put", //select,delete,put,selectById,
+				data: {
+					'data':villageCollection.localData,
+					'qyxzName': villageCollection.qyxzName,
+					'qyxzcName': villageCollection.qyxzcName
+				},
+				success: function(args) {
+					fupin.alert("已保存到草稿")
+					window.history.back();
+				},
+				error: function(args) {
+
+				}
+			});
+			villageCollection.alert = false;
+		}
+		villageCollection.cancel = function(){
+			window.history.back();
+			villageCollection.alert = false;
+		}
+
+		// villageCollection.back=function(){
+		// 	villageCollection.getAllData();
+		// 	fupin.confirm("是否保存为草稿", function() {
+		// 		villageCollection.queryName();
+		// 		dt.request({
+		// 			rqstName: "low_village", //'low_family', 'low_village', 'nature_village', 'relief_project'
+		// 			type: "put", //select,delete,put,selectById,
+		// 			data: {
+		// 				'data':villageCollection.localData,
+		// 				'qyxzName': villageCollection.qyxzName,
+		// 				'qyxzcName': villageCollection.qyxzcName
+		// 			},
+		// 			success: function(args) {
+		// 				fupin.alert("已保存到草稿")
+		// 				$state.go("poorVillage");
+		// 			},
+		// 			error: function(args) {
+
+		// 			}
+		// 		});
+		// 	}, function() {
+		// 	 	$state.go("poorVillage");
+		// 	});
+		// }
 		
 		/*lowFamilyInfo.menu=false;
 		lowFamilyInfo.changeMenu=function(args){

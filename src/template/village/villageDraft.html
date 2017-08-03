@@ -9,107 +9,20 @@
 				<tr>
 					<td class="text-center">乡镇</td>
 					<td class="text-center">村</td>
-					<td class="text-center">户主</td>
-					<td class="text-center">贫困户类型</td>
+					<td class="text-center">村负责人</td>
+					<td class="text-center">贫困户属性</td>
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td class="text-center">张北镇</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">王翠娥</td>
-					<td class="text-center">低保贫困户</td>
+				<tr ng-repeat="item in villageDraft.list" ui-sref="draftVillageCollection({draftId:item.index_id})">
+					<td class="text-center" ng-bind="item.qyxzName"></td>
+					<td class="text-center" ng-bind="item.qyxzcName"></td>
+					<td class="text-center" ng-bind="item.data.cfzr"></td>
+					<td class="text-center" ng-bind="item.data.pkcsx == '01'?'贫困村':item.data.pkcsx == '02'?'十二五贫困村':item.data.pkcsx == '03'?'十三五贫困村':'非贫困村'"></td>
 				</tr>
-				<tr>
-					<td class="text-center">张北镇</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">王翠娥</td>
-					<td class="text-center">低保贫困户</td>
-				</tr>
-				<tr>
-					<td class="text-center">张北镇</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">王娥</td>
-					<td class="text-center">贫困户</td>
-				</tr>
-				<tr>
-					<td class="text-center">张北镇</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">王翠娥</td>
-					<td class="text-center">低保贫困户</td>
-				</tr>
-				<tr>
-					<td class="text-center">张北dd镇</td>
-					<td class="text-center">黄土村</td>
-					<td class="text-center">王娥</td>
-					<td class="text-center">贫困户</td>
-				</tr>
-				<tr>
-					<td class="text-center">张北dd镇</td>
-					<td class="text-center">黄土村</td>
-					<td class="text-center">王娥</td>
-					<td class="text-center">贫困户</td>
-				</tr>
-				<tr>
-					<td class="text-center">张北镇</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">王翠娥</td>
-					<td class="text-center">低保贫困户</td>
-				</tr>
-				<tr>
-					<td class="text-center">张北镇</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">王娥</td>
-					<td class="text-center">贫困户</td>
-				</tr>
-				<tr>
-					<td class="text-center">张北镇</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">王翠娥</td>
-					<td class="text-center">低保贫困户</td>
-				</tr>
-				<tr>
-					<td class="text-center">张北dd镇</td>
-					<td class="text-center">黄土村</td>
-					<td class="text-center">王娥</td>
-					<td class="text-center">贫困户</td>
-				</tr>
-				<tr>
-					<td class="text-center">张北dd镇</td>
-					<td class="text-center">黄土村</td>
-					<td class="text-center">王娥</td>
-					<td class="text-center">贫困户</td>
-				</tr>
-				<tr>
-					<td class="text-center">张北镇</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">王翠娥</td>
-					<td class="text-center">低保贫困户</td>
-				</tr>
-				<tr>
-					<td class="text-center">张北镇</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">王娥</td>
-					<td class="text-center">贫困户</td>
-				</tr>
-				<tr>
-					<td class="text-center">张北镇</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">王翠娥</td>
-					<td class="text-center">低保贫困户</td>
-				</tr>
-				<tr>
-					<td class="text-center">张北dd镇</td>
-					<td class="text-center">黄土村</td>
-					<td class="text-center">王娥</td>
-					<td class="text-center">贫困户</td>
-				</tr>
-				<tr>
-					<td class="text-center">张北dd镇</td>
-					<td class="text-center">黄土村</td>
-					<td class="text-center">王娥</td>
-					<td class="text-center">贫困户</td>
-				</tr>
+				<!-- <tr ng-show="poorVillage.noDataType">
+					<td style="text-align: center;" colspan="4" ng-bind="poorVillage.noDataName"></td>
+				</tr>  -->
 			</tbody>
 		</table>
 	</div>

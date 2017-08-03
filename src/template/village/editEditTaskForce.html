@@ -7,9 +7,9 @@
 <div class="villageCollection">
 <div class="villageSituation">
 		<header>
-			<div class="back" ng-click="editTaskForce.back()"><img src="../../assets/img/icon_28.png" alt=""></div>
+			<div class="back" ng-click="editEditTaskForce.back()"><img src="../../assets/img/icon_28.png" alt=""></div>
 			<div class="collectionTitle">贫困村信息采集</div>
-			<div class="delete" ng-click="editTaskForce.deleteBtn()">删除</div>
+			<div class="delete" ng-click="editEditTaskForce.deleteBtn()">删除</div>
 		</header>
 		<div class="fill"></div>
 		<div>
@@ -24,7 +24,7 @@
 					<label class="labels" for="bfdwzcgzdyxm">
 						<div class="name">驻村工作队员姓名</div>
 						<div class="content">
-							<input id="bfdwzcgzdyxm" type="text" placeholder="请输入姓名" ng-model="editTaskForce.bfdwzcgzdyxm">
+							<input id="bfdwzcgzdyxm" type="text" placeholder="请输入姓名" ng-model="editEditTaskForce.bfdwzcgzdyxm">
 						</div>
 					</label>
 				</div>
@@ -32,7 +32,7 @@
 					<label class="labels" for="zzmm">
 						<div class="name">政治面貌</div>
 						<div class="content pr">
-							<select class="selects" name="" id="zzmm" ng-model="editTaskForce.zzmm">
+							<select class="selects" name="" id="zzmm" ng-model="editEditTaskForce.zzmm">
 								<option value="01">中共党员</option>
 								<option value="02">中共预备党员</option>
 								<option value="03">共青团员</option>
@@ -55,7 +55,7 @@
 					<label class="labels" for="zjhm">
 						<div class="name">证件号码</div>
 						<div class="content">
-							<input id="zjhm" type="text" placeholder="请输入证件" ng-model="editTaskForce.zjhm">
+							<input id="zjhm" type="text" placeholder="请输入证件" ng-model="editEditTaskForce.zjhm">
 						</div>
 					</label>
 				</div>
@@ -63,7 +63,7 @@
 					<label class="labels" for="bfdwmc">
 						<div class="name">帮扶(派驻)单位名称</div>
 						<div class="content">
-							<input id="bfdwmc" type="text" placeholder="请输入帮扶" ng-model="editTaskForce.bfdwmc">
+							<input id="bfdwmc" type="text" placeholder="请输入帮扶" ng-model="editEditTaskForce.bfdwmc">
 						</div>
 					</label>
 				</div>
@@ -71,7 +71,7 @@
 					<label class="labels" for="dwlsgx">
 						<div class="name">单位隶属关系</div>
 						<div class="content pr">
-							<select class="selects" name="" id="dwlsgx" ng-model="editTaskForce.dwlsgx">
+							<select class="selects" name="" id="dwlsgx" ng-model="editEditTaskForce.dwlsgx">
 								<option value="01">中央</option>
 								<option value="02">省</option>
 								<option value="03">市</option>
@@ -88,7 +88,7 @@
 					<label class="labels" for="lxdh">
 						<div class="name">联系电话</div>
 						<div class="content">
-							<input id="lxdh" type="number" placeholder="请输入电话" ng-model="editTaskForce.lxdh">
+							<input id="lxdh" type="number" placeholder="请输入电话" ng-model="editEditTaskForce.lxdh">
 						</div>
 					</label>
 				</div>
@@ -114,7 +114,7 @@
 					<label class="labels" for="sfdz">
 						<div class="name">是否队长</div>
 						<div class="content pr">
-							<select class="selects" name="" id="sfdz" ng-model="editTaskForce.sfdz">
+							<select class="selects" name="" id="sfdz" ng-model="editEditTaskForce.sfdz">
 								<option value="是">是</option>
 								<option value="否">否</option>
 							</select>
@@ -126,7 +126,7 @@
 					<label class="labels" for="sfdysj">
 						<div class="name">是否第一书记</div>
 						<div class="content pr">
-							<select class="selects" name="" id="sfdysj" ng-model="editTaskForce.sfdysj">
+							<select class="selects" name="" id="sfdysj" ng-model="editEditTaskForce.sfdysj">
 								<option value="是">是</option>
 								<option value="否">否</option>
 							</select>
@@ -143,20 +143,20 @@
 		</div>
 		<!--  -->
 		<div class="footFill"></div>
-		<div class="foot" ng-click="editTaskForce.save()">
+		<div class="foot" ng-click="editEditTaskForce.save()">
 			保存
 		</div>
 	</div>
 	<!-- 弹窗 -->
-		<div class="alertTip" ng-show="editTaskForce.alert">
-	        <div ng-click="editTaskForce.cancel()" class="alet_container">
+		<div class="alertTip" ng-show="editEditTaskForce.alert">
+	        <div ng-click="editEditTaskForce.cancel()" class="alet_container">
 	        </div>
 	        <section class="tip_text_container">
 	            <p class="tip_icon">温馨提示</p>
 	            <p class="tip_text  border-t">是否保存为草稿</p>
 	            <div class="determineCon border-t">
-	                <div class="cancel" ng-click="editTaskForce.cancel()">取消</div>
-	                <div class="determine" ng-click="editTaskForce.confirm()">确定</div>
+	                <div class="cancel" ng-click="editEditTaskForce.cancel()">取消</div>
+	                <div class="determine" ng-click="editEditTaskForce.confirm()">确定</div>
 	            </div>
 	        </section>
 	    </div>

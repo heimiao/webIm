@@ -17,6 +17,7 @@ myApp.controller("poorVillage", ["$scope", "$state", "$http", "$stateParams","$t
 		window.localStorage.removeItem("situationList");
 		window.localStorage.removeItem("developmentList");
 		window.localStorage.removeItem('taskForceList');
+		window.localStorage.removeItem("editVillageCollectionEditId")
 		// 获取所有乡镇
 		$http.post(config.path.townShip,null).success(function(res){
 			poorVillage.townShip = res;
@@ -24,6 +25,7 @@ myApp.controller("poorVillage", ["$scope", "$state", "$http", "$stateParams","$t
 		// 获取所有行政村
 		$http.post(config.path.villageAll,null).success(function(res){
 			poorVillage.villageListAll = res;
+			poorVillage.villageList = res;
 			poorVillage.start = 0;
 			poorVillage.getVillageList(); //首页加载列表数据
 		})
