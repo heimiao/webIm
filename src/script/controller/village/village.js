@@ -9,7 +9,7 @@ myApp.controller("poorVillage", ["$scope", "$state", "$http", "$stateParams","$t
 		poorVillage.villageListAll = []; //获取全部行政村
 		poorVillage.sendParam.townShipId = null; //查询条件乡镇
 		poorVillage.sendParam.villageListId = null; //查询条件 行政村
-		poorVillage.sendParam.time = null;  // 查询条件 年度时间
+		poorVillage.sendParam.time = '2017';  // 查询条件 年度时间
 		poorVillage.noDataType = false;
 		poorVillage.noDataName = null;
 		poorVillage.start = 0; //请求的条数
@@ -21,13 +21,13 @@ myApp.controller("poorVillage", ["$scope", "$state", "$http", "$stateParams","$t
 		// 获取所有乡镇
 		$http.post(config.path.townShip,null).success(function(res){
 			poorVillage.townShip = res;
-		})
-		// 获取所有行政村
-		$http.post(config.path.villageAll,null).success(function(res){
-			poorVillage.villageListAll = res;
-			poorVillage.villageList = res;
-			poorVillage.start = 0;
-			poorVillage.getVillageList(); //首页加载列表数据
+			// 获取所有行政村
+			$http.post(config.path.villageAll,null).success(function(res){
+				poorVillage.villageListAll = res;
+				poorVillage.villageList = res;
+				poorVillage.start = 0;
+				poorVillage.getVillageList(); //首页加载列表数据
+			})
 		})
 		// 选择查询条件  乡镇
 		poorVillage.chooseTownship=function(name,id){
@@ -39,6 +39,7 @@ myApp.controller("poorVillage", ["$scope", "$state", "$http", "$stateParams","$t
 			$http.post(config.path.villageAll+"&fid="+id,null).success(function(res){
 				poorVillage.villageList = res;
 			})
+			poorVillage.queryBtn();
 		}
 		// 选择查询条件  行政村
 		poorVillage.chooseVillage=function(name,id){
@@ -47,6 +48,7 @@ myApp.controller("poorVillage", ["$scope", "$state", "$http", "$stateParams","$t
 			$(".villageList").slideUp(200)
 			$("#village").removeClass("township2")
 			$("#village .name").removeClass("col-ea3c4c")
+			poorVillage.queryBtn();
 		}
 		// 选择查询条件  年度时间
 		poorVillage.chooseTime=function(time){
@@ -55,6 +57,7 @@ myApp.controller("poorVillage", ["$scope", "$state", "$http", "$stateParams","$t
 			$(".timeList").slideUp(200)
 			$("#time").removeClass("township2")
 			$("#time .name").removeClass("col-ea3c4c")
+			poorVillage.queryBtn();
 		}
 		//  封装方法  获取列表
 		poorVillage.getVillageList=function (me, num){

@@ -10,7 +10,6 @@ myApp.controller("draftVillageCollection", ["$scope", "$state", "$http", "$state
 		draftVillageCollection.taskForceList = []; //获取本地的驻村工作队列表
 		draftVillageCollection.draftId = $stateParams.draftId;
 		draftVillageCollection.editId = null; //存之前编辑的id
-
 		draftVillageCollection.alert = false; //弹窗显示
 		window.localStorage.setItem("draftVillageCollectionDraftId", $stateParams.draftId);
 		//根据id获取详细信息
@@ -27,6 +26,7 @@ myApp.controller("draftVillageCollection", ["$scope", "$state", "$http", "$state
 						window.localStorage.setItem("draftVillageCollectionEditId", args.data.id);
 					}
 					draftVillageCollection.situationList = {
+						'nd': args.data.nd,
 						'qyxz': args.data.qyxz,
 						'qyxzc': args.data.qyxzc,
 						'cfzr': args.data.cfzr,
@@ -115,6 +115,15 @@ myApp.controller("draftVillageCollection", ["$scope", "$state", "$http", "$state
 					window.localStorage.setItem("taskForceList", JSON.stringify(args.data.zcgzdqk))
 					draftVillageCollection.taskForceList = JSON.parse(window.localStorage.getItem("taskForceList"));
 					draftVillageCollection.getVillageList(args.data.qyxz); //获取乡镇对应的行政村
+					if(draftVillageCollection.taskForceList){
+						if(draftVillageCollection.taskForceList.length == 0){
+							draftVillageCollection.noData = true;
+						}else{
+							draftVillageCollection.noData = false;
+						}
+					}else{
+						draftVillageCollection.noData = true;
+					}
 					$scope.$apply();
 				},
 				error: function(args) {
@@ -132,6 +141,16 @@ myApp.controller("draftVillageCollection", ["$scope", "$state", "$http", "$state
 				draftVillageCollection.taskForceList = JSON.parse(window.localStorage.getItem("taskForceList"));
 				draftVillageCollection.editId = window.localStorage.getItem("draftVillageCollectionEditId");
 				draftVillageCollection.getVillageList(draftVillageCollection.situationList.qyxz); //获取乡镇对应的行政村
+				if(draftVillageCollection.taskForceList){
+					if(draftVillageCollection.taskForceList.length == 0){
+						draftVillageCollection.noData = true;
+					}else{
+						draftVillageCollection.noData = false;
+					}
+				}else{
+					draftVillageCollection.noData = true;
+				}
+				
 			}else{
 				draftVillageCollection.getLocalDetails();
 			}
@@ -148,6 +167,7 @@ myApp.controller("draftVillageCollection", ["$scope", "$state", "$http", "$state
 			$("#"+$(this).attr('data-type')).show().siblings().hide();
 			if($(this).attr('data-type') == "taskForse"){
 				draftVillageCollection.situationList = {
+					'nd': draftVillageCollection.situationList.nd,
 					'qyxz': draftVillageCollection.situationList.qyxz,
 					'qyxzc': draftVillageCollection.situationList.qyxzc,
 					'cfzr': draftVillageCollection.situationList.cfzr,
@@ -266,10 +286,10 @@ myApp.controller("draftVillageCollection", ["$scope", "$state", "$http", "$state
 				postForm.saveFrm(config.path.updateVillage,{"data": JSON.stringify(draftVillageCollection.localData)}).success(function(res){
 					//根据id删除
 					dt.request({
-						rqstName: "low_family", //'low_family', 'low_village', 'nature_village', 'relief_project'
+						rqstName: "low_village", //'low_family', 'low_village', 'nature_village', 'relief_project'
 						type: "delete", //select,delete,put,selectById,
 						param: {
-							'index_id': window.localStorage.getItem("draftVillageCollectionDraftId")
+							'index_id': parseInt(window.localStorage.getItem("draftVillageCollectionDraftId"))
 						},
 						success: function(args) {
 							window.history.back();
@@ -285,6 +305,7 @@ myApp.controller("draftVillageCollection", ["$scope", "$state", "$http", "$state
 						rqstName: "low_village", //'low_family', 'low_village', 'nature_village', 'relief_project'
 						type: "put", //select,delete,put,selectById,
 						data: {
+							'index_id': parseInt(window.localStorage.getItem("draftVillageCollectionDraftId")),
 							'data':draftVillageCollection.localData,
 							'qyxzName': draftVillageCollection.qyxzName,
 							'qyxzcName': draftVillageCollection.qyxzcName
@@ -302,13 +323,12 @@ myApp.controller("draftVillageCollection", ["$scope", "$state", "$http", "$state
 				postForm.saveFrm(config.path.addVillage,{"data": JSON.stringify(draftVillageCollection.localData)}).success(function(res){
 					//根据id删除
 					dt.request({
-						rqstName: "low_family", //'low_family', 'low_village', 'nature_village', 'relief_project'
+						rqstName: "low_village", //'low_family', 'low_village', 'nature_village', 'relief_project'
 						type: "delete", //select,delete,put,selectById,
 						param: {
-							'index_id': window.localStorage.getItem("draftVillageCollectionDraftId")
+							'index_id': parseInt(window.localStorage.getItem("draftVillageCollectionDraftId"))
 						},
 						success: function(args) {
-							alert(window.localStorage.getItem("draftVillageCollectionDraftId"))
 							window.history.back();
 						},
 						'error': function(args) {
@@ -322,6 +342,7 @@ myApp.controller("draftVillageCollection", ["$scope", "$state", "$http", "$state
 						rqstName: "low_village", //'low_family', 'low_village', 'nature_village', 'relief_project'
 						type: "put", //select,delete,put,selectById,
 						data: {
+							'index_id': parseInt(window.localStorage.getItem("draftVillageCollectionDraftId")),
 							'data':draftVillageCollection.localData,
 							'qyxzName': draftVillageCollection.qyxzName,
 							'qyxzcName': draftVillageCollection.qyxzcName
@@ -353,6 +374,7 @@ myApp.controller("draftVillageCollection", ["$scope", "$state", "$http", "$state
 			//上传所有的数据
 			draftVillageCollection.localData={
 					'id': draftVillageCollection.editId,
+					'nd': draftVillageCollection.situationList.nd,
 				  	'qyxz': draftVillageCollection.situationList.qyxz,
 					'qyxzc': draftVillageCollection.situationList.qyxzc,
 					'cfzr': draftVillageCollection.situationList.cfzr,
@@ -438,7 +460,6 @@ myApp.controller("draftVillageCollection", ["$scope", "$state", "$http", "$state
 				    "zcgzdqk": JSON.parse(window.localStorage.getItem("taskForceList")), 
 				}
 		}
-
 		// 弹窗
 		draftVillageCollection.back=function(){
 			draftVillageCollection.getAllData();
@@ -450,6 +471,7 @@ myApp.controller("draftVillageCollection", ["$scope", "$state", "$http", "$state
 				rqstName: "low_village", //'low_family', 'low_village', 'nature_village', 'relief_project'
 				type: "put", //select,delete,put,selectById,
 				data: {
+					'index_id': parseInt(window.localStorage.getItem("draftVillageCollectionDraftId")),
 					'data':draftVillageCollection.localData,
 					'qyxzName': draftVillageCollection.qyxzName,
 					'qyxzcName': draftVillageCollection.qyxzcName

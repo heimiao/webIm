@@ -35,7 +35,13 @@ myApp.controller("editEditTaskForce", ["$scope", "$state", "$http", "$stateParam
 				window.history.back();
 		}
 		editEditTaskForce.deleteBtn=function(){
-
+			for(var i=0,Earr=[];i<editEditTaskForce.taskForce.length;i++){
+				if(i != editEditTaskForce.id){
+					Earr.push(editEditTaskForce.taskForce[i])
+				}
+			}
+			window.localStorage.setItem('taskForceList', JSON.stringify(Earr))
+			window.history.back();
 		}
 		// 弹窗
 		editEditTaskForce.back=function(){

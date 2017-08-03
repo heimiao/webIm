@@ -35,7 +35,13 @@ myApp.controller("draftEditTaskForce", ["$scope", "$state", "$http", "$statePara
 				window.history.back();
 		}
 		draftEditTaskForce.deleteBtn=function(){
-
+			for(var i=0,Earr=[];i<draftEditTaskForce.taskForce.length;i++){
+				if(i != draftEditTaskForce.id){
+					Earr.push(draftEditTaskForce.taskForce[i])
+				}
+			}
+			window.localStorage.setItem('taskForceList', JSON.stringify(Earr))
+			window.history.back();
 		}
 		// 弹窗
 		draftEditTaskForce.back=function(){

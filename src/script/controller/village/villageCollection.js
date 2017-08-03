@@ -7,6 +7,7 @@ myApp.controller("villageCollection", ["$scope", "$state", "$http", "$stateParam
 		villageCollection.developmentList = {}; //存发展现状的的表单数据
 		villageCollection.townShip = []; //全部乡镇列表
 		villageCollection.villageListAll = []; //获取全部行政村
+		villageCollection.situationList.nd = "2017"; //年度
 		villageCollection.situationList.pkcsx = "01"; //贫困村属性默认选中
 		villageCollection.situationList.fzfxsx = "zx"; //发展方向属性 默认选中
 		villageCollection.situationList.dxdmsx = "sq"; //地形地貌属性 默认选中
@@ -30,6 +31,17 @@ myApp.controller("villageCollection", ["$scope", "$state", "$http", "$stateParam
 			villageCollection.developmentList = JSON.parse(window.localStorage.getItem("developmentList"));
 			// 获取本地添加驻村工作情况列表数据  
 			villageCollection.taskForceList = JSON.parse(window.localStorage.getItem("taskForceList"));
+			// 判断显示暂无数据
+			console.log(villageCollection.taskForceList)
+			if(villageCollection.taskForceList){
+				if(villageCollection.taskForceList.length == 0){
+					villageCollection.noData = true;
+				}else{
+					villageCollection.noData = false;
+				}
+			}else{
+				villageCollection.noData = true;
+			}
 		}
 		// 获取所有乡镇
 		$http.post(config.path.townShip,null).success(function(res){
@@ -39,6 +51,12 @@ myApp.controller("villageCollection", ["$scope", "$state", "$http", "$stateParam
 			}else{
 				villageCollection.situationList.qyxz = res[0].id;
 				villageCollection.getVillageList(res[0].id, 1); //获取乡镇对应的行政村
+				// 判断显示暂无数据
+				if(villageCollection.taskForceList.length == 0){
+					villageCollection.noData = true;
+				}else{
+					villageCollection.noData = false;
+				}
 			}
 		})
 		// 乡镇变化行政村跟随变化
@@ -59,6 +77,7 @@ myApp.controller("villageCollection", ["$scope", "$state", "$http", "$stateParam
 			$("#"+$(this).attr('data-type')).show().siblings().hide();
 			if($(this).attr('data-type') == "taskForse"){
 				villageCollection.situationList = {
+					'nd': villageCollection.situationList.nd,
 					'qyxz': villageCollection.situationList.qyxz,
 					'qyxzc': villageCollection.situationList.qyxzc,
 					'cfzr': villageCollection.situationList.cfzr,
@@ -150,8 +169,22 @@ myApp.controller("villageCollection", ["$scope", "$state", "$http", "$stateParam
 		})
 		villageCollection.uploadSave=function(){
 			if(!villageCollection.situationList.cfzr){
-				alert("请完善信息")
+				fupin.alert("请完善基本信息中的信息")
 				return;
+			}
+			if(!villageCollection.situationList.cbgdh){
+				fupin.alert("请完善基本信息中的信息")
+				return;
+			}
+			if(!villageCollection.developmentList.nmnrjcsr){
+				fupin.alert("请完善发展现状中的信息")
+				return;
+			}
+			for(var i=0;i<villageCollection.taskForceList.length;i++){
+				if(!villageCollection.taskForceList[i].bfdwzcgzdyxm){
+					fupin.alert("请完善驻村工作队的信息")
+					return;
+				}
 			}
 			villageCollection.getAllData();
 			postForm.saveFrm(config.path.addVillage,{"data": JSON.stringify(villageCollection.localData)}).success(function(res){
@@ -192,6 +225,7 @@ myApp.controller("villageCollection", ["$scope", "$state", "$http", "$stateParam
 		villageCollection.getAllData=function(){
 			//上传所有的数据
 			villageCollection.localData={
+					'nd': villageCollection.situationList.nd,
 				  	'qyxz': villageCollection.situationList.qyxz,
 					'qyxzc': villageCollection.situationList.qyxzc,
 					'cfzr': villageCollection.situationList.cfzr,

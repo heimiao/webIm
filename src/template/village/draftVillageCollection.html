@@ -31,7 +31,23 @@
 					</div>
 				</label>
 			</div>
-
+			<div class="item border-b">
+				<label class="labels" for="nd">
+					<div class="name">年度</div>
+					<div class="content pr">
+						<select dir="rtl" class="selects" name="" id="nd" ng-model="draftVillageCollection.situationList.nd">
+							<option value="2014">2014</option>
+							<option value="2015">2015</option>
+							<option value="2016">2016</option>
+							<option value="2017">2017</option>
+							<option value="2018">2018</option>
+							<option value="2019">2019</option>
+							<option value="2020">2020</option>
+						</select>
+						<img class="rightPro" src="../../assets/img/icon2_11@2x.png" alt="">
+					</div>
+				</label>
+			</div>
 			<div class="item border-b">
 				<label for="cfzr" class="labels">
 					<div class="name">村负责人</div>
@@ -863,7 +879,7 @@
 				<tr>
 					<td class="text-center">工作队员姓名</td>
 					<td class="text-center">联系电话</td>
-					<td class="text-center">帮扶开始时间</td>
+					<td class="text-center">驻村开始时间</td>
 				</tr>
 			</thead>
 			<tbody>
@@ -872,7 +888,7 @@
 					<td class="text-center" ng-bind="item.lxdh"></td>
 					<td class="text-center" ng-bind="item.zcsjb"></td>
 				</tr>
-				<tr ng-show="draftVillageCollection.taskForceList.length==0">
+				<tr ng-show="draftVillageCollection.noData">
 					<td style="text-align: center;" colspan="4">暂无数据</td>
 				</tr>
 			</tbody>

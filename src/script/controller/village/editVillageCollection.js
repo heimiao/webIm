@@ -18,6 +18,15 @@ myApp.controller("editVillageCollection", ["$scope", "$state", "$http", "$stateP
 			editVillageCollection.developmentList = JSON.parse(window.localStorage.getItem("developmentList"));
 			// 获取本地添加驻村工作情况列表数据  
 			editVillageCollection.taskForceList = JSON.parse(window.localStorage.getItem("taskForceList"));
+			if(editVillageCollection.taskForceList){
+				if(editVillageCollection.taskForceList.length == 0){
+					editVillageCollection.noData = true;
+				}else{
+					editVillageCollection.noData = false;
+				}
+			}else{
+				editVillageCollection.noData = true;
+			}
 		}
 		//获取所有乡镇
 		$http.post(config.path.townShip,null).success(function(res){
@@ -47,11 +56,19 @@ myApp.controller("editVillageCollection", ["$scope", "$state", "$http", "$stateP
 				if(res){
 					window.localStorage.setItem("taskForceList", JSON.stringify(res))
 					editVillageCollection.taskForceList = JSON.parse(window.localStorage.getItem("taskForceList"));
+					if(editVillageCollection.taskForceList.length == 0){
+						editVillageCollection.noData = true;
+					}else{
+						editVillageCollection.noData = false;
+					}
+				}else{
+					editVillageCollection.noData = true;
 				}
 			})
 			$http.post(config.path.editVillageCollection+editVillageCollection.editId,null).success(function(res){
 				editVillageCollection.getVillageList(res.qyxz); //获取乡镇对应的行政村
 				editVillageCollection.situationList = {
+					'nd': res.nd,
 					'qyxz': res.qyxz,
 					'qyxzc': res.qyxzc,
 					'cfzr': res.cfzr,
@@ -140,12 +157,12 @@ myApp.controller("editVillageCollection", ["$scope", "$state", "$http", "$stateP
 				
 			})
 		}
-
 		$("#tab div").click(function(){
 			$(this).addClass('bg').siblings().removeClass('bg');
 			$("#"+$(this).attr('data-type')).show().siblings().hide();
 			if($(this).attr('data-type') == "taskForse"){
 				editVillageCollection.situationList = {
+					'nd': editVillageCollection.situationList.nd,
 					'qyxz': editVillageCollection.situationList.qyxz,
 					'qyxzc': editVillageCollection.situationList.qyxzc,
 					'cfzr': editVillageCollection.situationList.cfzr,
@@ -269,6 +286,7 @@ myApp.controller("editVillageCollection", ["$scope", "$state", "$http", "$stateP
 			//上传所有的数据
 			editVillageCollection.localData={
 					'id': editVillageCollection.editId,
+					'nd': editVillageCollection.situationList.nd,
 				  	'qyxz': editVillageCollection.situationList.qyxz,
 					'qyxzc': editVillageCollection.situationList.qyxzc,
 					'cfzr': editVillageCollection.situationList.cfzr,
