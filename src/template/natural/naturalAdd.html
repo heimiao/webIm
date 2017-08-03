@@ -1,6 +1,6 @@
 <div class="villageCollection naturalBasic">
 		<header>
-			<a href="javascript:history.go(-1)">
+			<a ng-click="zrcAdd.goback()">
 				<div class="back"><img src="../../assets/img/icon_28.png" alt=""></div>
 			</a>
 			<div class="collectionTitle">自然村信息采集</div>
@@ -198,21 +198,21 @@
 				</div>
 				
 				<div class="item border-b">
-					<div class="name"><label for="zrcroad">D5到行政村是否通沥青（水泥）路</label></div>
+					<div class="name">D5到行政村是否通沥青（水泥）路</div>
 					<div class="content" style="width: 5rem !important;">
 						<select name="" id="zrcroad" ng-model="zrcAdd.sendParam.dxzcsftlql">
-							<option ng-value="1">{{zrcAdd.sendParam.dxzcsftlql==1?'是':'否'}}</option>
-							<option ng-value="0">{{zrcAdd.sendParam.dxzcsftlql==0?'否':'是'}}</option>
+							<option value="是">是</option>
+							<option value="否">否</option>
 						</select>
 						<img src="../../assets/img/icon2_11@2x.png" alt="">
 					</div>
 				</div>
 				<div class="item border-b">
-					<div class="name"><label for="zrcele">D6是否生产用电</lable></div>
+					<div class="name">D6是否生产用电</div>
 					<div class="content">
 						<select name="" id="zrcele" ng-model="zrcAdd.sendParam.sftscyd">
-							<option ng-value="1">{{zrcAdd.sendParam.sftscyd==1?'是':'否'}}</option>
-							<option ng-value="0">{{zrcAdd.sendParam.sftscyd==0?'否':'是'}}</option>
+							<option value="是">是</option>
+							<option value="否">否</option>
 						</select>
 						<img src="../../assets/img/icon2_11@2x.png" alt="">
 					</div>
@@ -221,8 +221,8 @@
 					<div class="name">D6是否生活用电</div>
 					<div class="content">
 						<select name="" id="" ng-model="zrcAdd.sendParam.sftshyd">
-							<option ng-value="1">{{zrcAdd.sendParam.sftshyd==1?'是':'否'}}</option>
-							<option ng-value="0">{{zrcAdd.sendParam.sftshyd==0?'否':'是'}}</option>
+							<option value="是">是</option>
+							<option value="否">否</option>
 						</select>
 						<img src="../../assets/img/icon2_11@2x.png" alt="">
 					</div>
@@ -232,8 +232,8 @@
 					<div class="name">D6是否通宽带</div>
 					<div class="content">
 						<select name="" id="" ng-model="zrcAdd.sendParam.sftkd" >
-							<option ng-value="1" >{{zrcAdd.sendParam.sftkd==1?'是':'否'}}</option>
-							<option ng-value="0">{{zrcAdd.sendParam.sftkd==0?'否':'是'}}</option>
+							<option value="是">是</option>
+							<option value="否">否</option>
 						</select>
 						<img src="../../assets/img/icon2_11@2x.png" alt="">
 					</div>

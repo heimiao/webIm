@@ -202,6 +202,12 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 			controller: "naturalDraft",
 			templateUrl: 'dist/template/natural/naturalDraft.html'
 		})
+		//自然村草稿编辑
+		.state('naturalDraftEdit', {
+			url: '/natural_draftEdit?id&type',
+			controller: "naturalDraftEdit",
+			templateUrl: 'dist/template/natural/naturalDraftEdit.html'
+		})
 		//自然村新增
 		.state('naturalAdd', {
 			url: '/natural_Add?id&type',
@@ -225,7 +231,7 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 		//扶贫项目新增
 		.state('projectAdd', {
 			url: '/project_Add?id&type',
-			controller: "projectAdd",
+			controller: "projectAddxz",
 			templateUrl: 'dist/template/project/projectAdd.html'
 		})
 

@@ -8,19 +8,20 @@
 		<div class="screen-con">
 			<div id="time" class="open naturaltime" onclick="timeList()"><span class="name">年度</span><span class="triangle"></span></div>
 			<div class="timeList">
-				<div onclick="chooseTime('2017')">2018</div>
-				<div onclick="chooseTime('2016')">2016</div>
-				<div onclick="chooseTime('2015')">2015</div>
 				<div onclick="chooseTime('2014')">2014</div>
+				<div onclick="chooseTime('2015')">2015</div>
+				<div onclick="chooseTime('2016')">2016</div>
+				<div onclick="chooseTime('2017')">2017</div>
+				<div onclick="chooseTime('2018')">2018</div>
+				<div onclick="chooseTime('2019')">2019</div>
+				<div onclick="chooseTime('2020')">2020</div>
 			</div>
 			<div id="township" class="township" onclick="townshipList()">
 				<span class="name">项目类型</span><span class="triangle"></span>
 			</div>
 			<div class="townshipList">
-				<div onclick="chooseTownship('1')">1</div>
-				<div onclick="chooseTownship('2')">2</div>
-				<div onclick="chooseTownship('3')">3</div>
-				<div onclick="chooseTownship('4')">4</div>
+				<div onclick="chooseTownship('test1')">test1</div>
+				<div onclick="chooseTownship('test2')">test3</div>
 			</div>
 			
 			
@@ -36,46 +37,14 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr onclick="location.href='#/project_Edit'">
-					<td class="text-left projectName" >扶贫项目名称</td>
-					<td class="text-center">贫困村</td>		
+				<tr ng-repeat="item in project.list" ui-sref="projectEdit({id:item.id})">
+					<td class="text-left projectName" ng-bind="item.xmmc"></td>
+					<td class="text-center">
+						<span ng-if="item.pkcxm=='Y'">贫困村项目</span>
+						<span ng-if="item.pkhxm=='Y'">贫困户项目</span>
+					</td>	
 				</tr>
-				<tr>
-					<td class="text-left projectName">扶贫项目名称</td>
-					<td class="text-center">贫困村</td>	
-				</tr>
-				<tr>
-					<td class="text-left projectName">扶贫项目名称</td>
-					<td class="text-center">贫困村</td>	
-				</tr>
-				<tr>
-					<td class="text-left projectName">扶贫项目名称</td>
-					<td class="text-center">贫困村</td>	
-				</tr>
-				<tr>
-					<td class="text-left projectName">扶贫项目名称</td>
-					<td class="text-center">贫困村</td>	
-				</tr>
-				<tr>
-					<td class="text-left projectName">扶贫项目名称</td>
-					<td class="text-center">贫困村</td>	
-				</tr>
-				<tr>
-					<td class="text-left projectName">扶贫项目名称</td>
-					<td class="text-center">贫困村</td>	
-				</tr>
-				<tr>
-					<td class="text-left projectName">扶贫项目名称</td>
-					<td class="text-center">贫困村</td>	
-				</tr>
-				<tr>
-					<td class="text-left projectName">扶贫项目名称</td>
-					<td class="text-center">贫困村</td>	
-				</tr>
-				<tr>
-					<td class="text-left projectName">扶贫项目名称</td>
-					<td class="text-center">贫困村</td>	
-				</tr>
+				
 				
 			</tbody>
 		</table>

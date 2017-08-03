@@ -5,39 +5,42 @@
 			</a>
 			<div class="collectionTitle">自然村信息</div>
 		</header>
-		<div class="screen-con">
-			<div id="time" class="open naturaltime" onclick="timeList()"><span class="name">年度</span><span class="triangle"></span></div>
-			<div class="timeList">
-				<div onclick="chooseTime('2020')">2020</div>
-				<div onclick="chooseTime('2019')">2019</div>
-				<div onclick="chooseTime('2018')">2018</div>
-				<div onclick="chooseTime('2017')">2017</div>
-				<div onclick="chooseTime('2016')">2016</div>
-				<div onclick="chooseTime('2015')">2015</div>
-				<div onclick="chooseTime('2014')">2014</div>
-			</div>
-			<div ng-click="">查询</div>
+		
+		<div class="screen-con niandu"> 
+			<div id="pp">请选择年度</div>
+			<select name="" class="zrcSearch"  ng-model="natural.sendParam.time" ng-change="natural.selectYear()" >
+				<option value="2014">2014</option>
+				<option value="2015">2015</option>
+				<option value="2016">2016</option>
+				<option value="2017">2017</option>
+				<option value="2018">2018</option>
+				<option value="2019">2019</option>
+				<option value="2020">2020</option>
+			</select>
+			
 		</div>
 		
 		<div class="fill2"></div>
 		<div class="fill"></div>
-		<table class="table table-striped">
-			<thead>
-				<tr>
-					<!--<td class="text-center">乡镇</td>-->
-					<td class="text-center">行政村</td>
-					<td class="text-center">自然村</td>
-					<td class="text-center">村负责人</td>
-				</tr>
-			</thead>
-			<tbody>
-				<tr ng-repeat="item in natural.list" ui-sref="naturalEdite({id:item.id})">
-					<td class="text-center" ng-bind="item.lsxzc"></td>
-					<td class="text-center" ng-bind="item.zrcmc"></td>
-					<td class="text-center" ng-bind="item.fzr"></td>			
-				</tr>
-			</tbody>
-		</table>
+		<!-- <div pull-loading load-low-family-list="natural.xzcList"> -->
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<!--<td class="text-center">乡镇</td>-->
+						<td class="text-center">行政村</td>
+						<td class="text-center">自然村</td>
+						<td class="text-center">村负责人</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="item in natural.list" ui-sref="naturalEdite({id:item.id})">
+						<td class="text-center" ng-bind="item.lsxzc"></td>
+						<td class="text-center" ng-bind="item.zrcmc"></td>
+						<td class="text-center" ng-bind="item.fzr"></td>			
+					</tr>
+				</tbody>
+			</table>
+		<!-- </div> -->
 		<div class="foot-fill"></div>
 		<footer class="foot">
 			<a href="#/natural_draft">
@@ -53,35 +56,36 @@
 	</div>
 	<script type="text/javascript" src="../../assets/lib/js/jquery.min.js"></script>
 
-	<script>
-		function timeList() {
-			$(".timeList").slideToggle(200)
-			$("#time").toggleClass("township2")
-			$("#time .name").toggleClass("col-ea3c4c")
-
-			$(".townshipList").slideUp(200)
-			$("#township").removeClass("township2")
-			$("#township .name").removeClass("col-ea3c4c")
-
-			$(".villageList").slideUp(200)
-			$("#village").removeClass("township2")
-			$("#village .name").removeClass("col-ea3c4c")
-
-			$(".numList").slideUp(200)
-			$("#num").removeClass("township2")
-			$("#num .name").removeClass("col-ea3c4c")
-
-			$(".poorList").slideUp(200)
-			$("#poor").removeClass("township2")
-			$("#poor .name").removeClass("col-ea3c4c")
-		}
-		
-		
-		// 选择时间
-		function chooseTime(text) {
-			$("#time .name").html(text)
-			$(".timeList").slideUp(200)
-			$("#time").removeClass("township2")
-			$("#time .name").removeClass("col-ea3c4c")
-		}
-	</script>
+	
+<style type="text/css">
+.niandu{
+	height: 4rem;
+	background-color: #000
+}
+#pp{
+	float: left;
+	position: absolute;
+	top: 0;
+	left: 10px;
+	z-index: -1;
+	margin-top:0.5rem 
+}
+.zrcSearch{
+	width: 50%;
+	text-align: center;
+	border-radius: 5px;
+	height: 26px;
+	line-height: 26px;
+	font-size: 1rem;
+	border:none;
+	color: #000;
+	float: left;
+	outline: none;
+	appearance:none;
+	-moz-appearance:none;
+	-webkit-appearance:none;
+	background-color:transparent;
+	margin-top:0.5rem;
+	font-size: 20px
+}
+</style>

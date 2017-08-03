@@ -1,37 +1,22 @@
 var baseUrl = "http://123.58.240.75:8081/tpa";
-<<<<<<< HEAD
-//var baseUrl = "http://192.168.22.182:8080/tpa";
-//var baseUrl = "http://192.168.20.160:8080/tpa";
-=======
-
->>>>>>> 4cfcd1b4ccdb4ae02b6f55e299889592ec380188
 var config = {
 	//请求路径
 	path: {
 		login: baseUrl + "",
 		//贫困村
-<<<<<<< HEAD
-		lowFamilyList: baseUrl + "/pkh/queryForPage",
-		lowFamilyById: baseUrl + "/pkh/queryForId",
-		login: baseUrl + "/dotpalogin",
-		townShip: baseUrl+ "/zcjg/queryForZc",  //获取乡镇列表
-		naturalVillage: baseUrl+ "/zrc/queryForPage",  //自然村列表
-
-		xingzhengName:baseUrl+"/zcjg/queryForZc", //行政村名字列表
-		zrcDetails:baseUrl+"/zrc/queryForId", //自然村列表详情
-		zrcEdit:baseUrl+"/zrc/update", //自然村编辑
-		addzrc:baseUrl+"/zrc/add", //添加自然村
-
-		townShip: baseUrl+ "/zcjg/queryForZc?lx=01",  //获取乡镇列表
-		villageAll: baseUrl + "/zcjg/queryForZc?lx=02", //获取所有行政村列表
-		villageList: baseUrl + "/pkc/queryForPage", //获取贫困村列表
-		queryForZcVillage: baseUrl+　"/zcjg/queryForZc", //根据id 查询行政村和或者乡镇
-=======
 		lowFamilyList: "/pkh/queryForPage",
 		lowFamilyById: "/pkh/queryForId",
 		login: "/dotpalogin",
 		//townShip: baseUrl+ "/zcjg/queryForZc",  //获取乡镇列表
 		naturalVillage: "/zrc/queryForPage", //自然村列表
+		xingzhengName:"/zcjg/queryForZc", //行政村名字列表
+		zrcDetails:"/zrc/queryForId", //自然村列表详情
+		zrcEdit:"/zrc/update", //自然村编辑
+		addzrc:"/zrc/add", //添加自然村
+		//扶贫项目
+		projectList:"/xmxx/queryForPage",//扶贫项目列表
+		projectAdda:"/xmxx/add",//新增扶贫项目
+
 		townShip: "/zcjg/queryForZc?lx=01", //获取乡镇列表
 		villageAll: "/zcjg/queryForZc?lx=02", //获取所有行政村列表
 		villageList: "/pkc/queryForPage", //获取贫困村列表
@@ -47,7 +32,6 @@ var config = {
 				ary[item] = this.path[item];
 		}
 		angular.extend(this.path, ary);
->>>>>>> 4cfcd1b4ccdb4ae02b6f55e299889592ec380188
 	},
 	//系统基本信息配置
 	sysInfo: {
