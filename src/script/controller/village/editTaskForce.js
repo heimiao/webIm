@@ -3,6 +3,7 @@ myApp.controller("editTaskForce", ["$scope", "$state", "$http", "$stateParams",
 		var editTaskForce = {} || editTaskForce;
 		editTaskForce.urlParam = $stateParams;
 		editTaskForce.sendParam = {};
+		editTaskForce.alert = false;
 		editTaskForce.id = parseInt($stateParams.id);
 		editTaskForce.taskForce= JSON.parse(window.localStorage.getItem("taskForceList"));
 		for(var i=0;i<editTaskForce.taskForce.length;i++){
@@ -31,18 +32,36 @@ myApp.controller("editTaskForce", ["$scope", "$state", "$http", "$stateParams",
 				editTaskForce.taskForce[editTaskForce.id].sfdz = editTaskForce.sfdz,
 				editTaskForce.taskForce[editTaskForce.id].sfdysj = editTaskForce.sfdysj
 				window.localStorage.setItem('taskForceList', JSON.stringify(editTaskForce.taskForce))
-				$state.go("villageCollection",{type: 1});
+				window.history.back();
 		}
 		editTaskForce.deleteBtn=function(){
-
+			for(var i=0,Earr=[];i<editTaskForce.taskForce.length;i++){
+				if(i != editTaskForce.id){
+					Earr.push(editTaskForce.taskForce[i])
+				}
+			}
+			window.localStorage.setItem('taskForceList', JSON.stringify(Earr))
+			window.history.back();
 		}
+		// 弹窗
 		editTaskForce.back=function(){
-			fupin.confirm("是否保存为草稿", function() {
-				editTaskForce.save();
-			}, function() {
-				window.history.back() 
-			});
+			editTaskForce.alert = true;
 		}
+		editTaskForce.confirm=function(){
+			editTaskForce.save();
+			editTaskForce.alert = false;
+		}
+		editTaskForce.cancel = function(){
+			editTaskForce.alert = false;
+			window.history.back();
+		}
+		// editTaskForce.back=function(){
+		// 	fupin.confirm("是否保存为草稿", function() {
+		// 		editTaskForce.save();
+		// 	}, function() {
+		// 		window.history.back() 
+		// 	});
+		// }
 		/*lowFamilyInfo.menu=false;
 		lowFamilyInfo.changeMenu=function(args){
 			lowFamilyInfo.menu=args;

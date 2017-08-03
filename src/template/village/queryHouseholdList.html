@@ -3,121 +3,31 @@
 			<a href="javascript:history.go(-1)">
 				<div class="back"><img  src="../../assets/img/icon_28.png" alt=""></div>
 			</a>
-			<div class="collectionTitle">贫困户信息采集</div>
+			<div class="collectionTitle">贫困户信息查询</div>
 		</header>
 		<div class="fill"></div>
-		<table class="table table-striped" style="margin-top: 5.2rem">
-			<thead>
-				<tr>
-					<td class="text-center">乡镇</td>
-					<td class="text-center">村</td>
-					<td class="text-center">户主</td>
-					<td class="text-center">贫困户类型</td>
-				</tr>
-			</thead>
-			<tbody>
-				<tr onclick="houseHoldDetail()">
-					<td class="text-center">张北镇</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">王翠娥</td>
-					<td class="text-center">低保贫困户</td>
-				</tr>
-				<tr>
-					<td class="text-center">张北镇</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">王翠娥</td>
-					<td class="text-center">低保贫困户</td>
-				</tr>
-				<tr>
-					<td class="text-center">张北镇</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">王娥</td>
-					<td class="text-center">贫困户</td>
-				</tr>
-				<tr>
-					<td class="text-center">张北镇</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">王翠娥</td>
-					<td class="text-center">低保贫困户</td>
-				</tr>
-				<tr>
-					<td class="text-center">张北dd镇</td>
-					<td class="text-center">黄土村</td>
-					<td class="text-center">王娥</td>
-					<td class="text-center">贫困户</td>
-				</tr>
-				<tr>
-					<td class="text-center">张北dd镇</td>
-					<td class="text-center">黄土村</td>
-					<td class="text-center">王娥</td>
-					<td class="text-center">贫困户</td>
-				</tr>
-				<tr>
-					<td class="text-center">张北镇</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">王翠娥</td>
-					<td class="text-center">低保贫困户</td>
-				</tr>
-				<tr>
-					<td class="text-center">张北镇</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">王娥</td>
-					<td class="text-center">贫困户</td>
-				</tr>
-				<tr>
-					<td class="text-center">张北镇</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">王翠娥</td>
-					<td class="text-center">低保贫困户</td>
-				</tr>
-				<tr>
-					<td class="text-center">张北dd镇</td>
-					<td class="text-center">黄土村</td>
-					<td class="text-center">王娥</td>
-					<td class="text-center">贫困户</td>
-				</tr>
-				<tr>
-					<td class="text-center">张北dd镇</td>
-					<td class="text-center">黄土村</td>
-					<td class="text-center">王娥</td>
-					<td class="text-center">贫困户</td>
-				</tr>
-				<tr>
-					<td class="text-center">张北镇</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">王翠娥</td>
-					<td class="text-center">低保贫困户</td>
-				</tr>
-				<tr>
-					<td class="text-center">张北镇</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">王娥</td>
-					<td class="text-center">贫困户</td>
-				</tr>
-				<tr>
-					<td class="text-center">张北镇</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">王翠娥</td>
-					<td class="text-center">低保贫困户</td>
-				</tr>
-				<tr>
-					<td class="text-center">张北dd镇</td>
-					<td class="text-center">黄土村</td>
-					<td class="text-center">王娥</td>
-					<td class="text-center">贫困户</td>
-				</tr>
-				<tr>
-					<td class="text-center">张北dd镇</td>
-					<td class="text-center">黄土村</td>
-					<td class="text-center">王娥</td>
-					<td class="text-center">贫困户</td>
-				</tr>
-			</tbody>
-		</table>
-		<script type="text/javascript" src="../../assets/lib/js/jquery.min.js"></script>
-		<script>
-			function houseHoldDetail(){
-				location.href='#queryHouseholdDetail'
-			}
-		</script>
+		<div class="droploadTable">
+			<table class="table table-striped" style="margin-top: 5.2rem">
+				<thead>
+					<tr>
+						<td class="text-center">乡镇</td>
+						<td class="text-center">村</td>
+						<td class="text-center">户主</td>
+						<td class="text-center">贫困户类型</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-hide="queryHouseholdList.noDataType" ng-repeat="item in queryHouseholdList.poorList" ui-sref="householdDetail({id:item.id})">
+							<td class="text-center" ng-bind="item.qyxz"></td>
+							<td class="text-center" ng-bind="item.qyxzc"></td>
+							<td class="text-center" ng-bind="item.hzxm"></td>
+							<td class="text-center" ng-bind="item.pkcsx"></td>
+						</tr>
+						<tr ng-show="queryHouseholdList.noDataType">
+							<td style="text-align: center;" colspan="4" ng-bind="queryHouseholdList.noDataName"></td>
+						</tr>
+				</tbody>
+			</table>
+		</div>
+		<script src="./assets/lib/js/dropload.min.js" type="text/javascript"></script>
 	</div>

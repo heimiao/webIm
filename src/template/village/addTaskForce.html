@@ -146,11 +146,18 @@
 			添加
 		</div>
 	</div>
+	<!-- 弹窗 -->
+		<div class="alertTip" ng-show="addTaskForce.alert">
+	        <div ng-click="addTaskForce.cancel()" class="alet_container">
+	        </div>
+	        <section class="tip_text_container">
+	            <p class="tip_icon">温馨提示</p>
+	            <p class="tip_text  border-t">是否保存为草稿</p>
+	            <div class="determineCon border-t">
+	                <div class="cancel" ng-click="addTaskForce.cancel()">取消</div>
+	                <div class="determine" ng-click="addTaskForce.confirm()">确定</div>
+	            </div>
+	        </section>
+	    </div>
 </div>
-    <script src="../../assets/lib/date/js/mobiscroll.js" type="text/javascript"></script>
-	<script>
-		$("#tab div").click(function(){
-			$(this).addClass('bg').siblings().removeClass('bg');
-			$("#"+$(this).attr('data-type')).show().siblings().hide();
-		})
-	</script>
+ <script src="../../assets/lib/date/js/mobiscroll.js" type="text/javascript"></script>

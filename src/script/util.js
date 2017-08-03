@@ -101,7 +101,7 @@
 				'<div class="hint_cont">' + this.options.content + '</div>' +
 				'</div>' +
 				'<div class="alert_footer">' +
-				btn + '<button type="button" class="btn btn-primary btn_sure" onclick=>确定</button>' +
+				btn + '<button type="button" style="background-color:#ea3c4c;color:#fff" class="btn btn_sure" onclick=>确定</button>' +
 				'</div>' +
 				'</div>' +
 				'</div>'

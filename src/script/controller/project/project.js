@@ -1,8 +1,55 @@
-myApp.controller("project", ["$scope", "$state", "$http", "$stateParams",
-	function($scope, $state, $http, $stateParams) {
+myApp.controller("project", ["$scope", "$state", "$http", "$stateParams","postForm",
+	function($scope, $state, $http, $stateParams,postForm) {
 		var project = {} || project;
 		project.urlParam = $stateParams;
 		project.sendParam = {};
+		project.sendParam.time=null;
+		project.list = {};
+		//获取项目采集列表
+		project.getxmcj=function(){
+			project.canshu = {
+				name:"",
+				time:"",
+				nd:project.sendParam.time,
+				xmjzqk:'',
+				xmlx:''
+			};
+			
+			project.page = {
+				limit:10,
+				start:0
+			};
+			var sunParm=angular.extend({},project.canshu,project.page)
+			postForm.saveFrm(config.path.projectList,sunParm)
+			.success(function(res){
+				console.log(res);
+				project.list=res.results;
+				
+			});
+
+		};
+		
+
+		project.getxmcj();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 		project.uploadSource = function() {
 			console.log(12123123);

@@ -17,15 +17,26 @@
 			<div class="item border-b">
 				<div class="name">项目所属(可多选)</div>
 			</div>
-			<div class="projectss">
-				<div class="projectqk">贫困村项目</div>
-				<div class="projectqk">贫困户项目</div>
+			<div class="projectss" >
+				<label>
+					<input type="checkbox" ng-model="projectAdd.sendParam.pkcxm">贫困村项目
+				</label>
+				<label>
+					<input type="checkbox" ng-model="projectAdd.sendParam.pkhxm"  >贫困户项目
+				</label>
 			</div>
 			<div class="item" style="">
 				<div class="name">年度</div>
 				<div class="content">
-					<select name="" id="">
-						<option value="">2017</option>
+					<select name="" id="" ng-model="projectAdd.sendParam.nd">
+						<option value="" class="" selected="selected">请选择年份</option>
+						<option value="2014">2014</option>
+						<option value="2015">2015</option>
+						<option value="2016">2016</option>
+						<option value="2017">2017</option>
+						<option value="2018">2018</option>
+						<option value="2019">2019</option>
+						<option value="2020">2020</option>
 					</select>
 					<img src="../../assets/img/icon2_11@2x.png" alt="">
 				</div>
@@ -34,14 +45,14 @@
 			<div class="item">
 				<div class="name">项目名称</div>
 				<div class="content">
-					<input type="text" placeholder="请输入项目名称">
+					<input type="text" placeholder="请输入项目名称" ng-model="projectAdd.sendParam.xmmc">
 				</div>
 			</div>
 
 			<div class="item">
 				<div class="name">项目类型</div>
 				<div class="content">
-					<select name="" id="">
+					<select name="" id="" ng-model="projectAdd.sendParam.xmlx">
 						<option value="">请选择</option>
 					</select>
 					<img src="../../assets/img/icon2_11@2x.png" alt="">
@@ -51,63 +62,72 @@
 			<div class="item border-b">
 				<div class="name">投资金额</div>
 				<div class="content">
-					<input type="text" placeholder="请输入金额">
+					<input type="text" placeholder="请输入金额" ng-model="projectAdd.sendParam.xmje" >
 				</div>
 			</div>
 
 			<div class="item">
 				<div class="name">扶贫资金</div>
 				<div class="content">
-					<input type="text" placeholder="请输入金额">
+					<input type="text" placeholder="请输入金额" ng-model="projectAdd.sendParam.fpzj">
 				</div>
 			</div>
 
 			<div class="item border-b">
 				<div class="name">贷款金额</div>
 				<div class="content">
-					<input type="number" placeholder="请输入金额">
+					<input type="number" placeholder="请输入金额" ng-model="projectAdd.sendParam.dkje">
 				</div>
 			</div>
 			
 			<div class="item">
 				<div class="name">自筹金额</div>
 				<div class="content">
-					<input type="number" placeholder="请输入金额">
+					<input type="number" placeholder="请输入金额" ng-model="projectAdd.sendParam.zcje">
 				</div>
 			</div>
 	
-			<div class="item border-b">
+			<div class="item ">
 				<div class="name">项目地点</div>
 				<div class="content" style="width: 50%;">
-					<select name="" id="">
-						<option value="">张北镇 三八地村</option>
+					<select name="" id="" ng-model="projectAdd.sendParam.xmdd">
+						<option value="">张北镇</option>
 					</select>
 					<img src="../../assets/img/icon2_11@2x.png" alt="">
 				</div>
 			</div>
-			
+
 			<div class="item">
-				<div class="name">详细地址</div>
+				<!-- <div class="name">项目地点</div> -->
+				<div class="content" style="width: 50%;">
+					<select name="" id="" ng-model="projectAdd.sendParam.xmdd">
+						<option value="">张北镇</option>
+					</select>
+					<img src="../../assets/img/icon2_11@2x.png" alt="">
+				</div>
+			</div>			
+			<div class="item border-b" >
+				<div class="name"></div>
 				<div class="content">
-					<input type="number" placeholder="请输入详细地址">
+					<input type="number" placeholder="请输入详细地址" ng-model="projectAdd.sendParam.xmdd">
 				</div>
 			</div>
 			
-			<div class="item">
+			<div class="item border-b">
 				<div class="name">实施主体</div>
 				<div class="content">
-					<input type="number" placeholder="请输入具体内容">
+					<input type="number" placeholder="请输入具体内容" ng-model="projectAdd.sendParam.ssdw">
 				</div>
 			</div>
 			
-			<div class="item">
+			<!-- <div class="item">
 				<div class="name">完成失效</div>
 				<div class="content">
 					<input type="number" placeholder="请输入具体内容">
 				</div>
-			</div>
+			</div> -->
 
-			<div class="item ">
+			<!-- <div class="item ">
 				<div class="name">扶贫模式</div>
 				<div class="content">
 					<select name="" id="">
@@ -115,9 +135,9 @@
 					</select>
 					<img src="../../assets/img/icon2_11@2x.png" alt="">
 				</div>
-			</div>
+			</div> -->
 			
-			<div class="item border-b">
+			<!-- <div class="item border-b">
 				<div class="name">报送时间</div>
 				<div class="content">
 					<input type="number" placeholder="请输入时间">
@@ -136,19 +156,19 @@
 				<div class="content">
 					<input type="number" placeholder="请输入时间">
 				</div>
-			</div>
+			</div> -->
 			<!--文本框-->
 			<div class="projectcx">
-				<div class="projectcxText">扶贫成效</div>
+				<div class="projectcxText">效益分析</div>
 				<textarea></textarea>
 			</div>
 			
 			<div class="projectcx">
-				<div class="projectcxText">进度安排</div>
+				<div class="projectcxText">项目简介</div>
 				<textarea></textarea>
 			</div>
 			
-			<div class="projectcx">
+			<!-- <div class="projectcx">
 				<div class="projectcxText">扶贫预期成效</div>
 				<textarea></textarea>
 			</div>
@@ -166,7 +186,7 @@
 			<div class="projectcx">
 				<div class="projectcxText">进度情况</div>
 				<textarea></textarea>
-			</div>
+			</div> -->
 			
 		</div>
 		<!-- 涉及贫困村 -->
@@ -244,7 +264,7 @@
 		</div>
 		</div>
 		<div class="footFill"></div>
-		<div class="foot">
+		<div class="foot" ng-click="projectAdd.tianjia()">
 			数据上传
 		</div>
 	</div>
