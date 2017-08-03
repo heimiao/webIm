@@ -38,18 +38,23 @@
         background-color: #fff;
         .item {
             overflow: hidden;
-            padding: 1rem 1rem;
+            padding: 1rem 0 1rem 1rem;
             .yearName {
                 float: left;
                 line-height: 2.3rem;
             }
             .year {
+                width: 50%;
+                text-align: right;
                 float: right;
                 line-height: 2.3rem;
                 img {
                     width: 2.3rem;
                     height: 2.3rem;
                     vertical-align: middle;
+                }
+                select{
+                    width: 60%;
                 }
             }
         }
@@ -237,17 +242,14 @@
         border-left: 1px solid #ea3c4c;
     }
     .tabs1 {
-        width: 23.33333333333333%;
+        width: 30.33333333333333%;
         border-left: 0;
     }
     .tabs2 {
-        width: 23.33333333333333%;
+       width: 30.33333333333333%;
     }
     .tabs3 {
-        width: 30%;
-    }
-    .tabs4 {
-        width: 23.33333333333333%;
+        width: 39.33333333333333%;
     }
 }
 

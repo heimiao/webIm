@@ -403,12 +403,12 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 			templateUrl: 'dist/template/village/queryHousehold.html'
 		})
 		.state('queryHouseholdList', {
-			url: '/queryHouseholdList',
+			url: '/queryHouseholdList?hzxm&hzsfz&nd&qyxz&qyxzc&sjzt&tpqk',
 			controller: "queryHouseholdList",
 			templateUrl: 'dist/template/village/queryHouseholdList.html'
 		})
 		.state('householdDetail', {
-			url: '/queryHouseholdDetail',
+			url: '/queryHouseholdDetail?id',
 			controller: "householdDetail",
 			templateUrl: 'dist/template/village/queryHouseholdDetail.html'
 		})
@@ -429,17 +429,17 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 			templateUrl: 'dist/template/village/queryVillage.html'
 		})
 		.state('queryVillageList', {
-			url: '/queryVillageList',
+			url: '/queryVillageList?nd&qyxz&qyxzc',
 			controller: "queryVillageList",
 			templateUrl: 'dist/template/village/queryVillageList.html'
 		})
-		.state('queryHouseholdDetail', {
-			url: '/queryHouseholdDetail',
-			controller: "queryHouseholdDetail",
-			templateUrl: 'dist/template/village/queryHouseholdDetail.html'
+		.state('queryVillageDetail', {
+			url: '/queryVillageDetail?detailId',
+			controller: "queryVillageDetail",
+			templateUrl: 'dist/template/village/queryVillageDetail.html'
 		})
 		.state('queryTaskForceDetail', {
-			url: '/queryTaskForceDetail',
+			url: '/queryTaskForceDetail?id',
 			controller: "queryTaskForceDetail",
 			templateUrl: 'dist/template/village/queryTaskForceDetail.html'
 		})

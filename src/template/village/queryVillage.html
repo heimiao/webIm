@@ -1,22 +1,25 @@
-<div>
+<div> 
 		<div class="query">
 			<header>
 				<a href="javascript:history.go(-1)"><div class="back"><img src="../../assets/img/icon_28.png" alt=""></div></a>
-				<div class="queryCon">
-					<img class="search" src="../../assets/img/search.png" alt="">
-					<input type="text" placeholder="贫困村查询,输入姓名、证件号码">
-				</div>
-				<a href="queryVillageList.html"><div class="queryBtn">
+				<div class="collectionTitle">贫困村数据查询</div>
+				<div class="queryBtn" ng-click="queryVillage.query()">
 					查询
-				</div></a>
+				</div>
 			</header>
 			<div class="fill"></div>
 			<div class="conditionCon">
 				<div class="item border-b">
 					<div class="yearName">年度</div>
 					<div class="year">
-						<select name="" id="">
-							<option value="">2017</option>
+						<select dir="rtl" name="" id="nd" ng-model="queryVillage.nd">
+							<option value="2014">2014</option>
+							<option value="2015">2015</option>
+							<option value="2016">2016</option>
+							<option value="2017">2017</option>
+							<option value="2018">2018</option>
+							<option value="2019">2019</option>
+							<option value="2020">2020</option>
 						</select>
 						<img src="../../assets/img/icon2_11@2x.png" alt="">
 					</div>
@@ -24,24 +27,20 @@
 				<div class="item border-b">
 					<div class="yearName">乡镇</div>
 					<div class="year">
-						<select name="" id="">
-							<option value="">张北镇</option>
-						</select>
+						<select dir="rtl" class="selects" name="" id="qyxz" ng-model="queryVillage.qyxz" ng-options="item.id as item.name for item in queryVillage.townShip" ng-change="queryVillage.changeTown()"></select>
 						<img src="../../assets/img/icon2_11@2x.png" alt="">
 					</div>
 				</div>
 				<div class="item border-b">
 					<div class="yearName">行政村</div>
 					<div class="year">
-						<select name="" id="">
-							<option value="">二八地村</option>
-						</select>
+						<select dir="rtl" class="selects" name="" id="qyxzc" ng-model="queryVillage.qyxzc" ng-options="item.id as item.name for item in queryVillage.villageListAll"></select>
 						<img src="../../assets/img/icon2_11@2x.png" alt="">
 					</div>
 				</div>
 			</div>
 
-			<div class="attribute">
+			<!-- <div class="attribute">
 				<div class="title border-b">贫困村属性</div>
 				<div class="tab" id="attribute">
 					<div class="tab1 bg">贫困村</div>
@@ -49,12 +48,7 @@
 					<div class="tab3">十三五贫困村</div>
 					<div class="tab4">非贫困村</div>
 				</div>
-			</div>
+			</div> -->
 		</div>
-		<script type="text/javascript" src="../../assets/lib/js/jquery.min.js"></script>
-		<script>
-			$("#attribute div").click(function(){
-				$(this).addClass('bg').siblings().removeClass('bg');
-			})
-		</script>
+		
 	</div>
