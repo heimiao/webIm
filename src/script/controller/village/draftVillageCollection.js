@@ -278,7 +278,31 @@ myApp.controller("draftVillageCollection", ["$scope", "$state", "$http", "$state
 		}
 		draftVillageCollection.uploadSave=function(){
 			if(!draftVillageCollection.situationList.cfzr){
-				alert("请完善信息")
+				fupin.alert("请完善基本信息中的信息")
+				return;
+			}
+			if(!draftVillageCollection.situationList.cbgdh){
+				fupin.alert("请完善基本信息中的信息")
+				return;
+			}
+			if(!draftVillageCollection.developmentList.nmnrjcsr){
+				fupin.alert("请完善发展现状中的信息")
+				return;
+			}
+			if(draftVillageCollection.taskForceList){
+				if(draftVillageCollection.taskForceList.length == 0){
+					fupin.alert("请完善驻村工作队的信息")
+					return;
+				}else{
+					for(var i=0;i<draftVillageCollection.taskForceList.length;i++){
+						if(!draftVillageCollection.taskForceList[i].bfdwzcgzdyxm){
+							fupin.alert("请完善驻村工作队的信息")
+							return;
+						}
+					}
+				}
+			}else{
+				fupin.alert("请完善驻村工作队的信息")
 				return;
 			}
 			draftVillageCollection.getAllData();
