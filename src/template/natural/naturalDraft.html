@@ -16,77 +16,13 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr onclick="location.href='#/natural_Edite'">
+				<tr ng-repeat="item in naturalDraft.list" ui-sref="naturalDraftEdit({id:item.index_id})">
 					<!--<td class="text-center">张北镇</td>-->
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">王翠娥</td>
+					<td class="text-center" ng-bind="item.lsxzc"></td>
+					<td class="text-center" ng-bind="item.zrcmc"></td>
+					<td class="text-center" ng-bind="item.fzr"></td>
 				</tr>
-				<tr>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">王翠娥</td>
-				</tr>
-				<tr>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">王翠娥</td>
-				</tr>
-				<tr>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">王翠娥</td>
-				</tr>
-				<tr>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">王翠娥</td>
-				</tr>
-				<tr>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">王翠娥</td>
-				</tr>
-				<tr>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">王翠娥</td>
-				</tr>
-				<tr>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">王翠娥</td>
-				</tr>
-				<tr>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">王翠娥</td>
-				</tr>
-				<tr>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">王翠娥</td>
-				</tr>
-				<tr>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">王翠娥</td>
-				</tr>
-				<tr>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">王翠娥</td>
-				</tr>
-				<tr>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">王翠娥</td>
-				</tr>
-				<tr>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">黄土湾村</td>
-					<td class="text-center">王翠娥</td>
-				</tr>
+				
 			</tbody>
 		</table>
 		<div class="foot-fill"></div>

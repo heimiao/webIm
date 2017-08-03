@@ -1,6 +1,6 @@
 <div class="villageCollection naturalBasic">
 		<header>
-			<a ng-click="zrcDetails.goback()">
+			<a ng-click="naturalDraftEditc.goback()">
 				<div class="back"><img src="../../assets/img/icon_28.png" alt=""></div>
 			</a>
 			<div class="collectionTitle">自然村信息采集</div>
@@ -26,8 +26,8 @@
 			<div class="item border-b">
 				<div class="name">行政村</div>
 				<div class="content">
-					<select name="" id="" ng-model="zrcDetails.list.lsxzc" ng-options="key.id as key.name for key in zrcDetails.xingzhengcun.list"
-					ng-change="zrcDetails.getzrc()">
+					<select name="" id="" ng-model="naturalDraftEditc.details.lsxzc" ng-options="key.id as key.name for key in naturalDraftEditc.xingzhengcun.list"
+					ng-change="naturalDraftEditc.getzrcdraft()">
 					</select>
 					<img src="../../assets/img/icon2_11@2x.png" alt="">
 				</div>
@@ -36,7 +36,7 @@
 			<div class="item border-b" >
 				<div class="name">自然村</div>
 				<div class="content">
-					<select name="" id="" ng-model="zrcDetails.list.zrcmc" ng-options="key.id as key.name for key in zrcDetails.zirancun.list">
+					<select name="" id="" ng-model="naturalDraftEditc.details.zrcmc" ng-options="key.id as key.name for key in naturalDraftEditc.zirancun.list">
 					<option value="" class="" selected="selected">请选择自然村</option>
 					</select>
 					<img src="../../assets/img/icon2_11@2x.png" alt="">
@@ -46,7 +46,7 @@
 			<div class="item border-b">
 				<div class="name">年度</div>
 				<div class="content">
-					<select name="" id="" ng-model="zrcDetails.list.nd">
+					<select name="" id="" ng-model="naturalDraftEditc.details.nd">
 						<option value="" class="" selected="selected">请选择年份</option>
 						<option value="2014">2014</option>
 						<option value="2015">2015</option>
@@ -63,126 +63,127 @@
 			<div class="item border-b">
 				<div class="name">组号</div>
 				<div class="content">
-					<input type="text" placeholder="请输入组号" ng-model="zrcDetails.list.zh">
+					<input type="text" placeholder="请输入组号" ng-model="naturalDraftEditc.details.zh">
+				
 				</div>
 			</div>
 			
 			<div class="item border-b">
 				<div class="name">负责人</div>
 				<div class="content">
-					<input type="text" placeholder="兰克沙"  ng-model="zrcDetails.list.fzr">
+					<input type="text" placeholder="兰克沙"  ng-model="naturalDraftEditc.details.fzr">
 				</div>
 			</div>
 			
 			<div class="item border-b">
 				<div class="name">联系电话</div>
 				<div class="content">
-					<input type="text" placeholder="请输入联系电话" ng-model="zrcDetails.list.lxdh">
+					<input type="text" placeholder="请输入联系电话" ng-model="naturalDraftEditc.details.lxdh">
 				</div>
 			</div>
 
 			<div class="item border-b">
 				<div class="name">D1总户数(户)</div>
 				<div class="content">
-					<input type="text" placeholder="请输入总户数" ng-model="zrcDetails.list.zhs">
+					<input type="text" placeholder="请输入总户数" ng-model="naturalDraftEditc.details.zhs">
 				</div>
 			</div>
 			
 			<div class="item border-b">
 				<div class="name">D1a贫困户数(户)</div>
 				<div class="content">
-					<input type="number" placeholder="请输入贫困户数" ng-model="zrcDetails.list.pkhs">
+					<input type="number" placeholder="请输入贫困户数" ng-model="naturalDraftEditc.details.pkhs">
 				</div>
 			</div>
 			
 			<div class="item border-b">
 				<div class="name">D1b低保户数(户)</div>
 				<div class="content">
-					<input type="text" placeholder="请输入低保户数" ng-model="zrcDetails.list.dbrks">
+					<input type="text" placeholder="请输入低保户数" ng-model="naturalDraftEditc.details.dbrks">
 				</div>
 			</div>
 			
 			<div class="item border-b">
 				<div class="name">D1c五保户数(户)</div>
 				<div class="content">
-					<input type="number" placeholder="请输入五保户数" ng-model="zrcDetails.list.wbhs">
+					<input type="number" placeholder="请输入五保户数" ng-model="naturalDraftEditc.details.wbhs">
 				</div>
 			</div>
 			
 			<div class="item border-b">
 				<div class="name">D2总人口数(人)</div>
 				<div class="content">
-					<input type="number" placeholder="请输入总人口数" ng-model="zrcDetails.list.zrks">
+					<input type="number" placeholder="请输入总人口数" ng-model="naturalDraftEditc.details.zrks">
 				</div>
 			</div>
 			
 			<div class="item border-b">
 				<div class="name">D2a 贫困人口数(人)</div>
 				<div class="content">
-					<input type="number" placeholder="请输入贫困人口数" ng-model="zrcDetails.list.pkrks">
+					<input type="number" placeholder="请输入贫困人口数" ng-model="naturalDraftEditc.details.pkrks">
 				</div>
 			</div>
 			
 			<div class="item border-b">
 				<div class="name">D2b低保人口数(人)</div>
 				<div class="content">
-					<input type="number" placeholder="请输入低保人口数" ng-model="zrcDetails.list.dbrks">
+					<input type="number" placeholder="请输入低保人口数" ng-model="naturalDraftEditc.details.dbrks">
 				</div>
 			</div>
 			
 			<div class="item border-b">
 				<div class="name">D2c 五保人口数(人)</div>
 				<div class="content">
-					<input type="number" placeholder="请输入五保人口数" ng-model="zrcDetails.list.wbrks">
+					<input type="number" placeholder="请输入五保人口数" ng-model="naturalDraftEditc.details.wbrks">
 				</div>
 			</div>
 
 			<div class="item border-b">
 				<div class="name">D2d 少数民族人口数(人)</div>
 				<div class="content">
-					<input type="number" placeholder="少数民族人口数"  ng-model="zrcDetails.list.smmzrks">
+					<input type="number" placeholder="少数民族人口数"  ng-model="naturalDraftEditc.details.smmzrks">
 				</div>
 			</div>
 			
 			<div class="item border-b">
 				<div class="name">D2e 妇女人口数(人)</div>
 				<div class="content">
-					<input type="number" placeholder="请输入妇女人口数" ng-model="zrcDetails.list.fnrks">
+					<input type="number" placeholder="请输入妇女人口数" ng-model="naturalDraftEditc.details.fnrks">
 				</div>
 			</div> 
 			
 			<div class="item border-b">
 				<div class="name">D2f 残疾人口数(人)</div>
 				<div class="content">
-					<input type="number" placeholder="请输入残疾人口数" ng-model="zrcDetails.list.cjrks">
+					<input type="number" placeholder="请输入残疾人口数" ng-model="naturalDraftEditc.details.cjrks">
 				</div>
 			</div> 
 
 			<div class="item border-b">
 				<div class="name">D3劳动力人数(人)</div>
 				<div class="content">
-					<input type="number" placeholder="请输入劳动力人数" ng-model="zrcDetails.list.ldlrs">
+					<input type="number" placeholder="请输入劳动力人数" ng-model="naturalDraftEditc.details.ldlrs">
 				</div>
 			</div>
 			
 			<div class="item border-b">
 				<div class="name">D3a 外出务工人数(人)</div>
 				<div class="content">
-					<input type="number" placeholder="请输入外出务工人数" ng-model="zrcDetails.list.wcwgrs">
+					<input type="number" placeholder="请输入外出务工人数" ng-model="naturalDraftEditc.details.wcwgrs">
 				</div>
 			</div>
 			
 			<div class="item border-b">
 				<div class="name">H13a 16周岁以上(不含在校学生)的非国家机关和事业单位工作人员及不属于城镇职工基本养老保险制度覆盖范围的户籍人口数(人)</div>
 				<div class="content">
-					<input type="number" placeholder="请输入人口数" ng-model="zrcDetails.list.h13a">
+					<input type="number" placeholder="请输入人口数" ng-model="naturalDraftEditc.details.h13a">
 				</div>
 			</div>
 
 			<div class="item border-b">
 				<div class="name">H13 户籍人口数(人)</div>
 				<div class="content">
-					<input type="number" placeholder="请输入户籍人口数" ng-model="zrcDetails.list.hjrks">
+					<input type="number" placeholder="请输入户籍人口数" ng-model="naturalDraftEditc.details.hjrks">
 				</div>
 			</div>
 		</div>
@@ -193,14 +194,14 @@
 				<div class="item border-b">
 					<div class="name">D4 到行政村距离(公里)</div>
 					<div class="content" >
-						<input type="number" placeholder="请输入公里数" style="text-align: right; padding-right: -2rem;" ng-model="zrcDetails.list.dxzcjl">
+						<input type="number" placeholder="请输入公里数" style="text-align: right; padding-right: -2rem;" ng-model="naturalDraftEditc.details.dxzcjl">
 					</div>
 				</div>
 				
 				<div class="item border-b">
 					<div class="name"><label for="zrcroad">D5到行政村是否通沥青（水泥）路</label></div>
 					<div class="content">
-						<select name="" id="zrcroad"  ng-model="zrcDetails.list.dxzcsftlql">
+						<select name="" id="zrcroad"  ng-model="naturalDraftEditc.details.dxzcsftlql">
 							<option value="是">是</option>
 							<option value="否">否</option>
 						</select>
@@ -210,7 +211,7 @@
 				<div class="item border-b">
 					<div class="name"><label for="zrcele">D6是否生产用电</lable></div>
 					<div class="content">
-						<select name="" id="zrcele" ng-model="zrcDetails.list.sftscyd">
+						<select name="" id="zrcele" ng-model="naturalDraftEditc.details.sftscyd">
 							<option value="是">是</option>
 							<option value="否">否</option>
 						</select>
@@ -220,7 +221,7 @@
 				<div class="item border-b">
 					<div class="name">D7是否生活用电</div>
 					<div class="content">
-						<select name="" id="" ng-model="zrcDetails.list.sftshyd">
+						<select name="" id="" ng-model="naturalDraftEditc.details.sftshyd">
 							<option value="是">是</option>
 							<option value="否">否</option>
 						</select>
@@ -231,7 +232,7 @@
 				<div class="item border-b">
 					<div class="name">D8是否通宽带</div>
 					<div class="content">
-						<select name="" id="" ng-model="zrcDetails.list.sftkd">
+						<select name="" id="" ng-model="naturalDraftEditc.details.sftkd">
 							<option value="是">是</option>
 							<option value="否">否</option>
 						</select>
@@ -244,7 +245,7 @@
 		
 		</div>
 		<div class="footFill"></div>
-		<div class="foot" ng-click="zrcDetails.zrcEdit()">
+		<div class="foot" ng-click="naturalDraftEditc.zrcEdit()">
 			上传
 		</div>
 	</div>
