@@ -1,11 +1,16 @@
+<<<<<<< HEAD
 var baseUrl = "http://123.58.240.75:8081/tpa";
+=======
+var baseUrl='http://123.58.240.75:8081/tpa';
+>>>>>>> 4f3dafe11bf1e040aca6fa8c3148b08b851246d5
 var config = {
 	//请求路径
+	getbaseUrl: baseUrl+ '/zjzd/getBaseUrlList?lx=11',
 	path: {
-		login: baseUrl + "",
 		//贫困村
-		lowFamilyList: "/pkh/queryForPage",
-		lowFamilyById: "/pkh/queryForId",
+		lowFamilyList: "/pkh/queryForPage", //贫困活列表
+		lowFamilyById: "/pkhjc/queryForList", //获取贫困户信息
+		assistPersonById: "/bfdx/queryForList", //帮扶人信息
 		login: "/dotpalogin",
 		//townShip: baseUrl+ "/zcjg/queryForZc",  //获取乡镇列表
 		naturalVillage: "/zrc/queryForPage", //自然村列表
@@ -22,15 +27,19 @@ var config = {
 		villageList: "/pkc/queryForPage", //获取贫困村列表
 		queryForZcVillage: "/zcjg/queryForZc", //根据id 查询行政村和或者乡镇
 		addVillage: "/pkc/add", //添加贫困村信息
+		editVillageCollection: "/pkc/queryForId?id=", //获取贫困村的详情
+		updateVillage: "/pkc/update", //更新贫困村的信息
+		getTaskForce: "/zcgzdqk/queryForList?fid=", //获取工作队的情况
 	},
 	changePath: function(args) {
-		var ary = {};
+		var ary = {},
+			_url = this.oldBaseUrl ? this.oldBaseUrl : baseUrl;
 		for(var item in this.path) {
-			if(args)
-				ary[item] = args + this.path[item];
-			else
-				ary[item] = this.path[item];
+			if(args) {
+				ary[item] = this.oldBaseUrl ? this.path[item].replace(_url, args) : args + this.path[item]
+			}
 		}
+		this.oldBaseUrl = args;
 		angular.extend(this.path, ary);
 	},
 	//系统基本信息配置
@@ -863,5 +872,4 @@ var config = {
 		]
 	}
 }
-
 config.changePath(baseUrl);

@@ -10,8 +10,10 @@
 				<div class="item border-b">
 					<div class="name">A44 是否搬迁户</div>
 					<div class="content">
-						<select name="" id="">
-							<option value="">是</option>
+						<select name="" id="" ng-model="plantRelocation.formInfo.sfbqh">
+							<option value=""></option>
+							<option value="y">是</option>
+							<option value="n">否</option>
 						</select>
 						<img src="../../assets/img/icon2_11@2x.png" alt="">
 					</div>
@@ -19,10 +21,8 @@
 				<div class="item border-b">
 					<div class="name">A45 搬迁方式</div>
 					<div class="content">
-						<select name="" id="">
-							<option value="">行政区整体搬迁</option>
-							<option value="">自然村（村民小组）整体搬迁</option>
-							<option value="">建档立卡贫困户个别搬迁</option>
+						<select name="" id="" ng-model="plantRelocation.formInfo.sfbqh" ng-options="item.value as item.name for item in plantRelocation.otherSelect.bqfsList">
+							<option value=""></option>
 						</select>
 						<img src="../../assets/img/icon2_11@2x.png" alt="">
 					</div>
@@ -30,9 +30,8 @@
 				<div class="item border-b">
 					<div class="name">A47 安置方式 </div>
 					<div class="content">
-						<select name="" id="">
-							<option value="">集中安置</option>
-							<option value="">分散安置</option>
+						<select name="" id="" ng-model="plantRelocation.formInfo.azfs" ng-options="item.value as item.name for item in plantRelocation.otherSelect.azfsList">
+							<option value=""></option>
 						</select>
 						<img src="../../assets/img/icon2_11@2x.png" alt="">
 					</div>
@@ -40,12 +39,8 @@
 				<div class="item border-b">
 					<div class="name">A48 安置地 </div>
 					<div class="content">
-						<select name="" id="">
-							<option value="">县城安置</option>
-							<option value="">乡镇安置</option>
-							<option value="">县外安置</option>
-							<option value="">村外安置</option>
-							<option value="">村内安置</option>
+						<select name="" id="" ng-model="plantRelocation.formInfo.azd" ng-options="item.value as item.name for item in plantRelocation.otherSelect.azdList">
+							<option value=""></option>
 						</select>
 						<img src="../../assets/img/icon2_11@2x.png" alt="">
 					</div>
@@ -56,10 +51,12 @@
 						<div class="name">A49 搬迁可能存在的困难（可多选）</div>
 					</div>
 					<div class="item border-b">
-						<a href="">缺乏资金</a>
-						<a href="">搬迁后找不到工作</a>
-						<a href="">搬迁后生活没着落</a>
-						<a href="">其他</a>
+						<div class="check_radio" checkbox-radio>
+							<label class="default"><input type="checkbox" value="y"  ng-model="plantRelocation.formInfo.bqknczkn_qfzj" />缺乏资金</label>
+							<label class="default"><input type="checkbox" value="12" ng-model="plantRelocation.formInfo.bqknczkn_bqhzbdgz"/>搬迁后找不到工作</label>
+							<label class="default"><input type="checkbox" value="23" ng-model="plantRelocation.formInfo.bqknczkn_bqhshmzl"/>搬迁后生活没着落</label>
+							<label class="default"><input type="checkbox" value="54" ng-model="plantRelocation.formInfo.bqknczkn_qt"/>其他</label>
+						</div>
 					</div>
 				</div>
 				<div class="formHr"></div>
@@ -69,7 +66,6 @@
 						<textarea name="" rows="" cols="" style="width:100%;"></textarea>
 					</div>
 				</div>
-				
 				<div class="item border-b">
 					<div class="name">后续产业</div>
 					<div class="clear">

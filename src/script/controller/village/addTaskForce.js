@@ -7,6 +7,7 @@ myApp.controller("addTaskForce", ["$scope", "$state", "$http", "$stateParams",
 		addTaskForce.dwlsgx = "01"; //单位隶属关系 默认值
 		addTaskForce.sfdz = "是"; //默认值
 		addTaskForce.sfdysj = "是"; //默认值
+		addTaskForce.alert = false; //弹窗显示
 		addTaskForce.addTask=function(){
 			var taskForce= window.localStorage.getItem("taskForceList")?JSON.parse(window.localStorage.getItem("taskForceList")):[];
 				taskForce.push({
@@ -22,11 +23,28 @@ myApp.controller("addTaskForce", ["$scope", "$state", "$http", "$stateParams",
 					'sfdysj':addTaskForce.sfdysj,	
 				})
 			window.localStorage.setItem('taskForceList', JSON.stringify(taskForce))
-			$state.go("villageCollection",{type: 1});
+			window.history.back() 
 		}
+		// 弹窗
 		addTaskForce.back=function(){
-			history.go(-1)
+			addTaskForce.alert = true;
 		}
+		addTaskForce.confirm=function(){
+			addTaskForce.addTask();
+			addTaskForce.alert = false;
+		}
+		addTaskForce.cancel = function(){
+			addTaskForce.alert = false;
+			window.history.back();
+		}
+
+		// addTaskForce.back=function(){
+		// 	fupin.confirm("是否保存为草稿", function() {
+		// 		addTaskForce.addTask();
+		// 	}, function() {
+		// 		window.history.back() 
+		// 	});
+		// }
 		/*lowFamilyInfo.menu=false;
 		lowFamilyInfo.changeMenu=function(args){
 			lowFamilyInfo.menu=args;

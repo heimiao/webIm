@@ -85,3 +85,42 @@ myApp.directive('pullLoading', [function() {
 		}
 	};
 }])
+
+myApp.directive('checkboxRadio', [function() {
+	return {
+		restrict: 'ECMA',
+		scope: {
+			maxMumber: '=',
+		},
+		link: function(scope, element, attr, ngModel) {
+			var lenth = $(element).attr("data-max") || 10000;
+			$(element).on("click", ".default", function() {
+				if($(this).find("input")[0].type == "radio") {
+					//获取所有单选
+					var name = $(this).find("input").attr("name")
+					$(this).parent(".check_radio").find("input[type='radio']").each(function() {
+						if($(this).attr("name") == name) {
+							$(this).parent().removeClass("cked");
+						}
+					})
+				}
+				if($(element).find("input:checked").length >= lenth) {
+					//禁用其他的没选中的
+					$(element).find("input").each(function() {
+						if(!$(this).is(':checked')) {
+							$(this).attr("disabled", "true")
+						}
+					})
+				} else {
+					$(element).find("input").removeAttr("disabled");
+				}
+
+				if($(this).find("input").is(':checked')) {
+					$(this).addClass("cked")
+				} else {
+					$(this).removeClass("cked")
+				}
+			})
+		}
+	};
+}])

@@ -1,6 +1,6 @@
-myApp.controller("low_family_baseCtro", ["$scope", "$rootScope", "$state", "$http", "$stateParams", "postForm",
+myApp.controller("incomeCtro", ["$scope", "$rootScope", "$state", "$http", "$stateParams", "postForm",
 	function($scope, $rootScope, $state, $http, $stateParams, postForm) {
-		$scope.userId = "parma";
+		$scope.userId ="";
 		var low_family_baseInfo = {} || low_family_baseInfo;
 		low_family_baseInfo.urlParam = $stateParams;
 		low_family_baseInfo.sendParam = {};
@@ -55,8 +55,6 @@ myApp.controller("low_family_baseCtro", ["$scope", "$rootScope", "$state", "$htt
 
 		low_family_baseInfo.formInfo = {};
 		if(low_family_baseInfo.urlParam.id) {
-			$scope.userId = low_family_baseInfo.urlParam.id || "";
-
 			//+"?id="+low_family_baseInfo.urlParam.id
 			postForm.saveFrm(config.path.lowFamilyById, {
 				id: low_family_baseInfo.urlParam.id
@@ -65,10 +63,11 @@ myApp.controller("low_family_baseCtro", ["$scope", "$rootScope", "$state", "$htt
 			})
 		}
 
-		$scope.goback = function() {
+		/*$scope.goback = function() {
 			//调用本地数据库保存
-			fupin.confirm("确定保存为草稿吗？", function() {
-				/*dt.request({
+			if(confirm("确定保存为草稿吗？")) {
+				//如果表单没变化则不提示保存草稿
+				dt.request({
 					rqstName: "low_family", //'low_family', 'low_village', 'nature_village', 'relief_project'
 					type: "put", //select,delete,put,selectById,
 					data: {
@@ -78,15 +77,11 @@ myApp.controller("low_family_baseCtro", ["$scope", "$rootScope", "$state", "$htt
 						console.log(args);
 					},
 					'error': function(args) {}
-				});*/
+				});
+			}
+		}*/
 
-				$stat.go(-1);
-
-			}, function() {
-
-			})
-		}
-
+		
 		$rootScope.$on('$routeChangeSuccess', function() {})
 
 		/*$scope.$watch('$viewContentLoading', function(event, viewConfig) {

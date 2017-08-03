@@ -1,8 +1,9 @@
+//查询贫困户
 myApp.controller("querylowFamilyConditionCtro", ["$scope", "$rootScope", "$state", "$http", "$stateParams", "postForm",
 	function($scope, $rootScope, $state, $http, $stateParams, postForm) {
-		var query_low_family_condition = {} || query_low_family_condition;
-		query_low_family_condition.urlParam = $stateParams;
-		query_low_family_condition.sendParam = {};
+		var querylowFamilyCondition = {} || querylowFamilyCondition;
+		querylowFamilyCondition.urlParam = $stateParams;
+		querylowFamilyCondition.sendParam = {};
 
 		var all = {
 			name: "全部",
@@ -12,41 +13,43 @@ myApp.controller("querylowFamilyConditionCtro", ["$scope", "$rootScope", "$state
 		config.sysValue.year.splice(0, 0, all);
 		config.sysValue.dataStatus.splice(0, 0, all);
 		config.sysValue.tpqk.splice(0, 0, all);
-
-		query_low_family_condition.otherSelect = {
-			yearObj: config.sysValue.year,
-			dataStatusObj: config.sysValue.dataStatus,
-			tpqkObj: config.sysValue.tpqk,
+		querylowFamilyCondition.otherSelect = {
+			yearList: config.sysValue.year,
+			dataStatusList: config.sysValue.dataStatus,
+			tpqkList: config.sysValue.tpqk,
 		};
 
-		query_low_family_condition.townList = {};
-		query_low_family_condition.town_VillagesList = {};
+		querylowFamilyCondition.townList = {};
+		querylowFamilyCondition.town_VillagesList = {};
+
+		console.log(querylowFamilyCondition.otherSelect.dataStatusList);
 
 		//获取城镇
-		query_low_family_condition.getTownVillages = function(args, name) {
+		querylowFamilyCondition.getTownVillages = function(args, name) {
 			postForm.saveFrm(config.path.townShip, {
 				lx: args
 			}).success(function(data) {
-				query_low_family_condition.townList = data;
+				querylowFamilyCondition.townList = data;
 			})
 		}
-		query_low_family_condition.getTownVillages();
+
+		querylowFamilyCondition.getTownVillages();
 		//根据乡镇获取对应村庄
-		query_low_family_condition.getVillagesByTown = function(id) {
-			query_low_family_condition.sendParam.qyxzc = "";
+		querylowFamilyCondition.getVillagesByTown = function(id) {
+			querylowFamilyCondition.sendParam.qyxzc = "";
 			postForm.saveFrm(config.path.townShip, {
 				lx: "02",
 				fid: id
 			}).success(function(data) {
-				query_low_family_condition.town_VillagesList = data;
+				querylowFamilyCondition.town_VillagesList = data;
 			})
 		}
 
-		query_low_family_condition.search = function() {
+		querylowFamilyCondition.search = function() {
 
-			// $state.go("",query_low_family_condition.sendParam );
+			// $state.go("",querylowFamilyCondition.sendParam );
 		}
 		//根据角色遍历响应的菜单
-		$scope.query_low_family_condition = query_low_family_condition;
+		$scope.querylowFamilyCondition = querylowFamilyCondition;
 	}
 ]);
