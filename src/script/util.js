@@ -101,3 +101,5 @@
 	};
 	_w.fupin = fupin || {};
 }(window, jQuery));
+
+ 

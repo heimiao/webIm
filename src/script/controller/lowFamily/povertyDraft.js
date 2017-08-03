@@ -1,6 +1,6 @@
-//草稿箱控制器
-//经纪人列表
+//草稿箱控制器 
 myApp.controller("lowFamilyDraftCtro", ["$scope", "$state", "$filter", "$http", "$stateParams", function($scope, $state, $filter, $http, $stateParams) {
+	$scope.userId = "";
 	var lowFamilyDraft = {} || lowFamilyDraft;
 	//获取参数
 	lowFamilyDraft.urlParam = $stateParams;

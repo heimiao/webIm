@@ -4,8 +4,9 @@ var config = {
 	getbaseUrl: baseUrl+ '/zjzd/getBaseUrlList?lx=11',
 	path: {
 		//贫困村
-		lowFamilyList: "/pkh/queryForPage",
-		lowFamilyById: "/pkh/queryForId",
+		lowFamilyList: "/pkh/queryForPage", //贫困活列表
+		lowFamilyById: "/pkhjc/queryForList", //获取贫困户信息
+		assistPersonById: "/bfdx/queryForList", //帮扶人信息
 		login: "/dotpalogin",
 		//townShip: baseUrl+ "/zcjg/queryForZc",  //获取乡镇列表
 		naturalVillage: "/zrc/queryForPage", //自然村列表
@@ -14,9 +15,13 @@ var config = {
 		villageList: "/pkc/queryForPage", //获取贫困村列表
 		queryForZcVillage: "/zcjg/queryForZc", //根据id 查询行政村和或者乡镇
 		addVillage: "/pkc/add", //添加贫困村信息
+<<<<<<< HEAD
 		editVillageCollection: "/pkc/queryForId?id=", //获取贫困村的详情
 		updateVillage: "/pkc/update", //更新贫困村的信息
 		getTaskForce: "/zcgzdqk/queryForList?fid=", //获取工作队的情况
+=======
+
+>>>>>>> b198a482decff756a30fab871bf8aca04a485cff
 	},
 	changePath: function(args) {
 		var ary = {},
