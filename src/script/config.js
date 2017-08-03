@@ -1,13 +1,14 @@
-var baseUrl='http://123.58.240.75:8081/tpa';
+var baseUrl = 'http://123.58.240.75:8081/tpa';
 var config = {
 	//请求路径
-	getbaseUrl: baseUrl+ '/zjzd/getBaseUrlList?lx=11',
+	getbaseUrl: baseUrl + '/zjzd/getBaseUrlList?lx=11',
 	path: {
 		//贫困村
 		lowFamilyList: "/pkh/queryForPage", //贫困活列表
-		lowFamilyById: "/pkhjc/queryForList", //获取贫困户信息
+		lowFamilyById: "/pkh/queryForId", //获取贫困户信息
 		assistPersonById: "/bfdx/queryForList", //帮扶人信息
 		login: "/dotpalogin",
+		getAddress: "/zcjg/queryForZc", //获取地址
 		//townShip: baseUrl+ "/zcjg/queryForZc",  //获取乡镇列表
 		naturalVillage: "/zrc/queryForPage", //自然村列表
 		townShip: "/zcjg/queryForZc?lx=01", //获取乡镇列表
@@ -15,7 +16,6 @@ var config = {
 		villageList: "/pkc/queryForPage", //获取贫困村列表
 		queryForZcVillage: "/zcjg/queryForZc", //根据id 查询行政村和或者乡镇
 		addVillage: "/pkc/add", //添加贫困村信息
-
 	},
 	changePath: function(args) {
 		var ary = {},

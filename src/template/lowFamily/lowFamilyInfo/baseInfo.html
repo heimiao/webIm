@@ -36,7 +36,7 @@
 				<div class="pkcList pkcListTel clearfix">
 					<div class="col-xs-4">开户银行</div>
 					<div class="col-xs-5 padd0 pkcRight">
-						<input type="number" placeholder="开户银行" ng-model="low_family_baseInfo.formInfo.khyh" />
+						<input type="text" placeholder="开户银行" ng-model="low_family_baseInfo.formInfo.khyh" />
 						<!--<select class="form-control" ng-model="low_family_baseInfo.formInfo.khyh" ng-options="item.id as item.name for item in low_family_baseInfo.otherSelect.khyhList"></select>-->
 					</div>
 				</div>
@@ -50,6 +50,7 @@
 					<div class="col-xs-4">A18贫困用户属性</div>
 					<div class="col-xs-5 padd0 pkcRight">
 						<select class="form-control" ng-model="low_family_baseInfo.formInfo.bhksx" ng-options="item.value as item.name for item in low_family_baseInfo.otherSelect.bhksxList">
+							<option value=""></option>
 						</select>
 					</div>
 				</div>
@@ -95,7 +96,7 @@
 						</select>
 					</div>
 				</div>
-				
+
 				<div class="pkctips">注：已达到脱贫指标，但实际未脱贫的填此项</div>
 			</div>
 		</div>

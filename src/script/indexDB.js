@@ -13,19 +13,25 @@ window.IDBKeyRange = window.IDBKeyRange ||
 	'use strict';
 	var db = {
 		version: 1, // important: only use whole numbers!
-		objectStoreNameAry: ['low_family', 'low_village', 'nature_village', 'relief_project','other'],
+		objectStoreNameAry: ['low_family', 'low_village', 'nature_village', 'relief_project', 'other'],
 		instance: {},
 		upgrade: function(e) {
 			var _db = e.target.result,
 				names = _db.objectStoreNames,
 				nameAry = db.objectStoreNameAry;
 			for(var itme in nameAry) {
-				_db.createObjectStore(
+				var store = _db.createObjectStore(
 					nameAry[itme], {
 						keyPath: 'index_id',
-						autoIncrement: true, //id是自增的
+						autoIncrement: true, //id自增
 						unique: true,
 					});
+				store.createIndex('newIdIndex', 'newId', {
+					unique: true
+				});
+				/*store.createIndex('indexId', 'index_id', {
+					unique: true
+				});*/
 			}
 		},
 		errorHandler: function(error) {
@@ -63,10 +69,13 @@ window.IDBKeyRange = window.IDBKeyRange ||
 			})
 		},
 		getAll: function(args) {
+			var indexes = args.indexes || "low_family";
 			db.open(function() {
 				var store = db.getObjectStore(args.rqstName),
-					cursor = store.openCursor(),
 					data = [];
+				var cursor = args.indexes ?
+					store.index(args.indexes).openCursor() :
+					store.openCursor();
 				cursor.onsuccess = function(e) {
 					var result = e.target.result;
 					if(result &&
@@ -82,7 +91,6 @@ window.IDBKeyRange = window.IDBKeyRange ||
 		},
 		getById: function(args) {
 			var id = parseInt(args.param.index_id);
-			console.log(id);
 			db.open(function() {
 				var store = db.getObjectStore(args.rqstName),
 					request = store.get(id);
@@ -93,16 +101,20 @@ window.IDBKeyRange = window.IDBKeyRange ||
 			});
 		},
 		'delete': function(args) {
-			var id = parseInt(args.param.index_id);
-			db.open(function() {
-				var
-					mode = 'readwrite',
-					store, request;
-				store = db.getObjectStore(args.rqstName, mode);
-				request = store.delete(id);
-				request.onsuccess = args.success;
-				request.onerror = args.error;
-			});
+			try {
+				var id = parseInt(args.param.index_id);
+				db.open(function() {
+					var
+						mode = 'readwrite',
+						store, request;
+					store = db.getObjectStore(args.rqstName, mode);
+					request = store.delete(id);
+					request.onsuccess = args.success;
+					request.onerror = args.error;
+				});
+			} catch(e) {
+				fupin.alert("删除失败，id必须为数字类型");
+			}
 		},
 		deleteAll: function(args) {
 			db.open(function() {
@@ -119,7 +131,8 @@ window.IDBKeyRange = window.IDBKeyRange ||
 		"rqstName": "low_family", //'low_family', 'low_village', 'nature_village', 'relief_project'
 		"type": "", //select,delete,create,update,
 		"data": {},
-		'param': "",
+		'param': {},
+		'indexes': "",
 		"success": function() {},
 		'error': function() {},
 	}

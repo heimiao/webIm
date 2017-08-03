@@ -1,6 +1,7 @@
 myApp.controller("plantRelocationCtro", ["$scope", "$rootScope", "$state", "$http", "$stateParams", "postForm",
 	function($scope, $rootScope, $state, $http, $stateParams, postForm) {
 		$scope.userId = "";
+		$scope.dataType = "";
 		var plantRelocation = {} || plantRelocation;
 		plantRelocation.urlParam = $stateParams;
 		plantRelocation.sendParam = {};
@@ -54,7 +55,7 @@ myApp.controller("plantRelocationCtro", ["$scope", "$rootScope", "$state", "$htt
 				console.log(data);
 			})
 		}
-		
+
 		plantRelocation.testss = function() {
 			console.log(plantRelocation.formInfo);
 		}

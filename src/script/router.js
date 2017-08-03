@@ -54,14 +54,14 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 				}
 			}
 		})
-		//贫困户家庭成员
 		.state('lowFamily.familyMember', {
-			url: '/low_family__member?id&type',
+			//贫困户家庭成员
+			url: '/low_family_member?id&type',
 			//			controller: "order_list",
 			//			templateUrl: 'dist/template/lowFamily/lowFamilyInfo/familyInfo.html'
 			views: {
 				'': {
-					controller: "low_family_memberCtro",
+					controller: "lowFamilyMemberCtro",
 					templateUrl: 'dist/template/lowFamily/lowFamilyInfo/container.html'
 				},
 				'form@lowFamily.familyMember': {
@@ -77,14 +77,14 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 			controller: "addFamilyMemberCtro",
 			templateUrl: 'dist/template/lowFamily/addFamilyMember.html'
 		})
-		//致贫原因
 		.state('lowFamily.causes', {
+			//致贫原因
 			url: '/low_family_Causes?id&type',
 			//			controller: "order_list",
 			//			templateUrl: 'dist/template/lowFamily/lowFamilyInfo/povertyCauses.html',
 			views: {
 				'': {
-					controller:"lowFamilyCausesCtro",
+					controller: "lowFamilyCausesCtro",
 					templateUrl: 'dist/template/lowFamily/lowFamilyInfo/container.html'
 				},
 				'form@lowFamily.causes': {
@@ -95,14 +95,14 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 				}
 			}
 		})
-		//收入
 		.state('lowFamily.income', {
+			//收入
 			url: '/low_family_income?id&type',
 			//			controller: "order_list",
 			//			templateUrl: 'dist/template/lowFamily/lowFamilyInfo/income.html',
 			views: {
 				'': {
-					controller:"incomeCtro",
+					controller: "incomeCtro",
 					templateUrl: 'dist/template/lowFamily/lowFamilyInfo/container.html'
 				},
 				'form@lowFamily.income': {
@@ -113,8 +113,8 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 				}
 			}
 		})
-		//生活条件
 		.state('lowFamily.lifeCondition', {
+			//生活条件
 			url: '/low_family_life_condition?id&type',
 			//			controller: "order_list",
 			//			templateUrl: 'dist/template/lowFamily/lowFamilyInfo/lifeCondition.html'
@@ -131,8 +131,8 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 				}
 			}
 		})
-		//易地搬迁需求
 		.state('lowFamily.plantRelocation', {
+			//易地搬迁需求
 			url: '/low_family_plant_relocation?id&type',
 			//			controller: "order_list",
 			//			templateUrl: 'dist/template/lowFamily/lowFamilyInfo/plantRelocation.html'
@@ -149,21 +149,18 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 				}
 			}
 		})
-		
-		//帮扶责任人
 		.state('lowFamily.assistPerson', {
-			url: '/low_family_assist_person?id&type',
-			//			controller: "order_list",
-			//			templateUrl: 'dist/template/lowFamily/lowFamilyInfo/responsibilityPerson.html'
+			//帮扶责任人assistPerson
+			url: '/assist_person?id&type',
 			views: {
 				'': {
 					controller: "assistPersonCtro",
 					templateUrl: 'dist/template/lowFamily/lowFamilyInfo/container.html'
 				},
-				'form@lowFamily.responsibilityPerson': {
+				'form@lowFamily.assistPerson': {
 					templateUrl: 'dist/template/lowFamily/lowFamilyInfo/assistPerson.html'
 				},
-				'menu@lowFamily.responsibilityPerson': {
+				'menu@lowFamily.assistPerson': {
 					templateUrl: 'dist/template/lowFamily/lowFamilyInfo/menu.html'
 				}
 			}
@@ -173,20 +170,18 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 			//			controller: "order_list",
 			templateUrl: 'dist/template/lowFamily/addDutyPerson.html'
 		})
-		//帮扶成效
 		.state('lowFamily.assistEffect', {
+			//帮扶成效
 			url: '/assist_effect?id&type',
-			//			controller: "order_list",
-			//			templateUrl: 'dist/template/lowFamily/lowFamilyInfo/povertyAlleviationResult.html'
 			views: {
 				'': {
-					controller: "assistEffectCtro",
+					//controller: "assistEffectCtro",
 					templateUrl: 'dist/template/lowFamily/lowFamilyInfo/container.html'
 				},
-				'form@lowFamily.povertyAlleviationResult': {
+				'form@lowFamily.assistEffect': {
 					templateUrl: 'dist/template/lowFamily/lowFamilyInfo/assistEffect.html'
 				},
-				'menu@lowFamily.povertyAlleviationResult': {
+				'menu@lowFamily.assistEffect': {
 					templateUrl: 'dist/template/lowFamily/lowFamilyInfo/menu.html'
 				}
 			}
@@ -194,8 +189,8 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 		//贫困户查询页面
 		.state('querylowFamilyCondition', {
 			url: '/query_low_family_condition',
-		 	controller: "querylowFamilyConditionCtro",
-		 	templateUrl: 'dist/template/lowFamily/searchLowFamily/queryHousehold.html'
+			controller: "querylowFamilyConditionCtro",
+			templateUrl: 'dist/template/lowFamily/searchLowFamily/queryHousehold.html'
 		})
 		//自然村首页
 		.state('naturalVillage', {

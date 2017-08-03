@@ -21,7 +21,7 @@
 				<div class="item border-b">
 					<div class="name">A45 搬迁方式</div>
 					<div class="content">
-						<select name="" id="" ng-model="plantRelocation.formInfo.sfbqh" ng-options="item.value as item.name for item in plantRelocation.otherSelect.bqfsList">
+						<select name="" id="" ng-model="plantRelocation.formInfo.bqfs" ng-options="item.value as item.name for item in plantRelocation.otherSelect.bqfsList">
 							<option value=""></option>
 						</select>
 						<img src="../../assets/img/icon2_11@2x.png" alt="">
@@ -53,25 +53,28 @@
 					<div class="item border-b">
 						<div class="check_radio" checkbox-radio>
 							<label class="default"><input type="checkbox" value="y"  ng-model="plantRelocation.formInfo.bqknczkn_qfzj" />缺乏资金</label>
-							<label class="default"><input type="checkbox" value="12" ng-model="plantRelocation.formInfo.bqknczkn_bqhzbdgz"/>搬迁后找不到工作</label>
-							<label class="default"><input type="checkbox" value="23" ng-model="plantRelocation.formInfo.bqknczkn_bqhshmzl"/>搬迁后生活没着落</label>
-							<label class="default"><input type="checkbox" value="54" ng-model="plantRelocation.formInfo.bqknczkn_qt"/>其他</label>
+							<label class="default"><input type="checkbox" value="y" ng-model="plantRelocation.formInfo.bqknczkn_bqhzbdgz"/>搬迁后找不到工作</label>
+							<label class="default"><input type="checkbox" value="y" ng-model="plantRelocation.formInfo.bqknczkn_bqhshmzl"/>搬迁后生活没着落</label>
+							<label class="default"><input type="checkbox" value="y" ng-model="plantRelocation.formInfo.bqknczkn_qt"/>其他</label>
 						</div>
 					</div>
 				</div>
-				<div class="formHr"></div>
+				
+				<!--<div class="formHr"></div>
 				<div class="item">
 					<div class="name">搬迁去向</div>
 					<div class="clear">
-						<textarea name="" rows="" cols="" style="width:100%;"></textarea>
+						<textarea name="" rows="2" cols="" style="width:100%;"></textarea>
 					</div>
 				</div>
-				<div class="item border-b">
+				<div class="item border-b" style="margin-bottom:35px;">
 					<div class="name">后续产业</div>
 					<div class="clear">
-						<textarea name="" rows="" cols="" style="width:100%;"></textarea>
+						<textarea name="" rows="2" cols="" style="width:100%;"></textarea>
 					</div>
-				</div>
+				</div>-->
+				
+				
 			</form>
 		</div>
 	</div>
