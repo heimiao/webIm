@@ -8,11 +8,12 @@ myApp.controller("naturalAdd", ["$scope", "$state", "$http", "$stateParams",
 		zrcAdd.sendParam.sftshyd='是'; //D6是否生活用电
 		zrcAdd.sendParam.sftkd='是'; //D6是否通宽带 
 		zrcAdd.tianjiazrc=function(){
-		// zrcAdd.formzirancun={ } 表单对象 
 			zrcAdd.list = {};
 			postForm.saveFrm(config.path.addzrc,zrcAdd.sendParam)
 			.success(function(res){
-				
+				$state.go('naturalVillage'); //默认显示第一个tab
+			}).error(function(res){
+				zrcAdd.save(); //上传的失败保存到本地数据库
 			})
 		}
 		//获取行政村
@@ -84,6 +85,7 @@ myApp.controller("naturalAdd", ["$scope", "$state", "$http", "$stateParams",
 					},
 					success: function(args) {
 						console.log(args);
+						$state.go('naturalDraft');
 					},
 					'error': function(args) {
 

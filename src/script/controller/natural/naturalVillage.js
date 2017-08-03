@@ -57,7 +57,7 @@ myApp.controller("naturalVillage", ["$scope", "$state", "$http", "$stateParams",
 			};
 			natural.list = {};
 			natural.page = {
-				limit:10,
+				limit:30,
 				start:0,
 			};
 			var sunParm=angular.extend({},natural.page,natural.sendParam)
