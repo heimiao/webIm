@@ -71,6 +71,7 @@
 					bool = false;
 				}
 			}
+
 			return bool;
 		}
 	}
@@ -107,7 +108,7 @@
 				'</div>'
 			return tpl;
 		},
-		create: function(opt, type) {
+		create: function(opt, type, sure, cancel) {
 			if(typeof opt == "string")
 				this.options.content = opt;
 			if(typeof opt == "object") {
@@ -116,32 +117,38 @@
 			this.options.type = type;
 			var alertObj = this.createTpl(type)
 			//添加弹框
-			$("body").append(alertObj);
-		},
-		init: function(sure, cancel) {
-			//监听我的弹框事件
-			$(document).on("click", ".alert_cancel,.btn_cancel", function() {
-				methodAlert.destroy();
-				if(cancel && methodAlert.options.type != "alert")
+			var model = document.createElement("div");
+			$(model).append(alertObj);
+			$("body").append(model);
+			if(type == "confirm") {
+				$(model).find(".alert_cancel,.btn_cancel").on("click", function() {
+					$(model).remove();
 					cancel();
-			})
-			$(document).on("click", ".btn_sure", function() {
-				methodAlert.destroy();
-				if(sure && methodAlert.options.type != "alert")
+				})
+				$(model).find("button[class='btn btn_sure']").on("click", function() {
+					$(model).remove();
 					sure();
-			})
-		},
-		destroy: function() {
-			$(document).find(".myAlert").remove();
+				})
+			} else {
+				$(model).find(".alert_cancel,.btn_cancel").on("click", function() {
+					$(model).remove();
+					try {
+						sure();
+					} catch(e) {
+
+					}
+				})
+			}
 		}
 	}
-	fupin.alert = function(opt) {
-		methodAlert.create(opt, "alert");
-		methodAlert.init();
+	fupin.alert = function(opt, sure) {
+		methodAlert.create(opt, "alert", sure);
+		//		methodAlert.init();
 	};
 	fupin.confirm = function(option, sure, cancel) {
-		methodAlert.create(option, "confirm");
-		methodAlert.init(sure, cancel);
+
+		methodAlert.create(option, "confirm", sure, cancel);
+		//		methodAlert.init(sure, cancel);
 	};
 	_w.fupin = fupin || {};
 }(window, jQuery));

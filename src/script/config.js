@@ -1,7 +1,11 @@
 var baseUrl = 'http://123.58.240.75:8081/tpa';
 var config = {
 	//请求路径
+<<<<<<< HEAD
 	getbaseUrl: baseUrl + '/zjzd/getBaseUrlList?lx=11',
+=======
+	getbaseUrl: baseUrl + '/zjzd/getBaseUrlList?lx=11', 
+>>>>>>> a821da20238ec0c4010412c8be0cca9b7a0e995f
 	path: {
 		//贫困村
 		lowFamilyList: "/pkh/queryForPage", //贫困活列表
@@ -11,14 +15,13 @@ var config = {
 		getAddress: "/zcjg/queryForZc", //获取地址
 		//townShip: baseUrl+ "/zcjg/queryForZc",  //获取乡镇列表
 		naturalVillage: "/zrc/queryForPage", //自然村列表
-		xingzhengName:"/zcjg/queryForZc", //行政村名字列表
-		zrcDetails:"/zrc/queryForId", //自然村列表详情
-		zrcEdit:"/zrc/update", //自然村编辑
-		addzrc:"/zrc/add", //添加自然村
+		xingzhengName: "/zcjg/queryForZc", //行政村名字列表
+		zrcDetails: "/zrc/queryForId", //自然村列表详情
+		zrcEdit: "/zrc/update", //自然村编辑
+		addzrc: "/zrc/add", //添加自然村
 		//扶贫项目
-		projectList:"/xmxx/queryForPage",//扶贫项目列表
-		projectAdda:"/xmxx/add",//新增扶贫项目
-
+		projectList: "/xmxx/queryForPage", //扶贫项目列表
+		projectAdda: "/xmxx/add", //新增扶贫项目
 		townShip: "/zcjg/queryForZc?lx=01", //获取乡镇列表
 		villageAll: "/zcjg/queryForZc?lx=02", //获取所有行政村列表
 		villageList: "/pkc/queryForPage", //获取贫困村列表
