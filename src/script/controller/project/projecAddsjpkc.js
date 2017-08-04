@@ -3,6 +3,10 @@ myApp.controller("projectAddsjpkc", ["$scope", "$state", "$http", "$stateParams"
 		var projectAddsjpkc = {} || projectAddsjpkc;
 		projectAddsjpkc.urlParam = $stateParams;
 		projectAddsjpkc.sendParam = {};
+		// projectAddsjpkc.sendParam.qyxz={};
+		// projectAddsjpkc.sendParam.qyxzc={};
+		// projectAddsjpkc.sendParam.syje={};
+		projectAddsjpkc.data=[];
 		projectAddsjpkc.townShip = []; //全部乡镇列表
 		projectAddsjpkc.villageListAll = []; //获取全部行政村
 		
@@ -26,13 +30,15 @@ myApp.controller("projectAddsjpkc", ["$scope", "$state", "$http", "$stateParams"
 		}
 
 		//添加扶贫项目涉及贫困村
+		
 		projectAddsjpkc.tianjia=function(){
-			postForm.saveFrm(config.path.projectaddsjpkca,projectAddsjpkc.sendParam)
+			projectAddsjpkc.data.push(projectAddsjpkc.sendParam)
+			console.log(projectAddsjpkc.data)
+			postForm.saveFrm(config.path.projectaddsjpkca,{"data":projectAddsjpkc.data,"xmxxid":$stateParams.id})
 			.success(function(res){
-				console.log(res);
-
-				alert('123')
-			})
+				//console.log(projectAddsjpkc.sendParam);
+				//console.log(JSON.stringify(projectAddsjpkc.sendParam))
+			})	
 		}
 
 
