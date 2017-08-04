@@ -204,7 +204,7 @@ myApp.controller("low_family_baseCtro", ["$scope", "$rootScope", "$state", "$htt
 			//调用本地数据库保存
 			//保存表单
 			// && JSON.stringify(low_family_baseInfo.oldObj) != JSON.stringify(low_family_baseInfo.formInfo)
-			if(fupin.isValid(low_family_baseInfo.formInfo) && JSON.stringify(low_family_baseInfo.oldObj) != JSON.stringify(low_family_baseInfo.formInfo)) {
+			if(!fupin.isValid(low_family_baseInfo.formInfo) || JSON.stringify(low_family_baseInfo.oldObj) != JSON.stringify(low_family_baseInfo.formInfo)) {
 				fupin.confirm("确定保存为草稿吗？", function() {
 					low_family_baseInfo.saveForm();
 					//window.history.go(-1);
