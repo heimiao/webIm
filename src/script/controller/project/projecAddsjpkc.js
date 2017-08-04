@@ -5,6 +5,7 @@ myApp.controller("projectAddsjpkc", ["$scope", "$state", "$http", "$stateParams"
 		projectAddsjpkc.sendParam = {};
 		projectAddsjpkc.townShip = []; //全部乡镇列表
 		projectAddsjpkc.villageListAll = []; //获取全部行政村
+		
 		// 获取所有乡镇
 		$http.post(config.path.townShip,null).success(function(res){
 			projectAddsjpkc.townShip = res;
@@ -29,6 +30,7 @@ myApp.controller("projectAddsjpkc", ["$scope", "$state", "$http", "$stateParams"
 			postForm.saveFrm(config.path.projectaddsjpkca,projectAddsjpkc.sendParam)
 			.success(function(res){
 				console.log(res);
+
 				alert('123')
 			})
 		}

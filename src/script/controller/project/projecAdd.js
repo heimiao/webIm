@@ -5,13 +5,19 @@ myApp.controller("projectAddxz", ["$scope", "$state", "$http", "$stateParams","p
 		projectAdd.sendParam = {};
 		projectAdd.townShip = []; //全部乡镇列表
 		projectAdd.villageListAll = []; //获取全部行政村
+		projectAdd.xmleList=[];  //项目类型
 		//添加扶贫项目
+		
 		projectAdd.tianjia=function(){
-			postForm.saveFrm(config.path.projectAdda,projectAdd.sendParam)
-			.success(function(res){
-				console.log(res);
-				alert('123')
-			})
+			if(projectAdd.sendParam.xmmc==''||projectAdd.sendParam.xmmc==null){
+				alert('项目名称不能为空')
+			}else{
+				postForm.saveFrm(config.path.projectAdda,projectAdd.sendParam)
+				.success(function(res){
+					console.log(res);
+					alert('123')
+				})
+			}
 		}
 
 
@@ -34,7 +40,15 @@ myApp.controller("projectAddxz", ["$scope", "$state", "$http", "$stateParams","p
 			projectAdd.getVillageList(projectAdd.sendParam.qyxz, 1); //获取乡镇对应的行政村
 		}
 
-
+		//从数据字典获取项目类型的选项
+		projectAdd.getpeojectlx= function(){
+			$http.post(config.path.projectsjzd,null).success(function(res){
+				console.log(res);
+				projectAdd.xmleList=res;
+				projectAdd.sendParam.xmlx=projectAdd.xmleList[0].id; //默认选中第一个
+			})
+		}
+		projectAdd.getpeojectlx()
 
 
 
