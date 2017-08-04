@@ -10,7 +10,7 @@
 		<div class="container-fluid pkhcj">
 			<div class="cheader " style="padding: 0;">
 				<div class="pfanhui pull-left" onclick="javascript:history.go(-1)">
-					<img src="../../assets/img/icon_28.png" />
+					<img src="./assets/img/icon_28.png" />
 				</div>
 				<div class="pname text-center ">贫困户数据查询</div>
 				<div class="panniu cd-nav-trigger ">Menu<span></span></div>
@@ -27,7 +27,7 @@
 						<div class="pkcMain" >
 							<div class="pkInfoCon border-b">
 								<div class="imgCon">
-									<img src="../../assets/img/head.png" alt="" style="width:100%;height:100%;">
+									<img src="./assets/img/head.png" alt="" style="width:100%;height:100%;">
 								</div>
 								<div class="info">
 									<p><span class="name" ng-bind="queryHouseholdDetail.list.hzxm"></span><span class="sex" ng-bind="queryHouseholdDetail.list.hzxb"></span><span class="age" ng-bind="queryHouseholdDetail.list.hznl+'岁'"></span></p>
@@ -180,7 +180,7 @@
 							</div>
 							<a href="queryFamily.html"><div class="pkInfoCon border-b">
 								<div class="imgCon">
-									<img src="../../assets/img/head.png" alt="" style="width:100%;height:100%;">
+									<img src="./assets/img/head.png" alt="" style="width:100%;height:100%;">
 								</div>
 								<div class="info">
 									<p><span class="name">王老先生</span><span class="sex">男</span><span class="age">85岁</span></p>
@@ -192,7 +192,7 @@
 							</div></a>
 							<div class="pkInfoCon border-b">
 								<div class="imgCon">
-									<img src="../../assets/img/head.png" alt="" style="width:100%;height:100%;">
+									<img src="./assets/img/head.png" alt="" style="width:100%;height:100%;">
 								</div>
 								<div class="info">
 									<p><span class="name">王老先生</span><span class="sex">男</span><span class="age">85岁</span></p>
@@ -204,7 +204,7 @@
 							</div>
 							<div class="pkInfoCon border-b">
 								<div class="imgCon">
-									<img src="../../assets/img/head.png" alt="" style="width:100%;height:100%;">
+									<img src="./assets/img/head.png" alt="" style="width:100%;height:100%;">
 								</div>
 								<div class="info">
 									<p><span class="name">王老先生</span><span class="sex">男</span><span class="age">85岁</span></p>
@@ -228,97 +228,97 @@
 										<div class="item border-b">
 											<div class="name">A39工资性收入（元）</div>
 											<div class="content">
-												<span>10000</span>
+												<span ng-bind="queryHouseholdDetail.list.gzxsr"></span>
 											</div>
 										</div>
 										<div class="item border-b">
 											<div class="name">A40 生产经营性收入（元）</div>
 											<div class="content">
-												<span>10000</span>
+												<span ng-bind="queryHouseholdDetail.list.scjyxsr"></span>
 											</div>
 										</div>
 										<div class="item border-b">
 											<div class="name">A41 财产性收入（元） </div>
 											<div class="content">
-												<span>10000</span>
+												<span ng-bind="queryHouseholdDetail.list.ccxsr"></span>
 											</div>
 										</div>
 										<div class="item border-b">
 											<div class="name">A42 转移性收入（元）</div>
 											<div class="content">
-												<span>10000</span>
+												<span ng-bind="queryHouseholdDetail.list.zyxsr"></span>
 											</div>
 										</div>
 										<div class="item border-b">
 											<div class="name">A42a 计划生育金（元）</div>
 											<div class="content">
-												<span>10000</span>
+												<span ng-bind="queryHouseholdDetail.list.jhsyj"></span>
 											</div>
 										</div>
 										<div class="item border-b">
 											<div class="name">A42b 低保金（元）</div>
 											<div class="content">
-												<span>10000</span>
+												<span ng-bind="queryHouseholdDetail.list.dbj"></span>
 											</div>
 										</div>
 										<div class="item border-b">
 											<div class="name">A42c 五保金（元）</div>
 											<div class="content">
-												<span>10000</span>
+												<span ng-bind="queryHouseholdDetail.list.wbj"></span>
 											</div>
 										</div>
 										<div class="item border-b">
 											<div class="name">A42d 养老保险金（元）</div>
 											<div class="content">
-												<span>10000</span>
+												<span ng-bind="queryHouseholdDetail.list.ylbzj"></span>
 											</div>
 										</div>
 										<div class="item border-b">
 											<div class="name">A42e 生态补偿金（元）</div>
 											<div class="content">
-												<span>10000</span>
+												<span ng-bind="queryHouseholdDetail.list.stbcj"></span>
 											</div>
 										</div>
 										<div class="item border-b">
 											<div class="name">A42f 其他转移性收入（元）</div>
 											<div class="content">
-												<span>10000</span>
+												<span ng-bind="queryHouseholdDetail.list.qtzyxsr"></span>
 											</div>
 										</div>
 										<div class="item border-b">
 											<div class="name">H6 家庭实物折算款</div>
 											<div class="content">
-												<span>10000</span>
+												<span ng-bind="queryHouseholdDetail.list.jtswzsk"></span>
 											</div>
 										</div>
 										<div class="item border-b">
 											<div class="name">H7 人均纯收入（元）</div>
 											<div class="content">
-												<span>10000</span>
+												<span ng-bind="queryHouseholdDetail.list.rjcsr"></span>
 											</div>
 										</div>
 										<div class="item border-b">
 											<div class="name">A43 生产经营性支出（元）</div>
 											<div class="content">
-												<span>10000</span>
+												<span ng-bind="queryHouseholdDetail.list.scjyxzc"></span>
 											</div>
 										</div>
 										<div class="item border-b">
 											<div class="name">A43a 家庭经营费用支出（元） </div>
 											<div class="content">
-												<span>10000</span>
+												<span ng-bind="queryHouseholdDetail.list.jtjyfyzc"></span>
 											</div>
 										</div>
 										<div class="item border-b">
 											<div class="name">A43b税费支出（元） </div>
 											<div class="content">
-												<span>10000</span>
+												<span ng-bind="queryHouseholdDetail.list.sfzc"></span>
 											</div>
 										</div>
 										<div class="item border-b">
 											<div class="name">A43c 其他生产经营性支出（元）</div>
 											<div class="content">
-												<span>10000</span>
+												<span ng-bind="queryHouseholdDetail.list.qtscjyxzc"></span>
 											</div>
 										</div>
 									</form>
@@ -336,103 +336,103 @@
 										<div class="item border-b">
 											<div class="name">A24 耕地面积（亩）</div>
 											<div class="content">
-												<span>10000</span>
+												<span ng-bind="queryHouseholdDetail.list.gdmj"></span>
 											</div>
 										</div>
 										<div class="item border-b">
 											<div class="name">A24a 有效灌溉面积（亩）</div>
 											<div class="content">
-												<span>10000</span>
+												<span ng-bind="queryHouseholdDetail.list.yxgkmj"></span>
 											</div>
 										</div>
 										<div class="item border-b">
 											<div class="name">A25 林地面积（亩） </div>
 											<div class="content">
-												<span>10000</span>
+												<span ng-bind="queryHouseholdDetail.list.ldmj"></span>
 											</div>
 										</div>
 										<div class="item border-b">
 											<div class="name">A25a 退耕还林面积(亩) </div>
 											<div class="content">
-												<span>10000</span>
+												<span ng-bind="queryHouseholdDetail.list.tghlmj"></span>
 											</div>
 										</div>
 										<div class="item border-b">
 											<div class="name">A25b 林果面积（亩）</div>
 											<div class="content">
-												<span>10000</span>
+												<span ng-bind="queryHouseholdDetail.list.lgmj"></span>
 											</div>
 										</div>
 										<div class="item border-b">
 											<div class="name">A26 牧草地面积（亩）</div>
 											<div class="content">
-												<span>10000</span>
+												<span ng-bind="queryHouseholdDetail.list.mcdmj"></span>
 											</div>
 										</div>
 										<div class="item border-b">
 											<div class="name">A27 水面面积（亩）</div>
 											<div class="content">
-												<span>10000</span>
+												<span ng-bind="queryHouseholdDetail.list.smmj"></span>
 											</div>
 										</div>
 										<div class="item border-b">
 											<div class="name">A28 是否通生产用电</div>
 											<div class="content">
-												<span>是</span>
+												<span ng-bind="queryHouseholdDetail.list.sftscyd"></span>
 											</div>
 										</div>
 										<div class="item border-b">
 											<div class="name">A29 与村主干路距离（公里）</div>
 											<div class="content">
-												<span>10000</span>
+												<span ng-bind="queryHouseholdDetail.list.yczgljl"></span>
 											</div>
 										</div>
 										<div class="item border-b">
 											<div class="name">A30 入户路类型</div>
 											<div class="content">
-												<span>是</span>
+												<span ng-bind="queryHouseholdDetail.list.rhllx"></span>
 											</div>
 										</div>
 										<div class="item border-b">
 											<div class="name">A31 住房面积（平方米）</div>
 											<div class="content">
-												<span>10000</span>
+												<span ng-bind="queryHouseholdDetail.list.zfmj"></span>
 											</div>
 										</div>
 										<div class="item border-b">
 											<div class="name">A32 是否通生活用电</div>
 											<div class="content">
-												<span>是</span>
+												<span ng-bind="queryHouseholdDetail.list.sftshyd"></span>
 											</div>
 										</div>
 										<div class="item border-b">
 											<div class="name">A33 饮水是否困难 </div>
 											<div class="content">
-												<span>是</span>
+												<span ng-bind="queryHouseholdDetail.list.yssfkn"></span>
 											</div>
 										</div>
 										<div class="item border-b">
 											<div class="name">A34 饮水是否安全 </div>
 											<div class="content">
-												<span>是</span>
+												<span ng-bind="queryHouseholdDetail.list.yssfaq"></span>
 											</div>
 										</div>
 										<div class="item border-b">
 											<div class="name">A35 主要燃料类型 </div>
 											<div class="content">
-												<span>是</span>
+												<span ng-bind="queryHouseholdDetail.list.zyrllx"></span>
 											</div>
 										</div>
 										<div class="item border-b">
 											<div class="name">A36 是否加入农民专业合作社</div>
 											<div class="content">
-												<span>否</span>
+												<span ng-bind="queryHouseholdDetail.list.sfjrnmzyhzs"></span>
 											</div>
 										</div>
 										<div class="item border-b">
 											<div class="name">A37 有无卫生厕所</div>
 											<div class="content">
-												<span>有</span>
+												<span ng-bind="queryHouseholdDetail.list.ywwscs"></span>
 											</div>
 										</div>
 									</form>
@@ -481,79 +481,79 @@
 										<div class="item border-b">
 											<div class="name">F1 就业帮扶金（元）</div>
 											<div class="content">
-												<span>10000</span>
+												<span ng-bind="queryHouseholdDetail.list.fjybfj"></span>
 											</div>
 										</div>
 										<div class="item border-b">
 											<div class="name">F2 低保金（元） </div>
 											<div class="content">
-												<span>10000</span>
+												<span ng-bind="queryHouseholdDetail.list.fdbj"></span>
 											</div>
 										</div>
 										<div class="item border-b">
 											<div class="name">F3 五保金（元） </div>
 											<div class="content">
-												<span>10000</span>
+												<span ng-bind="queryHouseholdDetail.list.fwbj"></span>
 											</div>
 										</div>
 										<div class="item border-b">
 											<div class="name">F4 养老金（元） </div>
 											<div class="content">
-												<span>10000</span>
+												<span ng-bind="queryHouseholdDetail.list.fylj"></span>
 											</div>
 										</div>
 										<div class="item border-b">
 											<div class="name">F5 危房改造补贴（元） </div>
 											<div class="content">
-												<span>10000</span>
+												<span ng-bind="queryHouseholdDetail.list.fwfgzbt"></span>
 											</div>
 										</div>
 										<div class="item border-b">
 											<div class="name">F6 教育补贴（元） </div>
 											<div class="content">
-												<span>10000</span>
+												<span ng-bind="queryHouseholdDetail.list.fjybt"></span>
 											</div>
 										</div>
 										<div class="item border-b">
 											<div class="name">F7 基本医保报销（元） </div>
 											<div class="content">
-												<span>10000</span>
+												<span ng-bind="queryHouseholdDetail.list.fjbylbx"></span>
 											</div>
 										</div>
 										<div class="item border-b">
 											<div class="name">F8 大病保险报销（元） </div>
 											<div class="content">
-												<span>10000</span>
+												<span ng-bind="queryHouseholdDetail.list.fdbbxbx"></span>
 											</div>
 										</div>
 										<div class="item border-b">
 											<div class="name">F9 医疗救助（元） </div>
 											<div class="content">
-												<span>10000</span>
+												<span ng-bind="queryHouseholdDetail.list.fyljz"></span>
 											</div>
 										</div>
 										<div class="item border-b">
 											<div class="name">F10 双女户补贴（元） </div>
 											<div class="content">
-												<span>10000</span>
+												<span ng-bind="queryHouseholdDetail.list.fsnhbt"></span>
 											</div>
 										</div>
 										<div class="item border-b">
 											<div class="name">F11 粮食综合直补（元） </div>
 											<div class="content">
-												<span>10000</span>
+												<span ng-bind="queryHouseholdDetail.list.flszhzb"></span>
 											</div>
 										</div>
 										<div class="item border-b">
 											<div class="name">F12 退耕还林补贴（元） </div>
 											<div class="content">
-												<span>10000</span>
+												<span ng-bind="queryHouseholdDetail.list.ftghlbt"></span>
 											</div>
 										</div>
 										<div class="item border-b">
 											<div class="name">F13 草原奖补（元） </div>
 											<div class="content">
-												<span>10000</span>
+												<span ng-bind="queryHouseholdDetail.list.fcyjb"></span>
 											</div>
 										</div>
 									</form>
@@ -561,7 +561,7 @@
 							</div>
 						</section>
 						<!-- 项目成效 -->
-							<div class="effectiveness" id="effectiveness">
+							<!-- <div class="effectiveness" id="effectiveness">
 							<div class="projectCon">
 								<div class="projectItem">
 									<div class="projectNum">
@@ -614,7 +614,7 @@
 									</div>
 								</div>
 							</div>
-						</div>
+						</div> -->
 						<!--  -->
 				</div>
 			</section>
@@ -626,32 +626,32 @@
 			</header>
 			<div class="navList" id="navList">
 				<div class="navListItem" data-type="pkcjb">
-					<img src="../../assets/img/icon_07.png"><span>基本信息</span>
+					<img src="./assets/img/icon_07.png"><span>基本信息</span>
 				 </div>
 				<div class="navListItem" data-type="family">
-					<img src="../../assets/img/icon_10.png"><span>家庭成员信息</span>
+					<img src="./assets/img/icon_10.png"><span>家庭成员信息</span>
 				</div>
 				<!-- <div class="navListItem" data-type="eliminate">
-					<img src="../../assets/img/icon_12.png"><span>致贫原因</span>
+					<img src="./assets/img/icon_12.png"><span>致贫原因</span>
 				</div> -->
 				<div class="navListItem" data-type="income">
-					<img src="../../assets/img/icon_14.png"><span>收入情况</span>
+					<img src="./assets/img/icon_14.png"><span>收入情况</span>
 				</div>
 				<div class="navListItem" data-type="production">
-					<img src="../../assets/img/icon_16.png"><span>生产生活条件</span>
+					<img src="./assets/img/icon_16.png"><span>生产生活条件</span>
 				</div>
 				<!-- <div class="navListItem" data-type="elsewhere">
-					<img src="../../assets/img/icon_18.png"><span>异地搬迁户需求</span>
+					<img src="./assets/img/icon_18.png"><span>异地搬迁户需求</span>
 				</div> -->
 				<div class="navListItem" data-type="help">
-					<img src="../../assets/img/icon_20.png"><span>帮扶责任人</span>
+					<img src="./assets/img/icon_20.png"><span>帮扶责任人</span>
 				</div>
 				<div class="navListItem" data-type="results">
-					<img src="../../assets/img/icon_22.png"><span>扶贫成效</span>
+					<img src="./assets/img/icon_22.png"><span>扶贫成效</span>
 				</div>
-				<div class="navListItem" data-type="effectiveness">
-					<img src="../../assets/img/icon_22.png"><span>项目成效</span>
-				</div>
+				<!-- <div class="navListItem" data-type="effectiveness">
+					<img src="./assets/img/icon_22.png"><span>项目成效</span>
+				</div> -->
 			</div>
 
 			</nav>
@@ -659,7 +659,7 @@
 			<div class="cd-overlay">
 				<!-- shadow layer visible when navigation is visible -->
 			</div>
-			<script type="text/javascript" src="../../assets/lib/js/modernizr.js"></script>
+			<script type="text/javascript" src="./assets/lib/js/modernizr.js"></script>
 			<script>
 			jQuery(document).ready(function($){
 	//open navigation clicking the menu icon

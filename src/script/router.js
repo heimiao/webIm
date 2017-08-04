@@ -226,18 +226,28 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 
 		//扶贫项目新增
 		.state('projectAdd', {
+<<<<<<< HEAD
 			url: '/project_Add?id&type',
+=======
+			url: '/projectAdd?id&type',
+>>>>>>> 5e11a1d34e220d898aa59882164154d1775fa86e
 			controller: "projectAdd",
 			templateUrl: 'dist/template/project/projectAdd.html'
 		})
 
 		//扶贫项目草稿
 		.state('projectDraft', {
-			url: '/project_Draft?id&type',
+			url: '/projectDraft?id&type',
 			controller: "projectDraft",
 			templateUrl: 'dist/template/project/projectDraft.html'
 		})
 
+		//扶贫项目草稿编辑
+		.state('projectDraftEdit', {
+			url: '/project_DraftEdit?id&type',
+			controller: "projectDraftEdit",
+			templateUrl: 'dist/template/project/projectDraftEdit.html'
+		})
 		//扶贫项目编辑
 		.state('projectEdit', {
 			url: '/project_Edit?id&type',
@@ -246,14 +256,14 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 		})
 		//扶贫项目 新增 涉及贫困村
 		.state('projectAddsjpkc', {
-			url: '/project_Addsjpkc?id&type',
+			url: '/projectAddsjpkc?id&type',
 			controller: "projectAddsjpkc",
 			templateUrl: 'dist/template/project/projectAddsjpkc.html'
 		})
 
 		//扶贫项目 新增 涉及贫困户
 		.state('projectAddsjpkh', {
-			url: '/project_Addsjpkh?id&type',
+			url: '/projectAddsjpkh?id&type',
 			controller: "projectAddsjpkh",
 			templateUrl: 'dist/template/project/projectAddsjpkh.html'
 		})
@@ -267,33 +277,33 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 
 		//扶贫项目 编辑 涉及贫困村
 		.state('projectEditsjpkc', {
-			url: '/project_Editsjpkc?id&type',
+			url: '/projectEditsjpkc?idx',
 			controller: "projectEditsjpkc",
 			templateUrl: 'dist/template/project/projectEditsjpkc.html'
 		})
 
 		//扶贫数据 自然村 查询
 		.state('queryNatural', {
-			url: '/query_Natural?id&type',
+			url: '/query_Natural',
 			controller: "queryNatural",
 			templateUrl: 'dist/template/natural/queryNatural.html'
 		})
 
 		//扶贫数据 自然村 查询列表
 		.state('queryNaturalResult', {
-			url: '/queryNatural_Result?id&type',
+			url: '/queryNatural_Result?nd',
 			controller: "queryNaturalResult",
 			templateUrl: 'dist/template/natural/queryNaturalResult.html'
 		})
 
 		//扶贫数据 自然村 查询列表详情
 		.state('queryNaturalDetails', {
-			url: '/queryNatural_Details?id&type',
+			url: '/queryNatural_Details?detailId',
 			controller: "queryNaturalDetails",
 			templateUrl: 'dist/template/natural/queryNaturalDetails.html'
 		})
 
-		//扶贫数据 扶贫项目 查询
+		//扶贫数据 扶贫项目 查询 
 		.state('queryProject', {
 			url: '/query_Project?id&type',
 			controller: "queryProject",
@@ -302,14 +312,14 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 
 		//扶贫数据 扶贫项目 查询列表
 		.state('queryProjectResult', {
-			url: '/queryProject_Result?id&type',
+			url: '/queryProjectResult?nd',
 			controller: "queryProjectResult",
 			templateUrl: 'dist/template/project/queryProjectResult.html'
 		})
 
 		//扶贫数据 扶贫项目 查询列表详情queryprojectDetails.html
 		.state('queryprojectDetails', {
-			url: '/queryproject_Details?id&type',
+			url: '/queryprojectDetails?detailId',
 			controller: "queryprojectDetails",
 			templateUrl: 'dist/template/project/queryprojectDetails.html'
 		})
@@ -404,7 +414,11 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 			templateUrl: 'dist/template/village/queryHouseholdDetail.html'
 		})
 		.state('queryTaskForceDetail', {
+<<<<<<< HEAD
 			url: '/queryTaskForceDetail',
+=======
+			url: '/queryTaskForceDetail?id&idx',
+>>>>>>> 5e11a1d34e220d898aa59882164154d1775fa86e
 			controller: "queryTaskForceDetail",
 			templateUrl: 'dist/template/village/queryTaskForceDetail.html'
 		})

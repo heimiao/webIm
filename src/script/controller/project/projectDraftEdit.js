@@ -1,14 +1,11 @@
-myApp.controller("projectDraft", ["$scope", "$state", "$http", "$stateParams",
+myApp.controller("projectDraftEdit", ["$scope", "$state", "$http", "$stateParams",
 	function($scope, $state, $http, $stateParams) {
-		var projectDraft = {} || projectDraft;
-		projectDraft.urlParam = $stateParams;
-		projectDraft.sendParam = {};
+		var projectDraftEdit = {} || projectDraftEdit;
+		projectDraftEdit.urlParam = $stateParams;
+		projectDraftEdit.sendParam = {};
+
 		
-
-
-
-
-
+		
 
 		/*lowFamilyInfo.menu=false;
 		lowFamilyInfo.changeMenu=function(args){
@@ -19,6 +16,6 @@ myApp.controller("projectDraft", ["$scope", "$state", "$http", "$stateParams",
 		//调用列表
 		//		$state.go('lowFamily.baseInfo'); //默认显示第一个tab
 		//根据角色遍历响应的菜单
-		$scope.projectDraft = projectDraft;
+		$scope.projectDraftEdit = projectDraftEdit;
 	}
 ]);

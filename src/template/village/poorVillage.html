@@ -90,7 +90,7 @@
 	<div class="poor villageCon">
 		<header>
 			<a href="javascript:history.go(-1)">
-				<div class="back"><img src="../../assets/img/icon_28.png" alt=""></div>
+				<div class="back"><img src="./assets/img/icon_28.png" alt=""></div>
 			</a>
 			<div class="collectionTitle">贫困村信息</div>
 			<!-- <div class="fillIn" ng-click="poorVillage.queryBtn()">查询</div> -->
@@ -111,7 +111,7 @@
 			</div>
 			
 			<div id="village" class="village" onclick="villageList()" style="float: right"><span class="name">全部行政村</span><span class="triangle"></span></div>
-			<!-- <div class="open" onclick="openToggle()"><span class="down col-ea3c4c">展开</span><span class="stop col-ea3c4c">收起</span></div> -->
+			<!-- <div class="open" onclick="openToggle()"><span class="down col-ea3c4c">展开</span><span class="stop col-ea3c4c">收起</span></div>  -->
 		</div>
 		<div class="townshipList listShip">
 			<div ng-repeat="item in poorVillage.townShip" ng-click='poorVillage.chooseTownship(item.name,item.id)' ng-bind="item.name"></div>
@@ -145,13 +145,11 @@
 		</div>
 		<div class="foot-fill"></div>
 		<footer class="foot">
-			<a href="#/villageDraft">
-				<div class="draft">草稿</div>
-			</a>
-			<a href="#/villageCollection"><div class="addPoor">+ 新增贫困村</div></a>
+			<div class="draft" ui-sref="villageDraft">草稿</div>
+			<div class="addPoor" ui-sref="villageCollection">+ 新增贫困村</div>
 		</footer>
 	</div>
-	<script type="text/javascript" src="../../assets/lib/js/jquery.min.js"></script>
+	<script type="text/javascript" src="./assets/lib/js/jquery.min.js"></script>
 	<script src="./assets/lib/js/dropload.min.js" type="text/javascript"></script>
 	<script>
 		// 全部乡镇列表

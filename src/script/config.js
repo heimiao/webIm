@@ -23,16 +23,28 @@ var config = {
 		zrcEdit: "/zrc/update", //自然村编辑
 		addzrc: "/zrc/add", //添加自然村
 		//扶贫项目
-		projectList: "/xmxx/queryForPage", //扶贫项目列表
-		projectAdda: "/xmxx/add", //新增扶贫项目
+
+		projectList:"/xmxx/queryForPage",//扶贫项目列表
+		projectAdda:"/xmxx/add",//新增扶贫项目
+		projectsjzd:"/zjzd/queryForList?lx=09", //数据字典取项目类型
+		projectaddsjpkca:"/xmxxpkc/addXmxxpkc", //添加扶贫项目涉及贫困村
+		projectaddsjpkha: "/xmxxpkh/addXmxxpkh", //添加扶贫项目贫困户
+		getprojectaddsjpkca:"/xmxxpkc/queryForList",//获取添加扶贫项目涉及贫困村
+
+
 		townShip: "/zcjg/queryForZc?lx=01", //获取乡镇列表
 		villageAll: "/zcjg/queryForZc?lx=02", //获取所有行政村列表
 		villageList: "/pkc/queryForPage", //获取贫困村列表
 		queryForZcVillage: "/zcjg/queryForZc", //根据id 查询行政村和或者乡镇
 		addVillage: "/pkc/add", //添加贫困村信息
+
 		editVillageCollection: "/pkc/queryForId?id=", //获取贫困村的详情
 		updateVillage: "/pkc/update", //更新贫困村的信息
 		getTaskForce: "/zcgzdqk/queryForList?fid=", //获取工作队的情况
+		queryXmxxDetail: "/xmxx/queryForId", //项目信息的详情
+		queryXmxxpkh: "/xmxxpkh/queryForList", //查询项目信息贫困户
+		queryXmxxpkc: "/xmxxpkc/queryForList", //查询项目信息贫困村
+		queryZjzdXmlx: "/zjzd/queryForList", //查询项目类型接口 
 	},
 	changePath: function(args) {
 		var ary = {},

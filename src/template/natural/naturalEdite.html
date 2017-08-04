@@ -1,7 +1,7 @@
 <div class="villageCollection naturalBasic">
 		<header>
 			<a ng-click="zrcDetails.goback()">
-				<div class="back"><img src="../../assets/img/icon_28.png" alt=""></div>
+				<div class="back"><img src="./assets/img/icon_28.png" alt=""></div>
 			</a>
 			<div class="collectionTitle">自然村信息采集</div>
 		</header>
@@ -24,166 +24,208 @@
 			</div>-->
 
 			<div class="item border-b">
-				<div class="name">行政村</div>
-				<div class="content">
-					<select name="" id="" ng-model="zrcDetails.list.lsxzc" ng-options="key.id as key.name for key in zrcDetails.xingzhengcun.list"
-					ng-change="zrcDetails.getzrc()">
-					</select>
-					<img src="../../assets/img/icon2_11@2x.png" alt="">
-				</div>
+				<label for="natualledit_lsxzc">
+					<div class="name">行政村</div>
+					<div class="content">
+						<select name="" id="" ng-model="zrcDetails.list.lsxzc" ng-options="key.id as key.name for key in zrcDetails.xingzhengcun.list"
+						ng-change="zrcDetails.getzrc()">
+						</select>
+						<img src="./assets/img/icon2_11@2x.png" alt="">
+					</div>
+				</label>	
 			</div>
 
 			<div class="item border-b" >
-				<div class="name">自然村</div>
-				<div class="content">
-					<select name="" id="" ng-model="zrcDetails.list.zrcmc" ng-options="key.id as key.name for key in zrcDetails.zirancun.list">
-					<option value="" class="" selected="selected">请选择自然村</option>
-					</select>
-					<img src="../../assets/img/icon2_11@2x.png" alt="">
-				</div>
+				<label for="natualledit_zrcmc">
+					<div class="name">自然村</div>
+					<div class="content">
+						<select name="" id="natualledit_zrcmc" ng-model="zrcDetails.list.zrcmc" ng-options="key.id as key.name for key in zrcDetails.zirancun.list">
+						<option value="" class="" selected="selected">请选择自然村</option>
+						</select>
+						<img src="./assets/img/icon2_11@2x.png" alt="">
+					</div>
+				</label>	
 			</div>
 			
 			<div class="item border-b">
-				<div class="name">年度</div>
-				<div class="content">
-					<select name="" id="" ng-model="zrcDetails.list.nd">
-						<option value="" class="" selected="selected">请选择年份</option>
-						<option value="2014">2014</option>
-						<option value="2015">2015</option>
-						<option value="2016">2016</option>
-						<option value="2017">2017</option>
-						<option value="2018">2018</option>
-						<option value="2019">2019</option>
-						<option value="2020">2020</option>
-					</select>
-					<img src="../../assets/img/icon2_11@2x.png" alt="">
-				</div>
+				<label for="natualledit_nd">
+					<div class="name">年度</div>
+					<div class="content">
+						<select name="" id="natualledit_nd" ng-model="zrcDetails.list.nd">
+							<option value="" class="" selected="selected">请选择年份</option>
+							<option value="2014">2014</option>
+							<option value="2015">2015</option>
+							<option value="2016">2016</option>
+							<option value="2017">2017</option>
+							<option value="2018">2018</option>
+							<option value="2019">2019</option>
+							<option value="2020">2020</option>
+						</select>
+						<img src="./assets/img/icon2_11@2x.png" alt="">
+					</div>
+				</label>	
 			</div>
 
 			<div class="item border-b">
-				<div class="name">组号</div>
-				<div class="content">
-					<input type="text" placeholder="请输入组号" ng-model="zrcDetails.list.zh">
-				</div>
+				<label for="natualledit_zh">
+					<div class="name">组号</div>
+					<div class="content">
+						<input id="natualledit_zh" type="text" placeholder="请输入组号" ng-model="zrcDetails.list.zh">
+					</div>
+				</label>	
 			</div>
 			
 			<div class="item border-b">
-				<div class="name">负责人</div>
-				<div class="content">
-					<input type="text" placeholder="兰克沙"  ng-model="zrcDetails.list.fzr">
-				</div>
+				<label for="natualledit_fzr">
+					<div class="name">负责人</div>
+					<div class="content">
+						<input id="natualledit_fzr" type="text" placeholder="兰克沙"  ng-model="zrcDetails.list.fzr">
+					</div>
+				</label>	
 			</div>
 			
 			<div class="item border-b">
-				<div class="name">联系电话</div>
-				<div class="content">
-					<input type="text" placeholder="请输入联系电话" ng-model="zrcDetails.list.lxdh">
-				</div>
+				<label for="natualledit_lxdh">
+					<div class="name">联系电话</div>
+					<div class="content">
+						<input id="natualledit_lxdh" type="text" placeholder="请输入联系电话" ng-model="zrcDetails.list.lxdh">
+					</div>
+				</label>
 			</div>
 
 			<div class="item border-b">
-				<div class="name">D1总户数(户)</div>
-				<div class="content">
-					<input type="text" placeholder="请输入总户数" ng-model="zrcDetails.list.zhs">
-				</div>
+				<label for="natualledit_zhs">
+					<div class="name">D1总户数(户)</div>
+					<div class="content">
+						<input id="natualledit_zhs" type="text" placeholder="请输入总户数" ng-model="zrcDetails.list.zhs">
+					</div>
+				</label>	
 			</div>
 			
 			<div class="item border-b">
-				<div class="name">D1a贫困户数(户)</div>
-				<div class="content">
-					<input type="number" placeholder="请输入贫困户数" ng-model="zrcDetails.list.pkhs">
-				</div>
+				<label for="natualledit_pkhs">
+					<div class="name">D1a贫困户数(户)</div>
+					<div class="content">
+						<input id="natualledit_pkhs" type="number" placeholder="请输入贫困户数" ng-model="zrcDetails.list.pkhs">
+					</div>
+				</label>	
 			</div>
 			
 			<div class="item border-b">
-				<div class="name">D1b低保户数(户)</div>
-				<div class="content">
-					<input type="text" placeholder="请输入低保户数" ng-model="zrcDetails.list.dbrks">
-				</div>
+				<label for="natualledit_dbrks">
+					<div class="name">D1b低保户数(户)</div>
+					<div class="content">
+						<input id="natualledit_dbrks" type="text" placeholder="请输入低保户数" ng-model="zrcDetails.list.dbrks">
+					</div>
+				</label>	
 			</div>
 			
 			<div class="item border-b">
-				<div class="name">D1c五保户数(户)</div>
-				<div class="content">
-					<input type="number" placeholder="请输入五保户数" ng-model="zrcDetails.list.wbhs">
-				</div>
+				<label for="natualledit_wbhs">
+					<div class="name">D1c五保户数(户)</div>
+					<div class="content">
+						<input id="natualledit_wbhs" type="number" placeholder="请输入五保户数" ng-model="zrcDetails.list.wbhs">
+					</div>
+				</label>	
 			</div>
 			
 			<div class="item border-b">
-				<div class="name">D2总人口数(人)</div>
-				<div class="content">
-					<input type="number" placeholder="请输入总人口数" ng-model="zrcDetails.list.zrks">
-				</div>
+				<label for="natualledit_zrks">
+					<div class="name">D2总人口数(人)</div>
+					<div class="content">
+						<input id="natualledit_zrks" type="number" placeholder="请输入总人口数" ng-model="zrcDetails.list.zrks">
+					</div>
+				</label>	
 			</div>
 			
 			<div class="item border-b">
-				<div class="name">D2a 贫困人口数(人)</div>
-				<div class="content">
-					<input type="number" placeholder="请输入贫困人口数" ng-model="zrcDetails.list.pkrks">
-				</div>
+				<label for="natualledit_pkrks">
+					<div class="name">D2a 贫困人口数(人)</div>
+					<div class="content">
+						<input id="natualledit_pkrks" type="number" placeholder="请输入贫困人口数" ng-model="zrcDetails.list.pkrks">
+					</div>
+				</label>	
 			</div>
 			
 			<div class="item border-b">
-				<div class="name">D2b低保人口数(人)</div>
-				<div class="content">
-					<input type="number" placeholder="请输入低保人口数" ng-model="zrcDetails.list.dbrks">
-				</div>
+				<label for="natualledit_dbrks">
+					<div class="name">D2b低保人口数(人)</div>
+					<div class="content">
+						<input id="natualledit_dbrks" type="number" placeholder="请输入低保人口数" ng-model="zrcDetails.list.dbrks">
+					</div>
+				</label>	
 			</div>
 			
 			<div class="item border-b">
-				<div class="name">D2c 五保人口数(人)</div>
-				<div class="content">
-					<input type="number" placeholder="请输入五保人口数" ng-model="zrcDetails.list.wbrks">
-				</div>
+				<label for="natualledit_wbrks">
+					<div class="name">D2c 五保人口数(人)</div>
+					<div class="content">
+						<input id="natualledit_wbrks" type="number" placeholder="请输入五保人口数" ng-model="zrcDetails.list.wbrks">
+					</div>
+				</label>	
 			</div>
 
 			<div class="item border-b">
-				<div class="name">D2d 少数民族人口数(人)</div>
-				<div class="content">
-					<input type="number" placeholder="少数民族人口数"  ng-model="zrcDetails.list.smmzrks">
-				</div>
+				<label for="natualledit_smmzrks">
+					<div class="name">D2d 少数民族人口数(人)</div>
+					<div class="content">
+						<input id="natualledit_smmzrks" type="number" placeholder="少数民族人口数"  ng-model="zrcDetails.list.smmzrks">
+					</div>
+				</label>	
 			</div>
 			
 			<div class="item border-b">
-				<div class="name">D2e 妇女人口数(人)</div>
-				<div class="content">
-					<input type="number" placeholder="请输入妇女人口数" ng-model="zrcDetails.list.fnrks">
-				</div>
+				<label for="natualledit_fnrks">
+					<div class="name">D2e 妇女人口数(人)</div>
+					<div class="content">
+						<input id="natualledit_fnrks" type="number" placeholder="请输入妇女人口数" ng-model="zrcDetails.list.fnrks">
+					</div>
+				</label>	
 			</div> 
 			
 			<div class="item border-b">
-				<div class="name">D2f 残疾人口数(人)</div>
-				<div class="content">
-					<input type="number" placeholder="请输入残疾人口数" ng-model="zrcDetails.list.cjrks">
-				</div>
+				<label for="natualledit_cjrks">
+					<div class="name">D2f 残疾人口数(人)</div>
+					<div class="content">
+						<input type="number" placeholder="请输入残疾人口数" ng-model="zrcDetails.list.cjrks">
+					</div>
+				</label>	
 			</div> 
 
 			<div class="item border-b">
-				<div class="name">D3劳动力人数(人)</div>
-				<div class="content">
-					<input type="number" placeholder="请输入劳动力人数" ng-model="zrcDetails.list.ldlrs">
-				</div>
+				<label for="natualledit_ldlrs">
+					<div class="name">D3劳动力人数(人)</div>
+					<div class="content">
+						<input id="natualledit_ldlrs" type="number" placeholder="请输入劳动力人数" ng-model="zrcDetails.list.ldlrs">
+					</div>
+				</label>	
 			</div>
 			
 			<div class="item border-b">
-				<div class="name">D3a 外出务工人数(人)</div>
-				<div class="content">
-					<input type="number" placeholder="请输入外出务工人数" ng-model="zrcDetails.list.wcwgrs">
-				</div>
+				<label for="natualledit_wcwgrs">
+					<div class="name">D3a 外出务工人数(人)</div>
+					<div class="content">
+						<input id="natualledit_wcwgrs" type="number" placeholder="请输入外出务工人数" ng-model="zrcDetails.list.wcwgrs">
+					</div>
+				</label>	
 			</div>
 			
 			<div class="item border-b">
-				<div class="name">H13a 16周岁以上(不含在校学生)的非国家机关和事业单位工作人员及不属于城镇职工基本养老保险制度覆盖范围的户籍人口数(人)</div>
-				<div class="content">
-					<input type="number" placeholder="请输入人口数" ng-model="zrcDetails.list.h13a">
-				</div>
+				<label for="natualledit_h13a">
+					<div class="name">H13a 16周岁以上(不含在校学生)的非国家机关和事业单位工作人员及不属于城镇职工基本养老保险制度覆盖范围的户籍人口数(人)</div>
+					<div class="content">
+						<input id="natualledit_h13a" type="number" placeholder="请输入人口数" ng-model="zrcDetails.list.h13a">
+					</div>
+				</label>	
 			</div>
 
 			<div class="item border-b">
-				<div class="name">H13 户籍人口数(人)</div>
-				<div class="content">
-					<input type="number" placeholder="请输入户籍人口数" ng-model="zrcDetails.list.hjrks">
-				</div>
+				<label for="natualledit_hjrks">
+					<div class="name">H13 户籍人口数(人)</div>
+					<div class="content">
+						<input id="natualledit_hjrks" type="number" placeholder="请输入户籍人口数" ng-model="zrcDetails.list.hjrks">
+					</div>
+				</label>	
 			</div>
 		</div>
 		<!-- 生产生活条件 -->
@@ -191,52 +233,62 @@
 			
 			<div class="listItem">
 				<div class="item border-b">
+				<label for="natualledit_dxzcjl">
 					<div class="name">D4 到行政村距离(公里)</div>
 					<div class="content" >
-						<input type="number" placeholder="请输入公里数" style="text-align: right; padding-right: -2rem;" ng-model="zrcDetails.list.dxzcjl">
+						<input id="natualledit_dxzcjl" type="number" placeholder="请输入公里数" style="text-align: right; padding-right: -2rem;" ng-model="zrcDetails.list.dxzcjl">
 					</div>
+				</label>	
 				</div>
 				
 				<div class="item border-b">
-					<div class="name"><label for="zrcroad">D5到行政村是否通沥青（水泥）路</label></div>
-					<div class="content">
-						<select name="" id="zrcroad"  ng-model="zrcDetails.list.dxzcsftlql">
-							<option value="是">是</option>
-							<option value="否">否</option>
-						</select>
-						<img src="../../assets/img/icon2_11@2x.png" alt="">
-					</div>
+					<label for="zrcroad">
+						<div class="name" >D5到行政村是否通沥青（水泥）路</div>
+						<div class="content"  style="width: .5rem; ">
+							<select name="" id="zrcroad"  ng-model="zrcDetails.list.dxzcsftlql">
+								<option value="是">是</option>
+								<option value="否">否</option>
+							</select>
+							<img src="./assets/img/icon2_11@2x.png" alt="">
+						</div>
+					</label>
 				</div>
 				<div class="item border-b">
-					<div class="name"><label for="zrcele">D6是否生产用电</lable></div>
-					<div class="content">
-						<select name="" id="zrcele" ng-model="zrcDetails.list.sftscyd">
-							<option value="是">是</option>
-							<option value="否">否</option>
-						</select>
-						<img src="../../assets/img/icon2_11@2x.png" alt="">
-					</div>
+					<label for="zrcele">
+						<div class="name">D6是否生产用电</div>
+						<div class="content">
+							<select name="" id="zrcele" ng-model="zrcDetails.list.sftscyd">
+								<option value="是">是</option>
+								<option value="否">否</option>
+							</select>
+							<img src="./assets/img/icon2_11@2x.png" alt="">
+						</div>
+					</label>	
 				</div>
 				<div class="item border-b">
-					<div class="name">D7是否生活用电</div>
-					<div class="content">
-						<select name="" id="" ng-model="zrcDetails.list.sftshyd">
-							<option value="是">是</option>
-							<option value="否">否</option>
-						</select>
-						<img src="../../assets/img/icon2_11@2x.png" alt="">
-					</div>
+					<label for="natualledit_sftshyd">
+						<div class="name">D7是否生活用电</div>
+						<div class="content">
+							<select name="" id="natualledit_sftshyd" ng-model="zrcDetails.list.sftshyd">
+								<option value="是">是</option>
+								<option value="否">否</option>
+							</select>
+							<img src="./assets/img/icon2_11@2x.png" alt="">
+						</div>
+					</label>	
 				</div>
 				
 				<div class="item border-b">
-					<div class="name">D8是否通宽带</div>
-					<div class="content">
-						<select name="" id="" ng-model="zrcDetails.list.sftkd">
-							<option value="是">是</option>
-							<option value="否">否</option>
-						</select>
-						<img src="../../assets/img/icon2_11@2x.png" alt="">
-					</div>
+					<label for="natualledit_sftkd">
+						<div class="name">D8是否通宽带</div>
+						<div class="content">
+							<select name="" id="natualledit_sftkd" ng-model="zrcDetails.list.sftkd">
+								<option value="是">是</option>
+								<option value="否">否</option>
+							</select>
+							<img src="./assets/img/icon2_11@2x.png" alt="">
+						</div>
+					</label>	
 				</div>
 			</div>
 

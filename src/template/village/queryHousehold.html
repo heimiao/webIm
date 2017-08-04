@@ -1,9 +1,9 @@
 <div> 
 		<div class="query">
 			<header>
-				<a href="javascript:history.go(-1)"><div class="back"><img src="../../assets/img/icon_28.png" alt=""></div></a>
+				<a href="javascript:history.go(-1)"><div class="back"><img src="./assets/img/icon_28.png" alt=""></div></a>
 				<div class="queryCon">
-					<img class="search" src="../../assets/img/search.png" alt="">
+					<img class="search" src="./assets/img/search.png" alt="">
 					<input type="text" placeholder="贫困户查询,输入姓名、证件号码" ng-model="queryHousehold.userName">
 				</div>
 				<div class="queryBtn" ng-click="queryHousehold.queryList()">
@@ -24,21 +24,21 @@
 							<option value="2019">2019</option>
 							<option value="2020">2020</option>
 						</select>
-						<img src="../../assets/img/icon2_11@2x.png" alt="">
+						<img src="./assets/img/icon2_11@2x.png" alt="">
 					</div>
 				</div>
 				<div class="item border-b">
 					<div class="yearName">乡镇</div>
 					<div class="year">
 						<select dir="rtl" class="selects" name="" id="qyxz" ng-model="queryHousehold.qyxz" ng-options="item.id as item.name for item in queryHousehold.townShip" ng-change="queryHousehold.changeTown()"></select>
-						<img src="../../assets/img/icon2_11@2x.png" alt="">
+						<img src="./assets/img/icon2_11@2x.png" alt="">
 					</div>
 				</div>
 				<div class="item border-b">
 					<div class="yearName">行政村</div>
 					<div class="year">
 						<select dir="rtl" class="selects" name="" id="qyxzc" ng-model="queryHousehold.qyxzc" ng-options="item.id as item.name for item in queryHousehold.villageListAll"></select>
-						<img src="../../assets/img/icon2_11@2x.png" alt="">
+						<img src="./assets/img/icon2_11@2x.png" alt="">
 					</div>
 				</div>
 			</div>

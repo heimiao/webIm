@@ -1,7 +1,7 @@
 	<div class="villageCollection projectAdd" style="background: #eee;">
 		<header>
 			<a href="javascript:history.go(-1)">
-				<div class="back"><img src="../../assets/img/icon_28.png" alt=""></div>
+				<div class="back"><img src="./assets/img/icon_28.png" alt=""></div>
 			</a>
 			<div class="collectionTitle">扶贫项目信息采集</div>
 		</header>
@@ -12,34 +12,34 @@
 				<div class="item border-b" style="">
 					<div class="name">乡镇</div>
 					<div class="content">
-						<select name="" id="">
-							<option value="">张北镇</option>
+						<select dir="rtl" name="" id="" ng-model="projectAddsjpkh.sendParam.qyxz" ng-change="projectAddsjpkh.changeTown()" ng-options="key.id as key.name for key in projectAddsjpkh.townShip">
 						</select>
-						<img src="../../assets/img/icon2_11@2x.png" alt="">
+						<!-- <img src="./assets/img/icon2_11@2x.png" alt=""> -->
 					</div>
 				</div>
-				
+
 				<div class="item border-b" style="">
 					<div class="name">行政村</div>
 					<div class="content">
-						<select name="" id="">
-							<option value="">二八地村</option>
+						<select dir="rtl" name="" id="" ng-model="projectAddsjpkh.sendParam.qyxzc" ng-options="key.id as key.name for key in projectAddsjpkh.villageListAll">
 						</select>
-						<img src="../../assets/img/icon2_11@2x.png" alt="">
+						<img src="./assets/img/icon2_11@2x.png" alt="">
 					</div>
 				</div>
+				
+				
 				
 				<div class="item border-b">
 					<div class="name">身份证号</div>
 					<div class="content" style=" width: 15rem;">
-						<input type="text" placeholder="32521192902010510" class="cjtsy sfcode" >
+						<input type="text" placeholder="请输入证件号" class="cjtsy sfcode" ng-model="projectAddsjpkh.sendParam.sfzh">
 					</div>
 				</div>
 				
 				<div class="item border-b">
 					<div class="name">收益金额</div>
 					<div class="content">
-						<input type="text" placeholder="1000" class="cjtsy" >
+						<input type="text" placeholder="请输入" class="cjtsy" ng-model="projectAddsjpkh.sendParam.syje">
 					</div>
 				</div>
 			
@@ -47,7 +47,7 @@
 		
 		</div>
 		<div class="footFill"></div>
-		<div class="foot">
+		<div class="foot" ng-click="projectAddsjpkh.addPkh()">
 			添加
 		</div>
 	</div>

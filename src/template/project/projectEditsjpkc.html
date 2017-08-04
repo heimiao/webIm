@@ -1,8 +1,8 @@
 
-	<div class="villageCollection projectAdd" style="background: #eee;">
+	 <div class="villageCollection projectAdd" style="background: #eee;">
 		<header>
 			<a href="javascript:history.go(-1)">
-				<div class="back"><img src="../../assets/img/icon_28.png" alt=""></div>
+				<div class="back"><img src="./assets/img/icon_28.png" alt=""></div>
 			</a>
 			<div class="collectionTitle">扶贫项目信息采集</div>
 		</header>
@@ -13,27 +13,25 @@
 				<div class="item border-b" style="">
 					<div class="name">乡镇</div>
 					<div class="content">
-						<select name="" id="">
-							<option value="">张北镇</option>
+						<select dir="rtl" name="" id="" ng-model="projectEditsjpkc.sendParam.qyxz" ng-change="projectEditsjpkc.changeTown()" ng-options="key.id as key.name for key in projectEditsjpkc.townShip">
 						</select>
-						<img src="../../assets/img/icon2_11@2x.png" alt="">
+						<!-- <img src="./assets/img/icon2_11@2x.png" alt=""> -->
 					</div>
 				</div>
 				
 				<div class="item border-b" style="">
 					<div class="name">行政村</div>
 					<div class="content">
-						<select name="" id="">
-							<option value="">二八地村</option>
+						<select dir="rtl" name="" id="" ng-model="projectEditsjpkc.sendParam.qyxzc" ng-options="key.id as key.name for key in projectEditsjpkc.villageListAll">
 						</select>
-						<img src="../../assets/img/icon2_11@2x.png" alt="">
+						<img src="./assets/img/icon2_11@2x.png" alt="">
 					</div>
 				</div>
 				
 				<div class="item border-b">
 					<div class="name">村集体收益</div>
 					<div class="content">
-						<input type="text" placeholder="1000" class="cjtsy" >
+						<input type="text" placeholder="请输入" class="cjtsy" ng-model="projectEditsjpkc.sendParam.syje">
 					</div>
 				</div>
 			
@@ -41,9 +39,8 @@
 		
 		</div>
 		<div class="footFill"></div>
-		<div class="foot">
+		<div class="foot" ng-click="projectEditsjpkc.saveBtn()">
 			保存
 		</div>
 	</div>
-	<script type="text/javascript" src="../../assets/lib/js/jquery.min.js"></script>
 	

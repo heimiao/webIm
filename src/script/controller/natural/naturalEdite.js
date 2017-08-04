@@ -118,7 +118,7 @@ myApp.controller("naturalEdite", ["$scope", "$state", "$http", "$stateParams",
 				}, function() {
 					console.log("取消按钮");
 					$state.go('naturalVillage');
-					//alert('上')
+					
 				});
 		 } 
 		
