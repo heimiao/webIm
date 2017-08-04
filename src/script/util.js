@@ -29,8 +29,52 @@
 				});
 			});
 			return aryA;
+		},
+		localCache: function(data) {
+			window.localStorage.setItem("low_family", data);
+		},
+		randomChat: function() {
+			var x = "0123456789qwertyuioplkjhgfdsazxcvbnm";
+			var tmp = "";
+			var timestamp = new Date().getTime();
+			for(var i = 0; i < 15; i++) {
+				tmp += x.charAt(Math.ceil(Math.random() * 100000000) % x.length);
+			}
+			return timestamp + tmp;
+		},
+		lineToLocalData: function(objA, objB) {
+			//按B的结构来把数组A给分拆开			
+			try {
+				if(typeof objA == "object") {
+					$.each(objB, function(index, item) {
+						for(var j in item) {
+							for(var it in objA) {
+								if(j == it) {
+									item[j] = objA[it];
+								}
+							}
+						}
+					});
+				}
+			} catch(e) {
+				console.error(e);
+			}
+			return objB;
+		},
+		isValid: function(obj) {
+			var bool = true;
+			if($.isEmptyObject(obj)) {
+				bool = false;
+			}
+			for(var i in obj) {
+				if(!obj[i]) {
+					bool = false;
+				}
+			}
+			return bool;
 		}
 	}
+
 	var methodAlert = {
 		options: {
 			title: "标题",
@@ -101,5 +145,3 @@
 	};
 	_w.fupin = fupin || {};
 }(window, jQuery));
-
- 

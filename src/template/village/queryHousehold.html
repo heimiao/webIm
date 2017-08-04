@@ -1,22 +1,28 @@
-<div>
+<div> 
 		<div class="query">
 			<header>
 				<a href="javascript:history.go(-1)"><div class="back"><img src="../../assets/img/icon_28.png" alt=""></div></a>
 				<div class="queryCon">
 					<img class="search" src="../../assets/img/search.png" alt="">
-					<input type="text" placeholder="贫困户查询,输入姓名、证件号码">
+					<input type="text" placeholder="贫困户查询,输入姓名、证件号码" ng-model="queryHousehold.userName">
 				</div>
-				<a href="#/queryHouseholdList"><div class="queryBtn">
+				<div class="queryBtn" ng-click="queryHousehold.queryList()">
 					查询
-				</div></a>
+				</div>
 			</header>
 			<div class="fill"></div>
 			<div class="conditionCon">
 				<div class="item border-b">
 					<div class="yearName">年度</div>
 					<div class="year">
-						<select name="" id="">
-							<option value="">2017</option>
+						<select dir="rtl" name="" id="nd" ng-model="queryHousehold.nd">
+							<option value="2014">2014</option>
+							<option value="2015">2015</option>
+							<option value="2016">2016</option>
+							<option value="2017">2017</option>
+							<option value="2018">2018</option>
+							<option value="2019">2019</option>
+							<option value="2020">2020</option>
 						</select>
 						<img src="../../assets/img/icon2_11@2x.png" alt="">
 					</div>
@@ -24,18 +30,14 @@
 				<div class="item border-b">
 					<div class="yearName">乡镇</div>
 					<div class="year">
-						<select name="" id="">
-							<option value="">张北镇</option>
-						</select>
+						<select dir="rtl" class="selects" name="" id="qyxz" ng-model="queryHousehold.qyxz" ng-options="item.id as item.name for item in queryHousehold.townShip" ng-change="queryHousehold.changeTown()"></select>
 						<img src="../../assets/img/icon2_11@2x.png" alt="">
 					</div>
 				</div>
 				<div class="item border-b">
 					<div class="yearName">行政村</div>
 					<div class="year">
-						<select name="" id="">
-							<option value="">二八地村</option>
-						</select>
+						<select dir="rtl" class="selects" name="" id="qyxzc" ng-model="queryHousehold.qyxzc" ng-options="item.id as item.name for item in queryHousehold.villageListAll"></select>
 						<img src="../../assets/img/icon2_11@2x.png" alt="">
 					</div>
 				</div>
@@ -44,30 +46,21 @@
 			<div class="dataState">
 				<div class="title border-b">数据状态</div>
 				<div class="tab" id="dataState">
-					<div class="tab1 bg">全部数据</div>
-					<div class="tab2">正确数据</div>
-					<div class="tab3">错误数据</div>
+					<div class="tab1 bg" data-type="3">全部数据</div>
+					<div class="tab2" data-type="0">正确数据</div>
+					<div class="tab3" data-type="1">错误数据</div>
 				</div>
 			</div>
 
 			<div class="poverty">
 				<div class="title border-b">脱贫情况</div>
 				<div class="tab" id="poverty">
-					<div class="statisticsNo bg">不选统计全部</div>
-					<div class="history">历史已脱贫贫困户</div>
-					<div class="tab1">返贫贫困户</div>
-					<div class="tab2">未脱贫贫困户</div>
-					<div class="tab3">新脱贫贫困户</div>
+					<div class="statisticsNo bg" data-type="0">不选统计全部</div>
+					<div class="history" data-type="03">历史已脱贫贫困户</div>
+					<div class="tab1" data-type="02">返贫贫困户</div>
+					<div class="tab2" data-type="04">未脱贫贫困户</div>
+					<div class="tab3" data-type="05">新脱贫贫困户</div>
 				</div>
 			</div>
 		</div>
-		<script type="text/javascript" src="../../assets/lib/js/jquery.min.js"></script>
-		<script>
-			$("#dataState div").click(function(){
-				$(this).addClass('bg').siblings().removeClass('bg');
-			})
-			$("#poverty div").click(function(){
-				$(this).addClass('bg').siblings().removeClass('bg');
-			})
-		</script>
 	</div>

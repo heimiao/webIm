@@ -14,13 +14,8 @@ myApp.controller("lowFamilyListCtro", ["$scope", "$state", "$filter", "$http", "
 	};
 	var all = {
 		name: "全部",
-		value: "",
-		id: ""
-	};
-
-	config.sysValue.year.splice(0, 0, all);
-	config.sysValue.dataStatus.splice(0, 0, all);
-	config.sysValue.tpqk.splice(0, 0, all);
+		value: ""
+	}
 	lowFamilyList.otherSelect = {
 		yearObj: config.sysValue.year,
 		dataStatusObj: config.sysValue.dataStatus,
