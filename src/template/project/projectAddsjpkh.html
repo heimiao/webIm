@@ -11,19 +11,17 @@
 			<div class="situation" >
 				<div class="item border-b" style="">
 					<div class="name">乡镇</div>
-					<div class="content">
-						<select name="" id="">
-							<option value="">张北镇</option>
+					<div class="content proselect" >
+						<select name="" id="" ng-model="projectAddsjpkh.sendParam.qyxz" ng-change="projectAddsjpkh.changeTown()" ng-options="key.id as key.name for key in projectAddsjpkh.townShip">
 						</select>
-						<img src="./assets/img/icon2_11@2x.png" alt="">
+						<img src="../../assets/img/icon2_11@2x.png" alt="" class="imgs">
 					</div>
 				</div>
 				
 				<div class="item border-b" style="">
 					<div class="name">行政村</div>
 					<div class="content">
-						<select name="" id="">
-							<option value="">二八地村</option>
+						<select name="" id="" ng-model="projectAddsjpkh.sendParam.qyxzc" ng-options="key.id as key.name for key in projectAddsjpkh.villageListAll">
 						</select>
 						<img src="./assets/img/icon2_11@2x.png" alt="">
 					</div>
@@ -39,7 +37,7 @@
 				<div class="item border-b">
 					<div class="name">收益金额</div>
 					<div class="content">
-						<input type="text" placeholder="1000" class="cjtsy" >
+						<input type="text" placeholder="1000" class="cjtsy" ng-model="projectAddsjpkh.sendParam.syje">
 					</div>
 				</div>
 			

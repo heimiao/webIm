@@ -31,6 +31,14 @@ body{
     padding: 0;
 }
 .naturalBasic{
+    label{
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+    .situation .item {
+        padding: 0.6rem .6rem 0.4rem 1rem;
+        overflow: hidden;
+    }
     .tab{
         margin: 0.5546666667rem;
         overflow: hidden;
