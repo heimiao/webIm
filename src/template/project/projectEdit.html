@@ -19,10 +19,10 @@
 				<div class="name">项目所属(可多选)</div>
 			</div>
 			<div class="projectss">
-				<div class="projectqk">贫困村项目</div>
+				<div class="projectqk selected">贫困村项目</div>
 				<div class="projectqk">贫困户项目</div>
 			</div>
-			<div class="item" style="">
+			<div class="item border-b" >
 				<div class="name">年度</div>
 				<div class="content">
 					<select name="" id="" ng-model="projectAdd.sendParam.nd">
@@ -39,24 +39,23 @@
 				</div>
 			</div>
 
-			<div class="item">
+			<div class="item border-b">
 				<div class="name">项目名称</div>
 				<div class="content">
 					<input type="text" placeholder="请输入项目名称">
 				</div>
 			</div>
 
-			<div class="item">
+			<div class="item border-b" >
 				<div class="name">项目类型</div>
 				<div class="content">
-					<select name="" id="">
-						<option value="">请选择</option>
+					<select name="" id="" ng-model="projectEdit.sendParam.xmlx" ng-options="key.id as key.name for key in projectEdit.xmleList" >
 					</select>
 					<img src="./assets/img/icon2_11@2x.png" alt="">
 				</div>
 			</div>
 
-			<div class="item border-b">
+			<div class="item">
 				<div class="name">投资金额</div>
 				<div class="content">
 					<input type="text" placeholder="请输入金额">
@@ -70,110 +69,66 @@
 				</div>
 			</div>
 
-			<div class="item border-b">
+			<div class="item ">
 				<div class="name">贷款金额</div>
 				<div class="content">
 					<input type="number" placeholder="请输入金额">
 				</div>
 			</div>
 			
-			<div class="item">
+			<div class="item border-b">
 				<div class="name">自筹金额</div>
 				<div class="content">
 					<input type="number" placeholder="请输入金额">
 				</div>
 			</div>
 	
-			<div class="item border-b">
+			<div class="item ">
 				<div class="name">项目地点</div>
 				<div class="content" style="width: 50%;">
-					<select name="" id="">
-						<option value="">张北镇 三八地村</option>
+					<select name="" id="" ng-model="projectEdit.sendParam.qyxz" ng-options="key.id as key.name for key in projectEdit.townShip" ng-change="projectEdit.changeTown()">
 					</select>
 					<img src="./assets/img/icon2_11@2x.png" alt="">
 				</div>
 			</div>
-			
+
 			<div class="item">
-				<div class="name">详细地址</div>
+				<!-- <div class="name">项目地点</div> -->
+				<div class="content" style="width: 50%;">
+					<select name="" id="" ng-model="projectEdit.sendParam.qyxzc" ng-options="key.id as key.name for key in projectEdit.villageListAll" >
+					</select>
+					<img src="./assets/img/icon2_11@2x.png" alt="">
+				</div>
+			</div>			
+			<div class="item border-b" >
+				<div class="name"></div>
 				<div class="content">
-					<input type="number" placeholder="请输入详细地址">
+					<input type="text" placeholder="请输入详细地址" ng-model="projectEdit.sendParam.xmdd">
 				</div>
 			</div>
 			
-			<div class="item">
+			<div class="item border-b">
 				<div class="name">实施主体</div>
 				<div class="content">
 					<input type="number" placeholder="请输入具体内容">
 				</div>
 			</div>
 			
-			<div class="item">
-				<div class="name">完成失效</div>
-				<div class="content">
-					<input type="number" placeholder="请输入具体内容">
-				</div>
-			</div>
-
-			<div class="item ">
-				<div class="name">扶贫模式</div>
-				<div class="content">
-					<select name="" id="">
-						<option value="">请选择</option>
-					</select>
-					<img src="./assets/img/icon2_11@2x.png" alt="">
-				</div>
-			</div>
 			
-			<div class="item border-b">
-				<div class="name">报送时间</div>
-				<div class="content">
-					<input type="number" placeholder="请输入时间">
-				</div>
-			</div>
-			
-			<div class="item ">
-				<div class="name">完成时间</div>
-				<div class="content">
-					<input type="number" placeholder="请输入时间">
-				</div>
-			</div>
-			
-			<div class="item proaddbottom">
-				<div class="name">报账时间</div>
-				<div class="content">
-					<input type="number" placeholder="请输入时间">
-				</div>
-			</div>
 			<!--文本框-->
 			<div class="projectcx">
-				<div class="projectcxText">扶贫成效</div>
-				<textarea></textarea>
+				<div class="projectcxText" >效益分析</div>
+				<textarea ng-model="projectEdit.sendParam.xmxy"></textarea>
 			</div>
 			
 			<div class="projectcx">
-				<div class="projectcxText">进度安排</div>
-				<textarea></textarea>
+				<div class="projectcxText">项目简介</div>
+				<textarea ng-model="projectEdit.sendParam.xmjj"></textarea>
 			</div>
-			
+
 			<div class="projectcx">
-				<div class="projectcxText">扶贫预期成效</div>
-				<textarea></textarea>
-			</div>
-			
-			<div class="projectcx">
-				<div class="projectcxText">报账金额</div>
-				<textarea></textarea>
-			</div>
-			
-			<div class="projectcx">
-				<div class="projectcxText">项目内容</div>
-				<textarea></textarea>
-			</div>
-			
-			<div class="projectcx">
-				<div class="projectcxText">进度情况</div>
-				<textarea></textarea>
+				<div class="projectcxText">项目进度</div>
+				<textarea ng-model="projectEdit.sendParam.xmjd"></textarea>
 			</div>
 			
 		</div>
@@ -256,10 +211,21 @@
 			数据上传
 		</div>
 	</div>
+	<style type="text/css">
+		.selected{
+			background-color: #ea3c4c;
+			color: #fff !important;
+		}
+	</style>
 	<script type="text/javascript" src="../../assets/lib/js/jquery.min.js"></script>
 	<script>
 		$("#tab div").click(function(){
 			$(this).addClass('bg').siblings().removeClass('bg');
 			$("#"+$(this).attr('data-type')).show().siblings().hide();
+		});
+		$(function(){
+			$(".projectss div").click(function(){
+				$(this).toggleClass('selected');
+			})
 		})
 	</script>
