@@ -16,7 +16,6 @@ myApp.controller("lowFamilyCausesCtro", ["$scope", "$rootScope", "$state", "$htt
 			zyzpyyList: config.sysValue.zyzpyy, //主要致贫原因
 		};
 
-		//判断本地是否有数据
 		lowFamilyCauses.verdictStorage = function(id) {
 			var data;
 			try {
@@ -40,8 +39,6 @@ myApp.controller("lowFamilyCausesCtro", ["$scope", "$rootScope", "$state", "$htt
 					var infoObj = lowFamilyCauses.verdictStorage(lowFamilyCauses.urlParam.id).povertyCauses_model;
 					lowFamilyCauses.formInfo = infoObj
 					lowFamilyCauses.oldObj = infoObj;
-//					console.log(lowFamilyCauses.formInfo);
-					
 				} else {
 					console.log("从数据库获取数据");
 					if(lowFamilyCauses.urlParam.type == "net") {

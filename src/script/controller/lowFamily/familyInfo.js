@@ -219,10 +219,38 @@ myApp.controller("addFamilyMemberCtro", ["$scope", "$rootScope", "$state", "$htt
 				type: addFamilyMember.urlParam.type
 			});
 		}
-
+		
 		addFamilyMember.uploadPic = function() {
+			var file = $scope.testFile;
+			file.upload = Upload.upload({
+				url: config.path.uploadHead,
+				data: {
+					headImg: file
+				}
+			});
+			file.upload.then(function(response) {
+				try {
+					addFamilyMember.getHead(response.data.results.id);
+				} catch(e) {
+					//TODO handle the exception
+				}
+				$scope.testFile = "";
+				$timeout(function() {
+					file.result = response.data;
+				});
+			}, function(response) {
+				if(response.status > 0)
+					$scope.errorMsg = response.status + ': ' + response.data;
+			}, function(evt) {
+				// Math.min is to fix IE which reports 200% sometimes
+				file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+			});
+		}
+
+		/*addFamilyMember.uploadPic = function() {
 			try {
 				var file = $scope.upladHeadPic;
+				console.log(file);
 				file.upload = Upload.upload({
 					url: config.path.uploadHead,
 					dataAll: {
@@ -250,7 +278,7 @@ myApp.controller("addFamilyMemberCtro", ["$scope", "$rootScope", "$state", "$htt
 					file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
 				});
 			} catch(e) {}
-		}
+		}*/
 
 		addFamilyMember.getHead = function(id) {
 			addFamilyMember.formInfo.pkhjc_fj_id = id;

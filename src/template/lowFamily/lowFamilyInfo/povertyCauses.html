@@ -8,7 +8,7 @@
 			<div class="zpyyzy">
 				<div class="zpyyTitlecrap">
 					<div class="zpyyTitle">A22主要致贫原因<span>(单选)<span></div></div>
-							<div class="check_radio" checkbox-radio >
+							<div class="check_radio" checkbox-radios >
 								<label class="default"><input type="radio"  name="zyzpyy" value="01" ng-model="lowFamilyCauses.formInfo.zyzpyy"/>因病</label>
 								<label class="default"><input type="radio"  name="zyzpyy" value="02" ng-model="lowFamilyCauses.formInfo.zyzpyy"/>因残</label>
 								<label class="default"><input type="radio"  name="zyzpyy" value="03" ng-model="lowFamilyCauses.formInfo.zyzpyy"/>因学</label>
@@ -23,10 +23,9 @@
 							</div>
 						</div>
 						<div class="zpyyLine"></div>
-						
 						<div class="zpyyzy" style="padding-bottom: 10rem;">
 							<div class="zpyyTitlecrap"><div class="zpyyTitle">A23其他致贫原因<span>(最多选俩项)<span></div></div>
-							<div class="check_radio" checkbox-radio data-max=2> 
+							<div class="check_radio" checkbox-radios> 
 								<label class="default"><input type="checkbox" value="y"   ng-model="lowFamilyCauses.formInfo.zpyy_q_yb"  ng-disabled="lowFamilyCauses.formInfo.zyzpyy=='01'"  my-disable="lowFamilyCauses.formInfo.zyzpyy=='01'" />因病</label>
 								<label class="default"><input type="checkbox" value="y"   ng-model="lowFamilyCauses.formInfo.zpyy_q_yc"  ng-disabled="lowFamilyCauses.formInfo.zyzpyy=='02'"  my-disable="lowFamilyCauses.formInfo.zyzpyy=='02'" />因残</label>
 								<label class="default"><input type="checkbox" value="y"   ng-model="lowFamilyCauses.formInfo.zpyy_q_yx"  ng-disabled="lowFamilyCauses.formInfo.zyzpyy=='03'"  my-disable="lowFamilyCauses.formInfo.zyzpyy=='03'" />因学</label>
