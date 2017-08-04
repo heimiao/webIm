@@ -29,19 +29,20 @@ myApp.controller("lowFamilyDraftCtro", ["$scope", "$state", "$filter", "$http", 
 				})
 			})
 		}
-		
+
 		//获取当前用户信息  
 		dt.request({
 			rqstName: "low_family", //'low_family', 'low_village', 'nature_village', 'relief_project'
 			type: "select", //select,delete,put,selectById,
 			success: function(args) {
+				console.log(args);
 				lowFamilyDraft.list = args;
 				//调用镇
 				if(JSON.stringify(lowFamilyDraft.townList) == "{}") {
 					lowFamilyDraft.getTownVillages("01", "qyxz");
 				} else {
 					lowFamilyDraft.list = lowFamilyDraft.list.map(function(item, index, array) {
-						return fupin.mapArray(item, lowFamilyDraft.townList, "qyxz", "id");
+						return fupin.mapArray(item.baseInfo_model, lowFamilyDraft.townList, "qyxz", "id");
 					})
 				}
 				//调用村
@@ -49,7 +50,7 @@ myApp.controller("lowFamilyDraftCtro", ["$scope", "$state", "$filter", "$http", 
 					lowFamilyDraft.getTownVillages("02", "qyxzc");
 				} else {
 					lowFamilyDraft.list = lowFamilyDraft.list.map(function(item, index, array) {
-						return fupin.mapArray(item, lowFamilyDraft.townList, "qyxzc", "id");
+						return fupin.mapArray(item.baseInfo_model, lowFamilyDraft.townList, "qyxzc", "id");
 					})
 				}
 			},

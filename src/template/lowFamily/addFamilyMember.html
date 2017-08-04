@@ -1,267 +1,252 @@
 <div class="">
 	<header>
 		<a href="javascript:history.go(-1)">
-			<div class="back"><img src="../../assets/img/icon_28.png" alt=""></div>
+			<div class="back"><img src="./assets/img/icon_28.png" alt=""></div>
 		</a>
 		<div class="collectionTitle">贫困户信息采集</div>
 	</header>
 	<div class="fill"></div>
-	<!--<div class="container-fluid pkhcj">
-		<div class="cheader " style="padding: 0;">
-			<div class="pfanhui pull-left" onclick="javascript:history.go(-1)">
-				<img src="../../assets/img/icon_28.png" />
-			</div>
-			<div class="pname text-center ">贫困用户信息采集</div>
-			<div class="panniu cd-nav-trigger">Menu<span></span></div>
-		</div>
-	</div> -->
 	<!--  家庭信息 -->
 	<section class="cd-section index cd-selected">
 		<div class="cd-content villageCollection">
 			<div class="pkhcjTitle" id="pkhjbxx">
 				<p class="pull-left"></p><span>家庭成员信息</span>
 			</div>
-			
 			<div class="addPerson situation">
 				<form action="" method="post">
 					<div class="item border-b">
 						<div class="name" style="padding-top:2rem">设置头像</div>
 						<div class="content">
 							<div class="uploadPic">
-								<input type="file" />
-								<img src="../../assets/img/head.png" alt="" style="width:100%;height:100%;" />
+								<input type="file" type="file" ngf-select ng-model="upladHeadPic" name="headImg" accept="image/jpg,image/jpeg,image/png" ngf-max-size="2MB" ngf-model-invalid="errorFiles" ng-change="addFamilyMember.uploadPic()" />
+								<img ng-src="{{addFamilyMember.otherSelect.headUrl||'./assets/img/head.png'}}" alt="" style="width:100%;height:100%;" />
 							</div>
-							<img src="../../assets/img/icon2_11@2x.png" alt="">
+							<img src="./assets/img/icon2_11@2x.png" alt="">
 						</div>
 					</div>
-					<div class="item border-b">
+					<!--<div class="item border-b">
 						<div class="name">户籍号</div>
 						<div class="content">
-							<input type="text" placeholder="户籍号">
+							<input type="text" placeholder="户籍号" ng-model="addFamilyMember.formInfo">
 						</div>
-					</div>
+					</div>-->
 					<div class="item border-b">
 						<div class="name">A1姓名</div>
 						<div class="content">
-							<input type="text" placeholder="A1姓名">
+							<input type="text" placeholder="A1姓名" ng-model="addFamilyMember.formInfo.xm">
 						</div>
 					</div>
 					<div class="item border-b">
 						<div class="name">A2性别</div>
 						<div class="content">
-							<select name="" id="">
-								<option value="">男</option>
-								<option value="">女</option>
+							<select name="" id="" ng-model="addFamilyMember.formInfo.xb">
+								<option value=""></option>
+								<option value="男">男</option>
+								<option value="女">女</option>
 							</select>
-							<img src="../../assets/img/icon2_11@2x.png" alt="">
+							<img src="./assets/img/icon2_11@2x.png" alt="">
 						</div>
 					</div>
 					<div class="item border-b">
 						<div class="name">A2证件号码</div>
 						<div class="content">
-							<input type="text" placeholder="A2证件号码">
+							<input type="text" placeholder="A2证件号码" ng-model="addFamilyMember.formInfo.zjhm">
 						</div>
 					</div>
 					<div class="item border-b">
 						<div class="name">H14年龄</div>
 						<div class="content">
-							<input type="number" placeholder="H14年龄">
+							<input type="number" placeholder="H14年龄" ng-model="addFamilyMember.formInfo.nl">
 						</div>
 					</div>
 					<div class="item border-b">
 						<div class="name">A4与户主关系</div>
 						<div class="content">
-							<select name="" id="">
-								<option value="">配偶</option>
+							<select name="" id="" ng-model="addFamilyMember.formInfo.yhzgx" ng-options="item.id as item.name for item in addFamilyMember.otherSelect.yhzgxList">
+								<option value=""></option>
 							</select>
-							<img src="../../assets/img/icon2_11@2x.png" alt="">
+							<img src="./assets/img/icon2_11@2x.png" alt="">
 						</div>
 					</div>
 					<div class="item border-b">
 						<div class="name">A5民族</div>
 						<div class="content">
-							<select name="" id="">
-								<option value="">汉</option>
+							<select name="" id="" ng-model="addFamilyMember.formInfo.mz" ng-options="item.id as item.name for item in addFamilyMember.otherSelect.mzList">
+								<option value=""></option>
 							</select>
-							<img src="../../assets/img/icon2_11@2x.png" alt="">
+							<img src="./assets/img/icon2_11@2x.png" alt="">
 						</div>
 					</div>
 					<div class="item border-b">
 						<div class="name">A6政治面貌</div>
 						<div class="content">
-							<select name="" id="">
-								<option value="">群众</option>
+							<select name="" id="" ng-model="addFamilyMember.formInfo.zzmm" ng-options="item.id as item.name for item in addFamilyMember.otherSelect.zzmmList">
+								<option value=""></option>
 							</select>
-							<img src="../../assets/img/icon2_11@2x.png" alt="">
+							<img src="./assets/img/icon2_11@2x.png" alt="">
 						</div>
 					</div>
 					<div class="item border-b">
 						<div class="name">A7文化程度</div>
 						<div class="content">
-							<select name="" id="">
-								<option value="">初中</option>
+							<select name="" id="" ng-model="addFamilyMember.formInfo.whcd" ng-options="item.id as item.name for item in addFamilyMember.otherSelect.whcdList">
+								<option value=""></option>
 							</select>
-							<img src="../../assets/img/icon2_11@2x.png" alt="">
+							<img src="./assets/img/icon2_11@2x.png" alt="">
 						</div>
 					</div>
 					<div class="item border-b">
 						<div class="name">A8在校生情况</div>
 						<div class="content">
-							<select name="" id="">
-								<option value="">良好</option>
+							<select name="" id="" ng-model="addFamilyMember.formInfo.zxsqk" ng-options="item.id as item.name for item in addFamilyMember.otherSelect.zxqkList">
+								<option value=""></option>
 							</select>
-							<img src="../../assets/img/icon2_11@2x.png" alt="">
+							<img src="./assets/img/icon2_11@2x.png" alt="">
 						</div>
 					</div>
 					<div class="item border-b">
 						<div class="name">A9健康状况</div>
 						<div class="content">
-							<select name="" id="">
-								<option value="">良好</option>
+							<select name="" id="" ng-model="addFamilyMember.formInfo.jkzk" ng-options="item.id as item.name for item in addFamilyMember.otherSelect.jkzkList">
+								<option value=""></option>
 							</select>
-							<img src="../../assets/img/icon2_11@2x.png" alt="">
-						</div>
-					</div>
-					<div class="item border-b">
-						<div class="name">A9健康状况</div>
-						<div class="content">
-							<select name="" id="">
-								<option value="">良好</option>
-							</select>
-							<img src="../../assets/img/icon2_11@2x.png" alt="">
+							<img src="./assets/img/icon2_11@2x.png" alt="">
 						</div>
 					</div>
 					<div class="item border-b">
 						<div class="name">A10劳动技能</div>
 						<div class="content">
-							<select name="" id="">
-								<option value="">良好</option>
+							<select name="" id="" ng-model="addFamilyMember.formInfo.ldjl" ng-options="item.id as item.name for item in addFamilyMember.otherSelect.ldjnList">
+								<option value=""></option>
 							</select>
-							<img src="../../assets/img/icon2_11@2x.png" alt="">
+							<img src="./assets/img/icon2_11@2x.png" alt="">
 						</div>
 					</div>
 					<div class="item border-b">
 						<div class="name">A11务工情况</div>
 						<div class="content">
-							<select name="" id="">
-								<option value="">良好</option>
+							<select name="" id="" ng-model="addFamilyMember.formInfo.lwqk" ng-options="item.id as item.name for item in addFamilyMember.otherSelect.wgqkList">
+								<option value=""></option>
 							</select>
-							<img src="../../assets/img/icon2_11@2x.png" alt="">
+							<img src="./assets/img/icon2_11@2x.png" alt="">
 						</div>
 					</div>
 					<div class="item border-b">
 						<div class="name">A12务工时间</div>
 						<div class="content">
-							<select name="" id="">
+							<select name="" id="" ng-model="addFamilyMember.formInfo.wgsj">
 								<option value="">良好</option>
 							</select>
-							<img src="../../assets/img/icon2_11@2x.png" alt="">
+							<img src="./assets/img/icon2_11@2x.png" alt="">
 						</div>
 					</div>
 					<div class="item border-b">
 						<div class="name">务工地点</div>
 						<div class="content">
-							<input type="text" placeholder="务工地点" />
+							<input type="text" placeholder="务工地点" ng-model="addFamilyMember.formInfo.wgdd" />
 						</div>
 					</div>
 					<div class="item border-b">
 						<div class="name">企业名称</div>
 						<div class="content">
-							<input type="text" placeholder="企业名称" />
+							<input type="text" placeholder="企业名称" ng-model="addFamilyMember.formInfo.qymc" />
 						</div>
 					</div>
 					<div class="item border-b">
 						<div class="name">联系电话</div>
 						<div class="content">
-							<input type="number" placeholder="联系电话" />
+							<input type="number" placeholder="联系电话" ng-model="addFamilyMember.formInfo.lxdh" />
 						</div>
 					</div>
 					<div class="item border-b">
 						<div class="name">A13是否现役军人</div>
 						<div class="content">
-							<select name="" id="">
-								<option value="">否</option>
+							<select name="" id="" ng-model="addFamilyMember.formInfo.sfxyjr">
+								<option value=""></option>
+								<option value="是">是</option>
+								<option value="否">否</option>
 							</select>
-							<img src="../../assets/img/icon2_11@2x.png" alt="">
+							<img src="./assets/img/icon2_11@2x.png" alt="">
 						</div>
 					</div>
 					<div class="item border-b">
 						<div class="name">A14是否参加大病医疗保险</div>
 						<div class="content">
-							<select name="" id="">
-								<option value="">否</option>
+							<select name="" id="" ng-model="addFamilyMember.formInfo.sfcjdbylbx">
+								<option value=""></option>
+								<option value="是">是</option>
+								<option value="否">否</option>
 							</select>
-							<img src="../../assets/img/icon2_11@2x.png" alt="">
+							<img src="./assets/img/icon2_11@2x.png" alt="">
 						</div>
 					</div>
 					<div class="item border-b">
 						<div class="name">H1是否参加新型农村合作医疗</div>
 						<div class="content">
-							<select name="" id="">
-								<option value="">否</option>
+							<select name="" id="" ng-model="addFamilyMember.formInfo.sfcjxxnchzyl">
+								<option value=""></option>
+								<option value="是">是</option>
+								<option value="否">否</option>
 							</select>
-							<img src="../../assets/img/icon2_11@2x.png" alt="">
+							<img src="./assets/img/icon2_11@2x.png" alt="">
 						</div>
 					</div>
 					<div class="item border-b">
 						<div class="name">H2是否参加城乡居民基本养老保险</div>
 						<div class="content">
-							<select name="" id="">
-								<option value="">否</option>
+							<select name="" id="" ng-model="addFamilyMember.formInfo.sfcjcxjmjbylbx">
+								<option value=""></option>
+								<option value="是">是</option>
+								<option value="否">否</option>
 							</select>
-							<img src="../../assets/img/icon2_11@2x.png" alt="">
-						</div>
-					</div>
-					<div class="item border-b">
-						<div class="name">H2是否参加城乡居民基本养老保险</div>
-						<div class="content">
-							<select name="" id="">
-								<option value="">否</option>
-							</select>
-							<img src="../../assets/img/icon2_11@2x.png" alt="">
+							<img src="./assets/img/icon2_11@2x.png" alt="">
 						</div>
 					</div>
 					<div class="item border-b">
 						<div class="name">H3是否因贫辍学</div>
 						<div class="content">
-							<select name="" id="">
-								<option value="">否</option>
+							<select name="" id="" ng-model="addFamilyMember.formInfo.sfypcx">
+								<option value=""></option>
+								<option value="是">是</option>
+								<option value="否">否</option>
 							</select>
-							<img src="../../assets/img/icon2_11@2x.png" alt="">
+							<img src="./assets/img/icon2_11@2x.png" alt="">
 						</div>
 					</div>
 					<div class="item border-b">
 						<div class="name">H4贫困人口类型</div>
 						<div class="content">
-							<select name="" id="">
-								<option value="">否</option>
+							<select name="" id="" ng-model="addFamilyMember.formInfo.pkhlx" ng-options="item.id as item.name for item in addFamilyMember.otherSelect.pkrklxList">
+								<option value=""></option>
 							</select>
-							<img src="../../assets/img/icon2_11@2x.png" alt="">
+							<img src="./assets/img/icon2_11@2x.png" alt="">
 						</div>
 					</div>
 					<div class="item border-b">
 						<div class="name">H5是否常住人口</div>
 						<div class="content">
-							<select name="" id="">
-								<option value="">是</option>
+							<select name="" id="" ng-model="addFamilyMember.formInfo.sfczrk">
+								<option value=""></option>
+								<option value="是">是</option>
+								<option value="否">否</option>
 							</select>
-							<img src="../../assets/img/icon2_11@2x.png" alt="">
+							<img src="./assets/img/icon2_11@2x.png" alt="">
 						</div>
 					</div>
-					<div class="item border-b">
+					<div class="item border-b" style="margin-bottom:3.5rem;">
 						<div class="name">H6人员变更</div>
 						<div class="content">
-							<select name="" id="">
-								<option value="">是</option>
+							<select name="" id="" ng-model="addFamilyMember.formInfo.rybg" ng-options="item.id as item.name for item in addFamilyMember.otherSelect.rybgList">
+								<option value=""></option>
 							</select>
-							<img src="../../assets/img/icon2_11@2x.png" alt="">
+							<img src="./assets/img/icon2_11@2x.png" alt="">
 						</div>
 					</div>
 				</form>
 			</div>
 		</div>
 		<nav class="navbar-fixed-bottom">
-			<button class="btn btnpkc">保存</button>
+			<button class="btn btnpkc" ng-click="addFamilyMember.saveForm()">保存</button>
 		</nav>
 	</section>
 </div>

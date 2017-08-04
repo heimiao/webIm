@@ -6,6 +6,11 @@ var config = {
 		//贫困村
 		lowFamilyList: "/pkh/queryForPage", //贫困活列表
 		lowFamilyById: "/pkh/queryForId", //获取贫困户信息
+
+		getLowFamilyList: "/pkhjc/queryForList", //获取家庭成员列表
+		uploadHead: "/pkhjcfj/upload", //上传头像
+		getUploadHead: "/pkhjcfj/showpic", //获取头像
+
 		assistPersonById: "/bfdx/queryForList", //帮扶人信息
 		login: "/dotpalogin",
 		getAddress: "/zcjg/queryForZc", //获取地址
@@ -624,6 +629,20 @@ var config = {
 			value: "07",
 			name: "五保-集中供养"
 		}],
+		//低保贫困类型
+		DBPKLX: [{
+			value: "02",
+			name: "低保-A类"
+		}, {
+			value: "03",
+			name: "低保-B类"
+		}, {
+			value: "04",
+			name: "低保-C类"
+		}, {
+			value: "05",
+			name: "低保-D类"
+		}],
 		//人员变更
 		RYBG: [{
 				value: "01",
@@ -839,31 +858,31 @@ var config = {
 		],
 		year: [{
 				name: "2013",
-				value: "01",
+				value: "2013",
 			},
 			{
 				name: "2014",
-				value: "02",
+				value: "2014",
 			},
 			{
 				name: "2015",
-				value: "03",
+				value: "2015",
 			},
 			{
 				name: "2016",
-				value: "04",
+				value: "2016",
 			},
 			{
 				name: "2017",
-				value: "05",
+				value: "2017",
 			},
 			{
 				name: "2018",
-				value: "06",
+				value: "2018",
 			},
 			{
 				name: "2019",
-				value: "07",
+				value: "2019",
 			},
 		]
 	}
