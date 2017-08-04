@@ -16,8 +16,6 @@ myApp.controller("householdDetail", ["$scope", "$state", "$http", "$stateParams"
 					queryHouseholdDetail.naturlListAll = res;
 					queryHouseholdDetail.getData(); //首页加载列表数据
 				})
-				
-				
 			})
 		})
 		queryHouseholdDetail.getData = function(){
