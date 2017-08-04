@@ -28,10 +28,10 @@ myApp.directive('mySelect', [function() {
 			myInit: "@",
 		},
 		template: '<div>' +
-			'<div  class="township">' +
+			'<div  class="township poorMa">' +
 			'<span class="name" ng-bind="myInit">全部行政村</span><span class="triangle"></span>' +
 			'</div>' +
-			'<div class="townshipList">' +
+			'<div class="townshipList townMa">' +
 			'<div id="">全部</div>' +
 			'</div>' +
 			'</div>',

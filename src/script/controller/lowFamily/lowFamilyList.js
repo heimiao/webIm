@@ -56,7 +56,7 @@ myApp.controller("lowFamilyListCtro", ["$scope", "$state", "$filter", "$http", "
 			}
 		}
 		var sumSendParam = angular.extend({}, lowFamilyList.page, lowFamilyList.sendParam)
-		//获取当前用户信息  
+		//获取当前用户信息   
 		postForm.saveFrm(config.path.lowFamilyList, sumSendParam).success(function(data) {
 			var pretreatmentAry = data.results;
 			pretreatmentAry = fupin.mapArray(pretreatmentAry, config.sysValue.bhksx, "bhksx", "value");
@@ -103,8 +103,28 @@ myApp.controller("lowFamilyListCtro", ["$scope", "$state", "$filter", "$http", "
 	}
 
 	//根据乡镇获取对应村庄
-	lowFamilyList.getVillagesByTown = function(id) {
-		lowFamilyList.sendParam.qyxzc = "";
+	// lowFamilyList.getVillagesByTown = function(id) {
+	// 	lowFamilyList.sendParam.qyxzc = "";
+	// 	postForm.saveFrm(config.path.townShip, {
+	// 		lx: "02",
+	// 		fid: id
+	// 	}).success(function(data) {
+	// 		lowFamilyList.town_VillagesList = data;
+	// 		lowFamilyList.town_VillagesList.splice(0, 0, all)
+	// 	})
+	// }
+
+	lowFamilyList.getVillagesId = function(id) {
+		//console.log(lowFamilyList.sendParam);
+	}
+
+	//选择乡镇
+	lowFamilyList.getVillagesByTown = function(name, id) {
+		lowFamilyList.sendParam.qyxzc = id;
+		$("#township .name").html(name)
+		$(".townshipList").slideUp(200)
+		$("#township").removeClass("township2")
+		$("#township .name").removeClass("col-ea3c4c")
 		postForm.saveFrm(config.path.townShip, {
 			lx: "02",
 			fid: id
@@ -113,9 +133,13 @@ myApp.controller("lowFamilyListCtro", ["$scope", "$state", "$filter", "$http", "
 			lowFamilyList.town_VillagesList.splice(0, 0, all)
 		})
 	}
-
-	lowFamilyList.getVillagesId = function(id) {
-		//console.log(lowFamilyList.sendParam);
+	//选择村
+	lowFamilyList.getVillagesId= function(name, id){
+		lowFamilyList.sendParam.qyxzc = id;
+		$("#village .name").html(name)
+		$(".villageList").slideUp(200)
+		$("#village").removeClass("township2")
+		$("#village .name").removeClass("col-ea3c4c")
 	}
 
 	//调用列表

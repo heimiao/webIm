@@ -1,7 +1,7 @@
 <div class="villageCollection">
 		<header>
 			<a href="javascript:history.go(-1)">
-				<div class="back"><img src="../../assets/img/icon_28.png" alt=""></div>
+				<div class="back"><img src="./assets/img/icon_28.png" alt=""></div>
 			</a>
 			<div class="collectionTitle">贫困村信息采集</div>
 		</header>
@@ -18,7 +18,7 @@
 			<div class="queryVillageDetails">
 				<div class="villageCon border-b">
 					<div class="title">
-						<img src="../../assets/img/ios_line@2X.png" alt="">
+						<img src="./assets/img/ios_line@2X.png" alt="">
 						<span class="titles" ng-bind="queryVillageDetail.detailList.nd"></span>
 					</div>
 					<div class="villageName" ng-bind="queryVillageDetail.detailList.qyxzc"></div>
@@ -30,16 +30,16 @@
 				</div>
 				<div class="villageInfo">
 					<div class="infoItem">
-						<img src="../../assets/img/circular1.png" alt="">
+						<img src="./assets/img/circular1.png" alt="">
 						<span ng-bind="queryVillageDetail.detailList.qyxz+queryVillageDetail.detailList.qyxzc"></span>
 					</div>
 					<div class="infoItem">
-						<img src="../../assets/img/circular2.png" alt="">
+						<img src="./assets/img/circular2.png" alt="">
 						<span ng-bind="'村负责人: '+queryVillageDetail.detailList.cfzr"></span>
 						<span ng-bind="'职务级别: '+queryVillageDetail.detailList.zwjb"></span>
 					</div>
 					<div class="infoItem">
-						<img src="../../assets/img/circular3.png" alt="">
+						<img src="./assets/img/circular3.png" alt="">
 						<span ng-bind="'村办公电话: '+queryVillageDetail.detailList.cbgdh"></span>
 					</div>
 				</div>
@@ -248,7 +248,7 @@
 		<div class="development" id="development">
 			<div class="listItem">
 				<div class="title">
-					<img src="../../assets/img/ios_line@2X.png" alt="">
+					<img src="./assets/img/ios_line@2X.png" alt="">
 					<span class="titles">收入情况</span>
 				</div>
 				<div class="item border-b">
@@ -273,7 +273,7 @@
 
 			<div class="listItem">
 				<div class="title">
-					<img src="../../assets/img/ios_line@2X.png" alt="">
+					<img src="./assets/img/ios_line@2X.png" alt="">
 					<span class="titles">社会保障</span>
 				</div>
 				<div class="item border-b">
@@ -298,7 +298,7 @@
 
 			<div class="listItem">
 				<div class="title">
-					<img src="../../assets/img/ios_line@2X.png" alt="">
+					<img src="./assets/img/ios_line@2X.png" alt="">
 					<span class="titles">村级道路畅通</span>
 				</div>
 				<div class="item border-b">
@@ -341,7 +341,7 @@
 
 			<div class="listItem">
 				<div class="title">
-					<img src="../../assets/img/ios_line@2X.png" alt="">
+					<img src="./assets/img/ios_line@2X.png" alt="">
 					<span class="titles">饮水安全</span>
 				</div>
 				<div class="item border-b">
@@ -366,7 +366,7 @@
 
 			<div class="listItem">
 				<div class="title">
-					<img src="../../assets/img/ios_line@2X.png" alt="">
+					<img src="./assets/img/ios_line@2X.png" alt="">
 					<span class="titles">农村电力保障</span>
 				</div>
 				<div class="item border-b">
@@ -397,7 +397,7 @@
 
 			<div class="listItem">
 				<div class="title">
-					<img src="../../assets/img/ios_line@2X.png" alt="">
+					<img src="./assets/img/ios_line@2X.png" alt="">
 					<span class="titles">危房改造</span>
 				</div>
 				<div class="item border-b">
@@ -410,7 +410,7 @@
 			
 			<div class="listItem">
 				<div class="title">
-					<img src="../../assets/img/ios_line@2X.png" alt="">
+					<img src="./assets/img/ios_line@2X.png" alt="">
 					<span class="titles">特色产业增收</span>
 				</div>
 				<div class="item border-b">
@@ -429,7 +429,7 @@
 
 			<div class="listItem">
 				<div class="title">
-					<img src="../../assets/img/ios_line@2X.png" alt="">
+					<img src="./assets/img/ios_line@2X.png" alt="">
 					<span class="titles">乡村旅游</span>
 				</div>
 				<div class="item border-b">
@@ -460,7 +460,7 @@
 
 			<div class="listItem">
 				<div class="title">
-					<img src="../../assets/img/ios_line@2X.png" alt="">
+					<img src="./assets/img/ios_line@2X.png" alt="">
 					<span class="titles">卫生和计划生育</span>
 				</div>
 				<div class="item border-b">
@@ -509,7 +509,7 @@
 
 			<div class="listItem">
 				<div class="title">
-					<img src="../../assets/img/ios_line@2X.png" alt="">
+					<img src="./assets/img/ios_line@2X.png" alt="">
 					<span class="titles">文化建设</span>
 				</div>
 				<div class="item border-b">
@@ -570,7 +570,7 @@
 
 			<div class="listItem">
 				<div class="title">
-					<img src="../../assets/img/ios_line@2X.png" alt="">
+					<img src="./assets/img/ios_line@2X.png" alt="">
 					<span class="titles">贫困村信息化</span>
 				</div>
 				<div class="item border-b">
@@ -686,13 +686,3 @@
 			</div> -->
 		</div>
 	</div>
-	<script type="text/javascript" src="../../assets/lib/js/jquery.min.js"></script>
-	<script>
-		$("#tab div").click(function(){
-			$(this).addClass('bg').siblings().removeClass('bg');
-			$("#"+$(this).attr('data-type')).show().siblings().hide();
-		})
-		function taskForceDetail(){
-			location.href= 'queryTaskForceDetail.html';
-		}
-	</script>
