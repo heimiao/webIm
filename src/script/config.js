@@ -27,6 +27,10 @@ var config = {
 		editVillageCollection: "/pkc/queryForId?id=", //获取贫困村的详情
 		updateVillage: "/pkc/update", //更新贫困村的信息
 		getTaskForce: "/zcgzdqk/queryForList?fid=", //获取工作队的情况
+		queryXmxxDetail: "/xmxx/queryForId", //项目信息的详情
+		queryXmxxpkh: "/xmxxpkh/queryForList", //查询项目信息贫困户
+		queryXmxxpkc: "/xmxxpkc/queryForList", //查询项目信息贫困村
+		queryZjzdXmlx: "/zjzd/queryForList", //查询项目类型接口 
 	},
 	changePath: function(args) {
 		var ary = {},
