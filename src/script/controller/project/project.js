@@ -5,6 +5,15 @@ myApp.controller("project", ["$scope", "$state", "$http", "$stateParams","postFo
 		project.sendParam = {};
 		project.sendParam.time=null;
 		project.list = {};
+
+
+		// 清除数据
+		window.localStorage.removeItem("projectSituationList");
+		window.localStorage.removeItem("projectGetpkclist");
+		window.localStorage.removeItem("projectGetpkclist");
+		window.localStorage.removeItem("projectType");
+		window.localStorage.removeItem("projectGetpkclistName");
+		window.localStorage.removeItem("projectGetpkhlistName");
 		//获取项目采集列表
 		project.getxmcj=function(){
 			project.canshu = {

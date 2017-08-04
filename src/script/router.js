@@ -232,14 +232,14 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 
 		//扶贫项目新增
 		.state('projectAdd', {
-			url: '/project_Add?id&type',
-			controller: "projectAddxz",
+			url: '/projectAdd?id&type',
+			controller: "projectAdd",
 			templateUrl: 'dist/template/project/projectAdd.html'
 		})
 
 		//扶贫项目草稿
 		.state('projectDraft', {
-			url: '/project_Draft?id&type',
+			url: '/projectDraft?id&type',
 			controller: "projectDraft",
 			templateUrl: 'dist/template/project/projectDraft.html'
 		})
@@ -252,14 +252,14 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 		})
 		//扶贫项目 新增 涉及贫困村
 		.state('projectAddsjpkc', {
-			url: '/project_Addsjpkc?id&type',
+			url: '/projectAddsjpkc?id&type',
 			controller: "projectAddsjpkc",
 			templateUrl: 'dist/template/project/projectAddsjpkc.html'
 		})
 
 		//扶贫项目 新增 涉及贫困户
 		.state('projectAddsjpkh', {
-			url: '/project_Addsjpkh?id&type',
+			url: '/projectAddsjpkh?id&type',
 			controller: "projectAddsjpkh",
 			templateUrl: 'dist/template/project/projectAddsjpkh.html'
 		})
@@ -273,7 +273,7 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 
 		//扶贫项目 编辑 涉及贫困村
 		.state('projectEditsjpkc', {
-			url: '/project_Editsjpkc?id&type',
+			url: '/projectEditsjpkc?idx',
 			controller: "projectEditsjpkc",
 			templateUrl: 'dist/template/project/projectEditsjpkc.html'
 		})

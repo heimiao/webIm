@@ -21,6 +21,7 @@ var config = {
 		projectAdda:"/xmxx/add",//新增扶贫项目
 		projectsjzd:"/zjzd/queryForList?lx=09", //数据字典取项目类型
 		projectaddsjpkca:"/xmxxpkc/addXmxxpkc", //添加扶贫项目涉及贫困村
+		projectaddsjpkha: "/xmxxpkh/addXmxxpkh", //添加扶贫项目贫困户
 		getprojectaddsjpkca:"/xmxxpkc/queryForList",//获取添加扶贫项目涉及贫困村
 
 
