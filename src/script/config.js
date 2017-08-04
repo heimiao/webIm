@@ -17,6 +17,7 @@ var config = {
 		//扶贫项目
 		projectList:"/xmxx/queryForPage",//扶贫项目列表
 		projectAdda:"/xmxx/add",//新增扶贫项目
+		projectaddsjpkca:"/xmxxpkc/addXmxxpkc", //添加扶贫项目涉及贫困村
 
 		townShip: "/zcjg/queryForZc?lx=01", //获取乡镇列表
 		villageAll: "/zcjg/queryForZc?lx=02", //获取所有行政村列表

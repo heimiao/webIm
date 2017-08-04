@@ -3,6 +3,8 @@ myApp.controller("projectAddxz", ["$scope", "$state", "$http", "$stateParams","p
 		var projectAdd = {} || projectAdd;
 		projectAdd.urlParam = $stateParams;
 		projectAdd.sendParam = {};
+		projectAdd.townShip = []; //全部乡镇列表
+		projectAdd.villageListAll = []; //获取全部行政村
 		//添加扶贫项目
 		projectAdd.tianjia=function(){
 			postForm.saveFrm(config.path.projectAdda,projectAdd.sendParam)
@@ -13,6 +15,24 @@ myApp.controller("projectAddxz", ["$scope", "$state", "$http", "$stateParams","p
 		}
 
 
+		// 获取所有乡镇
+		$http.post(config.path.townShip,null).success(function(res){
+			projectAdd.townShip = res;
+			projectAdd.sendParam.qyxz=res[0].id;
+			projectAdd.getVillageList(res[0].id, 1); //获取乡镇对应的行政村
+		})
+		// 获取所有行政村
+		projectAdd.getVillageList= function(id, num){
+			$http.post(config.path.villageAll+"&fid="+id,null).success(function(res){
+				projectAdd.sendParam.qyxzc = res[0].id;
+				projectAdd.villageListAll = res;
+			})
+		}
+
+		// 乡镇变化行政村跟随变化
+		projectAdd.changeTown=function(){
+			projectAdd.getVillageList(projectAdd.sendParam.qyxz, 1); //获取乡镇对应的行政村
+		}
 
 
 

@@ -90,8 +90,7 @@
 			<div class="item ">
 				<div class="name">项目地点</div>
 				<div class="content" style="width: 50%;">
-					<select name="" id="" ng-model="projectAdd.sendParam.xmdd">
-						<option value="">张北镇</option>
+					<select name="" id="" ng-model="projectAdd.sendParam.qyxz" ng-options="key.id as key.name for key in projectAdd.townShip" ng-change="projectAdd.changeTown()">
 					</select>
 					<img src="../../assets/img/icon2_11@2x.png" alt="">
 				</div>
@@ -100,8 +99,7 @@
 			<div class="item">
 				<!-- <div class="name">项目地点</div> -->
 				<div class="content" style="width: 50%;">
-					<select name="" id="" ng-model="projectAdd.sendParam.xmdd">
-						<option value="">张北镇</option>
+					<select name="" id="" ng-model="projectAdd.sendParam.qyxzc" ng-options="key.id as key.name for key in projectAdd.villageListAll" >
 					</select>
 					<img src="../../assets/img/icon2_11@2x.png" alt="">
 				</div>
@@ -109,7 +107,7 @@
 			<div class="item border-b" >
 				<div class="name"></div>
 				<div class="content">
-					<input type="number" placeholder="请输入详细地址" ng-model="projectAdd.sendParam.xmdd">
+					<input type="text" placeholder="请输入详细地址" ng-model="projectAdd.sendParam.xmdd">
 				</div>
 			</div>
 			
@@ -120,73 +118,21 @@
 				</div>
 			</div>
 			
-			<!-- <div class="item">
-				<div class="name">完成失效</div>
-				<div class="content">
-					<input type="number" placeholder="请输入具体内容">
-				</div>
-			</div> -->
-
-			<!-- <div class="item ">
-				<div class="name">扶贫模式</div>
-				<div class="content">
-					<select name="" id="">
-						<option value="">请选择</option>
-					</select>
-					<img src="../../assets/img/icon2_11@2x.png" alt="">
-				</div>
-			</div> -->
-			
-			<!-- <div class="item border-b">
-				<div class="name">报送时间</div>
-				<div class="content">
-					<input type="number" placeholder="请输入时间">
-				</div>
-			</div>
-			
-			<div class="item ">
-				<div class="name">完成时间</div>
-				<div class="content">
-					<input type="number" placeholder="请输入时间">
-				</div>
-			</div>
-			
-			<div class="item proaddbottom">
-				<div class="name">报账时间</div>
-				<div class="content">
-					<input type="number" placeholder="请输入时间">
-				</div>
-			</div> -->
 			<!--文本框-->
 			<div class="projectcx">
-				<div class="projectcxText">效益分析</div>
-				<textarea></textarea>
+				<div class="projectcxText" >效益分析</div>
+				<textarea ng-model="projectAdd.sendParam.xmxy"></textarea>
 			</div>
 			
 			<div class="projectcx">
 				<div class="projectcxText">项目简介</div>
-				<textarea></textarea>
+				<textarea ng-model="projectAdd.sendParam.xmjj"></textarea>
 			</div>
-			
-			<!-- <div class="projectcx">
-				<div class="projectcxText">扶贫预期成效</div>
-				<textarea></textarea>
-			</div>
-			
+
 			<div class="projectcx">
-				<div class="projectcxText">报账金额</div>
-				<textarea></textarea>
+				<div class="projectcxText">项目进度</div>
+				<textarea ng-model="projectAdd.sendParam.xmjd"></textarea>
 			</div>
-			
-			<div class="projectcx">
-				<div class="projectcxText">项目内容</div>
-				<textarea></textarea>
-			</div>
-			
-			<div class="projectcx">
-				<div class="projectcxText">进度情况</div>
-				<textarea></textarea>
-			</div> -->
 			
 		</div>
 		<!-- 涉及贫困村 -->
