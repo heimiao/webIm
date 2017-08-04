@@ -16,7 +16,7 @@ myApp.controller("project", ["$scope", "$state", "$http", "$stateParams","postFo
 			};
 			
 			project.page = {
-				limit:10,
+				limit:30,
 				start:0
 			};
 			var sunParm=angular.extend({},project.canshu,project.page)

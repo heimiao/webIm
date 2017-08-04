@@ -1,7 +1,7 @@
 <div class="villageCollection projectAdd">
 		<header>
 			<a href="javascript:history.go(-1)">
-				<div class="back"><img src="../../assets/img/icon_28.png" alt=""></div>
+				<div class="back"><img src="./assets/img/icon_28.png" alt=""></div>
 			</a>
 			<div class="collectionTitle">扶贫项目信息采集</div>
 		</header>
@@ -18,12 +18,8 @@
 				<div class="name">项目所属(可多选)</div>
 			</div>
 			<div class="projectss" >
-				<label>
-					<input type="checkbox" ng-model="projectAdd.sendParam.pkcxm">贫困村项目
-				</label>
-				<label>
-					<input type="checkbox" ng-model="projectAdd.sendParam.pkhxm"  >贫困户项目
-				</label>
+				<div class="projectqk selected" id="xzsjpkc" ng-model="projectAdd.sendParam.pkcxm" >贫困村项目</div>
+				<div class="projectqk" id="xzsjpkh" ng-model="projectAdd.sendParam.pkhxm">贫困户项目</div>
 			</div>
 			<div class="item" style="">
 				<div class="name">年度</div>
@@ -38,10 +34,9 @@
 						<option value="2019">2019</option>
 						<option value="2020">2020</option>
 					</select>
-					<img src="../../assets/img/icon2_11@2x.png" alt="">
+					<img src="./assets/img/icon2_11@2x.png" alt="">
 				</div>
 			</div>
-
 			<div class="item">
 				<div class="name">项目名称</div>
 				<div class="content">
@@ -52,10 +47,9 @@
 			<div class="item">
 				<div class="name">项目类型</div>
 				<div class="content">
-					<select name="" id="" ng-model="projectAdd.sendParam.xmlx">
-						<option value="">请选择</option>
+					<select name="" id="" ng-model="projectAdd.sendParam.xmlx" ng-options="key.id as key.name for key in projectAdd.xmleList" >
 					</select>
-					<img src="../../assets/img/icon2_11@2x.png" alt="">
+					<img src="./assets/img/icon2_11@2x.png" alt="">
 				</div>
 			</div>
 
@@ -90,26 +84,24 @@
 			<div class="item ">
 				<div class="name">项目地点</div>
 				<div class="content" style="width: 50%;">
-					<select name="" id="" ng-model="projectAdd.sendParam.xmdd">
-						<option value="">张北镇</option>
+					<select name="" id="" ng-model="projectAdd.sendParam.qyxz" ng-options="key.id as key.name for key in projectAdd.townShip" ng-change="projectAdd.changeTown()">
 					</select>
-					<img src="../../assets/img/icon2_11@2x.png" alt="">
+					<img src="./assets/img/icon2_11@2x.png" alt="">
 				</div>
 			</div>
 
 			<div class="item">
 				<!-- <div class="name">项目地点</div> -->
 				<div class="content" style="width: 50%;">
-					<select name="" id="" ng-model="projectAdd.sendParam.xmdd">
-						<option value="">张北镇</option>
+					<select name="" id="" ng-model="projectAdd.sendParam.qyxzc" ng-options="key.id as key.name for key in projectAdd.villageListAll" >
 					</select>
-					<img src="../../assets/img/icon2_11@2x.png" alt="">
+					<img src="./assets/img/icon2_11@2x.png" alt="">
 				</div>
 			</div>			
 			<div class="item border-b" >
 				<div class="name"></div>
 				<div class="content">
-					<input type="number" placeholder="请输入详细地址" ng-model="projectAdd.sendParam.xmdd">
+					<input type="text" placeholder="请输入详细地址" ng-model="projectAdd.sendParam.xmdd">
 				</div>
 			</div>
 			
@@ -120,73 +112,21 @@
 				</div>
 			</div>
 			
-			<!-- <div class="item">
-				<div class="name">完成失效</div>
-				<div class="content">
-					<input type="number" placeholder="请输入具体内容">
-				</div>
-			</div> -->
-
-			<!-- <div class="item ">
-				<div class="name">扶贫模式</div>
-				<div class="content">
-					<select name="" id="">
-						<option value="">请选择</option>
-					</select>
-					<img src="../../assets/img/icon2_11@2x.png" alt="">
-				</div>
-			</div> -->
-			
-			<!-- <div class="item border-b">
-				<div class="name">报送时间</div>
-				<div class="content">
-					<input type="number" placeholder="请输入时间">
-				</div>
-			</div>
-			
-			<div class="item ">
-				<div class="name">完成时间</div>
-				<div class="content">
-					<input type="number" placeholder="请输入时间">
-				</div>
-			</div>
-			
-			<div class="item proaddbottom">
-				<div class="name">报账时间</div>
-				<div class="content">
-					<input type="number" placeholder="请输入时间">
-				</div>
-			</div> -->
 			<!--文本框-->
 			<div class="projectcx">
-				<div class="projectcxText">效益分析</div>
-				<textarea></textarea>
+				<div class="projectcxText" >效益分析</div>
+				<textarea ng-model="projectAdd.sendParam.xmxy"></textarea>
 			</div>
 			
 			<div class="projectcx">
 				<div class="projectcxText">项目简介</div>
-				<textarea></textarea>
+				<textarea ng-model="projectAdd.sendParam.xmjj"></textarea>
 			</div>
-			
-			<!-- <div class="projectcx">
-				<div class="projectcxText">扶贫预期成效</div>
-				<textarea></textarea>
-			</div>
-			
+
 			<div class="projectcx">
-				<div class="projectcxText">报账金额</div>
-				<textarea></textarea>
+				<div class="projectcxText">项目进度</div>
+				<textarea ng-model="projectAdd.sendParam.xmjd"></textarea>
 			</div>
-			
-			<div class="projectcx">
-				<div class="projectcxText">项目内容</div>
-				<textarea></textarea>
-			</div>
-			
-			<div class="projectcx">
-				<div class="projectcxText">进度情况</div>
-				<textarea></textarea>
-			</div> -->
 			
 		</div>
 		<!-- 涉及贫困村 -->
@@ -200,27 +140,18 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr onclick="location.href='#/project_Editsjpkc'">
-						<td class="text-center">白庙滩乡1</td>
-						<td class="text-center">二八地村</td>
-						<td class="text-center">10000</td>
+					<tr ng-repeat="item in projectAdd.getpkclist">
+						<td class="text-center" ng-bind="item.qyxz"></td>
+						<td class="text-center" ng-bind="item.qyxzc"></td>
+						<td class="text-center" ng-bind="item.syje"></td>
 					</tr>
-					<tr>
-						<td class="text-center">白庙滩乡</td>
-						<td class="text-center">二八地村</td>
-						<td class="text-center">10000</td>
-					</tr>
-					<tr>
-						<td class="text-center">白庙滩乡</td>
-						<td class="text-center">二八地村</td>
-						<td class="text-center">10000</td>
-					</tr>
+					
 					
 				</tbody>
 				
 			</table>
 			<div class="addsjpkc">
-				<button><a href="#/project_Addsjpkc">+添加涉及贫困村</a></button>
+				<button><a ui-sref="projectAddsjpkc({id:projectAdd.id})">+添加涉及贫困村</a></button>
 			</div>
 			
 		</div>
@@ -268,10 +199,22 @@
 			数据上传
 		</div>
 	</div>
+	<style type="text/css">
+		.selected{
+			background-color: #ea3c4c;
+			color: #fff !important;
+		}
+	</style>
 	<script type="text/javascript" src="../../assets/lib/js/jquery.min.js"></script>
 	<script>
 		$("#tab div").click(function(){
 			$(this).addClass('bg').siblings().removeClass('bg');
 			$("#"+$(this).attr('data-type')).show().siblings().hide();
+		})
+		
+		$(function(){
+			$(".projectss div").click(function(){
+				$(this).toggleClass('selected');
+			})
 		})
 	</script>
