@@ -2,13 +2,11 @@
 	<div>
 		<div class="query queryNatural">
 			<header>
-				<a href="javascript:history.go(-1)"><div class="back"><img src="../../assets/img/icon_28.png" alt=""></div></a>
-				<div class="queryCon">
-					<img class="search" src="../../assets/img/search.png" alt="">
-					<input type="text" placeholder="自然村查询,输入组号或负责人">
-				</div>
-				<div class="queryBtn">
-					<a href="#/queryNatural_Result">查询</a>
+				<a href="javascript:history.go(-1)"><div class="back"><img src="./assets/img/icon_28.png" alt=""></div></a>
+				<div class="collectionTitle">自然村数据查询</div>
+				<!-- queryNatural_Result  -->
+				<div class="queryBtn" ng-click="queryNatural.queryList()">
+					查询
 				</div>
 			</header>
 			<div class="fill"></div>
@@ -16,57 +14,19 @@
 				<div class="item border-b">
 					<div class="yearName">年度</div>
 					<div class="year">
-						<select name="" id="">
-							<option value="">2017</option>
+						<select dir="rtl" name="" id="nd" ng-model="queryNatural.nd">
+							<option value="2014">2014</option>
+							<option value="2015">2015</option>
+							<option value="2016">2016</option>
+							<option value="2017">2017</option>
+							<option value="2018">2018</option>
+							<option value="2019">2019</option>
+							<option value="2020">2020</option>
 						</select>
-						<img src="../../assets/img/icon2_11@2x.png" alt="">
+						<img src="./assets/img/icon2_11@2x.png" alt="">
 					</div>
-				</div>
-				<div class="item border-b">
-					<div class="yearName">乡镇</div>
-					<div class="year">
-						<select name="" id="">
-							<option value="">张北镇</option>
-						</select>
-						<img src="../../assets/img/icon2_11@2x.png" alt="">
-					</div>
-				</div>
-				<div class="item border-b">
-					<div class="yearName">行政村</div>
-					<div class="year">
-						<select name="" id="">
-							<option value="">二八地村</option>
-						</select>
-						<img src="../../assets/img/icon2_11@2x.png" alt="">
-					</div>
-				</div>
-				<div class="item border-b">
-					<div class="yearName">自然村（屯）</div>
-					<div class="year">
-						<select name="" id="">
-							<option value="">二八地村</option>
-						</select>
-						<img src="../../assets/img/icon2_11@2x.png" alt="">
-					</div>
-				</div>
-			</div>
-
-			<div class="attribute">
-				<div class="title border-b">脱贫情况</div>
-				<div class="tab" id="attribute" >
-					<div class="tab1 bg">不选统计全部</div>
-					<div class="tab2">历史已脱贫贫困户</div>
-					<div class="tab3">返贫贫困户</div>
-					<div class="tab4">未脱贫贫困户</div>
-					<div class="tab5">新脱贫贫困户</div>
 				</div>
 			</div>
 		</div>
-		<script type="text/javascript" src="../../assets/lib/js/jquery.min.js"></script>
-		<script>
-			$("#attribute div").click(function(){
-				$(this).addClass('bg').siblings().removeClass('bg');
-			})
-		</script>
 	</div>
 

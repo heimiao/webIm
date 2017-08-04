@@ -618,7 +618,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-show="queryVillageDetail.taskForceList.length>0" ng-repeat="item in queryVillageDetail.taskForceList" ui-sref="queryTaskForceDetail({id:queryVillageDetail.detailId})">
+				<tr ng-show="queryVillageDetail.taskForceList.length>0" ng-repeat="item in queryVillageDetail.taskForceList" ui-sref="queryTaskForceDetail({id:queryVillageDetail.detailId,idx:$index})">
 					<td class="text-center" ng-bind="item.bfdwzcgzdyxm"></td>
 					<td class="text-center" ng-bind="item.lxdh"></td>
 					<td class="text-center" ng-bind="item.zcsjb"></td>

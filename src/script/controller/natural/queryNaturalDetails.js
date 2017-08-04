@@ -3,24 +3,31 @@ myApp.controller("queryNaturalDetails", ["$scope", "$state", "$http", "$statePar
 		var queryNaturalDetails = {} || queryNaturalDetails;
 		queryNaturalDetails.urlParam = $stateParams;
 		queryNaturalDetails.sendParam = {};
-
-		lowFamilyInfo.uploadSource = function() {
-			console.log(12123123);
-
-			//根据贫困户id
+		queryNaturalDetails.detailId= $stateParams.detailId;
+		// 获取所有行政村
+		$http.post(config.path.villageAll,null).success(function(res){
+			queryNaturalDetails.villageListAll = res;
+			$http.post(config.path.xingzhengName+'?lx=03',null).success(function(res){
+				queryNaturalDetails.naturlListAll = res;
+				queryNaturalDetails.getDetail(); //首页加载列表数据
+			})
+		})
+		queryNaturalDetails.getDetail= function(){
+			$http.post(config.path.zrcDetails+"?id="+queryNaturalDetails.detailId,null).success(function(res){
+				for(var i=0;i<queryNaturalDetails.villageListAll.length;i++){
+					if(res.lsxzc == queryNaturalDetails.villageListAll[i].id){
+						res.lsxzc = queryNaturalDetails.villageListAll[i].name
+					}
+				}
+				for(var i=0;i<queryNaturalDetails.naturlListAll.length;i++){
+					if(res.zrcmc == queryNaturalDetails.naturlListAll[i].id){
+						res.zrcmc = queryNaturalDetails.naturlListAll[i].name
+					}
+				}
+				queryNaturalDetails.sendParam = res;
+			})
 		}
 
-		console.log(queryNaturalDetails.urlParam);
-
-		/*lowFamilyInfo.menu=false;
-		lowFamilyInfo.changeMenu=function(args){
-			lowFamilyInfo.menu=args;
-			console.log(lowFamilyInfo.menu);
-		}*/
-
-		//调用列表
-		//		$state.go('lowFamily.baseInfo'); //默认显示第一个tab
-		//根据角色遍历响应的菜单
 		$scope.queryNaturalDetails = queryNaturalDetails;
 	}
 ]);
