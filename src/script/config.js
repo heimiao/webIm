@@ -1,11 +1,7 @@
 var baseUrl = 'http://123.58.240.75:8081/tpa';
 var config = {
 	//请求路径
-<<<<<<< HEAD
 	getbaseUrl: baseUrl + '/zjzd/getBaseUrlList?lx=11',
-=======
-	getbaseUrl: baseUrl + '/zjzd/getBaseUrlList?lx=11', 
->>>>>>> a821da20238ec0c4010412c8be0cca9b7a0e995f
 	path: {
 		//贫困村
 		lowFamilyList: "/pkh/queryForPage", //贫困活列表
