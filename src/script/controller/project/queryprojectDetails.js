@@ -14,7 +14,7 @@ myApp.controller("queryprojectDetails", ["$scope", "$state", "$http", "$statePar
 			$http.post(config.path.villageAll,null).success(function(res){
 				queryprojectDetails.villageListAll = res;
 				//获取项目类型queryZjzdXmlx
-				$http.post(config.path.queryZjzdXmlx+"?lx=09",null).success(function(res){
+				$http.post(config.path.queryZjzdXmlx,null).success(function(res){
 					queryprojectDetails.xmlx = res;
 					queryprojectDetails.getData(); //首页加载列表数据
 				})
@@ -35,6 +35,9 @@ myApp.controller("queryprojectDetails", ["$scope", "$state", "$http", "$statePar
 				for(var i=0;i<queryprojectDetails.xmlx.length;i++){
 					if(res.xmlx == queryprojectDetails.xmlx[i].id){
 						res.xmlx = queryprojectDetails.xmlx[i].name
+					}
+					if(res.xmjd == queryprojectDetails.xmlx[i].id){
+						res.xmjd = queryprojectDetails.xmlx[i].name
 					}
 				}
 				queryprojectDetails.info = res;
