@@ -5,13 +5,8 @@ myApp.controller("projectAddxz", ["$scope", "$state", "$http", "$stateParams","p
 		projectAdd.sendParam = {};
 		projectAdd.townShip = []; //全部乡镇列表
 		projectAdd.villageListAll = []; //获取全部行政村
-		projectAdd.villageListAlls = [];
-		projectAdd.xmleList=[];  //项目类型
-		projectAdd.id=[];
 		//添加扶贫项目
-		
 		projectAdd.tianjia=function(){
-
 			//判断贫困村项目
 					if($("#xzsjpkc").hasClass('selected')){
 						projectAdd.sendParam.pkcxm='Y'
@@ -24,16 +19,10 @@ myApp.controller("projectAddxz", ["$scope", "$state", "$http", "$stateParams","p
 					}else{
 						projectAdd.sendParam.pkhxm='N'
 					};
-			if(projectAdd.sendParam.xmmc==''||projectAdd.sendParam.xmmc==null){
-				alert('项目名称不能为空')
-			}else{
-				postForm.saveFrm(config.path.projectAdda,projectAdd.sendParam)
-				.success(function(res){
-					 projectAdd.id=res.results.id;
-					 projectAdd.getprojectaddsjpkca()
-					// alert(projectAdd.id)
-				})
-			}
+			postForm.saveFrm(config.path.projectAdda,projectAdd.sendParam)
+			.success(function(res){
+				console.log(res);
+			})
 		}
 
 
@@ -66,42 +55,11 @@ myApp.controller("projectAddxz", ["$scope", "$state", "$http", "$stateParams","p
 		}
 		projectAdd.getpeojectlx()
 
-		// 获取所有行政村
-		projectAdd.getVillageList1= function(){
-			$http.post(config.path.villageAll,null).success(function(res){
-				projectAdd.villageListAlls = res;
-				//alert(JSON.stringify(projectAdd.villageListAlls))
-				projectAdd.getprojectaddsjpkca()
-			})
-		}
 
-		projectAdd.getVillageList1();
 
-		//获取添加扶贫项目涉及贫困村
-		projectAdd.getprojectaddsjpkca= function(){
-			projectAdd.sendParam.xmxxid=projectAdd.id;
-			postForm.saveFrm(config.path.getprojectaddsjpkca,projectAdd.sendParam)
-				.success(function(res){
-						//获取乡镇
-					for(var r=0;r<res.length;r++){
-						for(var i=0;i<projectAdd.townShip.length;i++){
-							if(res[r].qyxz == projectAdd.townShip[i].id){
-								res[r].qyxz = projectAdd.townShip[i].name;
-							}
-						}
-					};
-					//获取行政村
-					for(var r=0;r<res.length;r++){
-						for(var i=0;i<projectAdd.villageListAlls.length;i++){
-							if(res[r].qyxzc == projectAdd.villageListAlls[i].id){
-								res[r].qyxzc = projectAdd.villageListAlls[i].name;
-							}
-						}
-					};
-					projectAdd.getpkclist=res;
-				})
-		}
-		projectAdd.getprojectaddsjpkca()
+
+
+
 
 
 

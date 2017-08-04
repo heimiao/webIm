@@ -1,4 +1,4 @@
-myApp.controller("projectAddxz", ["$scope", "$state", "$http", "$stateParams","postForm",
+myApp.controller("projectAddxz123", ["$scope", "$state", "$http", "$stateParams","postForm",
 	function($scope, $state, $http, $stateParams,postForm) {
 		var projectAdd = {} || projectAdd;
 		projectAdd.urlParam = $stateParams;
