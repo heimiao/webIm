@@ -79,16 +79,20 @@ myApp.controller("projectAdd", ["$scope", "$state", "$http", "$stateParams","pos
 
 		//添加扶贫项目
 		projectAdd.tianjia=function(){
+			if(!projectAdd.sendParam.xmmc){
+				fupin.alert("请完善基本情况中的信息")
+				return;
+			}
 			projectAdd.addAll();
 			postForm.saveFrm(config.path.projectAdda, projectAdd.addProjectSituationList).success(function(res){
 				projectAdd.xmxxId = res.results.id;
 
 				postForm.saveFrm(config.path.projectaddsjpkca, {"data": JSON.stringify(projectAdd.addpkclist), "xmxxid": projectAdd.xmxxId}).success(function(res){
-					
+					postForm.saveFrm(config.path.projectaddsjpkha, {"data": JSON.stringify(projectAdd.addpkhlist), "xmxxid": projectAdd.xmxxId}).success(function(res){
+						window.history.back();
+					})
 				})
-				postForm.saveFrm(config.path.projectaddsjpkha, {"data": JSON.stringify(projectAdd.addpkhlist), "xmxxid": projectAdd.xmxxId}).success(function(res){
-
-				})
+				
 			}).error(function(){
 				//保存草稿
 				dt.request({
@@ -102,7 +106,7 @@ myApp.controller("projectAdd", ["$scope", "$state", "$http", "$stateParams","pos
 						'pkhlistName': JSON.parse(window.localStorage.getItem("projectGetpkhlistName")),
 					},
 					success: function(args) {
-						// console.log(args);
+						window.history.back();
 					},
 					'error': function(args) {
 

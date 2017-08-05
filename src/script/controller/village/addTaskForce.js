@@ -9,7 +9,11 @@ myApp.controller("addTaskForce", ["$scope", "$state", "$http", "$stateParams",
 		addTaskForce.sfdysj = "是"; //默认值
 		addTaskForce.alert = false; //弹窗显示
 		addTaskForce.addTask=function(){
-			var taskForce= window.localStorage.getItem("taskForceList")?JSON.parse(window.localStorage.getItem("taskForceList")):[];
+			if(window.localStorage.getItem("taskForceList") != 'null' && window.localStorage.getItem("taskForceList") != '' && window.localStorage.getItem("taskForceList") != undefined && window.localStorage.getItem("taskForceList") != null){
+				var taskForce= window.localStorage.getItem("taskForceList")
+			}else{
+				var taskForce= [];
+			}
 				taskForce.push({
 					'bfdwzcgzdyxm':addTaskForce.bfdwzcgzdyxm,
 					'zzmm':addTaskForce.zzmm,

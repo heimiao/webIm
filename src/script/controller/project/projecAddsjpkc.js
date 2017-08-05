@@ -36,9 +36,19 @@ myApp.controller("projectAddsjpkc", ["$scope", "$state", "$http", "$stateParams"
 					projectAddsjpkc.qyxzcName = projectAddsjpkc.villageListAll[i].name;
 				}
 			}
-			var addPkc= window.localStorage.getItem("projectGetpkclist")?JSON.parse(window.localStorage.getItem("projectGetpkclist")):[];
+			if(window.localStorage.getItem("projectGetpkclist") != 'null' && window.localStorage.getItem("projectGetpkclist") != '' && window.localStorage.getItem("projectGetpkclist") != undefined && window.localStorage.getItem("projectGetpkclist") != null){
+				var addPkc= JSON.parse(window.localStorage.getItem("projectGetpkclist"))
+			}else{
+				var addPkc= [];
+			}
+			if(window.localStorage.getItem("projectGetpkclistName") != 'null' && window.localStorage.getItem("projectGetpkclistName") != '' && window.localStorage.getItem("projectGetpkclistName") != undefined && window.localStorage.getItem("projectGetpkclistName") != null){
+				var addpkcName= JSON.parse(window.localStorage.getItem("projectGetpkclistName"));
+			}else{
+				var addpkcName= [];
+			}
+			// var addPkc= window.localStorage.getItem("projectGetpkclist")?JSON.parse(window.localStorage.getItem("projectGetpkclist")):[];
 				addPkc.push(projectAddsjpkc.sendParam);
-			var addpkcName = window.localStorage.getItem("projectGetpkclistName")?JSON.parse(window.localStorage.getItem("projectGetpkclistName")):[];
+			// var addpkcName = window.localStorage.getItem("projectGetpkclistName")?JSON.parse(window.localStorage.getItem("projectGetpkclistName")):[];
 				addpkcName.push({
 					'qyzcName': projectAddsjpkc.qyzcName,
 					'qyxzcName': projectAddsjpkc.qyxzcName,

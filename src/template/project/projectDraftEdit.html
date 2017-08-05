@@ -1,9 +1,7 @@
 
 	<div class="villageCollection projectAdd">
 		<header>
-			<a href="javascript:history.go(-1)">
-				<div class="back"><img src="./assets/img/icon_28.png" alt=""></div>
-			</a>
+			<div class="back" ng-click="projectDraftEdit.back()"><img src="./assets/img/icon_28.png" alt=""></div>
 			<div class="collectionTitle">扶贫项目信息采集</div>
 		</header>
 		<div class="fill"></div>
@@ -18,117 +16,138 @@
 			<div class="item border-b">
 				<div class="name">项目所属(可多选)</div>
 			</div>
-			<div class="projectss">
-				<div class="projectqk selected">贫困村项目</div>
-				<div class="projectqk">贫困户项目</div>
+			<div class="projectss" id="projectDraftEdits">
+				<div class="projectqk" id="xzsjpkc" ng-model="projectDraftEdit.sendParam.pkcxm" >贫困村项目</div>
+				<div class="projectqk" id="xzsjpkh" ng-model="projectDraftEdit.sendParam.pkhxm">贫困户项目</div>
 			</div>
 			<div class="item border-b" >
-				<div class="name">年度</div>
-				<div class="content">
-					<select name="" id="" ng-model="projectAdd.sendParam.nd">
-						<option value="" class="" selected="selected">请选择年份</option>
-						<option value="2014">2014</option>
-						<option value="2015">2015</option>
-						<option value="2016">2016</option>
-						<option value="2017">2017</option>
-						<option value="2018">2018</option>
-						<option value="2019">2019</option>
-						<option value="2020">2020</option>
-					</select>
-					<img src="./assets/img/icon2_11@2x.png" alt="">
-				</div>
+				<lable for="projectDraftEditnd">
+					<div class="name">年度</div>
+					<div class="content">
+						<select name="" id="projectDraftEditnd" ng-model="projectDraftEdit.sendParam.nd">
+							<option value="2014">2014</option>
+							<option value="2015">2015</option>
+							<option value="2016">2016</option>
+							<option value="2017">2017</option>
+							<option value="2018">2018</option>
+							<option value="2019">2019</option>
+							<option value="2020">2020</option>
+						</select>
+						<img src="./assets/img/icon2_11@2x.png" alt="">
+					</div>
+				</lable>	
 			</div>
 
 			<div class="item border-b">
-				<div class="name">项目名称</div>
-				<div class="content">
-					<input type="text" placeholder="请输入项目名称">
-				</div>
+				<lable for="projectDraftEditxmmc">
+					<div class="name">项目名称</div>
+					<div class="content">
+						<input id="projectDraftEditxmmc" type="text" placeholder="请输入项目名称" ng-model="projectDraftEdit.sendParam.xmmc" dir="rtl">
+					</div>
+				</lable>	
 			</div>
 
 			<div class="item border-b" >
-				<div class="name">项目类型</div>
-				<div class="content">
-					<select name="" id="" ng-model="projectEdit.sendParam.xmlx" ng-options="key.id as key.name for key in projectEdit.xmleList" >
-					</select>
-					<img src="./assets/img/icon2_11@2x.png" alt="">
-				</div>
+				<lable for="projectDraftEditxmlx">
+					<div class="name">项目类型</div>
+					<div class="content">
+						<select name="" id="projectDraftEditxmlx" ng-model="projectDraftEdit.sendParam.xmlx" ng-options="key.id as key.name for key in projectDraftEdit.xmleList" >
+						</select>
+						<img src="./assets/img/icon2_11@2x.png" alt="">
+					</div>
+				</lable>	
 			</div>
 
 			<div class="item">
-				<div class="name">投资金额</div>
-				<div class="content">
-					<input type="text" placeholder="请输入金额">
-				</div>
+				<lable for="projectDraftEditxmje">
+					<div class="name">项目金额</div>
+					<div class="content">
+						<input id="projectDraftEditxmje" type="text" placeholder="请输入金额" ng-model="projectDraftEdit.sendParam.xmje" dir="rtl">
+					</div>
+				</lable>	
 			</div>
 
 			<div class="item">
-				<div class="name">扶贫资金</div>
-				<div class="content">
-					<input type="text" placeholder="请输入金额">
-				</div>
+				<lable for="projectDraftEditfpzj">
+					<div class="name">扶贫资金</div>
+					<div class="content">
+						<input id="projectDraftEditfpzj" type="text" placeholder="请输入金额" ng-model="projectDraftEdit.sendParam.fpzj" dir="rtl">
+					</div>
+				</lable>	
 			</div>
 
 			<div class="item ">
-				<div class="name">贷款金额</div>
-				<div class="content">
-					<input type="number" placeholder="请输入金额">
-				</div>
+				<lable for="projectDraftEditdkje">
+					<div class="name">贷款金额</div>
+					<div class="content">
+						<input id="projectDraftEditdkje" type="number" placeholder="请输入金额" ng-model="projectDraftEdit.sendParam.dkje" dir="rtl">
+					</div>
+				</lable>
 			</div>
 			
 			<div class="item border-b">
-				<div class="name">自筹金额</div>
-				<div class="content">
-					<input type="number" placeholder="请输入金额">
-				</div>
+				<lable for="projectDraftEditzcje">
+					<div class="name">自筹金额</div>
+					<div class="content">
+						<input id="projectDraftEditzcje" type="number" placeholder="请输入金额" ng-model="projectDraftEdit.sendParam.zcje" dir="rtl">
+					</div>
+				</lable>
 			</div>
 	
 			<div class="item ">
-				<div class="name">项目地点</div>
-				<div class="content" style="width: 50%;">
-					<select name="" id="" ng-model="projectEdit.sendParam.qyxz" ng-options="key.id as key.name for key in projectEdit.townShip" ng-change="projectEdit.changeTown()">
-					</select>
-					<img src="./assets/img/icon2_11@2x.png" alt="">
-				</div>
+				<lable for="projectDraftEditqyxz">
+					<div class="name">项目地点</div>
+					<div class="content" style="width: 50%;">
+						<select name="" id="projectDraftEditqyxz" ng-model="projectDraftEdit.sendParam.qyxz" ng-options="key.id as key.name for key in projectDraftEdit.townShip" ng-change="projectDraftEdit.changeTown()">
+						</select>
+						<img src="./assets/img/icon2_11@2x.png" alt="">
+					</div>
+				</lable>
 			</div>
 
 			<div class="item">
 				<!-- <div class="name">项目地点</div> -->
-				<div class="content" style="width: 50%;">
-					<select name="" id="" ng-model="projectEdit.sendParam.qyxzc" ng-options="key.id as key.name for key in projectEdit.villageListAll" >
-					</select>
-					<img src="./assets/img/icon2_11@2x.png" alt="">
-				</div>
+				<lable for="projectDraftEditqyxzc">
+					<div class="content" style="width: 50%;">
+						<select name="" id="projectDraftEditqyxzc" ng-model="projectDraftEdit.sendParam.qyxzc" ng-options="key.id as key.name for key in projectDraftEdit.villageListAll" >
+						</select>
+						<img src="./assets/img/icon2_11@2x.png" alt="">
+					</div>
+				</lable>
 			</div>			
 			<div class="item border-b" >
-				<div class="name"></div>
-				<div class="content">
-					<input type="text" placeholder="请输入详细地址" ng-model="projectEdit.sendParam.xmdd">
-				</div>
+				<lable for="projectDraftEditxmdd">
+					<div class="name"></div>
+					<div class="content">
+						<input id="projectDraftEditxmdd" type="text" placeholder="请输入详细地址" ng-model="projectDraftEdit.sendParam.xmdd">
+					</div>
+				</lable>	
 			</div>
 			
 			<div class="item border-b">
-				<div class="name">实施主体</div>
-				<div class="content">
-					<input type="number" placeholder="请输入具体内容">
-				</div>
+				<lable for="projectDraftEditssdw">
+					<div class="name">实施主体</div>
+					<div class="content">
+						<input id="projectDraftEditssdw" type="number" placeholder="请输入具体内容" ng-model="projectDraftEdit.sendParam.ssdw" dir="rtl">
+					</div>
+				</lable>	
 			</div>
 			
 			
 			<!--文本框-->
 			<div class="projectcx">
 				<div class="projectcxText" >效益分析</div>
-				<textarea ng-model="projectEdit.sendParam.xmxy"></textarea>
+				<textarea ng-model="projectDraftEdit.sendParam.xmxy"></textarea>
 			</div>
 			
 			<div class="projectcx">
 				<div class="projectcxText">项目简介</div>
-				<textarea ng-model="projectEdit.sendParam.xmjj"></textarea>
+				<textarea ng-model="projectDraftEdit.sendParam.xmjj"></textarea>
 			</div>
 
 			<div class="projectcx">
 				<div class="projectcxText">项目进度</div>
-				<textarea ng-model="projectEdit.sendParam.xmjd"></textarea>
+				<textarea ng-model="projectDraftEdit.sendParam.xmjd"></textarea>
 			</div>
 			
 		</div>
@@ -143,27 +162,16 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td class="text-center"><a href="projectEditsjpkc.html">白庙滩乡</a></td>
-						<td class="text-center">二八地村</td>
-						<td class="text-center">10000</td>
+					<tr ng-repeat="item in projectDraftEdit.getpkclistName" ui-sref="projectEditsjpkc({idx:$index})">
+						<td class="text-center" ng-bind="item.qyzcName"></td>
+						<td class="text-center" ng-bind="item.qyxzcName"></td>
+						<td class="text-center" ng-bind="item.syje"></td>
 					</tr>
-					<tr>
-						<td class="text-center">白庙滩乡</td>
-						<td class="text-center">二八地村</td>
-						<td class="text-center">10000</td>
-					</tr>
-					<tr>
-						<td class="text-center">白庙滩乡</td>
-						<td class="text-center">二八地村</td>
-						<td class="text-center">10000</td>
-					</tr>
-					
 				</tbody>
 				
 			</table>
 			<div class="addsjpkc">
-				<button><a href="#/project_Addsjpkc">+添加涉及贫困村</a></button>
+				<button ui-sref="projectAddsjpkc">+添加涉及贫困村</button>
 			</div>
 			
 		</div>
@@ -179,53 +187,36 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td class="text-center"><a href="projecEditsjpkh.html">白庙滩乡</a></td>
-						<td class="text-center">二八地村</td>
-						<td class="text-center">32521192902010510</td>
-						<td class="text-center">1000</td>
-					</tr>
-					<tr>
-						<td class="text-center">白庙滩乡</td>
-						<td class="text-center">二八地村</td>
-						<td class="text-center">32521192902010510</td>
-						<td class="text-center">1000</td>
-					</tr>
-					<tr>
-						<td class="text-center">白庙滩乡</td>
-						<td class="text-center">二八地村</td>
-						<td class="text-center">32521192902010510</td>
-						<td class="text-center">1000</td>
+					<tr ng-repeat="item in projectDraftEdit.getPkhlistName" ui-sref="projecEditsjpkh({idx:$index})">
+						<td class="text-center" ng-bind="item.qyzcName"></td>
+						<td class="text-center" ng-bind="item.qyxzcName"></td>
+						<td class="text-center" ng-bind="item.sfzh"></td>
+						<td class="text-center" ng-bind="item.syje"></td>
 					</tr>
 					
 				</tbody>
 				
 			</table>
 			<div class="addsjpkc">
-				<button><a href="#/project_Addsjpkh">+添加涉及贫困户</a></button>
+				<button ui-sref="projectAddsjpkh">+添加涉及贫困户</button>
 			</div>
 		</div>
 		</div>
 		<div class="footFill"></div>
-		<div class="foot">
+		<div class="foot" ng-click="projectDraftEdit.tianjia()">
 			数据上传
 		</div>
 	</div>
-	<style type="text/css">
+<style type="text/css">
+		label{
+			width: 100%;
+			margin-top:0.6rem 
+		}
 		.selected{
 			background-color: #ea3c4c;
 			color: #fff !important;
 		}
+		.content input{
+			padding-right: 10px
+		}
 	</style>
-	<script type="text/javascript" src="../../assets/lib/js/jquery.min.js"></script>
-	<script>
-		$("#tab div").click(function(){
-			$(this).addClass('bg').siblings().removeClass('bg');
-			$("#"+$(this).attr('data-type')).show().siblings().hide();
-		});
-		$(function(){
-			$(".projectss div").click(function(){
-				$(this).toggleClass('selected');
-			})
-		})
-	</script>

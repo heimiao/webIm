@@ -11,112 +11,17 @@
 		<table class="table table-striped">
 			<thead>
 				<tr>
-					<td class="text-left projectName">项目名称</td>
+					<td class="text-center projectName">项目名称</td>
 					<td class="text-center">项目所属</td>
 				</tr>
 			</thead>
 			<tbody>
-				<tr onclick="location.href='#/project_DraftEdit'">
-					<td class="text-left projectName" >扶贫项目名称</td>
-					<td class="text-center">贫困村</td>		
-				</tr>
-				<tr>
-					<td class="text-left projectName">扶贫项目名称</td>
-					<td class="text-center">贫困村</td>	
-				</tr>
-				<tr>
-					<td class="text-left projectName">扶贫项目名称</td>
-					<td class="text-center">贫困村</td>	
-				</tr>
-				<tr>
-					<td class="text-left projectName">扶贫项目名称</td>
-					<td class="text-center">贫困村</td>	
-				</tr>
-				<tr>
-					<td class="text-left projectName">扶贫项目名称</td>
-					<td class="text-center">贫困村</td>	
-				</tr>
-				<tr>
-					<td class="text-left projectName">扶贫项目名称</td>
-					<td class="text-center">贫困村</td>	
-				</tr>
-				<tr>
-					<td class="text-left projectName">扶贫项目名称</td>
-					<td class="text-center">贫困村</td>	
-				</tr>
-				<tr>
-					<td class="text-left projectName">扶贫项目名称</td>
-					<td class="text-center">贫困村</td>	
-				</tr>
-				<tr>
-					<td class="text-left projectName">扶贫项目名称</td>
-					<td class="text-center">贫困村</td>	
-				</tr>
-				<tr>
-					<td class="text-left projectName">扶贫项目名称</td>
-					<td class="text-center">贫困村</td>	
+				<tr ng-repeat="item in projectDraft.list" ui-sref="projectDraftEdit({draftId:item.index_id})">
+					<td class="text-center" ng-bind="item.projectSituationList.xmmc"></td>
+					<td class="text-center" ng-bind="item.projectSituationList.pkcxm == 'Y'?'贫困村项目':item.projectSituationList.pkcxm == 'N'?' ':item.projectSituationList.pkhxm == 'Y'?'贫困户项目':''"></td>
 				</tr>
 				
 			</tbody>
 		</table>
 		<div class="foot-fill"></div>
-		
 	</div>
-	<script type="text/javascript" src="../../assets/lib/js/jquery.min.js"></script>
-
-	<script>
-		
-		// 全部乡镇列表
-		function townshipList() {
-			$(".townshipList").slideToggle(200)
-			$("#township").toggleClass("township2")
-			$("#township .name").toggleClass("col-ea3c4c")
-
-			$(".villageList").slideUp(200)
-			$("#village").removeClass("township2")
-			$("#village .name").removeClass("col-ea3c4c")
-
-			$(".numList").slideUp(200)
-			$("#num").removeClass("township2")
-			$("#num .name").removeClass("col-ea3c4c")
-
-			$(".poorList").slideUp(200)
-			$("#poor").removeClass("township2")
-			$("#poor .name").removeClass("col-ea3c4c")
-
-			$(".timeList").slideUp(200)
-			$("#time").removeClass("township2")
-			$("#time .name").removeClass("col-ea3c4c")
-		}
-		
-
-		function timeList() {
-			$(".timeList").slideToggle(200)
-			$("#time").toggleClass("township2")
-			$("#time .name").toggleClass("col-ea3c4c")
-
-			$(".townshipList").slideUp(200)
-			$("#township").removeClass("township2")
-			$("#township .name").removeClass("col-ea3c4c")
-
-			$(".villageList").slideUp(200)
-			$("#village").removeClass("township2")
-			$("#village .name").removeClass("col-ea3c4c")
-
-			$(".numList").slideUp(200)
-			$("#num").removeClass("township2")
-			$("#num .name").removeClass("col-ea3c4c")
-
-			$(".poorList").slideUp(200)
-			$("#poor").removeClass("township2")
-			$("#poor .name").removeClass("col-ea3c4c")
-		}
-		
-		// 选择时间
-		function chooseTime(text) {
-			$("#time .name").html(text)
-			$(".timeList").slideUp(200)
-			$("#time").removeClass("township2")
-			$("#time .name").removeClass("col-ea3c4c")
-		}
-	</script>

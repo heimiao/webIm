@@ -10,7 +10,11 @@ myApp.controller("draftAddTaskForce", ["$scope", "$state", "$http", "$stateParam
 		draftAddTaskForce.fid = $stateParams.fid; //
 		draftAddTaskForce.alert = false; //弹窗显示
 		draftAddTaskForce.addTask=function(){
-			var taskForce= window.localStorage.getItem("taskForceList")?JSON.parse(window.localStorage.getItem("taskForceList")):[];
+			if(window.localStorage.getItem("taskForceList") != 'null' && window.localStorage.getItem("taskForceList") != '' && window.localStorage.getItem("taskForceList") != undefined && window.localStorage.getItem("taskForceList") != null){
+				var taskForce= window.localStorage.getItem("taskForceList")
+			}else{
+				var taskForce= [];
+			}
 				if(draftAddTaskForce.fid){
 					taskForce.push({
 						'fid': draftAddTaskForce.fid,

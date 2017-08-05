@@ -141,7 +141,7 @@
 	}
 	var methodAlert = {
 		options: {
-			title: "标题",
+			title: "温馨提示",
 			content: "内容",
 			width: "",
 			height: "",
@@ -151,22 +151,25 @@
 		createTpl: function(type) {
 			var btn = "";
 			if(type == "confirm") {
-				btn = '<button type="button" class="btn btn-default btn_cancel" onclick=>取消</button>&nbsp;&nbsp;';
+				btn = '<div class="btn_cancel cancel" onclick=>取消</div>';
 			}
 			var tpl = '<div class="myAlert">' +
 				'<div class="alert_shade" onclick=></div>' +
 				'<div class="alert_content">' +
 				'<div class="alert_header">' +
-				'<h3 class="alert_title">' + this.options.title + '</h3>' +
-				'<div class="alert_cancel">X</div>' +
+				'<span class="alert_title">' + this.options.title + '</span>' +
 				'</div>' +
 				'<div class="alert_body">' +
 				'<div class="hint_shade"></div>' +
 				'<div class="hint_cont">' + this.options.content + '</div>' +
 				'</div>' +
-				'<div class="alert_footer">' +
-				btn + '<button type="button" style="background-color:#ea3c4c;color:#fff" class="btn btn_sure" onclick=>确定</button>' +
-				'</div>' +
+				'<div class="alert_footer border-t">'
+				if(type == "confirm"){
+					tpl+=btn + '<div class="btn_sures determine" onclick=>保存到草稿</div>' 
+				}else{
+					tpl+='<div class="btn_sures determine" style="width:100%; border-bottom-left-radius: 8px;" onclick=>确定</div>' 
+				}
+				tpl+='</div>' +
 				'</div>' +
 				'</div>'
 			return tpl;
@@ -188,12 +191,12 @@
 					$(model).remove();
 					cancel();
 				})
-				$(model).find("button[class='btn btn_sure']").on("click", function() {
+				$(model).find("div[class='btn_sures determine']").on("click", function() {
 					$(model).remove();
 					sure();
 				})
 			} else {
-				$(model).find(".alert_cancel,.btn_cancel").on("click", function() {
+				$(model).find("div[class='btn_sures determine']").on("click", function() {
 					$(model).remove();
 					try {
 						sure();

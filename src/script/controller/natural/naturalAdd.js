@@ -7,25 +7,38 @@ myApp.controller("naturalAdd", ["$scope", "$state", "$http", "$stateParams",
 		zrcAdd.sendParam.sftscyd='是'; //D6是否生产用电 
 		zrcAdd.sendParam.sftshyd='是'; //D6是否生活用电
 		zrcAdd.sendParam.sftkd='是'; //D6是否通宽带 
-		//校验组号和负责人必填项
-		// zrcAdd.zuhao=function(){
-		// 	if(zrcAdd.sendParam.zh==''||zrcAdd.sendParam.zh==null){
-		// 		alert('111')
-		// 		return false;
-		// 	}else{
-		// 		return true;
-		// 	}
-		// }
+		//校验行政村
+		zrcAdd.lsxzc=function(){
+			if(zrcAdd.sendParam.lsxzc==''||zrcAdd.sendParam.lsxzc==null){
+				fupin.alert("行政村不能为空");
+				return false;
+			}else{
+				return true;
+				$scope.$apply()
+			}
+		}
+		//校验负责人
+		zrcAdd.fzr=function(){
+			if(zrcAdd.sendParam.fzr==''||zrcAdd.sendParam.fzr==null){
+				fupin.alert("负责人不能为空");
+				return false;
+			}else{
+				return true;
+			}
+		}
 
 
 		zrcAdd.tianjiazrc=function(){
-			zrcAdd.list = {};
+			if(zrcAdd.lsxzc()&&zrcAdd.fzr()){
+				zrcAdd.list = {};
 				postForm.saveFrm(config.path.addzrc,zrcAdd.sendParam)
 				.success(function(res){
 					$state.go('naturalVillage'); //默认显示第一个tab
 				}).error(function(res){
 					zrcAdd.save(); //上传的失败保存到本地数据库
 				})
+			}
+			
 			}
 		//获取行政村
 		zrcAdd.xingzhengcun={};

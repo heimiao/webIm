@@ -85,6 +85,9 @@
 		.poor .listShip>div{
 			line-height: 4.2rem;
 		}
+		.poor .line1{
+			display:-webkit-box;overflow:hidden;word-break: break-all;-webkit-box-orient: vertical;-webkit-line-clamp: 1;
+		}
 		</style>
 
 	<div class="poor villageCon">
@@ -96,7 +99,7 @@
 			<!-- <div class="fillIn" ng-click="poorVillage.queryBtn()">查询</div> -->
 		</header>
 		<div class="screen-con">
-			<div id="time" class="opens" onclick="timeList()"><span class="name">年度</span><span class="triangle"></span></div>
+			<div id="time" class="opens" onclick="timeList()"><span class="name">2017</span><span class="triangle"></span></div>
 			<div class="timeList">
 				<div ng-click="poorVillage.chooseTime('2014')">2014</div>
 				<div ng-click="poorVillage.chooseTime('2015')">2015</div>
@@ -107,7 +110,7 @@
 				<div ng-click="poorVillage.chooseTime('2020')">2020</div>
 			</div>
 			<div id="township" class="township" onclick="townshipList()">
-				<span class="name">全部乡镇</span><span class="triangle"></span>
+				<span class="name line1">全部乡镇</span><span class="triangle"></span>
 			</div>
 			
 			<div id="village" class="village" onclick="villageList()" style="float: right"><span class="name">全部行政村</span><span class="triangle"></span></div>
@@ -127,7 +130,7 @@
 						<td class="text-center">乡镇</td>
 						<td class="text-center">村</td>
 						<td class="text-center">村负责人</td>
-						<td class="text-center">贫困户属性</td>
+						<td class="text-center">贫困村属性</td>
 					</tr>
 				</thead>
 				<tbody>

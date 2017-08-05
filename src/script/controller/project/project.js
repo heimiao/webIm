@@ -1,11 +1,11 @@
-myApp.controller("project", ["$scope", "$state", "$http", "$stateParams","postForm",
-	function($scope, $state, $http, $stateParams,postForm) {
+myApp.controller("project", ["$scope", "$state", "$http", "$stateParams","postForm","$timeout",
+	function($scope, $state, $http, $stateParams,postForm,$timeout) {
 		var project = {} || project;
 		project.urlParam = $stateParams;
 		project.sendParam = {};
 		project.sendParam.time=null;
 		project.list = {};
-
+		project.start = 0; //请求的条数
 
 		// 清除数据
 		window.localStorage.removeItem("projectSituationList");
@@ -14,8 +14,8 @@ myApp.controller("project", ["$scope", "$state", "$http", "$stateParams","postFo
 		window.localStorage.removeItem("projectType");
 		window.localStorage.removeItem("projectGetpkclistName");
 		window.localStorage.removeItem("projectGetpkhlistName");
-		//获取项目采集列表
-		project.getxmcj=function(){
+		//获取项目采集列表 
+		project.getxmcj=function(me,num){
 			project.canshu = {
 				name:"",
 				time:"",
@@ -25,15 +25,24 @@ myApp.controller("project", ["$scope", "$state", "$http", "$stateParams","postFo
 			};
 			
 			project.page = {
-				limit:30,
-				start:0
+				limit:10,
+				start:project.start
 			};
 			var sunParm=angular.extend({},project.canshu,project.page)
 			postForm.saveFrm(config.path.projectList,sunParm)
 			.success(function(res){
-				console.log(res);
-				project.list=res.results;
-				
+				if(num == 1){
+					$timeout(function(){
+						for(var r=0;r<res.results.length;r++){
+							project.list.push(res.results[r]);
+						}
+	             		// 每次数据加载完，必须重置
+	             		me.resetload();
+	           		},1000);
+				}else{
+					project.list=res.results;
+				}
+				project.start= project.start + res.results.length;
 			});
 
 		};
@@ -45,38 +54,20 @@ myApp.controller("project", ["$scope", "$state", "$http", "$stateParams","postFo
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		project.uploadSource = function() {
-			console.log(12123123);
-
-			//根据贫困户id
-		}
-
-		console.log(project.urlParam);
-
-		/*lowFamilyInfo.menu=false;
-		lowFamilyInfo.changeMenu=function(args){
-			lowFamilyInfo.menu=args;
-			console.log(lowFamilyInfo.menu);
-		}*/
-
-		//调用列表
-		//		$state.go('lowFamily.baseInfo'); //默认显示第一个tab
-		//根据角色遍历响应的菜单
+		// 上拉加载
+		var dropload = $('.droploadTable').dropload({
+			//获取列表
+			domDown: {
+				domClass: 'dropload-down',
+				domRefresh: '<div class="dropload-refresh"></div>',
+				domUpdate: '<div class="dropload-update">↓释放加载</div>',
+				domLoad: '<div class="dropload-load"><span class="loading"></span>加载中...</div>'
+			},				
+			//上拉加载
+			loadDownFn: function(me) {
+				project.getxmcj(me,1);
+			}
+		})
 		$scope.project = project;
 	}
 ]);

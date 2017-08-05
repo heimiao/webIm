@@ -45,16 +45,16 @@ myApp.controller("editTaskForce", ["$scope", "$state", "$http", "$stateParams",
 		}
 		// 弹窗
 		editTaskForce.back=function(){
-			editTaskForce.alert = true;
-		}
-		editTaskForce.confirm=function(){
 			editTaskForce.save();
-			editTaskForce.alert = false;
 		}
-		editTaskForce.cancel = function(){
-			editTaskForce.alert = false;
-			window.history.back();
-		}
+		// editTaskForce.confirm=function(){
+		// 	editTaskForce.save();
+		// 	editTaskForce.alert = false;
+		// }
+		// editTaskForce.cancel = function(){
+		// 	editTaskForce.alert = false;
+		// 	window.history.back();
+		// }
 		// editTaskForce.back=function(){
 		// 	fupin.confirm("是否保存为草稿", function() {
 		// 		editTaskForce.save();

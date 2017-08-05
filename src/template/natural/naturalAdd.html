@@ -11,7 +11,7 @@
 			<div class="tab2" data-type="development" style="border:none" >生产生活条件</div>
 		</div>
 		<div>
-				<!-- 基本情况 -->
+		<!-- 基本情况 -->
 		<div class="situation" id="situation">
 			<!--<div class="item border-b">
 				<div class="name">镇(乡、苏木)</div>
@@ -40,7 +40,7 @@
 					<div class="name">自然村</div>
 					<div class="content">
 						<select name="" id="natualladd_zrcmc" ng-model="zrcAdd.sendParam.zrcmc" ng-options="key.id as key.name for key in zrcAdd.zirancun.list">
-						<option value="" class="" selected="selected">全部自然村</option>
+						<option value="" class="" selected="selected">自然村</option>
 						</select>
 						<img src="./assets/img/icon2_11@2x.png" alt="">
 					</div>
@@ -307,3 +307,11 @@
 			$("#"+$(this).attr('data-type')).show().siblings().hide();
 		})
 	</script>
+<style>
+		select {
+	    	direction: rtl;
+			}
+		select option {
+		   direction: ltr;
+		}
+	</style>

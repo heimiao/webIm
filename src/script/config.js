@@ -32,7 +32,11 @@ var config = {
 		projectsjzd: "/zjzd/queryForList?lx=09", //数据字典取项目类型
 		projectaddsjpkca: "/xmxxpkc/addXmxxpkc", //添加扶贫项目涉及贫困村
 		projectaddsjpkha: "/xmxxpkh/addXmxxpkh", //添加扶贫项目贫困户
-		getprojectaddsjpkca: "/xmxxpkc/queryForList", //获取添加扶贫项目涉及贫困村
+
+		getprojectaddsjpkca:"/xmxxpkc/queryForList",//获取添加扶贫项目涉及贫困村
+		updateProject: "/xmxx/update", //更新项目信息
+		updatePkh: '/xmxxpkh/updateXmxxpkh', //更新项目贫困户信息
+		updatePkc: '/xmxxpkc/updateXmxxpkc', //更新项目贫困村信息
 
 		townShip: "/zcjg/queryForZc?lx=01", //获取乡镇列表
 		villageAll: "/zcjg/queryForZc?lx=02", //获取所有行政村列表
