@@ -27,8 +27,8 @@
 				<label for="natualledit_lsxzc">
 					<div class="name">行政村</div>
 					<div class="content">
-						<select name="" id="natualledit_lsxzc" ng-model="naturalDraftEditc.details.lsxzc" ng-options="key.id as key.name for key in naturalDraftEditc.xingzhengcun.list"
-						ng-change="naturalDraftEditc.getNur()">
+						<select name="" id="natualledit_lsxzc" ng-change="naturalDraftEditc.getzrcdraft()" ng-model="naturalDraftEditc.details.lsxzc" ng-options="key.id as key.name for key in naturalDraftEditc.xingzhengcun.list"
+						style="width: auto; text-align: right;">
 						</select>
 						<img src="./assets/img/icon2_11@2x.png" alt="">
 					</div>
@@ -39,8 +39,8 @@
 				<label for="natualledit_zrcmc">
 					<div class="name">自然村</div>
 					<div class="content">
-						<select name="" id="natualledit_zrcmc" ng-model="naturalDraftEditc.details.zrcmc" ng-options="key.id as key.name for key in naturalDraftEditc.zirancun.list" style="width: 8rem">
-						<option value="" class="" selected="selected">请选择自然村</option>
+						<select name="" id="natualledit_zrcmc" ng-model="naturalDraftEditc.details.zrcmc" ng-options="key.id as key.name for key in naturalDraftEditc.zirancun.list" style="width: auto; text-align: right;">
+						<option value="" class="" selected="selected">自然村</option>
 						</select>
 						<img src="./assets/img/icon2_11@2x.png" alt="">
 					</div>
@@ -129,8 +129,8 @@
 				</label>	
 			</div>
 			
-			<div class="item border-b">
-				<lable for="natualledit_zrks">
+			<div class="item border-b" style="padding: 1.1rem .6rem 1.1rem 1rem ">
+				<lable for="natualledit_zrks" >
 					<div class="name">D2总人口数(人)</div>
 					<div class="content">
 						<input id="natualledit_zrks" type="number" placeholder="请输入总人口数" ng-model="naturalDraftEditc.details.zrks">
@@ -138,7 +138,7 @@
 				</lable>
 			</div>
 			
-			<div class="item border-b">
+			<div class="item border-b" style="padding: 1.1rem .6rem 1.1rem 1rem ">
 				<lable for="natualledit_pkrks">
 					<div class="name">D2a 贫困人口数(人)</div>
 					<div class="content">
@@ -147,7 +147,7 @@
 				</lable>
 			</div>
 			
-			<div class="item border-b">
+			<div class="item border-b" style="padding: 1.1rem .6rem 1.1rem 1rem ">
 				<lable for="natualledit_dbrks">
 					<div class="name">D2b低保人口数(人)</div>
 					<div class="content">
@@ -156,7 +156,7 @@
 				</lable>	
 			</div>
 			
-			<div class="item border-b">
+			<div class="item border-b" style="padding: 1.1rem .6rem 1.1rem 1rem ">
 				<lable for="natualledit_wbrks">
 					<div class="name">D2c 五保人口数(人)</div>
 					<div class="content">
@@ -165,16 +165,16 @@
 				</lable>	
 			</div>
 
-			<div class="item border-b">
+			<div class="item border-b" style="padding: 1.1rem .6rem 1.1rem 1rem;">
 				<lable for="natualledit_smmzrks">
-					<div class="name">D2d 少数民族人口数(人)</div>
-					<div class="content">
+					<div class="name" >D2d 少数民族人口数(人)</div>
+					<div class="content" style=" width: 8rem !important;">
 						<input id="natualledit_smmzrks" type="number" placeholder="少数民族人口数"  ng-model="naturalDraftEditc.details.smmzrks">
 					</div>
 				</lable>	
 			</div>
 			
-			<div class="item border-b">
+			<div class="item border-b" style="padding: 1.1rem .6rem 1.1rem 1rem ">
 				<lable for="natualledit_fnrks">
 					<div class="name">D2e 妇女人口数(人)</div>
 					<div class="content">
@@ -183,7 +183,7 @@
 				</lable>	
 			</div> 
 			
-			<div class="item border-b">
+			<div class="item border-b" style="padding: 1.1rem .6rem 1.1rem 1rem ">
 				<lable for="natualledit_cjrks">
 					<div class="name">D2f 残疾人口数(人)</div>
 					<div class="content">
@@ -192,7 +192,7 @@
 				</lable>	
 			</div> 
 
-			<div class="item border-b">
+			<div class="item border-b" style="padding: 1.1rem .6rem 1.1rem 1rem ">
 				<lable for="natualledit_ldlrs">
 					<div class="name">D3劳动力人数(人)</div>
 					<div class="content">
@@ -201,7 +201,7 @@
 				</lable>
 			</div>
 			
-			<div class="item border-b">
+			<div class="item border-b" style="padding: 1.1rem .6rem 1.1rem 1rem ">
 				<lable for="natualledit_wcwgrs">
 					<div class="name">D3a 外出务工人数(人)</div>
 					<div class="content">
@@ -219,7 +219,7 @@
 				</lable>	
 			</div>
 
-			<div class="item border-b">
+			<div class="item border-b" style="padding: 1.1rem .6rem 1.1rem 1rem ">
 				<lable for="natualledit_hjrks">
 					<div class="name">H13 户籍人口数(人)</div>
 					<div class="content">
@@ -280,7 +280,7 @@
 				
 				<div class="item border-b">
 					<lable for="natualledit_dxzcjl">
-						<div class="name">D8是通否通宽带</div>
+						<div class="name">D8是否通通宽带</div>
 						<div class="content">
 							<select name="" id="" ng-model="naturalDraftEditc.details.sftkd">
 								<option value="是">是</option>
@@ -307,3 +307,14 @@
 			$("#"+$(this).attr('data-type')).show().siblings().hide();
 		})
 	</script>
+	<style>
+		select {
+	    	direction: rtl;
+			}
+		select option {
+		   direction: ltr;
+		}
+		.item {
+		   overflow: hidden;
+		}
+	</style>

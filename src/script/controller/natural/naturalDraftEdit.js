@@ -13,7 +13,6 @@ myApp.controller("naturalDraftEdit", ["$scope", "$state", "$http", "$stateParams
 						index_id: $stateParams.id
 					},
 					success: function(args) {
-						//console.log(args);
 						naturalDraftEditc.details=args;
 						naturalDraftEditc.xingzhengcun();
 						naturalDraftEditc.zirancun12();
@@ -47,8 +46,7 @@ myApp.controller("naturalDraftEdit", ["$scope", "$state", "$http", "$stateParams
 			fid:''
 		};
 		naturalDraftEditc.zirancun12=function(){
-			//naturalDraftEditc.zirancun.fid=naturalDraftEditc.xingzhengcun.list.id;
-			console.log(naturalDraftEditc.details.lsxzc)
+			naturalDraftEditc.zirancun.fid=naturalDraftEditc.details.lsxzc;
 			postForm.saveFrm(config.path.xingzhengName,naturalDraftEditc.zirancun)
 			.success(function(res){
 			 	naturalDraftEditc.zirancun.list=res;
@@ -184,7 +182,7 @@ myApp.controller("naturalDraftEdit", ["$scope", "$state", "$http", "$stateParams
 				postForm.saveFrm(config.path.addzrc,naturalDraftEditc.details)
 				.success(function(res){
 					naturalDraftEditc.delById();
-					$state.go('naturalVillage'); //默认显示第一个tab
+					$state.go('naturalVillage'); 
 				})
 			}
 			

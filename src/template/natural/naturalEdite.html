@@ -40,7 +40,7 @@
 					<div class="name">自然村</div>
 					<div class="content">
 						<select name="" id="natualledit_zrcmc" ng-model="zrcDetails.list.zrcmc" ng-options="key.id as key.name for key in zrcDetails.zirancun.list">
-						<option value="" class="" selected="selected">请选择自然村</option>
+						<option value="" class="" selected="selected">自然村</option>
 						</select>
 						<img src="./assets/img/icon2_11@2x.png" alt="">
 					</div>
@@ -168,7 +168,7 @@
 			<div class="item border-b">
 				<label for="natualledit_smmzrks">
 					<div class="name">D2d 少数民族人口数(人)</div>
-					<div class="content">
+					<div class="content" style=" width: 8rem !important;">
 						<input id="natualledit_smmzrks" type="number" placeholder="少数民族人口数"  ng-model="zrcDetails.list.smmzrks">
 					</div>
 				</label>	
@@ -243,13 +243,13 @@
 				
 				<div class="item border-b">
 					<label for="zrcroad">
-						<div class="name" >D5到行政村是否通沥青（水泥）路</div>
-						<div class="content"  style="width: .5rem; ">
-							<select name="" id="zrcroad"  ng-model="zrcDetails.list.dxzcsftlql">
+						<div class="name">D5到行政村是否通沥青（水泥）路</div>
+						<div class="content"  style="width: 4rem !important;">
+							<select name="" id="zrcroad"  ng-model="zrcDetails.list.dxzcsftlql" style="float: left;" >
 								<option value="是">是</option>
 								<option value="否">否</option>
 							</select>
-							<img src="./assets/img/icon2_11@2x.png" alt="">
+							<img style="float: left;"  src="./assets/img/icon2_11@2x.png" alt="">
 						</div>
 					</label>
 				</div>
@@ -307,3 +307,12 @@
 			$("#"+$(this).attr('data-type')).show().siblings().hide();
 		})
 	</script>
+<style>
+select {
+	    	direction: rtl;
+	    	width: auto !important;
+			}
+		select option {
+		   direction: ltr;
+		}
+</style>
