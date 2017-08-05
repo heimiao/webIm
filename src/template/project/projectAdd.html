@@ -1,8 +1,6 @@
 <div class="villageCollection projectAdd">
 		<header>
-			<a href="javascript:history.go(-1)">
-				<div class="back"><img src="./assets/img/icon_28.png" alt=""></div>
-			</a>
+			<div class="back" ng-click="projectAdd.back()"><img src="./assets/img/icon_28.png" alt=""></div>
 			<div class="collectionTitle">扶贫项目信息采集</div>
 		</header>
 		<div class="fill"></div>
@@ -166,7 +164,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr ui-sref="projectAddsjpkh" ng-repeat="item in projectAdd.getPkhlistName">
+					<tr ui-sref="projecEditsjpkh({idx:$index})" ng-repeat="item in projectAdd.getPkhlistName">
 						<td class="text-center" ng-bind="item.qyzcName"></td>
 						<td class="text-center" ng-bind="item.qyxzcName">二八地村</td>
 						<td class="text-center" ng-bind="item.sfzh"></td>

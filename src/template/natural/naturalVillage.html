@@ -1,13 +1,13 @@
 <div class="poor natural">
 		<header>
-			<a href="javascript:history.go(-1)">
+			<a ng-click="natural.goback()">
 				<div class="back"><img src="./assets/img/icon_28.png" alt=""></div>
 			</a>
 			<div class="collectionTitle">自然村信息</div>
 		</header>
 		
 		<div class="screen-con niandu"> 
-			<div id="pp">请选择年度</div>
+			<div id="pp">年度</div>
 			<select name="" class="zrcSearch"  ng-model="natural.sendParam.time" ng-change="natural.selectYear()" >
 				<option value="2014">2014</option>
 				<option value="2015">2015</option>
@@ -17,7 +17,6 @@
 				<option value="2019">2019</option>
 				<option value="2020">2020</option>
 			</select>
-			
 		</div>
 		
 		<div class="fill2"></div>
@@ -54,8 +53,7 @@
 			</div>
 		</footer>
 	</div>
-	<script src="./assets/lib/js/dropload.min.js" type="text/javascript"></script>
-	<script type="text/javascript" src="./assets/lib/js/jquery.min.js"></script>
+	
 
 	
 <style type="text/css">
@@ -67,26 +65,34 @@
 	float: left;
 	position: absolute;
 	top: 0;
-	left: 10px;
+	left: 18px;
 	z-index: -1;
-	margin-top:0.5rem 
+	margin-top:0.3rem;
+	font-size: 1.3rem;
+	width: 20%;
+	background-image: url('./assets/img/arrow_03.png');
+	background-size: 3rem 3rem;
+	background-repeat: no-repeat;
+	background-position: center right; 
 }
 .zrcSearch{
-	width: 50%;
+	width: 30%;
 	text-align: center;
 	border-radius: 5px;
-	height: 26px;
-	line-height: 26px;
-	font-size: 16px;
-	border:none;
-	color: red;
+	height: 24px;
+	line-height: 24px;
+	font-size: 14px;
+	border:1px solid #ddd;
+	color: #000;
 	float: left;
 	outline: none;
 	appearance:none;
+	border:none; 
 	-moz-appearance:none;
 	-webkit-appearance:none;
-	background-color:transparent;
-	margin-top:0.5rem;
+	margin-top:1rem;
+	margin-left:0.5rem ;
+	background:transparent;
 }
 .addPoor a:hover{
 	text-decoration: none

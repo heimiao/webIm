@@ -37,7 +37,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="item in project.list" ui-sref="projectEdit({id:item.id})">
+				<tr ng-repeat="item in project.list" ui-sref="projectEdit({detailId:item.id})">
 					<td class="text-left projectName" ng-bind="item.xmmc"></td>
 					<td class="text-center">
 						<span ng-if="item.pkcxm=='Y'">贫困村项目</span>

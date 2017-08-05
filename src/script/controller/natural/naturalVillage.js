@@ -91,6 +91,12 @@ myApp.controller("naturalVillage", ["$scope", "$state", "$http", "$stateParams",
 			$("#pp").html($('.zrcSearch option:selected').val())
 			natural.xzcList()
 		}	
+		//返回首页
+		natural.goback=function(){
+			$state.go('home');
+		}
+		
+
 		$scope.natural = natural;
 	}
 ]);

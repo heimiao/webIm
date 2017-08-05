@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 var baseUrl = 'http://123.58.240.75:8081/tpa';
+<<<<<<< HEAD
 //var baseUrl = 'http://192.168.22.182:8080/tpa';
+=======
+=======
+var baseUrl = 'http://123.58.240.75:8081/tpa'; 
+>>>>>>> ed2e296f0f55d90d8134bb6e95d066d33a9e8e4c
+>>>>>>> a56b30e840cf44b46e96230749b2178431a6ad13
  
 var config = {
 	//请求路径

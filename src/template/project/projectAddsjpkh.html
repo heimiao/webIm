@@ -1,8 +1,6 @@
 	<div class="villageCollection projectAdd" style="background: #eee;">
 		<header>
-			<a href="javascript:history.go(-1)">
-				<div class="back"><img src="./assets/img/icon_28.png" alt=""></div>
-			</a>
+			<div class="back" ng-click="projectAddsjpkh.back()"><img src="./assets/img/icon_28.png" alt=""></div>
 			<div class="collectionTitle">扶贫项目信息采集</div>
 		</header>
 		<div class="fill"></div>
@@ -14,7 +12,7 @@
 					<div class="content">
 						<select dir="rtl" name="" id="" ng-model="projectAddsjpkh.sendParam.qyxz" ng-change="projectAddsjpkh.changeTown()" ng-options="key.id as key.name for key in projectAddsjpkh.townShip">
 						</select>
-						<!-- <img src="./assets/img/icon2_11@2x.png" alt=""> -->
+						<!-- <img src="./assets/img/icon2_11@2x.png" alt="">  -->
 					</div>
 				</div>
 
