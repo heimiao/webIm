@@ -10,7 +10,7 @@ myApp.controller("naturalEdite", ["$scope", "$state", "$http", "$stateParams",
 		zrcDetails.list = {};
 		$http.post(config.path.zrcDetails+"?id="+zrcDetails.canshu.id)
 		.success(function(res){
-			//console.log(res);
+			console.log(res);
 			zrcDetails.list=res;
 		});
 
@@ -76,52 +76,36 @@ myApp.controller("naturalEdite", ["$scope", "$state", "$http", "$stateParams",
 				delete zrcDetails.list.exproperty;
 				postForm.saveFrm(config.path.zrcEdit,zrcDetails.list)
 				.success(function(res){
-					$state.go('naturalVillage'); //默认显示第一个tab
+					$state.go('naturalVillage'); 
 				}).error(function(res){
 					zrcDetails.save();
 				})
 			}
 			
 		}
+		
+
+		
 
 
+		//返回时如没有上传则提示是否保存草稿
+		 zrcDetails.goback=function(){
+		 	fupin.confirm("是否保存为草稿", function() {
+		 		zrcDetails.save();
+			 	}, function() {
+					//$state.go('naturalVillage');
+					window.history.back();
+				});
+		 } 
 		//本地存储
 		zrcDetails.save=function() {
 				//保存，或者修改，如果有index_id则为修改没有则为添加
 			dt.request({
 					rqstName: "nature_village", //'low_family', 'low_village', 'nature_village', 'relief_project'
 					type: "put", //select,delete,put,selectById,
-					data: {
-						id:zrcDetails.list.id,  
-						lsxzc:zrcDetails.list.lsxzc, //行政村
-						zrcmc:zrcDetails.list.zrcmc, //自然村
-						nd:zrcDetails.list.nd,  //年度
-						zh:zrcDetails.list.zh,  //组号
-						fzr:zrcDetails.list.fzr, //负责人
-						lxdh:zrcDetails.list.lxdh, //联系电话
-						zhs:zrcDetails.list.zhs, //总户数
-						pkhs:zrcDetails.list.pkhs, //贫困户数
-						dbhs:zrcDetails.list.dbhs, //低保户数
-						wbhs:zrcDetails.list.wbhs, //五保户数
-						zrks:zrcDetails.list.zrks, //总人口数
-						pkrks:zrcDetails.list.pkrks, //贫困人口数
-						dbrks:zrcDetails.list.dbrks, //D2b低保人口数
-						wbrks:zrcDetails.list.wbrks, //五保人口数
-						smmzrks:zrcDetails.list.smmzrks, //少数民族人口数
-						fnrks:zrcDetails.list.fnrks, //妇女人口数
-						cjrks:zrcDetails.list.cjrks, //残疾人口数
-						ldlrs:zrcDetails.list.ldlrs, //D3劳动力人数
-						wcwgrs:zrcDetails.list.wcwgrs, //D3a 外出务工人数
-						h13a:zrcDetails.list.h13a, //H13a 16周岁以上
-						hjrks:zrcDetails.list.hjrks, //H13 户籍人口数
-						//生活条件
-						dxzcjl:zrcDetails.list.dxzcjl, //D4 到行政村距离
-						dxzcsftlql:zrcDetails.list.dxzcsftlql, //D5到行政村是否通沥青（水泥）路
-						sftscyd:zrcDetails.list.sftscyd, //D6是否生产用电
-						sftshyd:zrcDetails.list.sftshyd, //D6是否生活用电
-						sftkd:zrcDetails.list.sftkd  //D6是否通宽带
-					},
+					data:zrcDetails.list,  //数据在对象里
 					success: function(args) {
+						//alert('新增')
 						$state.go('naturalDraft');
 					},
 					'error': function(args) {
@@ -129,33 +113,8 @@ myApp.controller("naturalEdite", ["$scope", "$state", "$http", "$stateParams",
 					}
 				});
 			}
+			
 
-
-
-		//返回时如没有上传则提示是否保存草稿
-		 zrcDetails.goback=function(){
-		 	fupin.confirm("是否保存为草稿", function() {
-					//console.log("确定按钮");
-					zrcDetails.save();
-				}, function() {
-					//console.log("取消按钮");
-					//$state.go('naturalVillage');
-					window.history.back();
-					//alert('123')
-				});
-		 } 
-		
-
-		
-		/*natural.menu=false;
-		natural.changeMenu=function(args){
-			natural.menu=args;
-			console.log(natural.menu);
-		}*/
-
-		//调用列表
-		//		$state.go('lowFamily.baseInfo'); //默认显示第一个tab
-		//根据角色遍历响应的菜单
 		$scope.zrcDetails = zrcDetails;
 	}
 ]);
