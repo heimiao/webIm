@@ -25,8 +25,7 @@
 			<div class="item border-b" >
 				<div class="name">年度</div>
 				<div class="content">
-					<select name="" id="" ng-model="projectAdd.sendParam.nd">
-						<option value="" class="" selected="selected">请选择年份</option>
+					<select name="" id="" ng-model="projectEdit.sendParam.nd">
 						<option value="2014">2014</option>
 						<option value="2015">2015</option>
 						<option value="2016">2016</option>
@@ -95,7 +94,7 @@
 			<div class="item">
 				<!-- <div class="name">项目地点</div> -->
 				<div class="content" style="width: 50%;">
-					<select name="" id="" ng-model="projectEdit.sendParam.qyxzc" ng-options="key.id as key.name for key in projectEdit.villageListAll" >
+					<select dir="rtl" name="" id="" ng-model="projectEdit.sendParam.qyxzc" ng-options="key.id as key.name for key in projectEdit.villageListAll" >
 					</select>
 					<img src="./assets/img/icon2_11@2x.png" alt="">
 				</div>

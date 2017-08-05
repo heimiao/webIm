@@ -10,7 +10,7 @@ myApp.controller("project", ["$scope", "$state", "$http", "$stateParams","postFo
 		// 清除数据
 		window.localStorage.removeItem("projectSituationList");
 		window.localStorage.removeItem("projectGetpkclist");
-		window.localStorage.removeItem("projectGetpkclist");
+		window.localStorage.removeItem("projectGetpkhlist");
 		window.localStorage.removeItem("projectType");
 		window.localStorage.removeItem("projectGetpkclistName");
 		window.localStorage.removeItem("projectGetpkhlistName");

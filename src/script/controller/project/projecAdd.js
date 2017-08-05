@@ -6,8 +6,6 @@ myApp.controller("projectAdd", ["$scope", "$state", "$http", "$stateParams","pos
 		projectAdd.townShip = []; //全部乡镇列表
 		projectAdd.villageListAll = []; //获取全部行政村 
 		projectAdd.sendParam.nd = "2017";
-		projectAdd.sendParam.pkcxm='Y';
-		projectAdd.sendParam.pkcxm='N';
 		// 获取所有乡镇
 		$http.post(config.path.townShip,null).success(function(res){
 			projectAdd.townShip = res;
@@ -57,6 +55,19 @@ myApp.controller("projectAdd", ["$scope", "$state", "$http", "$stateParams","pos
 			projectAdd.getpkclistName = JSON.parse(window.localStorage.getItem("projectGetpkclistName"));
 			projectAdd.getPkhlist = JSON.parse(window.localStorage.getItem("projectGetpkhlist"));
 			projectAdd.getPkhlistName = JSON.parse(window.localStorage.getItem("projectGetpkhlistName"));
+			if(projectAdd.sendParam.pkcxm == 'Y'){
+				$("#xzsjpkc").addClass('selected')
+			}else{
+				$("#xzsjpkc").removeClass('selected')
+			}
+			if(projectAdd.sendParam.pkhxm == 'Y'){
+				$("#xzsjpkh").addClass('selected')
+			}else{
+				$("#xzsjpkh").removeClass('selected')
+			}
+		}else{
+			projectAdd.sendParam.pkcxm='Y';
+			projectAdd.sendParam.pkhxm='N';
 		}
 		if(window.localStorage.getItem("projectType") == "1"){
 			$('.tab2').addClass('bg').siblings().removeClass('bg');
@@ -71,14 +82,32 @@ myApp.controller("projectAdd", ["$scope", "$state", "$http", "$stateParams","pos
 			projectAdd.addAll();
 			postForm.saveFrm(config.path.projectAdda, projectAdd.addProjectSituationList).success(function(res){
 				projectAdd.xmxxId = res.results.id;
-				postForm.saveFrm(config.path.projectaddsjpkca, {"data": projectAdd.addpkclist, "xmxxid": projectAdd.xmxxId}).success(function(res){
+
+				postForm.saveFrm(config.path.projectaddsjpkca, {"data": JSON.stringify(projectAdd.addpkclist), "xmxxid": projectAdd.xmxxId}).success(function(res){
 					
 				})
-				postForm.saveFrm(config.path.projectaddsjpkha, {"data": projectAdd.addpkhlist, "xmxxid": projectAdd.xmxxId}).success(function(res){
+				postForm.saveFrm(config.path.projectaddsjpkha, {"data": JSON.stringify(projectAdd.addpkhlist), "xmxxid": projectAdd.xmxxId}).success(function(res){
 
 				})
 			}).error(function(){
 				//保存草稿
+				dt.request({
+					rqstName: "relief_project", //'low_family', 'low_village', 'nature_village', 'relief_project'
+					type: "put", //select,delete,put,selectById,
+					data: {
+						'projectSituationList': projectAdd.addProjectSituationList,
+						'pkclist': JSON.parse(window.localStorage.getItem("projectGetpkclist")),
+						'pkhlist': JSON.parse(window.localStorage.getItem("projectGetpkhlist")),
+						'pkclistName': JSON.parse(window.localStorage.getItem("projectGetpkclistName")),
+						'pkhlistName': JSON.parse(window.localStorage.getItem("projectGetpkhlistName")),
+					},
+					success: function(args) {
+						// console.log(args);
+					},
+					'error': function(args) {
+
+					}
+				});
 			})
 		}
 		projectAdd.addAll=function(){
@@ -86,7 +115,32 @@ myApp.controller("projectAdd", ["$scope", "$state", "$http", "$stateParams","pos
 			projectAdd.addpkclist = JSON.parse(window.localStorage.getItem("projectGetpkclist"));
 			projectAdd.addpkhlist = JSON.parse(window.localStorage.getItem("projectGetpkhlist"));
 		}
-
+		projectAdd.back = function(){
+			projectAdd.addAll();
+			fupin.confirm("是否保存为草稿", function() {
+				//保存草稿
+				dt.request({
+					rqstName: "relief_project", //'low_family', 'low_village', 'nature_village', 'relief_project'
+					type: "put", //select,delete,put,selectById,
+					data: {
+						'projectSituationList': projectAdd.addProjectSituationList,
+						'pkclist': JSON.parse(window.localStorage.getItem("projectGetpkclist")),
+						'pkhlist': JSON.parse(window.localStorage.getItem("projectGetpkhlist")),
+						'pkclistName': JSON.parse(window.localStorage.getItem("projectGetpkclistName")),
+						'pkhlistName': JSON.parse(window.localStorage.getItem("projectGetpkhlistName")),
+					},
+					success: function(args) {
+						// console.log(args);
+						window.history.back()
+					},
+					'error': function(args) {
+						window.history.back()
+					}
+				});
+			}, function() {
+				window.history.back()
+			});
+		}
 		/*lowFamilyInfo.menu=false;
 		lowFamilyInfo.changeMenu=function(args){
 			lowFamilyInfo.menu=args;

@@ -252,7 +252,7 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 		})
 		//扶贫项目编辑
 		.state('projectEdit', {
-			url: '/project_Edit?id&type',
+			url: '/projectEdit?detailId&type',
 			controller: "projectEdit",
 			templateUrl: 'dist/template/project/projectEdit.html'
 		})
@@ -261,6 +261,13 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 			url: '/projectAddsjpkc?id&type',
 			controller: "projectAddsjpkc",
 			templateUrl: 'dist/template/project/projectAddsjpkc.html'
+		})
+
+		//扶贫项目 编辑 涉及贫困村
+		.state('projectEditsjpkc', {
+			url: '/projectEditsjpkc?idx',
+			controller: "projectEditsjpkc",
+			templateUrl: 'dist/template/project/projectEditsjpkc.html'
 		})
 
 		//扶贫项目 新增 涉及贫困户
@@ -272,16 +279,9 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 
 		//扶贫项目 编辑 涉及贫困户
 		.state('projecEditsjpkh', {
-			url: '/project_Editsjpkh?id&type',
+			url: '/projecEditsjpkh?idx',
 			controller: "projecEditsjpkh",
 			templateUrl: 'dist/template/project/projecEditsjpkh.html'
-		})
-
-		//扶贫项目 编辑 涉及贫困村
-		.state('projectEditsjpkc', {
-			url: '/projectEditsjpkc?idx',
-			controller: "projectEditsjpkc",
-			templateUrl: 'dist/template/project/projectEditsjpkc.html'
 		})
 
 		//扶贫数据 自然村 查询
