@@ -10,7 +10,7 @@ myApp.controller("naturalEdite", ["$scope", "$state", "$http", "$stateParams",
 		zrcDetails.list = {};
 		$http.post(config.path.zrcDetails+"?id="+zrcDetails.canshu.id)
 		.success(function(res){
-			console.log(res);
+			//console.log(res);
 			zrcDetails.list=res;
 		});
 
@@ -113,12 +113,13 @@ myApp.controller("naturalEdite", ["$scope", "$state", "$http", "$stateParams",
 		//返回时如没有上传则提示是否保存草稿
 		 zrcDetails.goback=function(){
 		 	fupin.confirm("是否保存为草稿", function() {
-					console.log("确定按钮");
+					//console.log("确定按钮");
 					zrcDetails.save();
 				}, function() {
-					console.log("取消按钮");
-					$state.go('naturalVillage');
-					
+					//console.log("取消按钮");
+					//$state.go('naturalVillage');
+					window.history.back();
+					//alert('123')
 				});
 		 } 
 		

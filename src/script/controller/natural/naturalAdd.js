@@ -84,7 +84,7 @@ myApp.controller("naturalAdd", ["$scope", "$state", "$http", "$stateParams",
 						sftkd:zrcAdd.sendParam.sftkd  //D6是否通宽带
 					},
 					success: function(args) {
-						console.log(args);
+						//console.log(args);
 						$state.go('naturalDraft');
 					},
 					'error': function(args) {
@@ -98,10 +98,10 @@ myApp.controller("naturalAdd", ["$scope", "$state", "$http", "$stateParams",
 		 //返回时如没有上传则提示是否保存草稿
 		 zrcAdd.goback=function(){
 		 	fupin.confirm("是否保存为草稿", function() {
-					console.log("确定按钮");
+					//console.log("确定按钮");
 					zrcAdd.save();
 				}, function() {
-					console.log("取消按钮");
+					//console.log("取消按钮");
 					window.history.go(-1)
 				});
 		 } 
