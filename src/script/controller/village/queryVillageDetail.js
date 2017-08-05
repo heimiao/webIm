@@ -7,6 +7,10 @@ myApp.controller("queryVillageDetail", ["$scope", "$state", "$http", "$statePara
 		queryVillageDetail.detailId = $stateParams.detailId;
 		queryVillageDetail.detailList = [];
 		queryVillageDetail.taskForceList = [];
+		$("#tab div").click(function(){
+			$(this).addClass('bg').siblings().removeClass('bg');
+			$("#"+$(this).attr('data-type')).show().siblings().hide();
+		})
 		// 获取所有乡镇
 		$http.post(config.path.townShip,null).success(function(res){
 			queryVillageDetail.townShip = res;

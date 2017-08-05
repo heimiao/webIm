@@ -225,12 +225,8 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 		})
 
 		//扶贫项目新增
-		.state('projectAdd', {
-<<<<<<< HEAD
-			url: '/project_Add?id&type',
-=======
-			url: '/projectAdd?id&type',
->>>>>>> 5e11a1d34e220d898aa59882164154d1775fa86e
+		.state('projectAdd', { 
+			url: '/projectAdd?id&type', 
 			controller: "projectAdd",
 			templateUrl: 'dist/template/project/projectAdd.html'
 		})
@@ -339,6 +335,16 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 			controller: "villageCollection",
 			templateUrl: 'dist/template/village/villageCollection.html'
 		})
+		.state('editVillageCollection', {
+			url: '/editVillageCollection?editId&type',
+			controller: "editVillageCollection",
+			templateUrl: 'dist/template/village/editVillageCollection.html'
+		})
+		.state('draftVillageCollection', {
+			url: '/draftVillageCollection?draftId&type',
+			controller: "draftVillageCollection",
+			templateUrl: 'dist/template/village/draftVillageCollection.html'
+		})
 		.state('addTaskForce', {
 			url: '/addTaskForce',
 			controller: "addTaskForce",
@@ -348,6 +354,26 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 			url: '/editTaskForce?id',
 			controller: "editTaskForce",
 			templateUrl: 'dist/template/village/editTaskForce.html'
+		})
+		.state('editAddTaskForce', {
+			url: '/editAddTaskForce?id&fid',
+			controller: "editAddTaskForce",
+			templateUrl: 'dist/template/village/editAddTaskForce.html'
+		})
+		.state('editEditTaskForce', {
+			url: '/editEditTaskForce?id&fid',
+			controller: "editEditTaskForce",
+			templateUrl: 'dist/template/village/editEditTaskForce.html'
+		})
+		.state('draftAddTaskForce', {
+			url: '/draftAddTaskForce?id&fid',
+			controller: "draftAddTaskForce",
+			templateUrl: 'dist/template/village/draftAddTaskForce.html'
+		})
+		.state('draftEditTaskForce', {
+			url: '/draftEditTaskForce?id&fid',
+			controller: "draftEditTaskForce",
+			templateUrl: 'dist/template/village/draftEditTaskForce.html'
 		})
 		// 工作日志
 		.state('workLog', {
@@ -378,12 +404,12 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 			templateUrl: 'dist/template/village/queryHousehold.html'
 		})
 		.state('queryHouseholdList', {
-			url: '/queryHouseholdList',
+			url: '/queryHouseholdList?hzxm&hzsfz&nd&qyxz&qyxzc&sjzt&tpqk',
 			controller: "queryHouseholdList",
 			templateUrl: 'dist/template/village/queryHouseholdList.html'
 		})
 		.state('householdDetail', {
-			url: '/queryHouseholdDetail',
+			url: '/queryHouseholdDetail?id',
 			controller: "householdDetail",
 			templateUrl: 'dist/template/village/queryHouseholdDetail.html'
 		})
@@ -404,21 +430,17 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 			templateUrl: 'dist/template/village/queryVillage.html'
 		})
 		.state('queryVillageList', {
-			url: '/queryVillageList',
+			url: '/queryVillageList?nd&qyxz&qyxzc',
 			controller: "queryVillageList",
 			templateUrl: 'dist/template/village/queryVillageList.html'
 		})
-		.state('queryHouseholdDetail', {
-			url: '/queryHouseholdDetail',
-			controller: "queryHouseholdDetail",
-			templateUrl: 'dist/template/village/queryHouseholdDetail.html'
+		.state('queryVillageDetail', {
+			url: '/queryVillageDetail?detailId',
+			controller: "queryVillageDetail",
+			templateUrl: 'dist/template/village/queryVillageDetail.html'
 		})
 		.state('queryTaskForceDetail', {
-<<<<<<< HEAD
-			url: '/queryTaskForceDetail',
-=======
 			url: '/queryTaskForceDetail?id&idx',
->>>>>>> 5e11a1d34e220d898aa59882164154d1775fa86e
 			controller: "queryTaskForceDetail",
 			templateUrl: 'dist/template/village/queryTaskForceDetail.html'
 		})
