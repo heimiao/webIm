@@ -56,21 +56,8 @@ myApp.controller("projectEditsjpkc", ["$scope", "$state", "$http", "$stateParams
 			window.history.back() 
 		}
 		projectEditsjpkc.back = function(){
-			fupin.confirm("是否保存为草稿", function() {
-				projectEditsjpkc.saveBtn();
-			}, function() {
-				window.history.back();
-			});
+			projectEditsjpkc.saveBtn();
 		}
-		/*lowFamilyInfo.menu=false;
-		lowFamilyInfo.changeMenu=function(args){
-			lowFamilyInfo.menu=args;
-			console.log(lowFamilyInfo.menu);
-		}*/
-
-		//调用列表
-		//		$state.go('lowFamily.baseInfo'); //默认显示第一个tab
-		//根据角色遍历响应的菜单
 		$scope.projectEditsjpkc = projectEditsjpkc;
 	}
 ]);

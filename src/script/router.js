@@ -240,7 +240,7 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 
 		//扶贫项目草稿编辑
 		.state('projectDraftEdit', {
-			url: '/project_DraftEdit?id&type',
+			url: '/projectDraftEdit?draftId',
 			controller: "projectDraftEdit",
 			templateUrl: 'dist/template/project/projectDraftEdit.html'
 		})
