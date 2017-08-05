@@ -6,17 +6,17 @@
 			<div class="collectionTitle">自然村信息</div>
 		</header>
 		
-		<div class="screen-con niandu"> 
-			<div id="pp">年度</div>
-			<select name="" class="zrcSearch"  ng-model="natural.sendParam.time" ng-change="natural.selectYear()" >
-				<option value="2014">2014</option>
-				<option value="2015">2015</option>
-				<option value="2016">2016</option>
-				<option value="2017">2017</option>
-				<option value="2018">2018</option>
-				<option value="2019">2019</option>
-				<option value="2020">2020</option>
-			</select>
+		<div class="screen-con"> 
+			<div id="time" class="opens" onclick="timeList()"><span class="name">年度</span><span class="triangle"></span></div>
+			<div class="timeList">
+				<div ng-click="natural.chooseTime('2014')">2014</div>
+				<div ng-click="natural.chooseTime('2015')">2015</div>
+				<div ng-click="natural.chooseTime('2016')">2016</div>
+				<div ng-click="natural.chooseTime('2017')">2017</div>
+				<div ng-click="natural.chooseTime('2018')">2018</div>
+				<div ng-click="natural.chooseTime('2019')">2019</div>
+				<div ng-click="natural.chooseTime('2020')">2020</div>
+			</div>
 		</div>
 		
 		<div class="fill2"></div>
@@ -56,45 +56,106 @@
 	
 
 	
-<style type="text/css">
-.niandu{
-	height: 4rem;
-	background-color: #000
-}
-#pp{
-	float: left;
-	position: absolute;
-	top: 0;
-	left: 18px;
-	z-index: -1;
-	margin-top:0.3rem;
-	font-size: 1.3rem;
-	width: 20%;
-	background-image: url('./assets/img/arrow_03.png');
-	background-size: 3rem 3rem;
-	background-repeat: no-repeat;
-	background-position: center right; 
-}
-.zrcSearch{
-	width: 30%;
-	text-align: center;
-	border-radius: 5px;
-	height: 24px;
-	line-height: 24px;
-	font-size: 14px;
-	border:1px solid #ddd;
-	color: #000;
-	float: left;
-	outline: none;
-	appearance:none;
-	border:none; 
-	-moz-appearance:none;
-	-webkit-appearance:none;
-	margin-top:1rem;
-	margin-left:0.5rem ;
-	background:transparent;
-}
-.addPoor a:hover{
-	text-decoration: none
-}
-</style>
+<style>
+		.poor .township,.village,.open{
+			float: left;
+			color: #000;
+			font-size: 1.5rem;
+			padding-right: 1.6rem;
+			position: relative;
+		}
+		.poor .open{
+			padding-right: 2.5rem;
+		}
+		.poor .township{
+			margin-left: 1.9rem;
+			margin-right: 3.7rem;
+		}
+		.poor .village{
+			
+		}
+		.poor .open{
+			float: right;
+			color: #ea3c4c;
+		}
+		.poor .townshipList,.villageList{
+			display: none;
+			position: absolute;
+			top: 7.4rem;
+			left: 0;
+			z-index: 100;
+			width: 100%;
+			background-color: #fff;
+		}
+		.poor .townshipList>div,.villageList>div{
+			border-top: 1px solid #ddd;
+			padding-left: 1.9rem;
+			color: #ea3c4c;
+			font-size: 1.5rem;
+		}
+			.fillIn{
+				width: 4.7rem;
+				line-height: 2.1rem;
+				position: absolute;
+				top: 1.3rem;
+				right: 1.2rem;
+				color: #afb1bd;
+				font-size: 1.5rem;
+				text-align: center;
+				background-color: #fff;
+				border-radius: 4px;
+			}
+			.opens{
+				float: left;
+				position: relative;
+				padding-right: 1rem;
+				width: 33.33333333333333%;
+				text-align: center;
+			}
+			.timeList>div{    
+				border-top: 1px solid #ddd;
+			    padding-left: 1.9rem;
+			    color: #ea3c4c;
+			    font-size: 1.5rem;
+			}
+			.poor .screen-con .township{
+				margin: 0;
+			}
+			.township,.village{
+				width: 33.33333333333333%;
+				text-align: center;
+			}
+			.triangle{
+				right: 1.7rem !important;
+			}
+			.villageList>div{
+				text-align: right;
+				padding-right: 1.6rem;
+			}
+		.poor .listShip{
+			position: fixed;
+			overflow: auto;
+			width: 100%;
+			height: 100%;
+			top: 7.4rem;
+			padding-bottom: 7.4rem;
+		}
+		.poor .listShip>div{
+			line-height: 4.2rem;
+		}
+		</style>
+<script>
+	function timeList() {
+			$(".timeList").slideToggle(200)
+			$("#time").toggleClass("township2")
+			$("#time .name").toggleClass("col-ea3c4c")
+
+			$(".townshipList").slideUp(200)
+			$("#township").removeClass("township2")
+			$("#township .name").removeClass("col-ea3c4c")
+
+			$(".villageList").slideUp(200)
+			$("#village").removeClass("township2")
+			$("#village .name").removeClass("col-ea3c4c")
+		}
+</script>

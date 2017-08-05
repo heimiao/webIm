@@ -230,15 +230,12 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 			controller: "project",
 			templateUrl: 'dist/template/project/project.html'
 		})
-
-		//扶贫项目新增
 		.state('projectAdd', {
 
 			url: '/projectAdd?id&type',
 			controller: "projectAdd",
 			templateUrl: 'dist/template/project/projectAdd.html'
 		})
-
 		//扶贫项目草稿
 		.state('projectDraft', {
 			url: '/projectDraft?id&type',

@@ -45,13 +45,14 @@ myApp.controller("naturalDraft", ["$scope", "$state", "$http", "$stateParams","p
 
 
 
-		//获取所有列表列表
+		//获取所有列表
 		naturalDraft.findAll=function() {
 				dt.request({
 					rqstName: "nature_village", //'low_family', 'low_village', 'nature_village', 'relief_project'
 					type: "select", //select,delete,put,selectById,
 					success: function(args) {
 						naturalDraft.list=args;
+						console.log(args)
 						//循环行政村id赋值
 						for(var r=0;r<naturalDraft.list.length;r++){
 							for(var i=0;i<returnData.length;i++){
@@ -77,30 +78,6 @@ myApp.controller("naturalDraft", ["$scope", "$state", "$http", "$stateParams","p
 				});
 			}
 		
-
-
-
-
-
-
-
-		// naturalDraft.uploadSource = function() {
-		// 	console.log(12123123);
-
-		// 	//根据贫困户id
-		// }
-
-		//console.log(naturalDraft.urlParam);
-
-		/*lowFamilyInfo.menu=false;
-		lowFamilyInfo.changeMenu=function(args){
-			lowFamilyInfo.menu=args;
-			console.log(lowFamilyInfo.menu);
-		}*/
-
-		//调用列表
-		//		$state.go('lowFamily.baseInfo'); //默认显示第一个tab
-		//根据角色遍历响应的菜单
 		$scope.naturalDraft = naturalDraft;
 	}
 ]);
