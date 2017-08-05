@@ -137,7 +137,7 @@ ul li {
 .pkcList input {
     height: 3rem;
     line-height: 3rem;
-    text-align: right;
+   
     border: none;
     padding: 0;
 }
@@ -260,4 +260,20 @@ ul li {
         background: #ea3d4c;
     }
 }
-
+.basezjk{
+    margin-top:1rem;
+    input{
+        float: right;
+        margin-right:1rem;
+    }
+}
+.assetsinfo{
+    .content{
+        margin-right:1rem
+    }
+    lable{
+        border:1px solid red;
+        width:100% !important;
+        overflow: hidden;
+    }
+}
