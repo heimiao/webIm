@@ -49,17 +49,39 @@ myApp.controller("naturalEdite", ["$scope", "$state", "$http", "$stateParams",
 			zrcDetails.zirancun12() 
 		}
 
+		//校验行政村
+		zrcDetails.lsxzc=function(){
+			if(zrcDetails.list.lsxzc==''||zrcDetails.list.lsxzc==null){
+				fupin.alert("行政村不能为空");
+				return false;
+			}else{
+				return true;
+				$scope.$apply()
+			}
+		}
+		//校验负责人
+		zrcDetails.fzr=function(){
+			if(zrcDetails.list.fzr==''||zrcDetails.list.fzr==null){
+				fupin.alert("负责人不能为空");
+				return false;
+			}else{
+				return true;
+			}
+		}
+
+
 		//更新数据
 		zrcDetails.zrcEdit=function(){
-			delete zrcDetails.list.exproperty;
-			postForm.saveFrm(config.path.zrcEdit,zrcDetails.list)
-			.success(function(res){
-				// alert('上传成功')
-				//console.log(zrcDetails.list.exproperty)
-				$state.go('naturalVillage'); //默认显示第一个tab
-			}).error(function(res){
-				zrcDetails.save();
-			})
+			if(zrcDetails.lsxzc()&&zrcDetails.fzr()){
+				delete zrcDetails.list.exproperty;
+				postForm.saveFrm(config.path.zrcEdit,zrcDetails.list)
+				.success(function(res){
+					$state.go('naturalVillage'); //默认显示第一个tab
+				}).error(function(res){
+					zrcDetails.save();
+				})
+			}
+			
 		}
 
 

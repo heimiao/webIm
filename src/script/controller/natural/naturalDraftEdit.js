@@ -135,6 +135,27 @@ myApp.controller("naturalDraftEdit", ["$scope", "$state", "$http", "$stateParams
 
 
 
+		 //校验行政村
+		naturalDraftEditc.lsxzc=function(){
+			if(naturalDraftEditc.details.lsxzc==''||naturalDraftEditc.details.lsxzc==null){
+				fupin.alert("行政村不能为空");
+				return false;
+			}else{
+				return true;
+				$scope.$apply()
+			}
+		}
+		//校验负责人
+		naturalDraftEditc.fzr=function(){
+			if(naturalDraftEditc.details.fzr==''||naturalDraftEditc.details.fzr==null){
+				fupin.alert("负责人不能为空");
+				return false;
+			}else{
+				return true;
+			}
+		}
+
+
 		 //判断数据库是否有数据
 		 naturalDraftEditc.isshuju=function(){
 		 	if(data.id==''||data.id==undefined){
@@ -146,22 +167,27 @@ myApp.controller("naturalDraftEdit", ["$scope", "$state", "$http", "$stateParams
 
 		//如果数据库有数据则更新数据
 		naturalDraftEditc.zrcEdit=function(){
-			delete naturalDraftEditc.details.exproperty;
-			postForm.saveFrm(config.path.zrcEdit,naturalDraftEditc.details)
-			.success(function(res){
-				naturalDraftEditc.delById()
-				$state.go('naturalVillage');
-				alert('上传成功')
-			})
+			if(naturalDraftEditc.lsxzc()&&naturalDraftEditc.fzr()){
+				delete naturalDraftEditc.details.exproperty;
+				postForm.saveFrm(config.path.zrcEdit,naturalDraftEditc.details)
+				.success(function(res){
+					naturalDraftEditc.delById()
+					$state.go('naturalVillage');
+				})
+			}
+			
 		}
 
 		//如果数据库没有数据新增数据
 		naturalDraftEditc.tianjiazrc=function(){
-			postForm.saveFrm(config.path.addzrc,naturalDraftEditc.details)
-			.success(function(res){
-				naturalDraftEditc.delById();
-				$state.go('naturalVillage'); //默认显示第一个tab
-			})
+			if(naturalDraftEditc.lsxzc()&&naturalDraftEditc.fzr()){
+				postForm.saveFrm(config.path.addzrc,naturalDraftEditc.details)
+				.success(function(res){
+					naturalDraftEditc.delById();
+					$state.go('naturalVillage'); //默认显示第一个tab
+				})
+			}
+			
 		}
 
 		$scope.naturalDraftEditc = naturalDraftEditc;

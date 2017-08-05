@@ -6,20 +6,48 @@ myApp.controller("naturalVillage", ["$scope", "$state", "$http", "$stateParams",
 		natural.sendParam={};
 		natural.sendParam.time = '2017';  // 年度时间查询条件 
 		natural.start = 0; //请求的条数
-		natural.noDataType = false;
-		natural.noDataName = null;
-		
+		natural.xingzheng = {
+			lx:'02'
+		};
+		var xingzhengcun={};
+		xingzhengcun.list = {};
+		var returnData={};
+		natural.xingzhengcun=function(){
+			postForm.saveFrm(config.path.xingzhengName,natural.xingzheng)
+			.success(function(res){
+				returnData=res;
+				natural.xzcList();
+				natural.sendParam.time='2017'
+			})
+		};
+		//获取自然村
+		natural.zirancun = {
+			lx:'03'
+		};
+		var zirancun={};
+		zirancun.list = {};
+		var returnzrcData={};
+		natural.zirancun=function(){
+			postForm.saveFrm(config.path.xingzhengName,natural.zirancun)
+			.success(function(res){
+				returnzrcData=res;
+				natural.xzcList();
+			})
+		};
+		natural.xingzhengcun()  //调用获取全部行政村的集合
+		natural.zirancun();
 		
 		//以下是获取自然村列表
 		natural.xzcList=function(me, num){
-			//alert(natural.sendParam.time)
+			console.log("----")
+			console.log(natural.sendParam.time)
 			natural.sendParam = {
 				name:"",
 				nd:natural.sendParam.time
 			};
 			natural.list = {};
 			natural.page = {
-				limit:30,
+				limit:10,
 				start:natural.start,
 			};
 			var sunParm=angular.extend({},natural.page,natural.sendParam)
@@ -46,46 +74,8 @@ myApp.controller("naturalVillage", ["$scope", "$state", "$http", "$stateParams",
 			})
 		
 		}
-		//natural.xzcList()
 
-		natural.xingzheng = {
-			lx:'02',
-			fid:"",
-			code:'',
-			name:'',
-			tybz:''
-		};
-		var xingzhengcun={};
-		xingzhengcun.list = {};
-		var returnData={};
-		natural.xingzhengcun=function(){
-			postForm.saveFrm(config.path.xingzhengName,natural.xingzheng)
-			.success(function(res){
-				returnData=res;
-				natural.xzcList();
-			})
-		}
-		natural.xingzhengcun()  //调用获取全部行政村的集合
-		//获取自然村
-		natural.zirancun = {
-			lx:'03',
-			fid:"",
-			code:'',
-			name:'',
-			tybz:''
-		};
-		var zirancun={};
-		zirancun.list = {};
-		var returnzrcData={};
-		natural.zirancun=function(){
-			postForm.saveFrm(config.path.xingzhengName,natural.zirancun)
-			.success(function(res){
-				//alert('12')
-				returnzrcData=res;
-				//natural.xzcList();
-			})
-		}
-		natural.zirancun();
+
 
 		// 选择查询条件  年度时间
 		natural.chooseTime=function(time){
