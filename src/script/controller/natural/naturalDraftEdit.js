@@ -12,7 +12,7 @@ myApp.controller("naturalDraftEdit", ["$scope", "$state", "$http", "$stateParams
 					param: {
 						index_id: $stateParams.id
 					},
-					success: function(args) {
+					success: function(args) { 
 						naturalDraftEditc.details=args;
 						naturalDraftEditc.xingzhengcun();
 						naturalDraftEditc.zirancun12();
@@ -82,38 +82,8 @@ myApp.controller("naturalDraftEdit", ["$scope", "$state", "$http", "$stateParams
 				dt.request({
 					rqstName: "nature_village", //'low_family', 'low_village', 'nature_village', 'relief_project'
 					type: "put", //select,delete,put,selectById,
-					data: {
-						id:naturalDraftEditc.details.id,  
-						lsxzc:naturalDraftEditc.details.lsxzc, //行政村
-						zrcmc:naturalDraftEditc.details.zrcmc, //自然村
-						nd:naturalDraftEditc.details.nd,  //年度
-						zh:naturalDraftEditc.details.zh,  //组号
-						fzr:naturalDraftEditc.details.fzr, //负责人
-						lxdh:naturalDraftEditc.details.lxdh, //联系电话
-						zhs:naturalDraftEditc.details.zhs, //总户数
-						pkhs:naturalDraftEditc.details.pkhs, //贫困户数
-						dbhs:naturalDraftEditc.details.dbhs, //低保户数
-						wbhs:naturalDraftEditc.details.wbhs, //五保户数
-						zrks:naturalDraftEditc.details.zrks, //总人口数
-						pkrks:naturalDraftEditc.details.pkrks, //贫困人口数
-						dbrks:naturalDraftEditc.details.dbrks, //D2b低保人口数
-						wbrks:naturalDraftEditc.details.wbrks, //五保人口数
-						smmzrks:naturalDraftEditc.details.smmzrks, //少数民族人口数
-						fnrks:naturalDraftEditc.details.fnrks, //妇女人口数
-						cjrks:naturalDraftEditc.details.cjrks, //残疾人口数
-						ldlrs:naturalDraftEditc.details.ldlrs, //D3劳动力人数
-						wcwgrs:naturalDraftEditc.details.wcwgrs, //D3a 外出务工人数
-						h13a:naturalDraftEditc.details.h13a, //H13a 16周岁以上
-						hjrks:naturalDraftEditc.details.hjrks, //H13 户籍人口数
-						//生活条件
-						dxzcjl:naturalDraftEditc.details.dxzcjl, //D4 到行政村距离
-						dxzcsftlql:naturalDraftEditc.details.dxzcsftlql, //D5到行政村是否通沥青（水泥）路
-						sftscyd:naturalDraftEditc.details.sftscyd, //D6是否生产用电
-						sftshyd:naturalDraftEditc.details.sftshyd, //D6是否生活用电
-						sftkd:naturalDraftEditc.details.sftkd  //D6是否通宽带
-					},
+					data: naturalDraftEditc.details,
 					success: function(args) {
-						naturalDraftEditc.delById()
 						$state.go('naturalDraft');
 					},
 					'error': function(args) {
@@ -155,11 +125,11 @@ myApp.controller("naturalDraftEdit", ["$scope", "$state", "$http", "$stateParams
 
 
 		 //判断数据库是否有数据
-		 naturalDraftEditc.isshuju=function(){
-		 	if(data.id==''||data.id==undefined){
-		 		naturalDraftEditc.tianjiazrc()
+		 naturalDraftEditc.isshuju=function(){  
+		 	if(naturalDraftEditc.details.id){
+		 		naturalDraftEditc.zrcEdit() 
 		 	}else{
-		 		naturalDraftEditc.zrcEdit()
+		 		naturalDraftEditc.tianjiazrc(); 
 		 	}
 		 }
 
