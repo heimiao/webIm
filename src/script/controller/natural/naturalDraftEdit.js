@@ -13,7 +13,7 @@ myApp.controller("naturalDraftEdit", ["$scope", "$state", "$http", "$stateParams
 						index_id: $stateParams.id
 					},
 					success: function(args) {
-						console.log(args);
+						//console.log(args);
 						naturalDraftEditc.details=args;
 						naturalDraftEditc.xingzhengcun();
 						naturalDraftEditc.zirancun12();
@@ -141,7 +141,7 @@ myApp.controller("naturalDraftEdit", ["$scope", "$state", "$http", "$stateParams
 					
 				}, function() {
 					//console.log("取消按钮");
-					window.history.go(-1)
+					$state.go('naturalVillage');
 				});
 		 } 
 
