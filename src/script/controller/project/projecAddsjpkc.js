@@ -46,7 +46,14 @@ myApp.controller("projectAddsjpkc", ["$scope", "$state", "$http", "$stateParams"
 				});
 			window.localStorage.setItem('projectGetpkclist', JSON.stringify(addPkc))
 			window.localStorage.setItem('projectGetpkclistName', JSON.stringify(addpkcName))
-			window.history.back() 
+			window.history.back();
+		}
+		projectAddsjpkc.back = function(){
+			fupin.confirm("是否保存为草稿", function() {
+				projectAddsjpkc.savebendi();
+			}, function() {
+				window.history.back();
+			});
 		}
 		//添加扶贫项目涉及贫困村
 		

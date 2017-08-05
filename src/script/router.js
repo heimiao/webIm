@@ -232,8 +232,13 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 		})
 
 		//扶贫项目新增
+<<<<<<< HEAD
 		.state('projectAdd', {
 			url: '/projectAdd?id&type',
+=======
+		.state('projectAdd', { 
+			url: '/projectAdd?id&type', 
+>>>>>>> ed2e296f0f55d90d8134bb6e95d066d33a9e8e4c
 			controller: "projectAdd",
 			templateUrl: 'dist/template/project/projectAdd.html'
 		})
@@ -253,7 +258,7 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 		})
 		//扶贫项目编辑
 		.state('projectEdit', {
-			url: '/project_Edit?id&type',
+			url: '/projectEdit?detailId&type',
 			controller: "projectEdit",
 			templateUrl: 'dist/template/project/projectEdit.html'
 		})
@@ -262,6 +267,13 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 			url: '/projectAddsjpkc?id&type',
 			controller: "projectAddsjpkc",
 			templateUrl: 'dist/template/project/projectAddsjpkc.html'
+		})
+
+		//扶贫项目 编辑 涉及贫困村
+		.state('projectEditsjpkc', {
+			url: '/projectEditsjpkc?idx',
+			controller: "projectEditsjpkc",
+			templateUrl: 'dist/template/project/projectEditsjpkc.html'
 		})
 
 		//扶贫项目 新增 涉及贫困户
@@ -273,16 +285,9 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 
 		//扶贫项目 编辑 涉及贫困户
 		.state('projecEditsjpkh', {
-			url: '/project_Editsjpkh?id&type',
+			url: '/projecEditsjpkh?idx',
 			controller: "projecEditsjpkh",
 			templateUrl: 'dist/template/project/projecEditsjpkh.html'
-		})
-
-		//扶贫项目 编辑 涉及贫困村
-		.state('projectEditsjpkc', {
-			url: '/projectEditsjpkc?idx',
-			controller: "projectEditsjpkc",
-			templateUrl: 'dist/template/project/projectEditsjpkc.html'
 		})
 
 		//扶贫数据 自然村 查询
@@ -342,6 +347,16 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 			controller: "villageCollection",
 			templateUrl: 'dist/template/village/villageCollection.html'
 		})
+		.state('editVillageCollection', {
+			url: '/editVillageCollection?editId&type',
+			controller: "editVillageCollection",
+			templateUrl: 'dist/template/village/editVillageCollection.html'
+		})
+		.state('draftVillageCollection', {
+			url: '/draftVillageCollection?draftId&type',
+			controller: "draftVillageCollection",
+			templateUrl: 'dist/template/village/draftVillageCollection.html'
+		})
 		.state('addTaskForce', {
 			url: '/addTaskForce',
 			controller: "addTaskForce",
@@ -351,6 +366,26 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 			url: '/editTaskForce?id',
 			controller: "editTaskForce",
 			templateUrl: 'dist/template/village/editTaskForce.html'
+		})
+		.state('editAddTaskForce', {
+			url: '/editAddTaskForce?id&fid',
+			controller: "editAddTaskForce",
+			templateUrl: 'dist/template/village/editAddTaskForce.html'
+		})
+		.state('editEditTaskForce', {
+			url: '/editEditTaskForce?id&fid',
+			controller: "editEditTaskForce",
+			templateUrl: 'dist/template/village/editEditTaskForce.html'
+		})
+		.state('draftAddTaskForce', {
+			url: '/draftAddTaskForce?id&fid',
+			controller: "draftAddTaskForce",
+			templateUrl: 'dist/template/village/draftAddTaskForce.html'
+		})
+		.state('draftEditTaskForce', {
+			url: '/draftEditTaskForce?id&fid',
+			controller: "draftEditTaskForce",
+			templateUrl: 'dist/template/village/draftEditTaskForce.html'
 		})
 		// 工作日志
 		.state('workLog', {
@@ -381,12 +416,12 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 			templateUrl: 'dist/template/village/queryHousehold.html'
 		})
 		.state('queryHouseholdList', {
-			url: '/queryHouseholdList',
+			url: '/queryHouseholdList?hzxm&hzsfz&nd&qyxz&qyxzc&sjzt&tpqk',
 			controller: "queryHouseholdList",
 			templateUrl: 'dist/template/village/queryHouseholdList.html'
 		})
 		.state('householdDetail', {
-			url: '/queryHouseholdDetail',
+			url: '/queryHouseholdDetail?id',
 			controller: "householdDetail",
 			templateUrl: 'dist/template/village/queryHouseholdDetail.html'
 		})
@@ -407,17 +442,20 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 			templateUrl: 'dist/template/village/queryVillage.html'
 		})
 		.state('queryVillageList', {
-			url: '/queryVillageList',
+			url: '/queryVillageList?nd&qyxz&qyxzc',
 			controller: "queryVillageList",
 			templateUrl: 'dist/template/village/queryVillageList.html'
 		})
-		.state('queryHouseholdDetail', {
-			url: '/queryHouseholdDetail',
-			controller: "queryHouseholdDetail",
-			templateUrl: 'dist/template/village/queryHouseholdDetail.html'
+		.state('queryVillageDetail', {
+			url: '/queryVillageDetail?detailId',
+			controller: "queryVillageDetail",
+			templateUrl: 'dist/template/village/queryVillageDetail.html'
 		})
 		.state('queryTaskForceDetail', {
+<<<<<<< HEAD
 
+=======
+>>>>>>> ed2e296f0f55d90d8134bb6e95d066d33a9e8e4c
 			url: '/queryTaskForceDetail?id&idx',
 			controller: "queryTaskForceDetail",
 			templateUrl: 'dist/template/village/queryTaskForceDetail.html'

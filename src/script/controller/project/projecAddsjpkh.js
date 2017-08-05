@@ -46,9 +46,15 @@ myApp.controller("projectAddsjpkh", ["$scope", "$state", "$http", "$stateParams"
 				});
 			window.localStorage.setItem('projectGetpkhlist', JSON.stringify(addPkc))
 			window.localStorage.setItem('projectGetpkhlistName', JSON.stringify(addpkcName))
-			window.history.back() 
+			window.history.back(); 
 		}
-
+		projectAddsjpkh.back = function(){
+			fupin.confirm("是否保存为草稿", function() {
+				projectAddsjpkh.addPkh();
+			}, function() {
+				window.history.back();
+			});
+		}
 		/*lowFamilyInfo.menu=false;
 		lowFamilyInfo.changeMenu=function(args){
 			lowFamilyInfo.menu=args;

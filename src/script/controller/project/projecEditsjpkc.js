@@ -55,6 +55,13 @@ myApp.controller("projectEditsjpkc", ["$scope", "$state", "$http", "$stateParams
 			window.localStorage.setItem('projectGetpkclistName', JSON.stringify(projectEditsjpkc.projectGetpkclistName))
 			window.history.back() 
 		}
+		projectEditsjpkc.back = function(){
+			fupin.confirm("是否保存为草稿", function() {
+				projectEditsjpkc.saveBtn();
+			}, function() {
+				window.history.back();
+			});
+		}
 		/*lowFamilyInfo.menu=false;
 		lowFamilyInfo.changeMenu=function(args){
 			lowFamilyInfo.menu=args;
