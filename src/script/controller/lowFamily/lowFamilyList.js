@@ -120,7 +120,7 @@ myApp.controller("lowFamilyListCtro", ["$scope", "$state", "$filter", "$http", "
 
 	//选择乡镇
 	lowFamilyList.getVillagesByTown = function(name, id) {
-		lowFamilyList.sendParam.qyxzc = id;
+		lowFamilyList.sendParam.qyxz = id;
 		$("#township .name").html(name)
 		$(".townshipList").slideUp(200)
 		$("#township").removeClass("township2")
@@ -134,7 +134,7 @@ myApp.controller("lowFamilyListCtro", ["$scope", "$state", "$filter", "$http", "
 		})
 	}
 	//选择村
-	lowFamilyList.getVillagesId= function(name, id){
+	lowFamilyList.getVillagesId = function(name, id) {
 		lowFamilyList.sendParam.qyxzc = id;
 		$("#village .name").html(name)
 		$(".villageList").slideUp(200)

@@ -29,9 +29,9 @@ myApp.controller("lowFamilyMemberCtro", ["$scope", "$rootScope", "$state", "$htt
 		//判断是否编辑
 		if(lowFamilyMember.urlParam.id) {
 			try {
-				if(lowFamilyMember.verdictStorage(lowFamilyMember.urlParam.id)) {
+				if(fupin.getCacheData(lowFamilyMember.urlParam.id, lowFamilyMember.urlParam.type)) {
 					//把data合并到表单对象中
-					var infoList = lowFamilyMember.verdictStorage(lowFamilyMember.urlParam.id).familyInfo_model;
+					var infoList = fupin.getCacheData(lowFamilyMember.urlParam.id, lowFamilyMember.urlParam.type).familyInfo_model;
 					lowFamilyMember.list = fupin.mapArray(infoList, config.sysValue.YHZGX, "yhzgx", "value");
 					lowFamilyMember.oldObj = infoList;
 				} else {
@@ -77,51 +77,23 @@ myApp.controller("lowFamilyMemberCtro", ["$scope", "$rootScope", "$state", "$htt
 		//保存表单为本地数据库
 		lowFamilyMember.saveForm = function() {
 			//保存对象之前判断是否是编辑
+			var saveData;
 			if(lowFamilyMember.urlParam.id) {
-				var data = JSON.parse(window.localStorage.getItem("low_family"));
-				angular.extend(data, {
+				var saveData = JSON.parse(window.localStorage.getItem("low_family"));
+				angular.extend(saveData, {
 					familyInfo_model: lowFamilyMember.list
-				});
-				dt.request({
-					rqstName: "low_family", //'low_family', 'low_village', 'nature_village', 'relief_project'
-					type: "put", //select,delete,put,selectById,
-					data: data,
-					success: function(data) {
-						if(data.type = "success") {
-							//清空缓存
-							fupin.localCache(JSON.stringify(""));
-							$state.go("lowFamilyDraft");
-						}
-					},
-					'error': function(data) {}
 				});
 
 			} else {
-				lowFamilyMember.newLocalData();
+				var saveData = JSON.parse(window.localStorage.getItem("low_family"));
+				//保存接口
+				var newId = fupin.randomChat();
+				var data = {
+					newId: newId,
+					familyInfo_model: datas.familyInfo_model,
+				}
 			}
-		}
-		lowFamilyMember.newLocalData = function() {
-			var datas = JSON.parse(window.localStorage.getItem("low_family"));
-			//保存接口
-			var newId = fupin.randomChat();
-			var data = {
-				newId: newId,
-				familyInfo_model: datas.familyInfo_model,
-			}
-			dt.request({
-				rqstName: "low_family", //'low_family', 'low_village', 'nature_village', 'relief_project'
-				type: "put", //select,delete,put,selectById,
-				data: data,
-				success: function(data) {
-					if(data.type = "success") {
-						//清空缓存
-						fupin.localCache(JSON.stringify(data));
-						$state.go("lowFamilyDraft");
-						//window.history.go(-1);
-					}
-				},
-				'error': function(data) {}
-			});
+			fupin.saveLocalData(saveData);
 		}
 
 		$scope.goback = function() {
@@ -194,10 +166,12 @@ myApp.controller("addFamilyMemberCtro", ["$scope", "$rootScope", "$state", "$htt
 				$.each(dataAll.familyInfo_model, function(idnex, item) {
 					if(item.id == addFamilyMember.urlParam.memberId) {
 						addFamilyMember.formInfo = item;
+						addFamilyMember.otherSelect.headUrl = config.path.getUploadHead + "?id=" + addFamilyMember.formInfo.pkhjc_fj_id
 					}
 				});
 			}
 		}
+
 		addFamilyMember.saveForm = function() {
 			if(addFamilyMember.urlParam.memberId) {
 				//判断是否修改数据
@@ -211,7 +185,9 @@ myApp.controller("addFamilyMemberCtro", ["$scope", "$rootScope", "$state", "$htt
 					});
 				}
 			} else {
-				dataAll.familyInfo_model.push(addFamilyMember.formInfo);
+				dataAll.familyInfo_model.push(angular.extend(addFamilyMember.formInfo, {
+					id: fupin.randomChat()
+				}));
 			}
 			fupin.localCache(JSON.stringify(dataAll));
 			$state.go("lowFamily.familyMember", {
@@ -219,18 +195,22 @@ myApp.controller("addFamilyMemberCtro", ["$scope", "$rootScope", "$state", "$htt
 				type: addFamilyMember.urlParam.type
 			});
 		}
-		
+
 		addFamilyMember.uploadPic = function() {
 			var file = $scope.testFile;
 			file.upload = Upload.upload({
 				url: config.path.uploadHead,
 				data: {
-					headImg: file
+					file: file,
+					ywid: addFamilyMember.urlParam.memberId
 				}
 			});
 			file.upload.then(function(response) {
 				try {
-					addFamilyMember.getHead(response.data.results.id);
+					addFamilyMember.formInfo.pkhjc_fj_id = response.data.results.id;
+					addFamilyMember.otherSelect.headUrl = config.path.getUploadHead + "?id=" + response.data.results.id;
+					//					console.log(addFamilyMember.otherSelect.headUrl);
+					//					addFamilyMember.getHead(response.data.results.id);
 				} catch(e) {
 					//TODO handle the exception
 				}
@@ -247,47 +227,17 @@ myApp.controller("addFamilyMemberCtro", ["$scope", "$rootScope", "$state", "$htt
 			});
 		}
 
-		/*addFamilyMember.uploadPic = function() {
-			try {
-				var file = $scope.upladHeadPic;
-				console.log(file);
-				file.upload = Upload.upload({
-					url: config.path.uploadHead,
-					dataAll: {
-						headImg: file
-					}
-				});
-				file.upload.then(function(response) {
-					if(response.data.results.id) {
-						try {
-							addFamilyMember.getHead(response.data.results.id);
-						} catch(e) {
-							//TODO handle the exception
-						}
-					} else {
-						fupin.alert("上传头像失败");
-					}
-					$scope.upladHeadPic = "";
-					$timeout(function() {
-						file.result = response.data;
-					});
-				}, function(response) {
-					if(response.status > 0)
-						$scope.errorMsg = response.status + ': ' + response.data;
-				}, function(evt) {
-					file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
-				});
-			} catch(e) {}
-		}*/
-
-		addFamilyMember.getHead = function(id) {
-			addFamilyMember.formInfo.pkhjc_fj_id = id;
-			postForm.saveFrm(config.path.getUploadHead, {
-				id: id
-			}).success(function(data) {
-				//赋值给头像
-				addFamilyMember.otherSelect.headUrl = data
-			})
+		addFamilyMember.delForm = function() {
+			var ary = [];
+			$.each(dataAll.familyInfo_model, function(index, item) {
+				if(item.id != addFamilyMember.urlParam.memberId) {
+					ary.push(item);
+				}
+				dataAll.familyInfo_model = ary;
+				addFamilyMember.formInfo = {};
+				addFamilyMember.urlParam.memberId = "";
+				fupin.localCache(JSON.stringify(dataAll));
+			});
 		}
 		$scope.addFamilyMember = addFamilyMember;
 	}

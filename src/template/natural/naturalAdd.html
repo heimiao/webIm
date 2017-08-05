@@ -79,7 +79,7 @@
 				<label for="natualladd_fzr">
 					<div class="name">负责人</div>
 					<div class="content">
-						<input id="natualladd_fzr" type="text" placeholder="兰克沙" ng-model="zrcAdd.sendParam.fzr">
+						<input id="natualladd_fzr" type="text" placeholder="请输入负责人" ng-model="zrcAdd.sendParam.fzr">
 					</div>
 				</label>	
 			</div>
@@ -88,7 +88,7 @@
 				<label for="natualladd_lxdh">
 					<div class="name">联系电话</div>
 					<div class="content">
-						<input id="natualladd_lxdh" type="number" placeholder="请输入联系电话" ng-model="zrcAdd.sendParam.lxdh">
+						<input id="natualladd_lxdh" type="text" placeholder="请输入联系电话" ng-model="zrcAdd.sendParam.lxdh">
 					</div>
 				</label>	
 			</div>
@@ -233,10 +233,10 @@
 			
 			<div class="listItem">
 				<div class="item border-b">
-					<label for="natualladd_dxzcjl">
+					<label for="natualladd_dxzcjl" >
 						<div class="name">D4 到行政村距离(公里)</div>
-						<div class="content" >
-							<input id="natualladd_dxzcjl" type="number" placeholder="请输入公里数" style="text-align: right; padding-right: -2rem;" ng-model="zrcAdd.sendParam.dxzcjl">
+						<div class="content" style="width: 5rem !important" >
+							<input id="natualladd_dxzcjl" type="number" placeholder="0" style="text-align: right;" ng-model="zrcAdd.sendParam.dxzcjl">
 						</div>
 					</label>	
 				</div>
@@ -255,7 +255,7 @@
 				</div>
 				<div class="item border-b">
 					<label for="natualladd_sftscyd">
-						<div class="name">D6是否生产用电</div>
+						<div class="name">D6是否通生产用电</div>
 						<div class="content">
 							<select name="" id="zrcele" ng-model="zrcAdd.sendParam.sftscyd">
 								<option value="是">是</option>
@@ -267,7 +267,7 @@
 				</div>
 				<div class="item border-b">
 					<label for="natualladd_sftshyd">
-						<div class="name">D6是否生活用电</div>
+						<div class="name">D7是否通生活用电</div>
 						<div class="content">
 							<select name="" id="natualladd_sftshyd" ng-model="zrcAdd.sendParam.sftshyd">
 								<option value="是">是</option>
@@ -280,7 +280,7 @@
 				
 				<div class="item border-b">
 					<label for="natualladd_sftkd">
-						<div class="name">D6是否通宽带</div>
+						<div class="name">D8是否通宽带</div>
 						<div class="content">
 							<select name="" id="natualladd_sftkd" ng-model="zrcAdd.sendParam.sftkd" >
 								<option value="是">是</option>

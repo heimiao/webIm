@@ -98,8 +98,6 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 		.state('lowFamily.income', {
 			//收入
 			url: '/low_family_income?id&type',
-			//			controller: "order_list",
-			//			templateUrl: 'dist/template/lowFamily/lowFamilyInfo/income.html',
 			views: {
 				'': {
 					controller: "incomeCtro",
@@ -165,17 +163,19 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 				}
 			}
 		})
-		.state('addDutyPerson', {
-			url: '/add_family_member?id&type',
-			//			controller: "order_list",
-			templateUrl: 'dist/template/lowFamily/addDutyPerson.html'
+		.state('addAssistPerson', {
+			//添加帮扶责任人assistPerson
+			url: '/add_assist_person?id&type&personId',
+			controller: "addAsistPersonCtro",
+			templateUrl: 'dist/template/lowFamily/addAssistPerson.html'
 		})
+
 		.state('lowFamily.assistEffect', {
 			//帮扶成效
 			url: '/assist_effect?id&type',
 			views: {
 				'': {
-					//controller: "assistEffectCtro",
+					controller: "assistEffectCtro",
 					templateUrl: 'dist/template/lowFamily/lowFamilyInfo/container.html'
 				},
 				'form@lowFamily.assistEffect': {
@@ -200,10 +200,17 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 		})
 		//自然村草稿
 		.state('naturalDraft', {
-			url: '/natural_draft?id&type',
+			url: '/natural_draft?id',
 			controller: "naturalDraft",
 			templateUrl: 'dist/template/natural/naturalDraft.html'
 		})
+
+		.state('naturalDraftEdit', {
+			url: '/naturalDraftEdit?id',
+			controller: "naturalDraftEdit",
+			templateUrl: 'dist/template/natural/naturalDraftEdit.html'
+		})
+
 		//自然村新增
 		.state('naturalAdd', {
 			url: '/natural_Add?id&type',
@@ -223,14 +230,12 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 			controller: "project",
 			templateUrl: 'dist/template/project/project.html'
 		})
+		.state('projectAdd', {
 
-		//扶贫项目新增
-		.state('projectAdd', { 
-			url: '/projectAdd?id&type', 
+			url: '/projectAdd?id&type',
 			controller: "projectAdd",
 			templateUrl: 'dist/template/project/projectAdd.html'
 		})
-
 		//扶贫项目草稿
 		.state('projectDraft', {
 			url: '/projectDraft?id&type',
@@ -256,7 +261,6 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 			controller: "projectAddsjpkc",
 			templateUrl: 'dist/template/project/projectAddsjpkc.html'
 		})
-
 		//扶贫项目 编辑 涉及贫困村
 		.state('projectEditsjpkc', {
 			url: '/projectEditsjpkc?idx',

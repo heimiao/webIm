@@ -4,47 +4,50 @@
 	描述：列表
 -->
 <style>
-	.listShip{
+	.listShip {
 		display: none;
 		position: fixed;
-	    top: 7.9rem;
-	    left: 0;
-	    background-color: #fff;
-	    width: 100%;
-	    overflow: auto;
-	    height: 100%;
-	    padding-bottom: 10rem;
-	    z-index: 200;
+		top: 7.9rem;
+		left: 0;
+		background-color: #fff;
+		width: 100%;
+		overflow: auto;
+		height: 100%;
+		padding-bottom: 10rem;
+		z-index: 200;
 	}
-	.listShip>div{
+	
+	.listShip>div {
 		line-height: 4.2rem;
 		border-top: 1px solid #ddd;
-	    padding-left: 1.9rem;
-	    color: #ea3c4c;
-	    font-size: 1.5rem;
-
+		padding-left: 1.9rem;
+		color: #ea3c4c;
+		font-size: 1.5rem;
 	}
-	.poorMa{
+	
+	.poorMa {
 		margin: 0 !important;
 		width: 33.33333333333333%;
 		text-align: center;
-
 	}
-	.poorMa .triangle{
+	
+	.poorMa .triangle {
 		right: 1rem;
 	}
-	.townMa{
+	
+	.townMa {
 		position: absolute;
 		top: 3.5rem;
 		left: 0;
 		width: 100%;
 		background-color: #fff;
 	}
-	.townMa>div{
+	
+	.townMa>div {
 		border-top: 1px solid #ddd;
-	    padding-left: 1.9rem;
-	    color: #ea3c4c;
-	    font-size: 1.5rem;
+		padding-left: 1.9rem;
+		color: #ea3c4c;
+		font-size: 1.5rem;
 	}
 </style>
 <div class="poor">
@@ -64,7 +67,7 @@
 		<div id="township" class="township" onclick="townshipList()">
 			<span class="name">全部乡镇</span><span class="triangle"></span>
 		</div>
-		
+
 		<div id="village" class="village" onclick="villageList()"><span class="name">全部行政村</span><span class="triangle"></span></div>
 		<div class="open" onclick="openToggle()"><span class="down col-ea3c4c">展开</span><span class="stop col-ea3c4c">收起</span></div>
 	</div>
@@ -73,12 +76,11 @@
 		<my-select my-ng-model="lowFamilyList.sendParam.tpqk" source="lowFamilyList.otherSelect.tpqkObj" my-init="脱贫情况"></my-select>
 		<my-select my-ng-model="lowFamilyList.sendParam.nd" source="lowFamilyList.otherSelect.yearObj" my-init="年度"></my-select>
 	</div>
-
 	<div class="townshipList listShip">
 		<div ng-repeat="item in lowFamilyList.townList" ng-click='lowFamilyList.getVillagesByTown(item.name,item.id)' ng-bind="item.name"></div>
 	</div>
 	<div class="villageList listShip">
-			<div ng-repeat="item in lowFamilyList.town_VillagesList"  ng-click="lowFamilyList.getVillagesId(item.name,item.id)" ng-bind="item.name"></div>
+		<div ng-repeat="item in lowFamilyList.town_VillagesList" ng-click="lowFamilyList.getVillagesId(item.name,item.id)" ng-bind="item.name"></div>
 	</div>
 	<!--<div class="fill2"></div>
 	<div class="fill"></div>-->
@@ -172,6 +174,7 @@
 			$("#time").removeClass("township2")
 			$("#time .name").removeClass("col-ea3c4c")
 		}
+
 		function timeList() {
 			$(".timeList").slideToggle(200)
 			$("#time").toggleClass("township2")

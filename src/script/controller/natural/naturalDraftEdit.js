@@ -13,7 +13,7 @@ myApp.controller("naturalDraftEdit", ["$scope", "$state", "$http", "$stateParams
 						index_id: $stateParams.id
 					},
 					success: function(args) {
-						console.log(args);
+						//console.log(args);
 						naturalDraftEditc.details=args;
 						naturalDraftEditc.xingzhengcun();
 						naturalDraftEditc.zirancun12();
@@ -59,16 +59,7 @@ myApp.controller("naturalDraftEdit", ["$scope", "$state", "$http", "$stateParams
 			naturalDraftEditc.zirancun12()
 		}
 
-		//更新数据
-		naturalDraftEditc.zrcEdit=function(){
-			delete naturalDraftEditc.details.exproperty;
-			postForm.saveFrm(config.path.zrcEdit,naturalDraftEditc.details)
-			.success(function(res){
-				//alert('123')
-				naturalDraftEditc.delById()
-				$state.go('naturalVillage');
-			})
-		}
+
 		//草稿上传成功后 删除本地存储的数据
 		naturalDraftEditc.delById=function() {
 				//根据id删除
@@ -124,7 +115,7 @@ myApp.controller("naturalDraftEdit", ["$scope", "$state", "$http", "$stateParams
 						sftkd:naturalDraftEditc.details.sftkd  //D6是否通宽带
 					},
 					success: function(args) {
-						//console.log(args);
+						naturalDraftEditc.delById()
 						$state.go('naturalDraft');
 					},
 					'error': function(args) {
@@ -136,38 +127,43 @@ myApp.controller("naturalDraftEdit", ["$scope", "$state", "$http", "$stateParams
 			//返回时如没有上传则提示是否保存草稿
 		 naturalDraftEditc.goback=function(){
 		 	fupin.confirm("是否保存为草稿", function() {
-					//console.log("确定按钮");
-					naturalDraftEditc.update();
-					
+				naturalDraftEditc.update();
 				}, function() {
-					//console.log("取消按钮");
-					window.history.go(-1)
+					$state.go('naturalVillage');
 				});
 		 } 
 
 
 
+		 //判断数据库是否有数据
+		 naturalDraftEditc.isshuju=function(){
+		 	if(data.id==''||data.id==undefined){
+		 		naturalDraftEditc.tianjiazrc()
+		 	}else{
+		 		naturalDraftEditc.zrcEdit()
+		 	}
+		 }
 
+		//如果数据库有数据则更新数据
+		naturalDraftEditc.zrcEdit=function(){
+			delete naturalDraftEditc.details.exproperty;
+			postForm.saveFrm(config.path.zrcEdit,naturalDraftEditc.details)
+			.success(function(res){
+				naturalDraftEditc.delById()
+				$state.go('naturalVillage');
+				alert('上传成功')
+			})
+		}
 
+		//如果数据库没有数据新增数据
+		naturalDraftEditc.tianjiazrc=function(){
+			postForm.saveFrm(config.path.addzrc,naturalDraftEditc.details)
+			.success(function(res){
+				naturalDraftEditc.delById();
+				$state.go('naturalVillage'); //默认显示第一个tab
+			})
+		}
 
-
-		// naturalDraft.uploadSource = function() {
-		// 	console.log(12123123);
-
-		// 	//根据贫困户id
-		// }
-
-		//console.log(naturalDraft.urlParam);
-
-		/*lowFamilyInfo.menu=false;
-		lowFamilyInfo.changeMenu=function(args){
-			lowFamilyInfo.menu=args;
-			console.log(lowFamilyInfo.menu);
-		}*/
-
-		//调用列表
-		//		$state.go('lowFamily.baseInfo'); //默认显示第一个tab
-		//根据角色遍历响应的菜单
 		$scope.naturalDraftEditc = naturalDraftEditc;
 	}
 ]);

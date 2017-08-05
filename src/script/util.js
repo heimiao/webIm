@@ -72,9 +72,38 @@
 				}
 			}
 			return bool;
+		},
+		getCacheData: function(id, type) {
+			var data;
+			try {
+				if(JSON.parse(localStorage.getItem("low_family"))) {
+					var localUserId = type == "net" ?
+						JSON.parse(localStorage.getItem("low_family")).baseInfo_model.id :
+						JSON.parse(localStorage.getItem("low_family")).index_id;
+					data = (localUserId == id) ?
+						JSON.parse(localStorage.getItem("low_family")) : "";
+				}
+			} catch(e) {
+				console.error("判断本地是否有数据，json转化错误")
+			}
+			return data;
+		},
+		saveLocalData: function(data) {
+			dt.request({
+				rqstName: "low_family", //'low_family', 'low_village', 'nature_village', 'relief_project'
+				type: "put", //select,delete,put,selectById,
+				data: data,
+				success: function(args) {
+					if(args.type == "success") {
+						fupin.localCache(JSON.stringify(args));
+						window.location.href = "#/low_family_draft";
+						//						$state.go("lowFamilyDraft");
+					}
+				},
+				'error': function(data) {}
+			});
 		}
 	}
-
 	var methodAlert = {
 		options: {
 			title: "标题",
@@ -151,13 +180,3 @@
 	};
 	_w.fupin = fupin || {};
 }(window, jQuery));
-//扩展数组原型
-Array.prototype.remove = function(obj) {
-	var returnArray = [];
-	for(var i = 0; i < this.length; i++) {
-		if(i != obj) {
-			returnArray.push(this[i]);
-		}
-	}
-	return returnArray;
-};

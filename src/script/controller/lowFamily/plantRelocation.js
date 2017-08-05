@@ -1,8 +1,7 @@
 myApp.controller("plantRelocationCtro", ["$scope", "$rootScope", "$state", "$http", "$stateParams", "postForm",
 	function($scope, $rootScope, $state, $http, $stateParams, postForm) {
-		$scope.userId = "";
-		$scope.dataType = "";
 		var plantRelocation = {} || plantRelocation;
+		plantRelocation.oldObj = {};
 		plantRelocation.urlParam = $stateParams;
 		plantRelocation.sendParam = {};
 		plantRelocation.formInfo = {};
@@ -13,77 +12,92 @@ myApp.controller("plantRelocationCtro", ["$scope", "$rootScope", "$state", "$htt
 			azdList: config.sysValue.azd, //开户银行
 		};
 
-		console.log(plantRelocation.otherSelect.bqfsList);
-		//获取城镇
-		plantRelocation.getTownVillages = function() {
-			postForm.saveFrm(config.path.townShip, {
-				lx: "01"
-			}).success(function(data) {
-				plantRelocation.otherSelect.townList = data;
-			})
-		}
-		//		plantRelocation.getTownVillages();
-		//根据乡镇获取对应村庄
-		plantRelocation.getVillagesByTown = function() {
-			plantRelocation.otherSelect.villagesList = [];
-			plantRelocation.otherSelect.naturalVillageList = [];
-			plantRelocation.formInfo.qyzrc = "";
-			plantRelocation.formInfo.qyxzc = "";
-			postForm.saveFrm(config.path.townShip, {
-				lx: "02",
-				fid: plantRelocation.formInfo.qyxz || "",
-			}).success(function(data) {
-				plantRelocation.otherSelect.villagesList = data;
-			})
-		}
-		plantRelocation.getNaturalVillagesByTown = function() {
-			plantRelocation.otherSelect.naturalVillageList = [];
-			plantRelocation.formInfo.qyzrc = "";
-			postForm.saveFrm(config.path.townShip, {
-				lx: "03",
-				fid: plantRelocation.formInfo.qyxzc || ""
-			}).success(function(data) {
-				plantRelocation.otherSelect.naturalVillageList = data;
-			})
-		}
+		$scope.userId = plantRelocation.urlParam.id || "";
+		$scope.dataType = plantRelocation.urlParam.type || "";
 
+		//判断是否编辑
 		if(plantRelocation.urlParam.id) {
-			//+"?id="+plantRelocation.urlParam.id
-			postForm.saveFrm(config.path.lowFamilyById, {
-				id: plantRelocation.urlParam.id
-			}).success(function(data) {
-				console.log(data);
-			})
-		}
-
-		plantRelocation.testss = function() {
-			console.log(plantRelocation.formInfo);
-		}
-
-		/*$scope.goback = function() {
-			//调用本地数据库保存
-			if(confirm("确定保存为草稿吗？")) {
-				//如果表单没变化则不提示保存草稿
-				dt.request({
-					rqstName: "low_family", //'low_family', 'low_village', 'nature_village', 'relief_project'
-					type: "put", //select,delete,put,selectById,
-					data: {
-						baseInfo: plantRelocation.formInfo
-					},
-					success: function(args) {
-						console.log(args);
-					},
-					'error': function(args) {}
-				});
+			try {
+				if(fupin.getCacheData(plantRelocation.urlParam.id, plantRelocation.urlParam.type)) {
+					//把data合并到表单对象中
+					var infoObj = fupin.getCacheData(plantRelocation.urlParam.id, plantRelocation.urlParam.type).plantRelocation_model;
+					plantRelocation.formInfo = infoObj
+					plantRelocation.oldObj = infoObj;
+				} else {
+					if(plantRelocation.urlParam.type == "net") {
+						postForm.saveFrm(config.path.lowFamilyById, {
+							id: plantRelocation.urlParam.id
+						}).success(function(data) {
+							var localData = fupin.lineToLocalData(data, lowFamilyInfoModel);
+							fupin.localCache(JSON.stringify(localData));
+							var infoObj = localData.plantRelocation_model;
+							plantRelocation.formInfo = infoObj
+							plantRelocation.oldObj = infoObj;
+						})
+					}
+					if(plantRelocation.urlParam.type == "local") {
+						dt.request({
+							rqstName: "low_family", //'low_family', 'low_village', 'nature_village', 'relief_project'
+							type: "selectById", //select,delete,put,selectById,
+							param: {
+								index_id: plantRelocation.urlParam.id
+							},
+							success: function(data) {
+								var infoObj = data.plantRelocation_model;
+								plantRelocation.formInfo = infoObj;
+								fupin.localCache(JSON.stringify(data));
+							},
+							'error': function(data) {
+								fupin.alert("请求本地用户详细报错");
+							}
+						});
+					}
+				}
+			} catch(e) {
+				console.error("判断是否需要请求线上数据报错")
 			}
-		}*/
+		}
 
-		$rootScope.$on('$routeChangeSuccess', function() {})
-
-		/*$scope.$watch('$viewContentLoading', function(event, viewConfig) {
-			//			alert('模板加载完成前');
-		});*/
-
+		//保存表单为本地数据库
+		plantRelocation.saveForm = function() {
+			//保存对象之前判断是否是编辑
+			var saveData;
+			if(plantRelocation.urlParam.id) {
+				var saveData = JSON.parse(window.localStorage.getItem("low_family"));
+				angular.extend(saveData.plantRelocation_model, plantRelocation.formInfo);
+			} else {
+				var newId = fupin.randomChat();
+				saveData = {
+					newId: newId,
+					plantRelocation_model: plantRelocation.formInfo,
+				}
+			}
+			fupin.saveLocalData(saveData);
+		}
+			
+			
+		plantRelocation.saveCache = function() {
+			var data = JSON.parse(window.localStorage.getItem("low_family"));
+			angular.extend(data.plantRelocation_model, plantRelocation.formInfo);
+			fupin.localCache(JSON.stringify(data));
+		}
+		$scope.goback = function() {
+			//调用本地数据库保存
+			//保存表单
+			if(!fupin.isValid(plantRelocation.formInfo) || JSON.stringify(plantRelocation.oldObj) != JSON.stringify(plantRelocation.formInfo)) {
+				fupin.confirm("确定保存为草稿吗？", function() {
+					plantRelocation.saveForm();
+				}, function() {
+					window.history.go(-1);
+				})
+			} else {
+				window.history.go(-1);
+			}
+		}
+		$rootScope.$on('$stateChangeStart',
+			function(event, toState, toParams, fromState, fromParams) {
+				plantRelocation.saveCache();
+			})
 		//根据角色遍历响应的菜单
 		$scope.plantRelocation = plantRelocation;
 	}
