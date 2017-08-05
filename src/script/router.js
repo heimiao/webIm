@@ -98,8 +98,6 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 		.state('lowFamily.income', {
 			//收入
 			url: '/low_family_income?id&type',
-			//			controller: "order_list",
-			//			templateUrl: 'dist/template/lowFamily/lowFamilyInfo/income.html',
 			views: {
 				'': {
 					controller: "incomeCtro",
@@ -165,17 +163,19 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 				}
 			}
 		})
-		.state('addDutyPerson', {
-			url: '/add_family_member?id&type',
-			//			controller: "order_list",
-			templateUrl: 'dist/template/lowFamily/addDutyPerson.html'
+		.state('addAssistPerson', {
+			//添加帮扶责任人assistPerson
+			url: '/add_assist_person?id&type&personId',
+			controller: "addAsistPersonCtro",
+			templateUrl: 'dist/template/lowFamily/addAssistPerson.html'
 		})
+
 		.state('lowFamily.assistEffect', {
 			//帮扶成效
 			url: '/assist_effect?id&type',
 			views: {
 				'': {
-					//controller: "assistEffectCtro",
+					controller: "assistEffectCtro",
 					templateUrl: 'dist/template/lowFamily/lowFamilyInfo/container.html'
 				},
 				'form@lowFamily.assistEffect': {
@@ -226,11 +226,7 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 
 		//扶贫项目新增
 		.state('projectAdd', {
-<<<<<<< HEAD
 			url: '/project_Add?id&type',
-=======
-			url: '/projectAdd?id&type',
->>>>>>> 5e11a1d34e220d898aa59882164154d1775fa86e
 			controller: "projectAdd",
 			templateUrl: 'dist/template/project/projectAdd.html'
 		})
@@ -414,11 +410,7 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 			templateUrl: 'dist/template/village/queryHouseholdDetail.html'
 		})
 		.state('queryTaskForceDetail', {
-<<<<<<< HEAD
-			url: '/queryTaskForceDetail',
-=======
 			url: '/queryTaskForceDetail?id&idx',
->>>>>>> 5e11a1d34e220d898aa59882164154d1775fa86e
 			controller: "queryTaskForceDetail",
 			templateUrl: 'dist/template/village/queryTaskForceDetail.html'
 		})

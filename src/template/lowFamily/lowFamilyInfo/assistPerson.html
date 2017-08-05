@@ -13,20 +13,15 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td class="text-center">曹操</td>
-					<td class="text-center">男</td>
-					<td class="text-center">2017-01-01</td>
-				</tr>
-				<tr>
-					<td class="text-center">貂蝉</td>
-					<td class="text-center">女</td>
-					<td class="text-center">2017-01-01</td>
+				<tr ng-repeat="item in assistPerson.list" ui-sref="addAssistPerson({id:assistPerson.urlParam.id,type:assistPerson.urlParam.type,personId:item.id})">
+					<td class="text-center" ng-bind="item.xm">曹操</td>
+					<td class="text-center" ng-bind="item.xb">男</td>
+					<td class="text-center" ng-bind="item.kssj">85</td>
 				</tr>
 			</tbody>
 		</table>
 		<div class="addMember">
-			<button type="button" class="btn_add" ui-sref="addDutyPerson({id:1234})">+添加帮扶责任人</button>
+			<button type="button" class="btn_add" ui-sref="addAssistPerson({id:assistPerson.urlParam.id,type:assistPerson.urlParam.type,personId:''})">+添加帮扶责任人</button>
 		</div>
 	</div>
 </section>

@@ -1,6 +1,6 @@
 myApp.directive('menu', [function() {
 	return {
-		//		require: "ngModel",
+		template: '<input class="selects" type="text" name="s_time" placeholder="开始时间" id="star_time" style="line-height: 2.3rem;width:100%">',
 		restrict: 'ECMA',
 		link: function(scope, element, attr, ngModel) {
 			//var ue = UE.getEditor(element);
@@ -18,6 +18,89 @@ myApp.directive('menu', [function() {
 		}
 	};
 }]);
+
+//开始时间
+myApp.directive('beginTime', function() {
+	return {
+		restrict: 'AEMC',
+		scope: {
+			myModel: '=',
+			timeStyle: '@',
+			first: "@",
+			second: "@"
+		},
+		// replace: true ,
+		template: "<input type='text' ng-model='myModel' value={{myModel}} id={{first}} data-other={{second}} data-type={{timeStyle}}>",
+		link: function(scope, element, attr) {
+
+			if(!$(attr.first).attr("class")) {
+				element.find("input").mobiscroll().date({
+					theme: 'android-ics light', //皮肤样式
+					display: 'modal', //显示方式
+					mode: 'scroller', //日期选择模式
+					dateFormat: 'yyyy.mm.dd',
+					lang: 'zh',
+					showNow: true,
+					startInput: '#beginTime',
+					endInput: '#endTime',
+					nowText: "今天",
+					startYear: (new Date()).getFullYear() - 1900, //开始年份
+					endYear: (new Date()).getFullYear() + 100, //结束年份
+					onSelect: function(valueText, inst) {
+						console.log(valueText);
+						console.log(inst);
+					}
+				});
+				/*on("click", function(ev) {
+					element.find("input").datetimepicker("setEndDate", $("#" + element.find("input").attr("data-other")).val());
+					$(this).blur();
+					$(this).focus();
+				});*/
+
+			}
+		}
+	};
+});
+myApp.directive('overTime', function() {
+	return {
+		restrict: 'AEMC',
+		scope: {
+			myModel: '=',
+			first: "@",
+			placeholder: '@',
+			second: "@"
+		},
+		template: "<input type='text' ng-model='myModel' value={{myModel}} id={{second}} data-other={{first}} placeholder={{placeholder}}>",
+		link: function(scope, element, attr) {
+			if(!$(attr.first).attr("class")) {
+				element.find("input").mobiscroll().date({
+					theme: 'android-ics light', //皮肤样式
+					display: 'modal', //显示方式
+					mode: 'scroller', //日期选择模式
+					dateFormat: 'yyyy.mm.dd',
+					lang: 'zh',
+					showNow: true,
+					nowText: "今天",
+					startInput: '#beginTime',
+					endInput: '#endTime',
+					startYear: (new Date()).getFullYear() - 1900, //开始年份
+					endYear: (new Date()).getFullYear() + 100, //结束年份
+					onBeforeShow: function(inst) {
+						//						inst.settings.wheels[0].length > 2 ? inst.settings.wheels[0].pop() : null;
+					}, //弹掉“日”滚轮  
+					headerText: function(valueText) { //自定义弹出框头部格式  
+						array = valueText.split('/');
+						return array[0] + "年" + array[1] + "月";
+					},
+					onSelect: function(valueText, inst) {
+						 
+					}
+				});
+			}
+		}
+	};
+});
+//下拉
 myApp.directive('mySelect', [function() {
 	return {
 		restrict: 'ECMA',
@@ -132,6 +215,7 @@ myApp.directive('checkboxRadio', [function() {
 		}
 	};
 }])
+
 myApp.directive('checkboxRadios', [function() {
 	return {
 		restrict: 'ECMA',

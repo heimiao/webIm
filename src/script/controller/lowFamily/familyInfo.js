@@ -194,10 +194,12 @@ myApp.controller("addFamilyMemberCtro", ["$scope", "$rootScope", "$state", "$htt
 				$.each(dataAll.familyInfo_model, function(idnex, item) {
 					if(item.id == addFamilyMember.urlParam.memberId) {
 						addFamilyMember.formInfo = item;
+						addFamilyMember.otherSelect.headUrl = config.path.getUploadHead + "?id=" + addFamilyMember.formInfo.pkhjc_fj_id
 					}
 				});
 			}
 		}
+		
 		addFamilyMember.saveForm = function() {
 			if(addFamilyMember.urlParam.memberId) {
 				//判断是否修改数据
@@ -219,18 +221,22 @@ myApp.controller("addFamilyMemberCtro", ["$scope", "$rootScope", "$state", "$htt
 				type: addFamilyMember.urlParam.type
 			});
 		}
-		
+
 		addFamilyMember.uploadPic = function() {
 			var file = $scope.testFile;
 			file.upload = Upload.upload({
 				url: config.path.uploadHead,
 				data: {
-					headImg: file
+					file: file,
+					ywid: addFamilyMember.urlParam.memberId
 				}
 			});
 			file.upload.then(function(response) {
 				try {
-					addFamilyMember.getHead(response.data.results.id);
+					addFamilyMember.formInfo.pkhjc_fj_id = response.data.results.id;
+					addFamilyMember.otherSelect.headUrl = config.path.getUploadHead + "?id=" + response.data.results.id;
+					//					console.log(addFamilyMember.otherSelect.headUrl);
+					//					addFamilyMember.getHead(response.data.results.id);
 				} catch(e) {
 					//TODO handle the exception
 				}
@@ -247,48 +253,15 @@ myApp.controller("addFamilyMemberCtro", ["$scope", "$rootScope", "$state", "$htt
 			});
 		}
 
-		/*addFamilyMember.uploadPic = function() {
-			try {
-				var file = $scope.upladHeadPic;
-				console.log(file);
-				file.upload = Upload.upload({
-					url: config.path.uploadHead,
-					dataAll: {
-						headImg: file
-					}
-				});
-				file.upload.then(function(response) {
-					if(response.data.results.id) {
-						try {
-							addFamilyMember.getHead(response.data.results.id);
-						} catch(e) {
-							//TODO handle the exception
-						}
-					} else {
-						fupin.alert("上传头像失败");
-					}
-					$scope.upladHeadPic = "";
-					$timeout(function() {
-						file.result = response.data;
-					});
-				}, function(response) {
-					if(response.status > 0)
-						$scope.errorMsg = response.status + ': ' + response.data;
-				}, function(evt) {
-					file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
-				});
-			} catch(e) {}
-		}*/
-
-		addFamilyMember.getHead = function(id) {
+		/*addFamilyMember.getHead = function(id) { 
 			addFamilyMember.formInfo.pkhjc_fj_id = id;
 			postForm.saveFrm(config.path.getUploadHead, {
 				id: id
 			}).success(function(data) {
 				//赋值给头像
-				addFamilyMember.otherSelect.headUrl = data
+				addFamilyMember.otherSelect.headUrl =data;
 			})
-		}
+		}*/
 		$scope.addFamilyMember = addFamilyMember;
 	}
 ]);

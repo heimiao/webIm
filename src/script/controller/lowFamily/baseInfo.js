@@ -1,9 +1,6 @@
 myApp.controller("low_family_baseCtro", ["$scope", "$rootScope", "$state", "$http", "$stateParams", "postForm",
 	function($scope, $rootScope, $state, $http, $stateParams, postForm) {
-		$scope.userId = "";
-		$scope.dataType = "";
 		var low_family_baseInfo = {} || low_family_baseInfo;
-		low_family_baseInfo.newId = "123456";
 		low_family_baseInfo.oldObj = {};
 		low_family_baseInfo.urlParam = $stateParams;
 		low_family_baseInfo.sendParam = {};
@@ -180,7 +177,7 @@ myApp.controller("low_family_baseCtro", ["$scope", "$rootScope", "$state", "$htt
 			angular.extend(data.baseInfo_model, low_family_baseInfo.formInfo);
 			fupin.localCache(JSON.stringify(data));
 		}
-
+		
 		/*//当路由跳转的时候判断是否保存为草稿
 		$scope.$watch('$viewContentLoading', function(event, viewConfig) {
 			alert('模板加载完成前');

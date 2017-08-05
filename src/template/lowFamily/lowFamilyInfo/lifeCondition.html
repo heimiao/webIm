@@ -9,49 +9,49 @@
 				<div class="item border-b">
 					<div class="name">A24 耕地面积（亩）</div>
 					<div class="content">
-						<input type="number" placeholder="请输入数据" ng-model"lifeCondition.gdmj">
+						<input type="number" placeholder="请输入数据" ng-model="lifeCondition.formInfo.gdmj">
 					</div>
 				</div>
 				<div class="item border-b">
 					<div class="name">A24a 有效灌溉面积（亩）</div>
 					<div class="content">
-						<input type="number" placeholder="请输入数据" ng-model"lifeCondition.yxgkmj">
+						<input type="number" placeholder="请输入数据" ng-model="lifeCondition.formInfo.yxgkmj">
 					</div>
 				</div>
 				<div class="item border-b">
 					<div class="name">A25 林地面积（亩） </div>
 					<div class="content">
-						<input type="number" placeholder="请输入数据" ng-model"lifeCondition.ldmj">
+						<input type="number" placeholder="请输入数据" ng-model="lifeCondition.formInfo.ldmj">
 					</div>
 				</div>
 				<div class="item border-b">
 					<div class="name">A25a 退耕还林面积(亩) </div>
 					<div class="content">
-						<input type="number" placeholder="请输入数据" ng-model"lifeCondition.tghlmj">
+						<input type="number" placeholder="请输入数据" ng-model="lifeCondition.formInfo.tghlmj">
 					</div>
 				</div>
 				<div class="item border-b">
 					<div class="name">A25b 林果面积（亩）</div>
 					<div class="content">
-						<input type="number" placeholder="请输入数据" ng-model"lifeCondition.lgmj">
+						<input type="number" placeholder="请输入数据" ng-model="lifeCondition.formInfo.lgmj">
 					</div>
 				</div>
 				<div class="item border-b">
 					<div class="name">A26 牧草地面积（亩）</div>
 					<div class="content">
-						<input type="number" placeholder="请输入数据" ng-model"lifeCondition.mcdmj">
+						<input type="number" placeholder="请输入数据" ng-model="lifeCondition.formInfo.mcdmj">
 					</div>
 				</div>
 				<div class="item border-b">
 					<div class="name">A27 水面面积（亩）</div>
 					<div class="content">
-						<input type="number" placeholder="请输入数据" ng-model"lifeCondition.smmj">
+						<input type="number" placeholder="请输入数据" ng-model="lifeCondition.formInfo.smmj">
 					</div>
 				</div>
 				<div class="item border-b">
 					<div class="name">A28 是否通生产用电</div>
 					<div class="content">
-						<select name="" id="" ng-model"lifeCondition.sftscyd">
+						<select name="" id="" ng-model="lifeCondition.formInfo.sftscyd">
 							<option value=""></option>
 							<option value="是">是</option>
 							<option value="否">否</option>
@@ -62,14 +62,14 @@
 				<div class="item border-b">
 					<div class="name">A29 与村主干路距离（公里）</div>
 					<div class="content">
-						<input type="number" placeholder="请输入数据" ng-model"lifeCondition.yczgljl">
+						<input type="number" placeholder="请输入数据" ng-model="lifeCondition.formInfo.yczgljl">
 					</div>
 				</div>
 				<div class="item border-b">
 					<div class="name">A30 入户路类型</div>
 					<div class="content">
-						<select name="" id="" ng-model"lifeCondition.rhllx" ng-options="item.value as item.name for item in lifeCondition.otherSelect">
-							<option value="泥土路"></option>
+						<select name="" id="" ng-model="lifeCondition.formInfo.rhllx" ng-options="item.value as item.name for item in lifeCondition.otherSelect.rhllxList">
+							<option value=""></option>
 						</select>
 						<img src="./assets/img/icon2_11@2x.png" alt="">
 					</div>
@@ -77,13 +77,13 @@
 				<div class="item border-b">
 					<div class="name">A31 住房面积（平方米）</div>
 					<div class="content">
-						<input type="number" placeholder="请输入数据" ng-model"lifeCondition.zfmj">
+						<input type="number" placeholder="请输入数据" ng-model="lifeCondition.formInfo.zfmj">
 					</div>
 				</div>
 				<div class="item border-b">
 					<div class="name">A32 是否通生活用电</div>
 					<div class="content">
-						<select name="" id="" ng-model"lifeCondition.sftshyd">
+						<select name="" id="" ng-model="lifeCondition.formInfo.sftshyd">
 							<option value=""></option>
 							<option value="是">是</option>
 							<option value="否">否</option>
@@ -94,7 +94,7 @@
 				<div class="item border-b">
 					<div class="name">A33 饮水是否困难 </div>
 					<div class="content">
-						<select name="" id="" ng-model"lifeCondition.yssfkn">
+						<select name="" id="" ng-model="lifeCondition.formInfo.yssfkn">
 							<option value=""></option>
 							<option value="是">是</option>
 							<option value="否">否</option>
@@ -105,7 +105,7 @@
 				<div class="item border-b">
 					<div class="name">A34 饮水是否安全 </div>
 					<div class="content">
-						<select name="" id="" ng-model"lifeCondition.yssfaq">
+						<select name="" id="" ng-model="lifeCondition.formInfo.yssfaq">
 							<option value=""></option>
 							<option value="是">是</option>
 							<option value="否">否</option>
@@ -116,7 +116,7 @@
 				<div class="item border-b">
 					<div class="name">A35 主要燃料类型 </div>
 					<div class="content">
-						<select name="" id="" ng-model"lifeCondition.zyrllx" ng-options="item.value as item.name for item in lifeCondition.otherSelect">
+						<select name="" id="" ng-model="lifeCondition.formInfo.zyrllx" ng-options="item.value as item.name for item in lifeCondition.otherSelect.zyrllxList">
 							<option value=""></option>
 						</select>
 						<img src="./assets/img/icon2_11@2x.png" alt="">
@@ -125,7 +125,7 @@
 				<div class="item border-b">
 					<div class="name">A36 是否加入农民专业合作社</div>
 					<div class="content">
-						<select name="" id="" ng-model"lifeCondition.sfjrnmzyhzs">
+						<select name="" id="" ng-model="lifeCondition.formInfo.sfjrnmzyhzs">
 							<option value=""></option>
 							<option value="是">是</option>
 							<option value="否">否</option>
@@ -133,10 +133,10 @@
 						<img src="./assets/img/icon2_11@2x.png" alt="">
 					</div>
 				</div>
-				<div class="item border-b">
+				<div class="item border-b" style="margin-bottom:3.5rem;">
 					<div class="name">A37 有无卫生厕所</div>
 					<div class="content">
-						<select name="" id="" ng-model"lifeCondition.ywwscs">
+						<select name="" id="" ng-model="lifeCondition.formInfo.ywwscs">
 							<option value=""></option>
 							<option value="有">有</option>
 							<option value="无">无</option>

@@ -3073,7 +3073,7 @@ $(function () {
     var optTime = $.extend(opt['time'], opt['default']);
     // $("#appDateTime").mobiscroll(optDateTime).datetime(optDateTime);
     // $("#appTime").mobiscroll(optTime).time(optTime);
-
+	
     //获取当前的时间
     function today(){
         var today=new Date();

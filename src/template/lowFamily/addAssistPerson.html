@@ -16,15 +16,16 @@
 					<div class="item border-b">
 						<div class="name">姓名</div>
 						<div class="content">
-							<input type="text" placeholder="请输入信息">
+							<input type="text" placeholder="请输入信息" ng-model="addAsistPerson.formInfo.xm">
 						</div>
 					</div>
 					<div class="item border-b">
 						<div class="name">性别</div>
 						<div class="content">
-							<select name="" id="">
-								<option value="">男</option>
-								<option value="">女</option>
+							<select name="" id="" ng-model="addAsistPerson.formInfo.xb">
+								<option value=""></option>
+								<option value="男">男</option>
+								<option value="女">女</option>
 							</select>
 							<img src="./assets/img/icon2_11@2x.png" alt="">
 						</div>
@@ -32,38 +33,44 @@
 					<div class="item border-b">
 						<div class="name">证件号码</div>
 						<div class="content">
-							<input type="text" placeholder="请输入信息">
+							<input type="text" placeholder="请输入信息" ng-model="addAsistPerson.formInfo.zjhm">
 						</div>
 					</div>
 					<div class="item border-b">
 						<div class="name">政治面貌</div>
 						<div class="content">
-							<input type="text" placeholder="请输入信息">
+							<select name="" id="" ng-model="addAsistPerson.formInfo.zzmm" ng-options="item.id as item.name for item in addAsistPerson.otherSelect.zzmmList">
+								<option value=""></option>
+							</select>
+							<img src="./assets/img/icon2_11@2x.png" alt="">
 						</div>
 					</div>
 					<div class="item border-b">
 						<div class="name">帮扶单位名称</div>
 						<div class="content">
-							<input type="text" placeholder="请输入信息">
+							<input type="text" placeholder="请输入信息" ng-model="addAsistPerson.formInfo.bfdwmc">
 						</div>
 					</div>
 					<div class="item border-b">
 						<div class="name">帮扶开始时间</div>
 						<div class="content">
-							<input type="text" placeholder="请输入信息">
+							<begin-time my-model="addAsistPerson.formInfo.kssj" first="beginTime" second="endTime" placeholder="请输入信息" style="line-height: 2.3rem;width:100%"></begin-time>
+							<img class="rightPro" src="./assets/img/icon2_11@2x.png" alt="">
 						</div>
 					</div>
 					<div class="item border-b">
 						<div class="name">帮扶结束时间</div>
 						<div class="content">
-							<input type="text" placeholder="请输入信息">
+							<!--<input type="text" placeholder="请输入信息" ng-model="addAsistPerson.formInfo.jssj">-->
+							<over-time my-model="addAsistPerson.formInfo.jssj" first="beginTime" second="endTime" placeholder="请输入信息" style="line-height: 2.3rem;width:100%"></over-time>
+							<img class="rightPro" src="./assets/img/icon2_11@2x.png" alt="">
 						</div>
 					</div>
 					<div class="item border-b">
 						<div class="name">隶属关系</div>
 						<div class="content">
-							<select name="" id="">
-								<option value="">初中</option>
+							<select name="" id="" ng-model="addAsistPerson.formInfo.lsgx" ng-options="item.id as item.name for item in addAsistPerson.otherSelect.lsgxList">
+								<option value=""></option>
 							</select>
 							<img src="./assets/img/icon2_11@2x.png" alt="">
 						</div>
@@ -71,20 +78,20 @@
 					<div class="item border-b">
 						<div class="name">单位地址</div>
 						<div class="content">
-							<input type="text" placeholder="请输入信息">
+							<input type="text" placeholder="请输入信息" ng-model="addAsistPerson.formInfo.dwdz">
 						</div>
 					</div>
-					<div class="item border-b">
+					<div class="item border-b" style="margin-bottom:3.5rem">
 						<div class="name">联系电话</div>
 						<div class="content">
-							<input type="number" placeholder="请输入信息">
+							<input type="number" placeholder="请输入信息" ng-model="addAsistPerson.formInfo.lxdh">
 						</div>
 					</div>
 				</form>
 			</div>
 		</div>
 		<nav class="navbar-fixed-bottom">
-			<button class="btn btnpkc">保存</button>
+			<button class="btn btnpkc" ng-click="addAsistPerson.saveForm()">保存</button>
 		</nav>
 	</section>
 </div>
