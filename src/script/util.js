@@ -67,11 +67,10 @@
 				bool = false;
 			}
 			for(var i in obj) {
-				if(!obj[i]) {
+				if(obj[i]) {
 					bool = false;
 				}
 			}
-
 			return bool;
 		}
 	}
@@ -152,3 +151,13 @@
 	};
 	_w.fupin = fupin || {};
 }(window, jQuery));
+//扩展数组原型
+Array.prototype.remove = function(obj) {
+	var returnArray = [];
+	for(var i = 0; i < this.length; i++) {
+		if(i != obj) {
+			returnArray.push(this[i]);
+		}
+	}
+	return returnArray;
+};

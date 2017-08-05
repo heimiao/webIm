@@ -29,12 +29,10 @@ lowFamilyInfoModel = {
 		ftghlbt: "",
 		fcyjb: "",
 	},
-	familyInfo_model: {
-		//家庭成员
-	},
-	assistPerson_model: {
-		//帮扶责任人
-	},
+	familyInfo_model: [] //家庭成员
+		,
+	assistPerson_model: [] //帮扶责任人
+		,
 	income_model: {
 		//收入
 		gzxsr: "",
