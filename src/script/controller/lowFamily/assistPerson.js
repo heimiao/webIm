@@ -8,47 +8,26 @@ myApp.controller("assistPersonCtro", ["$scope", "$rootScope", "$state", "$http",
 
 		assistPerson.list = [];
 
-		//判断本地是否有数据
-		assistPerson.verdictStorage = function(id) {
-			var data;
-			try {
-				if(JSON.parse(localStorage.getItem("low_family"))) {
-					var localUser = JSON.parse(localStorage.getItem("low_family"));
-					var ids = assistPerson.urlParam.type == "net" ? localUser.baseInfo_model.id : localUser.index_id;
-					data = (ids == id && localUser.familyInfo_model.length > 0) ?
-						JSON.parse(localStorage.getItem("low_family")) : "";
-				}
-			} catch(e) {
-				console.error("判断本地是否有数据，json转化错误")
-			}
-			return data;
-		}
-
 		//判断是否编辑
 		if(assistPerson.urlParam.id) {
 			try {
-				if(assistPerson.verdictStorage(assistPerson.urlParam.id)) {
+				if(fupin.getCacheData(assistPerson.urlParam.id, assistPerson.urlParam.type)) {
 					//把data合并到表单对象中
-					var infoList = assistPerson.verdictStorage(assistPerson.urlParam.id).familyInfo_model;
+					var infoList = fupin.getCacheData(assistPerson.urlParam.id, assistPerson.urlParam.type).assistPerson_model;
 					assistPerson.list = fupin.mapArray(infoList, config.sysValue.YHZGX, "yhzgx", "value");
 					assistPerson.oldObj = infoList;
-
-					console.log(assistPerson.list);
-					console.log("数据来源本地缓存");
 				} else {
-					console.log("数据来源数据库");
 					if(assistPerson.urlParam.type == "net") {
 						postForm.saveFrm(config.path.lowFamilyById, {
 							id: assistPerson.urlParam.id
 						}).success(function(data) {
-							//线上转化到本地
 							var localData = fupin.lineToLocalData(data, lowFamilyInfoModel);
-							postForm.saveFrm(config.path.getLowFamilyList, {
+							postForm.saveFrm(config.path.getassistPersonList, {
 								fid: assistPerson.urlParam.id
 							}).success(function(datas) {
-								assistPerson.list = fupin.mapArray(datas, config.sysValue.YHZGX, "yhzgx", "value");;
+								assistPerson.list = fupin.mapArray(datas, config.sysValue.YHZGX, "yhzgx", "value");
 								assistPerson.oldObj = datas;
-								localData.familyInfo_model = datas;
+								localData.assistPerson_model = datas;
 								fupin.localCache(JSON.stringify(localData));
 							});
 						})
@@ -61,7 +40,7 @@ myApp.controller("assistPersonCtro", ["$scope", "$rootScope", "$state", "$http",
 								index_id: assistPerson.urlParam.id
 							},
 							success: function(data) {
-								var infoList = data.familyInfo_model;
+								var infoList = data.assistPerson_model;
 								assistPerson.list = infoList;
 								fupin.localCache(JSON.stringify(data));
 								$scope.$apply();
@@ -79,51 +58,22 @@ myApp.controller("assistPersonCtro", ["$scope", "$rootScope", "$state", "$http",
 		//保存表单为本地数据库
 		assistPerson.saveForm = function() {
 			//保存对象之前判断是否是编辑
+			var saveData;
 			if(assistPerson.urlParam.id) {
-				var data = JSON.parse(window.localStorage.getItem("low_family"));
-				angular.extend(data, {
-					familyInfo_model: assistPerson.list
+				saveData = JSON.parse(window.localStorage.getItem("low_family"));
+				angular.extend(saveData, {
+					assistPerson_model: assistPerson.list
 				});
-				dt.request({
-					rqstName: "low_family", //'low_family', 'low_village', 'nature_village', 'relief_project'
-					type: "put", //select,delete,put,selectById,
-					data: data,
-					success: function(data) {
-						if(data.type = "success") {
-							//清空缓存
-							fupin.localCache(JSON.stringify(""));
-							$state.go("lowFamilyDraft");
-						}
-					},
-					'error': function(data) {}
-				});
-
 			} else {
-				assistPerson.newLocalData();
+				var datas = JSON.parse(window.localStorage.getItem("low_family"));
+				//保存接口
+				var newId = fupin.randomChat();
+				var saveData = {
+					newId: newId,
+					assistPerson_model: datas.assistPerson_model,
+				}
 			}
-		}
-		assistPerson.newLocalData = function() {
-			var datas = JSON.parse(window.localStorage.getItem("low_family"));
-			//保存接口
-			var newId = fupin.randomChat();
-			var data = {
-				newId: newId,
-				familyInfo_model: datas.familyInfo_model,
-			}
-			dt.request({
-				rqstName: "low_family", //'low_family', 'low_village', 'nature_village', 'relief_project'
-				type: "put", //select,delete,put,selectById,
-				data: data,
-				success: function(data) {
-					if(data.type = "success") {
-						//清空缓存
-						fupin.localCache(JSON.stringify(data));
-						$state.go("lowFamilyDraft");
-						//window.history.go(-1);
-					}
-				},
-				'error': function(data) {}
-			});
+			fupin.saveLocalData(saveData);
 		}
 
 		$scope.goback = function() {
@@ -164,31 +114,47 @@ myApp.controller("addAsistPersonCtro", ["$scope", "$rootScope", "$state", "$http
 		//如果是编辑的话就赋值给formInfo
 		if(addAsistPerson.urlParam.personId) {
 			//判断是否修改数据
-			if(dataAll.familyInfo_model.length > 0) {
-				$.each(dataAll.familyInfo_model, function(idnex, item) {
+			if(dataAll.assistPerson_model.length > 0) {
+				$.each(dataAll.assistPerson_model, function(idnex, item) {
 					if(item.id == addAsistPerson.urlParam.personId) {
 						addAsistPerson.formInfo = item;
 					}
 				});
 			}
 		}
+
 		addAsistPerson.saveForm = function() {
 			if(addAsistPerson.urlParam.personId) {
 				//判断是否修改数据
-				if(dataAll.familyInfo_model.length > 0) {
-					$.each(dataAll.familyInfo_model, function(index, item) {
+				if(dataAll.assistPerson_model.length > 0) {
+					$.each(dataAll.assistPerson_model, function(index, item) {
 						if(item.id == addAsistPerson.urlParam.personId) {
 							angular.extend(item, addAsistPerson.formInfo)
 						}
 					});
 				}
 			} else {
-				dataAll.familyInfo_model.push(addAsistPerson.formInfo);
+				dataAll.assistPerson_model.push(angular.extend(addAsistPerson.formInfo, {
+					id: fupin.randomChat()
+				}));
 			}
 			fupin.localCache(JSON.stringify(dataAll));
+
 			$state.go("lowFamily.assistPerson", {
 				id: addAsistPerson.urlParam.id,
 				type: addAsistPerson.urlParam.type
+			});
+		}
+		addAsistPerson.delForm = function() {
+			var ary = [];
+			$.each(dataAll.assistPerson_model, function(index, item) {
+				if(item.id != addAsistPerson.urlParam.personId) {
+					ary.push(item);
+				}
+				dataAll.assistPerson_model = ary;
+				addAsistPerson.formInfo = {};
+				addAsistPerson.urlParam.personId = "";
+				fupin.localCache(JSON.stringify(dataAll));
 			});
 		}
 		$scope.addAsistPerson = addAsistPerson;

@@ -210,7 +210,7 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 			controller: "naturalDraftEdit",
 			templateUrl: 'dist/template/natural/naturalDraftEdit.html'
 		})
-		
+
 		//自然村新增
 		.state('naturalAdd', {
 			url: '/natural_Add?id&type',
@@ -232,18 +232,9 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 		})
 
 		//扶贫项目新增
-<<<<<<< HEAD
 		.state('projectAdd', {
-			url: '/project_Add?id&type',
-=======
-<<<<<<< HEAD
-		.state('projectAdd', {
+
 			url: '/projectAdd?id&type',
-=======
-		.state('projectAdd', { 
-			url: '/projectAdd?id&type', 
->>>>>>> ed2e296f0f55d90d8134bb6e95d066d33a9e8e4c
->>>>>>> a56b30e840cf44b46e96230749b2178431a6ad13
 			controller: "projectAdd",
 			templateUrl: 'dist/template/project/projectAdd.html'
 		})
@@ -273,7 +264,6 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 			controller: "projectAddsjpkc",
 			templateUrl: 'dist/template/project/projectAddsjpkc.html'
 		})
-
 		//扶贫项目 编辑 涉及贫困村
 		.state('projectEditsjpkc', {
 			url: '/projectEditsjpkc?idx',
@@ -457,13 +447,6 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 			templateUrl: 'dist/template/village/queryVillageDetail.html'
 		})
 		.state('queryTaskForceDetail', {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-
-=======
->>>>>>> ed2e296f0f55d90d8134bb6e95d066d33a9e8e4c
->>>>>>> a56b30e840cf44b46e96230749b2178431a6ad13
 			url: '/queryTaskForceDetail?id&idx',
 			controller: "queryTaskForceDetail",
 			templateUrl: 'dist/template/village/queryTaskForceDetail.html'

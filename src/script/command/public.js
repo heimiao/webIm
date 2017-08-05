@@ -1,6 +1,6 @@
 myApp.directive('menu', [function() {
 	return {
-		template: '<input class="selects" type="text" name="s_time" placeholder="开始时间" id="star_time" style="line-height: 2.3rem;width:100%">',
+		//		require: "ngModel",
 		restrict: 'ECMA',
 		link: function(scope, element, attr, ngModel) {
 			//var ue = UE.getEditor(element);
@@ -18,7 +18,6 @@ myApp.directive('menu', [function() {
 		}
 	};
 }]);
-
 //开始时间
 myApp.directive('beginTime', function() {
 	return {
@@ -51,12 +50,6 @@ myApp.directive('beginTime', function() {
 						console.log(inst);
 					}
 				});
-				/*on("click", function(ev) {
-					element.find("input").datetimepicker("setEndDate", $("#" + element.find("input").attr("data-other")).val());
-					$(this).blur();
-					$(this).focus();
-				});*/
-
 			}
 		}
 	};
@@ -86,21 +79,18 @@ myApp.directive('overTime', function() {
 					startYear: (new Date()).getFullYear() - 1900, //开始年份
 					endYear: (new Date()).getFullYear() + 100, //结束年份
 					onBeforeShow: function(inst) {
-						//						inst.settings.wheels[0].length > 2 ? inst.settings.wheels[0].pop() : null;
+						//	inst.settings.wheels[0].length > 2 ? inst.settings.wheels[0].pop() : null;
 					}, //弹掉“日”滚轮  
-					headerText: function(valueText) { //自定义弹出框头部格式  
-						array = valueText.split('/');
-						return array[0] + "年" + array[1] + "月";
-					},
 					onSelect: function(valueText, inst) {
-						 
+						//选择时间
+						// opt.default.minDate = new Date(validity[0], +validity[1] - 1, +validity[2] + 1);
+
 					}
 				});
 			}
 		}
 	};
 });
-//下拉
 myApp.directive('mySelect', [function() {
 	return {
 		restrict: 'ECMA',
@@ -216,14 +206,17 @@ myApp.directive('checkboxRadio', [function() {
 	};
 }])
 
+
+
+
 myApp.directive('checkboxRadios', [function() {
 	return {
+		
 		restrict: 'ECMA',
 		link: function(scope, element, attr, ngModel) {
-			var lenth = $(element).attr("data-max") || 10000;
 			$(element).on("click", ".default", function() {
+
 				if($(this).find("input")[0].type == "radio") {
-					//获取所有单选
 					var name = $(this).find("input").attr("name")
 					$(this).parent(".check_radio").find("input[type='radio']").each(function() {
 						if($(this).attr("name") == name) {
@@ -241,9 +234,6 @@ myApp.directive('checkboxRadios', [function() {
 				} else {
 					$(element).find("input").each(function(idnex, item) {
 						$(element).find("input").removeAttr("disabled");
-						/*if($(this).attr("my-disable") == true) {
-							$(this).attr("disabled", "true")
-						}*/
 					})
 				}
 				if($(this).find("input").is(':checked')) {
@@ -251,6 +241,7 @@ myApp.directive('checkboxRadios', [function() {
 				} else {
 					$(this).removeClass("cked")
 				}
+
 			})
 		}
 	};

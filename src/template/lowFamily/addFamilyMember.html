@@ -4,6 +4,9 @@
 			<div class="back"><img src="./assets/img/icon_28.png" alt=""></div>
 		</a>
 		<div class="collectionTitle">贫困户信息采集</div>
+		<div ng-if="addFamilyMember.urlParam.memberId" ng-click="addFamilyMember.delForm()" style="position: absolute;right: 1rem;color: #fff;z-index: 2px;top: 16px;">
+			删除
+		</div>
 	</header>
 	<div class="fill"></div>
 	<!--  家庭信息 -->
@@ -20,8 +23,7 @@
 							<div class="uploadPic">
 								<input type="file" ngf-select ng-model="testFile" name="file" accept="image/jpg,image/jpeg,image/png" ngf-max-size="2MB" ngf-model-invalid="errorFiles" ng-change="addFamilyMember.uploadPic()" />
 								<!--<img ng-src="{{addFamilyMember.otherSelect.headUrl||'./assets/img/head.png'}}" alt="" style="width:100%;height:100%;" />-->
-								<img ng-src="{{addFamilyMember.otherSelect.headUrl}}" alt="" style="width:100     %;height:100%;" />
-							  
+								<img ng-src="{{addFamilyMember.otherSelect.headUrl}}" alt="" style="width:100%;height:100%;" />
 		    					</div>
 							<img src="./assets/img/icon2_11@2x.png" alt="">
 						</div>

@@ -64,31 +64,12 @@ myApp.controller("low_family_baseCtro", ["$scope", "$rootScope", "$state", "$htt
 			low_family_baseInfo.getVillagesByTown(townId);
 			low_family_baseInfo.getNaturalVillagesByTown(villagesId);
 		}
-
-		//判断本地是否有数据
-		low_family_baseInfo.verdictStorage = function(id) {
-			var data;
-			try {
-				if(JSON.parse(localStorage.getItem("low_family"))) {
-					var localUserId = low_family_baseInfo.urlParam.type == "net" ?
-						JSON.parse(localStorage.getItem("low_family")).baseInfo_model.id :
-						JSON.parse(localStorage.getItem("low_family")).index_id;
-					data = (localUserId == id) ?
-						JSON.parse(localStorage.getItem("low_family")) : "";
-				}
-			} catch(e) {
-				console.error("判断本地是否有数据，json转化错误")
-			}
-			return data;
-		}
-
 		//判断是否编辑
 		if(low_family_baseInfo.urlParam.id) {
-			$scope.userId = low_family_baseInfo.urlParam.id || "";
 			try {
-				if(low_family_baseInfo.verdictStorage(low_family_baseInfo.urlParam.id)) {
+				if(fupin.getCacheData(low_family_baseInfo.urlParam.id, low_family_baseInfo.urlParam.type)) {
 					//把data合并到表单对象中
-					var infoObj = low_family_baseInfo.verdictStorage(low_family_baseInfo.urlParam.id).baseInfo_model;
+					var infoObj = fupin.getCacheData(low_family_baseInfo.urlParam.id, low_family_baseInfo.urlParam.type).baseInfo_model;
 					low_family_baseInfo.getAddress(infoObj.qyxz, infoObj.qyxzc);
 					low_family_baseInfo.formInfo = infoObj
 					low_family_baseInfo.oldObj = infoObj;
@@ -124,60 +105,35 @@ myApp.controller("low_family_baseCtro", ["$scope", "$rootScope", "$state", "$htt
 						});
 					}
 				}
+				//转化
+				low_family_baseInfo.formInfo.lxdh = parseInt(low_family_baseInfo.formInfo.lxdh);
+				
 			} catch(e) {
 				console.error("判断是否需要请求线上数据报错")
 			}
 		}
-
 		//保存表单为本地数据库
 		low_family_baseInfo.saveForm = function() {
 			//保存对象之前判断是否是编辑
+			var saveData;
 			if(low_family_baseInfo.urlParam.id) {
-				var data = JSON.parse(window.localStorage.getItem("low_family"));
-				angular.extend(data.baseInfo_model, low_family_baseInfo.formInfo);
-				dt.request({
-					rqstName: "low_family", //'low_family', 'low_village', 'nature_village', 'relief_project'
-					type: "put", //select,delete,put,selectById,
-					data: data,
-					success: function(data) {
-						if(data.type = "success") {
-							//清空缓存
-							fupin.localCache(JSON.stringify(data));
-							$state.go("lowFamilyDraft");
-							//window.history.go(-1);
-						}
-					},
-					'error': function(data) {}
-				});
+				saveData = JSON.parse(window.localStorage.getItem("low_family"));
+				angular.extend(saveData.baseInfo_model, low_family_baseInfo.formInfo);
 			} else {
-				low_family_baseInfo.newLocalData();
+				//保存接口
+				var newId = fupin.randomChat();
+				saveData = {
+					newId: newId,
+					baseInfo_model: low_family_baseInfo.formInfo,
+				}
 			}
+			fupin.saveLocalData(saveData);
 		}
-
-		low_family_baseInfo.newLocalData = function() {
-			//保存接口
-			var newId = fupin.randomChat();
-			var data = {
-				newId: newId,
-				baseInfo_model: low_family_baseInfo.formInfo,
-			}
-			dt.request({
-				rqstName: "low_family", //'low_family', 'low_village', 'nature_village', 'relief_project'
-				type: "put", //select,delete,put,selectById,
-				data: data,
-				success: function(data) {
-					console.log(data);
-				},
-				'error': function(data) {}
-			});
-		}
-
 		low_family_baseInfo.saveCache = function() {
 			var data = JSON.parse(window.localStorage.getItem("low_family"));
 			angular.extend(data.baseInfo_model, low_family_baseInfo.formInfo);
 			fupin.localCache(JSON.stringify(data));
 		}
-		
 		/*//当路由跳转的时候判断是否保存为草稿
 		$scope.$watch('$viewContentLoading', function(event, viewConfig) {
 			alert('模板加载完成前');

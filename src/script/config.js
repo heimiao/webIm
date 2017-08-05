@@ -1,13 +1,5 @@
-<<<<<<< HEAD
 var baseUrl = 'http://123.58.240.75:8081/tpa';
-<<<<<<< HEAD
-//var baseUrl = 'http://192.168.22.182:8080/tpa';
-=======
-=======
-var baseUrl = 'http://123.58.240.75:8081/tpa'; 
->>>>>>> ed2e296f0f55d90d8134bb6e95d066d33a9e8e4c
->>>>>>> a56b30e840cf44b46e96230749b2178431a6ad13
- 
+
 var config = {
 	//请求路径
 	getbaseUrl: baseUrl + '/zjzd/getBaseUrlList?lx=11',
@@ -19,6 +11,7 @@ var config = {
 		getLowFamilyList: "/pkhjc/queryForList", //获取家庭成员列表
 		uploadHead: "/pkhjcfj/upload", //上传头像
 		getUploadHead: "/pkhjcfj/showpic", //获取头像
+		getassistPersonList: "/bfdx/queryForList", //获取帮扶责任人
 
 		assistPersonById: "/bfdx/queryForList", //帮扶人信息
 		login: "/dotpalogin",
@@ -31,13 +24,12 @@ var config = {
 		addzrc: "/zrc/add", //添加自然村
 		//扶贫项目
 
-		projectList:"/xmxx/queryForPage",//扶贫项目列表
-		projectAdda:"/xmxx/add",//新增扶贫项目
-		projectsjzd:"/zjzd/queryForList?lx=09", //数据字典取项目类型
-		projectaddsjpkca:"/xmxxpkc/addXmxxpkc", //添加扶贫项目涉及贫困村
+		projectList: "/xmxx/queryForPage", //扶贫项目列表
+		projectAdda: "/xmxx/add", //新增扶贫项目
+		projectsjzd: "/zjzd/queryForList?lx=09", //数据字典取项目类型
+		projectaddsjpkca: "/xmxxpkc/addXmxxpkc", //添加扶贫项目涉及贫困村
 		projectaddsjpkha: "/xmxxpkh/addXmxxpkh", //添加扶贫项目贫困户
-		getprojectaddsjpkca:"/xmxxpkc/queryForList",//获取添加扶贫项目涉及贫困村
-
+		getprojectaddsjpkca: "/xmxxpkc/queryForList", //获取添加扶贫项目涉及贫困村
 
 		townShip: "/zcjg/queryForZc?lx=01", //获取乡镇列表
 		villageAll: "/zcjg/queryForZc?lx=02", //获取所有行政村列表

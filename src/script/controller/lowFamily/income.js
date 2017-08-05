@@ -15,34 +15,15 @@ myApp.controller("incomeCtro", ["$scope", "$rootScope", "$state", "$http", "$sta
 			khyhList: config.sysValue.khyh, //开户银行
 		};
 
-		//判断本地是否有数据
-		income.verdictStorage = function(id) {
-			var data;
-			try {
-				if(JSON.parse(localStorage.getItem("low_family"))) {
-					var localUserId = income.urlParam.type == "net" ?
-						JSON.parse(localStorage.getItem("low_family")).baseInfo_model.id :
-						JSON.parse(localStorage.getItem("low_family")).index_id;
-					data = (localUserId == id) ?
-						JSON.parse(localStorage.getItem("low_family")) : "";
-				}
-			} catch(e) {
-				console.error("判断本地是否有数据，json转化错误")
-			}
-			return data;
-		}
-
 		//判断是否编辑
 		if(income.urlParam.id) {
 			try {
-				if(income.verdictStorage(income.urlParam.id)) {
+				if(fupin.getCacheData(income.urlParam.id, income.urlParam.type)) {
 					//把data合并到表单对象中
-					var infoObj = income.verdictStorage(income.urlParam.id).income_model;
+					var infoObj = fupin.getCacheData(income.urlParam.id, income.urlParam.type).income_model;
 					income.formInfo = infoObj
 					income.oldObj = infoObj;
-					console.log("本地缓存获取数据");
 				} else {
-					console.log("数据库获取数据");
 					if(income.urlParam.type == "net") {
 						postForm.saveFrm(config.path.lowFamilyById, {
 							id: income.urlParam.id
@@ -80,44 +61,19 @@ myApp.controller("incomeCtro", ["$scope", "$rootScope", "$state", "$http", "$sta
 		//保存表单为本地数据库
 		income.saveForm = function() {
 			//保存对象之前判断是否是编辑
+			var saveData;
 			if(income.urlParam.id) {
-				var data = JSON.parse(window.localStorage.getItem("low_family"));
-				angular.extend(data.income_model, income.formInfo);
-				dt.request({
-					rqstName: "low_family", //'low_family', 'low_village', 'nature_village', 'relief_project'
-					type: "put", //select,delete,put,selectById,
-					data: data,
-					success: function(data) {
-						if(data.type = "success") {
-							//清空缓存
-							fupin.localCache(JSON.stringify(data));
-							$state.go("lowFamilyDraft");
-							//window.history.go(-1);
-						}
-					},
-					'error': function(data) {}
-				});
+				var saveData = JSON.parse(window.localStorage.getItem("low_family"));
+				angular.extend(saveData.income_model, income.formInfo);
 			} else {
-				income.newLocalData();
+				//保存接口
+				var newId = fupin.randomChat();
+				var data = {
+					newId: newId,
+					income_model: income.formInfo,
+				}
 			}
-		}
-
-		income.newLocalData = function() {
-			//保存接口
-			var newId = fupin.randomChat();
-			var data = {
-				newId: newId,
-				income_model: income.formInfo,
-			}
-			dt.request({
-				rqstName: "low_family", //'low_family', 'low_village', 'nature_village', 'relief_project'
-				type: "put", //select,delete,put,selectById,
-				data: data,
-				success: function(data) {
-					console.log(data);
-				},
-				'error': function(data) {}
-			});
+			fupin.saveLocalData(saveData);
 		}
 
 		income.saveCache = function() {

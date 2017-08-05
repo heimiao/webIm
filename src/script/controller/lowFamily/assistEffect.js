@@ -16,36 +16,15 @@ myApp.controller("assistEffectCtro", ["$scope", "$rootScope", "$state", "$http",
 		$scope.userId = assistEffect.urlParam.id || "";
 		$scope.dataType = assistEffect.urlParam.type || "";
 
-		//判断本地是否有数据
-		assistEffect.verdictStorage = function(id) {
-			var data;
-			try {
-				if(JSON.parse(localStorage.getItem("low_family"))) {
-					var localUserId = assistEffect.urlParam.type == "net" ?
-						JSON.parse(localStorage.getItem("low_family")).baseInfo_model.id :
-						JSON.parse(localStorage.getItem("low_family")).index_id;
-					data = (localUserId == id) ?
-						JSON.parse(localStorage.getItem("low_family")) : "";
-				}
-			} catch(e) {
-				console.error("判断本地是否有数据，json转化错误")
-			}
-			return data;
-		}
-
 		//判断是否编辑
 		if(assistEffect.urlParam.id) {
-			$scope.userId = assistEffect.urlParam.id || "";
 			try {
-				if(assistEffect.verdictStorage(assistEffect.urlParam.id)) {
+				if(fupin.getCacheData(assistEffect.urlParam.id, assistEffect.urlParam.type)) {
 					//把data合并到表单对象中
 					var infoObj = assistEffect.verdictStorage(assistEffect.urlParam.id).assistEffect_model;
 					assistEffect.formInfo = infoObj
 					assistEffect.oldObj = infoObj;
-					console.log("走线下");
-					console.log(assistEffect.formInfo);
 				} else {
-					console.log("走线上");
 					if(assistEffect.urlParam.type == "net") {
 						postForm.saveFrm(config.path.lowFamilyById, {
 							id: assistEffect.urlParam.id
@@ -83,44 +62,18 @@ myApp.controller("assistEffectCtro", ["$scope", "$rootScope", "$state", "$http",
 		//保存表单为本地数据库
 		assistEffect.saveForm = function() {
 			//保存对象之前判断是否是编辑
+			var saveData;
 			if(assistEffect.urlParam.id) {
-				var data = JSON.parse(window.localStorage.getItem("low_family"));
-				angular.extend(data.assistEffect_model, assistEffect.formInfo);
-				dt.request({
-					rqstName: "low_family", //'low_family', 'low_village', 'nature_village', 'relief_project'
-					type: "put", //select,delete,put,selectById,
-					data: data,
-					success: function(data) {
-						if(data.type = "success") {
-							//清空缓存
-							fupin.localCache(JSON.stringify(data));
-							$state.go("lowFamilyDraft");
-							//window.history.go(-1);
-						}
-					},
-					'error': function(data) {}
-				});
+				saveData = JSON.parse(window.localStorage.getItem("low_family"));
+				angular.extend(saveData.assistEffect_model, assistEffect.formInfo);
 			} else {
-				assistEffect.newLocalData();
+				var newId = fupin.randomChat();
+				saveData = {
+					newId: newId,
+					assistEffect_model: assistEffect.formInfo,
+				}
 			}
-		}
-
-		assistEffect.newLocalData = function() {
-			//保存接口
-			var newId = fupin.randomChat();
-			var data = {
-				newId: newId,
-				assistEffect_model: assistEffect.formInfo,
-			}
-			dt.request({
-				rqstName: "low_family", //'low_family', 'low_village', 'nature_village', 'relief_project'
-				type: "put", //select,delete,put,selectById,
-				data: data,
-				success: function(data) {
-					console.log(data);
-				},
-				'error': function(data) {}
-			});
+			fupin.saveLocalData(saveData);
 		}
 
 		assistEffect.saveCache = function() {
