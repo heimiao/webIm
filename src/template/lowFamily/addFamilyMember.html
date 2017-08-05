@@ -23,8 +23,8 @@
 							<div class="uploadPic">
 								<input type="file" ngf-select ng-model="testFile" name="file" accept="image/jpg,image/jpeg,image/png" ngf-max-size="2MB" ngf-model-invalid="errorFiles" ng-change="addFamilyMember.uploadPic()" />
 								<!--<img ng-src="{{addFamilyMember.otherSelect.headUrl||'./assets/img/head.png'}}" alt="" style="width:100%;height:100%;" />-->
-								<img ng-src="{{addFamilyMember.otherSelect.headUrl}}" alt="" style="width:100%;height:100%;" />
-		    					</div>
+								<img ng-src="{{addFamilyMember.otherSelect.headUrl||'./assets/img/head.png'}}" alt="" style="width:100%;height:100%;" />
+							</div>
 							<img src="./assets/img/icon2_11@2x.png" alt="">
 						</div>
 					</div>
@@ -66,7 +66,7 @@
 					<div class="item border-b">
 						<div class="name">A4与户主关系</div>
 						<div class="content">
-							<select name="" id="" ng-model="addFamilyMember.formInfo.yhzgx" ng-options="item.id as item.name for item in addFamilyMember.otherSelect.yhzgxList">
+							<select name="" id="" ng-model="addFamilyMember.formInfo.yhzgx" ng-options="item.value as item.name for item in addFamilyMember.otherSelect.yhzgxList">
 								<option value=""></option>
 							</select>
 							<img src="./assets/img/icon2_11@2x.png" alt="">
@@ -188,7 +188,6 @@
 						<div class="name">H1是否参加新型农村合作医疗</div>
 						<div class="content">
 							<select name="" id="" ng-model="addFamilyMember.formInfo.sfcjxxnchzyl">
-								<option value=""></option>
 								<option value="是">是</option>
 								<option value="否">否</option>
 							</select>
@@ -209,7 +208,7 @@
 					<div class="item border-b">
 						<div class="name">H3是否因贫辍学</div>
 						<div class="content">
-							<select name="" id="" ng-model="addFamilyMember.formInfo.sfypcx">
+							<select ng-model="addFamilyMember.formInfo.sfypcx">
 								<option value=""></option>
 								<option value="是">是</option>
 								<option value="否">否</option>

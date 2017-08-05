@@ -14,8 +14,23 @@ myApp.controller("assistPersonCtro", ["$scope", "$rootScope", "$state", "$http",
 				if(fupin.getCacheData(assistPerson.urlParam.id, assistPerson.urlParam.type)) {
 					//把data合并到表单对象中
 					var infoList = fupin.getCacheData(assistPerson.urlParam.id, assistPerson.urlParam.type).assistPerson_model;
-					assistPerson.list = fupin.mapArray(infoList, config.sysValue.YHZGX, "yhzgx", "value");
-					assistPerson.oldObj = infoList;
+					if(!infoList || !infoList.length) {
+						postForm.saveFrm(config.path.getassistPersonList, {
+							fid: assistPerson.urlParam.id
+						}).success(function(datas) {
+							infoList = datas;
+							saveData = JSON.parse(window.localStorage.getItem("low_family"));
+							angular.extend(saveData, {
+								assistPerson_model: infoList
+							});
+							fupin.localCache(JSON.stringify(saveData));
+							assistPerson.list = fupin.mapArray(infoList, config.sysValue.YHZGX, "yhzgx", "value");
+							assistPerson.oldObj = infoList;
+						});
+					} else {
+						assistPerson.list = fupin.mapArray(infoList, config.sysValue.YHZGX, "yhzgx", "value");
+						assistPerson.oldObj = infoList;
+					}
 				} else {
 					if(assistPerson.urlParam.type == "net") {
 						postForm.saveFrm(config.path.lowFamilyById, {
@@ -52,7 +67,8 @@ myApp.controller("assistPersonCtro", ["$scope", "$rootScope", "$state", "$http",
 					}
 				}
 			} catch(e) {
-				console.error("获取本地数据错误")
+				console.error(e);
+				console.error("获取数据来源错误")
 			}
 		}
 		//保存表单为本地数据库
@@ -151,11 +167,12 @@ myApp.controller("addAsistPersonCtro", ["$scope", "$rootScope", "$state", "$http
 				if(item.id != addAsistPerson.urlParam.personId) {
 					ary.push(item);
 				}
-				dataAll.assistPerson_model = ary;
-				addAsistPerson.formInfo = {};
-				addAsistPerson.urlParam.personId = "";
-				fupin.localCache(JSON.stringify(dataAll));
 			});
+			dataAll.assistPerson_model = ary;
+			addAsistPerson.formInfo = {};
+			addAsistPerson.otherSelect.headUrl = "",
+				addAsistPerson.urlParam.personId = "";
+			fupin.localCache(JSON.stringify(dataAll));
 		}
 		$scope.addAsistPerson = addAsistPerson;
 	}

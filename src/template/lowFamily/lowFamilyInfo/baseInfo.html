@@ -84,14 +84,14 @@
 				<div class="pkcList clearfix">
 					<div class="col-xs-4">A10脱贫状态</div>
 					<div class="col-xs-5 padd0 pkcRight">
-						<select class="form-control" ng-model="low_family_baseInfo.formInfo.tpqk" ng-options="item.id as item.name for item in low_family_baseInfo.otherSelect.tpqkList">
+						<select class="form-control" ng-model="low_family_baseInfo.formInfo.tpqk" ng-options="item.value as item.name for item in low_family_baseInfo.otherSelect.tpqkList">
 						</select>
 					</div>
 				</div>
 				<div class="pkcList clearfix">
 					<div class="col-xs-4">不脱贫原因</div>
 					<div class="col-xs-5 padd0 pkcRight">
-						<select class="form-control" ng-model="low_family_baseInfo.formInfo.test" ng-options="item.id as item.name for item in low_family_baseInfo.otherSelect.naturalVillageList">
+						<select class="form-control" ng-model="low_family_baseInfo.formInfo.test">
 							<option>不脱贫原因</option>
 						</select>
 					</div>

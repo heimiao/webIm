@@ -8,6 +8,9 @@ var config = {
 		lowFamilyList: "/pkh/queryForPage", //贫困活列表
 		lowFamilyById: "/pkh/queryForId", //获取贫困户信息
 
+		createLowFamily: "/pkh/add", //保存贫困户信息
+		updateLowFamily: "/pkh/update", //保存贫困户信息
+
 		getLowFamilyList: "/pkhjc/queryForList", //获取家庭成员列表
 		uploadHead: "/pkhjcfj/upload", //上传头像
 		getUploadHead: "/pkhjcfj/showpic", //获取头像
@@ -209,41 +212,41 @@ var config = {
 		],
 		// A35 主要燃料类型 zyrllx
 		zyrllx: [{
-				value: "01",
+				value: "柴草",
 				name: "柴草"
 			},
 			{
-				value: "02",
+				value: "干畜粪",
 				name: "干畜粪"
 			},
 			{
-				value: "03",
+				value: "煤炭",
 				name: "煤炭 "
 			},
 			{
-				value: "04",
+				value: "清洁能源",
 				name: "清洁能源"
 			},
 			{
-				value: "05",
+				value: "其他",
 				name: "其他"
 			}
 		],
 		// A30 入户路类型 rhllx
 		rhllx: [{
-				value: "01",
+				value: "泥土路",
 				name: "泥土路"
 			},
 			{
-				value: "02",
+				value: "砂石路",
 				name: "砂石路"
 			},
 			{
-				value: "03",
+				value: "水泥路",
 				name: "水泥路"
 			},
 			{
-				value: "04",
+				value: "沥青路",
 				name: "沥青路"
 			}
 		],

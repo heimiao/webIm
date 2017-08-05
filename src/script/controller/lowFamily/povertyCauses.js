@@ -77,6 +77,16 @@ myApp.controller("lowFamilyCausesCtro", ["$scope", "$rootScope", "$state", "$htt
 		lowFamilyCauses.saveForm = function() {
 			//保存对象之前判断是否是编辑
 			var saveData, formData;
+			formData = lowFamilyCauses.formInfo;
+			for(var item in formData) {
+				if(item != "zyzpyy") {
+					if(formData[item]) {
+						formData[item] = "Y"
+					} else {
+						formData[item] = "N"
+					}
+				}
+			}
 			if(lowFamilyCauses.urlParam.id) {
 				saveData = JSON.parse(window.localStorage.getItem("low_family"));
 				angular.extend(saveData.baseInfo_model, formData);
@@ -88,16 +98,7 @@ myApp.controller("lowFamilyCausesCtro", ["$scope", "$rootScope", "$state", "$htt
 					baseInfo_model: formData,
 				}
 			}
-			formData = lowFamilyCauses.formInfo;
-			for(var item in formData) {
-				if(item != "zyzpyy") {
-					if(formData[item]) {
-						formData[item] = "Y"
-					} else {
-						formData[item] = "N"
-					}
-				}
-			}
+
 			fupin.saveLocalData(saveData);
 		}
 

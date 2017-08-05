@@ -17,7 +17,6 @@ myApp.controller("low_family_baseCtro", ["$scope", "$rootScope", "$state", "$htt
 			tpqkList: config.sysValue.tpqk, //脱贫情况
 			khyhList: config.sysValue.khyh, //开户银行
 		};
-
 		//获取城镇
 		low_family_baseInfo.getTownVillages = function() {
 			low_family_baseInfo.otherSelect.villagesList = [];
@@ -107,7 +106,6 @@ myApp.controller("low_family_baseCtro", ["$scope", "$rootScope", "$state", "$htt
 				}
 				//转化
 				low_family_baseInfo.formInfo.lxdh = parseInt(low_family_baseInfo.formInfo.lxdh);
-				
 			} catch(e) {
 				console.error("判断是否需要请求线上数据报错")
 			}

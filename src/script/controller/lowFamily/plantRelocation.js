@@ -53,6 +53,17 @@ myApp.controller("plantRelocationCtro", ["$scope", "$rootScope", "$state", "$htt
 						});
 					}
 				}
+				var showData = plantRelocation.formInfo;
+				for(var item in showData) {
+					if(item != "azd" && item != "azfs" && item != "bqfs" && item != "sfbqh") {
+						if(showData[item] == "Y") {
+							showData[item] = true;
+						} else {
+							showData[item] = false;
+						}
+					}
+				}
+				plantRelocation.formInfo = showData;
 			} catch(e) {
 				console.error("判断是否需要请求线上数据报错")
 			}
@@ -61,7 +72,18 @@ myApp.controller("plantRelocationCtro", ["$scope", "$rootScope", "$state", "$htt
 		//保存表单为本地数据库
 		plantRelocation.saveForm = function() {
 			//保存对象之前判断是否是编辑
-			var saveData;
+
+			var saveData, formData;
+			formData = plantRelocation.formInfo;
+			for(var item in formData) {
+				if(item != "azd" && item != "azfs" && item != "bqfs" && item != "sfbqh") {
+					if(formData[item]) {
+						formData[item] = "Y"
+					} else {
+						formData[item] = "N"
+					}
+				}
+			}
 			if(plantRelocation.urlParam.id) {
 				var saveData = JSON.parse(window.localStorage.getItem("low_family"));
 				angular.extend(saveData.plantRelocation_model, plantRelocation.formInfo);
@@ -74,8 +96,7 @@ myApp.controller("plantRelocationCtro", ["$scope", "$rootScope", "$state", "$htt
 			}
 			fupin.saveLocalData(saveData);
 		}
-			
-			
+		
 		plantRelocation.saveCache = function() {
 			var data = JSON.parse(window.localStorage.getItem("low_family"));
 			angular.extend(data.plantRelocation_model, plantRelocation.formInfo);

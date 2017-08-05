@@ -21,7 +21,7 @@ myApp.controller("assistEffectCtro", ["$scope", "$rootScope", "$state", "$http",
 			try {
 				if(fupin.getCacheData(assistEffect.urlParam.id, assistEffect.urlParam.type)) {
 					//把data合并到表单对象中
-					var infoObj = assistEffect.verdictStorage(assistEffect.urlParam.id).assistEffect_model;
+					var infoObj = fupin.getCacheData(assistEffect.urlParam.id, assistEffect.urlParam.type).assistEffect_model;
 					assistEffect.formInfo = infoObj
 					assistEffect.oldObj = infoObj;
 				} else {
@@ -55,6 +55,7 @@ myApp.controller("assistEffectCtro", ["$scope", "$rootScope", "$state", "$http",
 					}
 				}
 			} catch(e) {
+				console.error(e);
 				console.error("判断是否需要请求线上数据报错")
 			}
 		}
@@ -76,11 +77,6 @@ myApp.controller("assistEffectCtro", ["$scope", "$rootScope", "$state", "$http",
 			fupin.saveLocalData(saveData);
 		}
 
-		assistEffect.saveCache = function() {
-			var data = JSON.parse(window.localStorage.getItem("low_family"));
-			angular.extend(data.assistEffect_model, assistEffect.formInfo);
-			fupin.localCache(JSON.stringify(data));
-		}
 		$scope.goback = function() {
 			//调用本地数据库保存
 			//保存表单
@@ -94,7 +90,12 @@ myApp.controller("assistEffectCtro", ["$scope", "$rootScope", "$state", "$http",
 				window.history.go(-1);
 			}
 		}
-
+			
+		assistEffect.saveCache = function() {
+			var data = JSON.parse(window.localStorage.getItem("low_family"));
+			angular.extend(data.assistEffect_model, assistEffect.formInfo);
+			fupin.localCache(JSON.stringify(data));
+		}
 		$rootScope.$on('$stateChangeStart',
 			function(event, toState, toParams, fromState, fromParams) {
 				assistEffect.saveCache();

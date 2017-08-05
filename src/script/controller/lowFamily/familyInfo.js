@@ -32,8 +32,24 @@ myApp.controller("lowFamilyMemberCtro", ["$scope", "$rootScope", "$state", "$htt
 				if(fupin.getCacheData(lowFamilyMember.urlParam.id, lowFamilyMember.urlParam.type)) {
 					//把data合并到表单对象中
 					var infoList = fupin.getCacheData(lowFamilyMember.urlParam.id, lowFamilyMember.urlParam.type).familyInfo_model;
-					lowFamilyMember.list = fupin.mapArray(infoList, config.sysValue.YHZGX, "yhzgx", "value");
-					lowFamilyMember.oldObj = infoList;
+					if(!infoList || !infoList.length) {
+						postForm.saveFrm(config.path.getLowFamilyList, {
+							fid: lowFamilyMember.urlParam.id
+						}).success(function(datas) {
+							infoList = datas;
+							saveData = JSON.parse(window.localStorage.getItem("low_family"));
+							angular.extend(saveData, {
+								familyInfo_model: infoList
+							});
+							fupin.localCache(JSON.stringify(saveData));
+							lowFamilyMember.list = fupin.mapArray(infoList, config.sysValue.YHZGX, "yhzgx", "value");
+							lowFamilyMember.oldObj = infoList;
+						});
+					} else {
+						lowFamilyMember.list = fupin.mapArray(infoList, config.sysValue.YHZGX, "yhzgx", "value");
+						lowFamilyMember.oldObj = infoList;
+					}
+
 				} else {
 					if(lowFamilyMember.urlParam.type == "net") {
 						postForm.saveFrm(config.path.lowFamilyById, {
@@ -71,6 +87,7 @@ myApp.controller("lowFamilyMemberCtro", ["$scope", "$rootScope", "$state", "$htt
 					}
 				}
 			} catch(e) {
+				console.error(e)
 				console.error("获取本地数据错误")
 			}
 		}
@@ -79,13 +96,12 @@ myApp.controller("lowFamilyMemberCtro", ["$scope", "$rootScope", "$state", "$htt
 			//保存对象之前判断是否是编辑
 			var saveData;
 			if(lowFamilyMember.urlParam.id) {
-				var saveData = JSON.parse(window.localStorage.getItem("low_family"));
+				saveData = JSON.parse(window.localStorage.getItem("low_family"));
 				angular.extend(saveData, {
 					familyInfo_model: lowFamilyMember.list
 				});
-
 			} else {
-				var saveData = JSON.parse(window.localStorage.getItem("low_family"));
+				saveData = JSON.parse(window.localStorage.getItem("low_family"));
 				//保存接口
 				var newId = fupin.randomChat();
 				var data = {
@@ -226,18 +242,18 @@ myApp.controller("addFamilyMemberCtro", ["$scope", "$rootScope", "$state", "$htt
 				file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
 			});
 		}
-
 		addFamilyMember.delForm = function() {
 			var ary = [];
 			$.each(dataAll.familyInfo_model, function(index, item) {
 				if(item.id != addFamilyMember.urlParam.memberId) {
 					ary.push(item);
 				}
-				dataAll.familyInfo_model = ary;
-				addFamilyMember.formInfo = {};
-				addFamilyMember.urlParam.memberId = "";
-				fupin.localCache(JSON.stringify(dataAll));
 			});
+			dataAll.familyInfo_model = ary;
+			addFamilyMember.formInfo = {};
+			addFamilyMember.otherSelect.headUrl = "",
+				addFamilyMember.urlParam.memberId = "";
+			fupin.localCache(JSON.stringify(dataAll));
 		}
 		$scope.addFamilyMember = addFamilyMember;
 	}

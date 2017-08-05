@@ -1,7 +1,6 @@
 //草稿箱控制器 
-myApp.controller("lowFamilyDraftCtro", ["$scope", "$state", "$filter", "$http", "$stateParams", "postForm",
-	function($scope, $state, $filter, $http, $stateParams, postForm) {
-		$scope.userId = "";
+myApp.controller("lowFamilyDraftCtro", ["$scope", "$state", "$http", "$stateParams", "postForm",
+	function($scope, $state, $http, $stateParams, postForm) {
 		var lowFamilyDraft = {} || lowFamilyDraft;
 		//获取参数
 		lowFamilyDraft.urlParam = $stateParams;
@@ -12,6 +11,9 @@ myApp.controller("lowFamilyDraftCtro", ["$scope", "$state", "$filter", "$http", 
 		lowFamilyDraft.townList = {};
 		//映射列表专用村
 		lowFamilyDraft.villagesList = {};
+
+		lowFamilyDraft.bhksxList = config.sysValue.bhksx;
+
 		//获取城镇并且实现映射
 		lowFamilyDraft.getTownVillages = function(args, name) {
 			postForm.saveFrm(config.path.townShip, {
@@ -36,7 +38,12 @@ myApp.controller("lowFamilyDraftCtro", ["$scope", "$state", "$filter", "$http", 
 			type: "select", //select,delete,put,selectById,
 			success: function(args) {
 				console.log(args);
+
 				lowFamilyDraft.list = args;
+				lowFamilyDraft.list = lowFamilyDraft.list.map(function(item, index, array) {
+					return fupin.mapArray(item.baseInfo_model, lowFamilyDraft.bhksxList, "bhksx", "value");
+				})
+
 				//调用镇
 				if(JSON.stringify(lowFamilyDraft.townList) == "{}") {
 					lowFamilyDraft.getTownVillages("01", "qyxz");
@@ -54,9 +61,7 @@ myApp.controller("lowFamilyDraftCtro", ["$scope", "$state", "$filter", "$http", 
 					})
 				}
 			},
-			'error': function(args) {
-
-			}
+			'error': function(args) {}
 		});
 		//根据角色遍历响应的菜单
 		$scope.lowFamilyDraft = lowFamilyDraft;
