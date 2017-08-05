@@ -50,8 +50,6 @@ myApp.controller("naturalVillage", ["$scope", "$state", "$http", "$stateParams",
 		
 		
 		//以下是获取自然村列表
-		
-		
 		natural.xzcList=function(me, num){
 			natural.sendParam = {
 				name:"",
