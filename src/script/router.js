@@ -232,13 +232,9 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 		})
 
 		//扶贫项目新增
-<<<<<<< HEAD
+
 		.state('projectAdd', {
 			url: '/projectAdd?id&type',
-=======
-		.state('projectAdd', { 
-			url: '/projectAdd?id&type', 
->>>>>>> ed2e296f0f55d90d8134bb6e95d066d33a9e8e4c
 			controller: "projectAdd",
 			templateUrl: 'dist/template/project/projectAdd.html'
 		})
@@ -452,10 +448,6 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 			templateUrl: 'dist/template/village/queryVillageDetail.html'
 		})
 		.state('queryTaskForceDetail', {
-<<<<<<< HEAD
-
-=======
->>>>>>> ed2e296f0f55d90d8134bb6e95d066d33a9e8e4c
 			url: '/queryTaskForceDetail?id&idx',
 			controller: "queryTaskForceDetail",
 			templateUrl: 'dist/template/village/queryTaskForceDetail.html'

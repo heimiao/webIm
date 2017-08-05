@@ -1,9 +1,6 @@
-<<<<<<< HEAD
+
 var baseUrl = 'http://123.58.240.75:8081/tpa';
-=======
-var baseUrl = 'http://123.58.240.75:8081/tpa'; 
->>>>>>> ed2e296f0f55d90d8134bb6e95d066d33a9e8e4c
- 
+
 var config = {
 	//请求路径
 	getbaseUrl: baseUrl + '/zjzd/getBaseUrlList?lx=11',
