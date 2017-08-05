@@ -6,7 +6,7 @@
 <div class="">
 	<header>
 		<a href="javascript:history.go(-1)">
-			<div class="back"><img src="../../assets/img/icon_28.png" alt=""></div>
+			<div class="back"><img src="./assets/img/icon_28.png" alt=""></div>
 		</a>
 		<div class="collectionTitle">贫困户信息采集</div>
 	</header>
@@ -22,10 +22,10 @@
 		</thead>
 		<tbody>
 			<tr ng-repeat="item in lowFamilyDraft.list" ui-sref="lowFamily.baseInfo({id:item.index_id,type:'local'})">
-				<td class="text-center" ng-bind="item.baseInfo.qyxz.name">张北镇</td>
-				<td class="text-center" ng-bind="item.baseInfo.qyxzc.name">黄土湾村</td>
-				<td class="text-center" ng-bind="item.baseInfo.hzxm">王翠娥</td>
-				<td class="text-center" ng-bind="item.baseInfo.bhksx.name">低保贫困户</td>
+				<td class="text-center" ng-bind="item.baseInfo_model.qyxz.name">张北镇</td>
+				<td class="text-center" ng-bind="item.baseInfo_model.qyxzc.name">黄土湾村</td>
+				<td class="text-center" ng-bind="item.baseInfo_model.hzxm">王翠娥</td>
+				<td class="text-center" ng-bind="item.baseInfo_model.bhksx.name">低保贫困户</td>
 			</tr>
 		</tbody>
 	</table>

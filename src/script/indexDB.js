@@ -100,6 +100,27 @@ window.IDBKeyRange = window.IDBKeyRange ||
 				request.onerror = args.error;
 			});
 		},
+		getByNewId: function(args) {
+			var id = args.param.newId,
+				data = [];
+			var indexes = args.indexes || "low_family";
+			db.open(function() {
+				var store = db.getObjectStore(args.rqstName),
+					//通过指定索引获取
+					cursor = store.index(indexes).openCursor(IDBKeyRange.only(id))
+				cursor.onsuccess = function(e) {
+					var result = e.target.result;
+					if(result && result !== null) {
+						data.push(result.value);
+						result.continue();
+					} else {
+						args.success(data);
+					}
+				};
+				cursor.onerror = args.error;
+			});
+
+		},
 		'delete': function(args) {
 			try {
 				var id = parseInt(args.param.index_id);
@@ -166,6 +187,14 @@ window.IDBKeyRange = window.IDBKeyRange ||
 					case "selectById":
 						try {
 							db.getById(data);
+						} catch(e) {
+							console.error(e);
+							console.error("根据条件查询数据错误，请查看条件是否正确");
+						}
+						break;
+					case "selectByNewId":
+						try {
+							db.getByNewId(data);
 						} catch(e) {
 							console.error(e);
 							console.error("根据条件查询数据错误，请查看条件是否正确");

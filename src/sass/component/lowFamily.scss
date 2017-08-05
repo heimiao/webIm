@@ -45,7 +45,13 @@
 }
 
 .check_radio {
+    >label {
+        font-weight: 100;
+    }
+    margin:1.5rem auto;
     .default {
+        font-weight: 100;
+        margin: 10px 10px;
         position: relative;
         display: inline-block;
         padding: 5px 15px;
