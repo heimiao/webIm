@@ -30,6 +30,29 @@ myApp.controller("assistEffectCtro", ["$scope", "$rootScope", "$state", "$http",
 							id: assistEffect.urlParam.id
 						}).success(function(data) {
 							var localData = fupin.lineToLocalData(data, lowFamilyInfoModel);
+							//请求家庭成员
+							postForm.saveFrm(config.path.getLowFamilyList, {
+								fid: assistEffect.urlParam.id
+							}).success(function(args) {
+								var datas = args;
+								$.each(datas, function(index, item) {
+									if(item.filegrpid)
+										angular.extend(item, {
+											pkhjc_fj_id: item.filegrpid
+										});
+								});
+								var jtcy = fupin.mapArray(datas, config.sysValue.YHZGX, "yhzgx", "value");
+								localData.familyInfo_model = jtcy;
+								fupin.localCache(JSON.stringify(localData));
+								//请求帮扶责任人
+								postForm.saveFrm(config.path.getassistPersonList, {
+									fid: assistEffect.urlParam.id
+								}).success(function(datas) {
+									localData.assistPerson_model = datas;
+									fupin.localCache(JSON.stringify(localData));
+								});
+							});
+							
 							fupin.localCache(JSON.stringify(localData));
 							var infoObj = localData.assistEffect_model;
 							assistEffect.formInfo = infoObj
@@ -90,7 +113,7 @@ myApp.controller("assistEffectCtro", ["$scope", "$rootScope", "$state", "$http",
 				window.history.go(-1);
 			}
 		}
-			
+
 		assistEffect.saveCache = function() {
 			var data = JSON.parse(window.localStorage.getItem("low_family"));
 			angular.extend(data.assistEffect_model, assistEffect.formInfo);

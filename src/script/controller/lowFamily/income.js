@@ -42,6 +42,28 @@ myApp.controller("incomeCtro", ["$scope", "$rootScope", "$state", "$http", "$sta
 								id: income.urlParam.id
 							}).success(function(data) {
 								income.sumData = fupin.lineToLocalData(data, lowFamilyInfoModel);
+								//请求家庭成员
+								postForm.saveFrm(config.path.getLowFamilyList, {
+									fid: income.urlParam.id
+								}).success(function(args) {
+									var datas = args;
+									$.each(datas, function(index, item) {
+										if(item.filegrpid)
+											angular.extend(item, {
+												pkhjc_fj_id: item.filegrpid
+											});
+									});
+									var jtcy = fupin.mapArray(datas, config.sysValue.YHZGX, "yhzgx", "value");
+									income.sumData.familyInfo_model = jtcy;
+									fupin.localCache(JSON.stringify(income.sumData));
+									//请求帮扶责任人
+									postForm.saveFrm(config.path.getassistPersonList, {
+										fid: income.urlParam.id
+									}).success(function(datas) {
+										income.sumData.assistPerson_model = datas;
+										fupin.localCache(JSON.stringify(income.sumData));
+									});
+								});
 								fupin.localCache(JSON.stringify(income.sumData));
 								var infoObj = income.sumData.income_model;
 								income.formInfo = infoObj

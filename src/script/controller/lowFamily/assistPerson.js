@@ -14,36 +14,37 @@ myApp.controller("assistPersonCtro", ["$scope", "$rootScope", "$state", "$http",
 				if(fupin.getCacheData(assistPerson.urlParam.id, assistPerson.urlParam.type)) {
 					//把data合并到表单对象中
 					var infoList = fupin.getCacheData(assistPerson.urlParam.id, assistPerson.urlParam.type).assistPerson_model;
-					if(!infoList || !infoList.length) {
-						postForm.saveFrm(config.path.getassistPersonList, {
-							fid: assistPerson.urlParam.id
-						}).success(function(datas) {
-							infoList = datas;
-							saveData = JSON.parse(window.localStorage.getItem("low_family"));
-							angular.extend(saveData, {
-								assistPerson_model: infoList
-							});
-							fupin.localCache(JSON.stringify(saveData));
-							assistPerson.list = fupin.mapArray(infoList, config.sysValue.YHZGX, "yhzgx", "value");
-							assistPerson.oldObj = infoList;
-						});
-					} else {
-						assistPerson.list = fupin.mapArray(infoList, config.sysValue.YHZGX, "yhzgx", "value");
-						assistPerson.oldObj = infoList;
-					}
+					assistPerson.list = fupin.mapArray(infoList, config.sysValue.YHZGX, "yhzgx", "value");
+					assistPerson.oldObj = infoList;
 				} else {
 					if(assistPerson.urlParam.type == "net") {
 						postForm.saveFrm(config.path.lowFamilyById, {
 							id: assistPerson.urlParam.id
 						}).success(function(data) {
 							var localData = fupin.lineToLocalData(data, lowFamilyInfoModel);
-							postForm.saveFrm(config.path.getassistPersonList, {
+							//请求家庭成员
+							postForm.saveFrm(config.path.getLowFamilyList, {
 								fid: assistPerson.urlParam.id
-							}).success(function(datas) {
-								assistPerson.list = fupin.mapArray(datas, config.sysValue.YHZGX, "yhzgx", "value");
-								assistPerson.oldObj = datas;
-								localData.assistPerson_model = datas;
+							}).success(function(args) {
+								var datas = args;
+								$.each(datas, function(index, item) {
+									if(item.filegrpid)
+										angular.extend(item, {
+											pkhjc_fj_id: item.filegrpid
+										});
+								});
+								var jtcy = fupin.mapArray(datas, config.sysValue.YHZGX, "yhzgx", "value");
+								localData.familyInfo_model = jtcy;
 								fupin.localCache(JSON.stringify(localData));
+								//请求帮扶责任人
+								postForm.saveFrm(config.path.getassistPersonList, {
+									fid: assistPerson.urlParam.id
+								}).success(function(datas) {
+									localData.assistPerson_model = datas;
+									assistPerson.list = datas
+									assistPerson.oldObj = datas;
+									fupin.localCache(JSON.stringify(localData));
+								});
 							});
 						})
 					}

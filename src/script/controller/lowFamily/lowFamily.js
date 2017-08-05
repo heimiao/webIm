@@ -6,7 +6,7 @@ myApp.controller("lowFamilyInfoCtro", ["$scope", "$state", "$http", "$stateParam
 		lowFamilyInfo.sendParam = {};
 		lowFamilyInfo.uploadSource = function() {
 			var data = JSON.parse(window.localStorage.getItem("low_family"));
-			uploadData = {}, pkhzbObj = {}, ybd = "N";
+			uploadData = {}, pkhzbObj = {}, ydb = "N";
 
 			//人均收入
 			pkhzbObj.rjcsr = fupin.addRjcsr(data.familyInfo_model, data.income_model);
@@ -19,13 +19,13 @@ myApp.controller("lowFamilyInfoCtro", ["$scope", "$state", "$http", "$stateParam
 			//安全住房
 			pkhzbObj.ywzf = data.lifeCondition_model.ywzf == "有" ? "有" : "无";
 			pkhzbObj.ywzfdf = data.lifeCondition_model.ywzf == "有" ? 15 : 0;
-
 			if(data.familyInfo_model.length > 0) {
 				//因贫辍学
 				pkhzbObj.ypcx =
 					data.familyInfo_model.some(function(item, index, array) {
 						return(item["sfypcx"] == "是" || !item["sfypcx"]);
 					}) ? "有" : "无";
+
 				pkhzbObj.ypcxdf = pkhzbObj.ypcx == "无" ? 0 : 15;
 
 				//合作医疗
@@ -56,38 +56,42 @@ myApp.controller("lowFamilyInfoCtro", ["$scope", "$state", "$http", "$stateParam
 			}*/
 
 			//总得分
+			//			console.log(pkhzbObj.rjcsrdf, pkhzbObj.scshyddf, pkhzbObj.ywzfdf, pkhzbObj.ypcxdf, pkhzbObj.hzyldf, pkhzbObj.ylbxdf);
+
 			pkhzbObj.zdf = pkhzbObj.rjcsrdf + pkhzbObj.scshyddf + pkhzbObj.ywzfdf + pkhzbObj.ypcxdf + pkhzbObj.hzyldf + pkhzbObj.ylbxdf;
+
 			if(pkhzbObj.zdf >= 80 && data.lifeCondition_model.ywzf == "有" && pkhzbObj.ypcxdf == 15 && pkhzbObj.hzyldf == 15) {
 				if((data.baseInfo_model.tpqk == "01" || data.baseInfo_model.tpqk == "02" || data.baseInfo_model.tpqk == "04")) {
-					ybd = "N";
+					ydb = "N";
 				} else {
-					ybd = "Y";
+					ydb = "Y";
 				}
 			} else {
-				ybd = "N";
+				ydb = "N";
 			}
 			angular.extend(uploadData, data.baseInfo_model, data.assistEffect_model, data.income_model, data.lifeCondition_model, data.povertyCauses_model, data.plantRelocation_model, {
 				pkhjc: data.familyInfo_model
 			}, {
 				bfdx: data.assistPerson_model
 			}, {
-				pkhzb: pkhzbObj
+				pkhzb: [pkhzbObj],
 			}, {
-				ybd: ybd
+				ydb: ydb
 			})
 
-			console.log(uploadData);
 			var _url = config.path.createLowFamily;
 			if(data.baseInfo_model.id) {
 				_url = config.path.updateLowFamily;
 			} else {
 				_url = config.path.createLowFamily;
 			}
-			postForm.saveFrm(_url, uploadData).success(function(datas) {
+			
+			//console.log(uploadData);
+			postForm.saveFrm(_url + "?data=" + angular.toJson(uploadData), {}).success(function(datas) {
 				console.log(datas);
 			})
-
-			fupin.localCache(JSON.stringify(data));
+			
+			fupin.localCache(angular.toJson(data));
 		}
 		//调用列表
 		//		$state.go('lowFamily.baseInfo'); //默认显示第一个tab

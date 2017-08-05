@@ -13,15 +13,12 @@
 		return returnArray;
 	};
 	var fupin = {
-		mapArray: function(aryA, aryB, strA, strB, isKeys) {
+		mapArray: function(aryA, aryB, strA, strB) {
+			//			console.log(aryA);
 			//把数组B的字段映射合并到数组A中
 			$.each(aryA, function(index, item) {
 				$.each(aryB, function(i, m) {
-					if(isKeys) {
-						if(strA == m[strB]) {
-							item[strA] = m;
-						}
-					} else {
+					if(item) {
 						if(item[strA] == m[strB]) {
 							item[strA] = m;
 						}
@@ -95,7 +92,7 @@
 				data: data,
 				success: function(args) {
 					if(args.type == "success") {
-						fupin.localCache(JSON.stringify(args));
+						//						fupin.localCache(JSON.stringify(args));
 						window.location.href = "#/low_family_draft";
 						//						$state.go("lowFamilyDraft");
 					}
@@ -164,12 +161,12 @@
 				'<div class="hint_cont">' + this.options.content + '</div>' +
 				'</div>' +
 				'<div class="alert_footer border-t">'
-				if(type == "confirm"){
-					tpl+=btn + '<div class="btn_sures determine" onclick=>保存到草稿</div>' 
-				}else{
-					tpl+='<div class="btn_sures determine" style="width:100%; border-bottom-left-radius: 8px;" onclick=>确定</div>' 
-				}
-				tpl+='</div>' +
+			if(type == "confirm") {
+				tpl += btn + '<div class="btn_sures determine" onclick=>保存到草稿</div>'
+			} else {
+				tpl += '<div class="btn_sures determine" style="width:100%; border-bottom-left-radius: 8px;" onclick=>确定</div>'
+			}
+			tpl += '</div>' +
 				'</div>' +
 				'</div>'
 			return tpl;
