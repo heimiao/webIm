@@ -169,33 +169,33 @@ myApp.controller("villageCollection", ["$scope", "$state", "$http", "$stateParam
 		})
 		villageCollection.uploadSave=function(){
 			if(!villageCollection.situationList.cfzr){
-				fupin.alert("请完善基本信息中的信息")
+				fupin.alert("请完善'基本信息'后再提交数据")
 				return;
 			}
-			if(!villageCollection.situationList.cbgdh){
-				fupin.alert("请完善基本信息中的信息")
-				return;
-			}
-			if(!villageCollection.developmentList.nmnrjcsr){
-				fupin.alert("请完善发展现状中的信息")
-				return;
-			}
-			if(villageCollection.taskForceList){
-				if(villageCollection.taskForceList.length == 0){
-					fupin.alert("请完善驻村工作队的信息")
-					return;
-				}else{
-					for(var i=0;i<villageCollection.taskForceList.length;i++){
-						if(!villageCollection.taskForceList[i].bfdwzcgzdyxm){
-							fupin.alert("请完善驻村工作队的信息")
-							return;
-						}
-					}
-				}
-			}else{
-				fupin.alert("请完善驻村工作队的信息")
-				return;
-			}
+			// if(!villageCollection.situationList.cbgdh){
+			// 	fupin.alert("请完善基本信息中的信息")
+			// 	return;
+			// }
+			// if(!villageCollection.developmentList.nmnrjcsr){
+			// 	fupin.alert("请完善发展现状中的信息")
+			// 	return;
+			// }
+			// if(villageCollection.taskForceList){
+			// 	if(villageCollection.taskForceList.length == 0){
+			// 		fupin.alert("请完善驻村工作队的信息")
+			// 		return;
+			// 	}else{
+			// 		for(var i=0;i<villageCollection.taskForceList.length;i++){
+			// 			if(!villageCollection.taskForceList[i].bfdwzcgzdyxm){
+			// 				fupin.alert("请完善驻村工作队的信息")
+			// 				return;
+			// 			}
+			// 		}
+			// 	}
+			// }else{
+			// 	fupin.alert("请完善驻村工作队的信息")
+			// 	return;
+			// }
 			villageCollection.getAllData();
 			postForm.saveFrm(config.path.addVillage,{"data": JSON.stringify(villageCollection.localData)}).success(function(res){
 				window.history.back();
@@ -211,7 +211,6 @@ myApp.controller("villageCollection", ["$scope", "$state", "$http", "$stateParam
 						'qyxzcName': villageCollection.qyxzcName
 					},
 					success: function(args) {
-						fupin.alert("已保存到草稿")
 						window.history.back();
 					},
 					error: function(args) {
@@ -338,7 +337,6 @@ myApp.controller("villageCollection", ["$scope", "$state", "$http", "$stateParam
 					'qyxzcName': villageCollection.qyxzcName
 				},
 				success: function(args) {
-					fupin.alert("已保存到草稿")
 					window.history.back();
 				},
 				error: function(args) {
