@@ -17,11 +17,7 @@ myApp.controller("naturalEdite", ["$scope", "$state", "$http", "$stateParams",
 			fid:""
 		};
 		postForm.saveFrm(config.path.xingzhengName,zrcDetails.xingzheng).success(function(res){
-<<<<<<< HEAD
-			zrcDetails.fid = res[0].id;
-=======
 		//zrcDetails.fid = res[0].id
->>>>>>> 77edf978de7162d9fca2b36614278f35c437660d
 			zrcDetails.zirancun12();
 			zrcDetails.xingzhengcun.list=res;
 			$http.post(config.path.zrcDetails+"?id="+zrcDetails.canshu.id).success(function(res){
