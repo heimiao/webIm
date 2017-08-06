@@ -18,9 +18,8 @@
 				<span class="name">项目类型</span><span class="triangle"></span>
 			</div>
 			<div class="townshipList">
-				<div ng-click="project.chooseTownship('test1')">test1</div>
-				<div ng-click="project.chooseTownship('test2')">test3</div>
-			</div>
+				<div ng-repeat="item in project.xmleList" ng-click="project.chooseTownship(item.name)" ng-bind="item.name"></div>
+			</div> 
 			
 			
 		</div>

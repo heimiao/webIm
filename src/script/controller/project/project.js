@@ -14,6 +14,11 @@ myApp.controller("project", ["$scope", "$state", "$http", "$stateParams","postFo
 		window.localStorage.removeItem("projectType");
 		window.localStorage.removeItem("projectGetpkclistName");
 		window.localStorage.removeItem("projectGetpkhlistName");
+
+		//从数据字典获取项目类型的选项
+		$http.post(config.path.projectsjzd,null).success(function(res){
+			project.xmleList=res;
+		})
 		//获取项目采集列表 
 		project.getxmcj=function(me,num){
 			project.canshu = {
@@ -45,7 +50,7 @@ myApp.controller("project", ["$scope", "$state", "$http", "$stateParams","postFo
 				project.start= project.start + res.results.length;
 			});
 
-		};
+		}; 
 		
 
 		project.getxmcj();
