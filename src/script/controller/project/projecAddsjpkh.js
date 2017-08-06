@@ -49,7 +49,7 @@ myApp.controller("projectAddsjpkh", ["$scope", "$state", "$http", "$stateParams"
 				addPkc.push(projectAddsjpkh.sendParam);
 			// var addpkcName = window.localStorage.getItem("projectGetpkhlistName")?JSON.parse(window.localStorage.getItem("projectGetpkhlistName")):[];
 				addpkcName.push({
-					'qyzcName': projectAddsjpkh.qyzcName,
+					'qyxzName': projectAddsjpkh.qyzcName,
 					'qyxzcName': projectAddsjpkh.qyxzcName,
 					'sfzh': projectAddsjpkh.sendParam.sfzh,
 					'syje': projectAddsjpkh.sendParam.syje
