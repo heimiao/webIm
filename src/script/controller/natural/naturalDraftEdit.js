@@ -45,16 +45,22 @@ myApp.controller("naturalDraftEdit", ["$scope", "$state", "$http", "$stateParams
 			lx:'03',
 			fid:''
 		};
-		naturalDraftEditc.zirancun12=function(){
+		naturalDraftEditc.zirancun12=function(num){
 			naturalDraftEditc.zirancun.fid=naturalDraftEditc.details.lsxzc;
 			postForm.saveFrm(config.path.xingzhengName,naturalDraftEditc.zirancun)
 			.success(function(res){
 			 	naturalDraftEditc.zirancun.list=res;
+			 	if(num == 1){
+			 		if(res.length != 0){
+						naturalDraftEditc.details.zrcmc = res[0].id
+			 		}
+			 		
+			 	}
 			})
 		}
 		//根据行政村关联自然村
 		naturalDraftEditc.getzrcdraft=function(){ 
-			naturalDraftEditc.zirancun12()
+			naturalDraftEditc.zirancun12(1)
 		}
 
 
