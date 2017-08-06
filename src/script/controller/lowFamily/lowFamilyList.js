@@ -122,6 +122,8 @@ myApp.controller("lowFamilyListCtro", ["$scope", "$state", "$filter", "$http", "
 		$(".townshipList").slideUp(200)
 		$("#township").removeClass("township2")
 		$("#township .name").removeClass("col-ea3c4c")
+		$("#village .name").html('全部行政村')
+		lowFamilyList.sendParam.qyxzc = null;
 		postForm.saveFrm(config.path.townShip, {
 			lx: "02",
 			fid: id
@@ -129,6 +131,7 @@ myApp.controller("lowFamilyListCtro", ["$scope", "$state", "$filter", "$http", "
 			lowFamilyList.town_VillagesList = data;
 			lowFamilyList.town_VillagesList.splice(0, 0, all)
 		})
+		lowFamilyList.getLowFamilyList("", 1);
 	}
 	//选择村
 	lowFamilyList.getVillagesId = function(name, id) {
@@ -137,6 +140,7 @@ myApp.controller("lowFamilyListCtro", ["$scope", "$state", "$filter", "$http", "
 		$(".villageList").slideUp(200)
 		$("#village").removeClass("township2")
 		$("#village .name").removeClass("col-ea3c4c")
+		lowFamilyList.getLowFamilyList("", 1);
 	}
 
 	//调用列表
