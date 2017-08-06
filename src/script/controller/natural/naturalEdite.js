@@ -17,19 +17,16 @@ myApp.controller("naturalEdite", ["$scope", "$state", "$http", "$stateParams",
 			fid:""
 		};
 		postForm.saveFrm(config.path.xingzhengName,zrcDetails.xingzheng).success(function(res){
-			zrcDetails.fid = res[0].id
+		//zrcDetails.fid = res[0].id
 			zrcDetails.zirancun12();
 			zrcDetails.xingzhengcun.list=res;
+			$http.post(config.path.zrcDetails+"?id="+zrcDetails.canshu.id).success(function(res){
+				zrcDetails.fid = res.lsxzc
+				zrcDetails.list=res;
+				// zrcDetails.xingzhengcun();
+
+			});
 		})
-		$http.post(config.path.zrcDetails+"?id="+zrcDetails.canshu.id).success(function(res){
-			
-			zrcDetails.zirancun12(zrcDetails.list.lsxzc);
-			zrcDetails.list=res;
-			// zrcDetails.xingzhengcun();
-
-		});
-
-
 		// zrcDetails.xingzhengcun=function(){ 
 			
 		// }
