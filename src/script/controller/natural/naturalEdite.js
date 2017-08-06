@@ -17,20 +17,13 @@ myApp.controller("naturalEdite", ["$scope", "$state", "$http", "$stateParams",
 			fid:""
 		};
 		postForm.saveFrm(config.path.xingzhengName,zrcDetails.xingzheng).success(function(res){
-		//zrcDetails.fid = res[0].id
-			
 			zrcDetails.xingzhengcun.list=res;
 			$http.post(config.path.zrcDetails+"?id="+zrcDetails.canshu.id).success(function(res){
 				zrcDetails.fid = res.lsxzc
 				zrcDetails.list=res;
-				// zrcDetails.xingzhengcun();
 				zrcDetails.zirancun12();
 			});
 		})
-		// zrcDetails.xingzhengcun=function(){ 
-			
-		// }
-		
 		
 //根据行政村关联自然村
 		zrcDetails.getzrc=function(){ 
@@ -49,12 +42,8 @@ myApp.controller("naturalEdite", ["$scope", "$state", "$http", "$stateParams",
 				}else{
 					zrcDetails.list.zrcmc = null;
 				}
-			 	
-			 	
 			})
 		}
-		
-
 		//校验行政村
 		zrcDetails.lsxzc=function(){
 			if(zrcDetails.list.lsxzc==''||zrcDetails.list.lsxzc==null){
@@ -107,7 +96,6 @@ myApp.controller("naturalEdite", ["$scope", "$state", "$http", "$stateParams",
 					type: "put", //select,delete,put,selectById,
 					data:zrcDetails.list,  //数据在对象里
 					success: function(args) {
-						//alert('新增')
 						$state.go('naturalDraft');
 					},
 					'error': function(args) {
@@ -115,7 +103,6 @@ myApp.controller("naturalEdite", ["$scope", "$state", "$http", "$stateParams",
 					}
 				});
 			}
-			
 		$scope.zrcDetails = zrcDetails;
 	}
 ]);
