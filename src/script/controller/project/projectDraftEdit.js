@@ -80,8 +80,8 @@ myApp.controller("projectDraftEdit", ["$scope", "$state", "$http", "$stateParams
 			$http.post(config.path.villageAll,null).success(function(res){
 				projectDraftEdit.villageListAll = res;
 				//获取项目类型queryZjzdXmlx
-				$http.post(config.path.queryZjzdXmlx,null).success(function(res){
-					projectDraftEdit.xmleListAll = res;
+				$http.post(config.path.queryZjzdXmlx+"?lx=10",null).success(function(res){
+					projectDraftEdit.xmjdList = res;
 					//从数据字典获取项目类型的选项
 					$http.post(config.path.projectsjzd,null).success(function(res){
 						projectDraftEdit.xmleList=res;

@@ -14,7 +14,8 @@ myApp.controller("projectAdd", ["$scope", "$state", "$http", "$stateParams","pos
 			}else{
 				projectAdd.sendParam.qyxz=res[0].id;
 				projectAdd.getVillageList(res[0].id, 1); //获取乡镇对应的行政村
-				projectAdd.getXmList(1)
+				projectAdd.getXmList(1);
+				projectAdd.getXmjdList(1);
 			}
 			
 		})
@@ -41,7 +42,17 @@ myApp.controller("projectAdd", ["$scope", "$state", "$http", "$stateParams","pos
 				
 			})
 		}
-		
+		//从数据字典获取项目进度的类型queryZjzdXmlx
+		projectAdd.getXmjdList=function(num){
+			$http.post(config.path.queryZjzdXmlx+"?lx=10",null).success(function(res){
+				projectAdd.xmjdList=res;
+				if(num == 1){
+					projectAdd.sendParam.xmjd=projectAdd.xmjdList[0].id; //默认选中第一个
+				}
+				
+			})
+		}
+
 		$("#tab div").click(function(){
 			$(this).addClass('bg').siblings().removeClass('bg');
 			$("#"+$(this).attr('data-type')).show().siblings().hide();
@@ -71,6 +82,7 @@ myApp.controller("projectAdd", ["$scope", "$state", "$http", "$stateParams","pos
 			projectAdd.getPkhlistName = JSON.parse(window.localStorage.getItem("projectGetpkhlistName"));
 			projectAdd.getVillageList(projectAdd.sendParam.qyxz)
 			projectAdd.getXmList();
+			projectAdd.getXmjdList();
 			if(projectAdd.sendParam.pkcxm == 'Y'){
 				$("#xzsjpkc").addClass('selected')
 			}else{
@@ -93,7 +105,7 @@ myApp.controller("projectAdd", ["$scope", "$state", "$http", "$stateParams","pos
 			$("#"+$('.tab3').attr('data-type')).show().siblings().hide();
 		}
 
-		//添加扶贫项目
+		//添加扶贫项目 
 		projectAdd.tianjia=function(){
 			if(!projectAdd.sendParam.xmmc){
 				fupin.alert("请完善基本情况中的信息")
