@@ -77,7 +77,7 @@
 			
 			<div class="item border-b">
 				<label for="natualladd_fzr">
-					<div class="name">负责人</div>
+					<div class="name">负责人<span class="commonStar"> *</span></div>
 					<div class="content">
 						<input id="natualladd_fzr" type="text" placeholder="请输入负责人" ng-model="zrcAdd.sendParam.fzr">
 					</div>
@@ -245,8 +245,8 @@
 				<div class="item border-b">
 					<label for="zrcroad">
 						<div class="name">D5到行政村是否通沥青（水泥）路</div>
-						<div class="content" style="width: 5rem !important;">
-							<select name="" id="zrcroad" ng-model="zrcAdd.sendParam.dxzcsftlql">
+						<div class="content" style="width: 10rem !important;">
+							<select name="" id="zrcroad" ng-model="zrcAdd.sendParam.dxzcsftlql" style="width:7.5rem; float: left">
 								<option value="是">是</option>
 								<option value="否">否</option>
 							</select>
@@ -257,7 +257,7 @@
 				<div class="item border-b">
 					<label for="natualladd_sftscyd">
 						<div class="name">D6是否通生产用电</div>
-						<div class="content">
+						<div class="content" >
 							<select name="" id="zrcele" ng-model="zrcAdd.sendParam.sftscyd">
 								<option value="是">是</option>
 								<option value="否">否</option>
@@ -317,5 +317,12 @@
 		}
 		.zrcdefault{
 			color: red
+		}
+		.commonStar{
+			position: relative;
+			top: 0.6rem;
+			left: 0;
+			color: red;
+			font-size: 2rem
 		}
 	</style>

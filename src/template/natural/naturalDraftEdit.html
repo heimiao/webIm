@@ -25,7 +25,7 @@
 
 			<div class="item border-b">
 				<label for="natualledit_lsxzc">
-					<div class="name">行政村</div>
+					<div class="name">行政村<span class="commonStar"> *</span></div>
 					<div class="content">
 						<select name="" id="natualledit_lsxzc" ng-change="naturalDraftEditc.getzrcdraft()" ng-model="naturalDraftEditc.details.lsxzc" ng-options="key.id as key.name for key in naturalDraftEditc.xingzhengcun.list"
 						style="width: auto; text-align: right;">
@@ -77,7 +77,7 @@
 			
 			<div class="item border-b">
 				<label for="natualledit_fzr">
-					<div class="name">负责人</div>
+					<div class="name">负责人<span class="commonStar"> *</span></div>
 					<div class="content">
 						<input id="natualledit_fzr" type="text" placeholder="请输入负责人"  ng-model="naturalDraftEditc.details.fzr">
 					</div>
@@ -318,5 +318,12 @@
 		}
 		.item {
 		   overflow: hidden;
+		}
+		.commonStar{
+			position: relative;
+			top: 0.6rem;
+			left: 0;
+			color: red;
+			font-size: 2rem
 		}
 	</style>

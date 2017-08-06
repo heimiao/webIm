@@ -8,7 +8,7 @@
 			删除
 		</div>
 	</header>
-	<div class="fill"></div>
+	<div class="fill" style="margin-top:5rem "></div>
 	<section class="cd-section index cd-selected">
 		<div class="cd-content villageCollection">
 			<div class="pkhcjTitle" id="pkhjbxx">
@@ -19,13 +19,13 @@
 					<div class="item border-b">
 						<div class="name">姓名</div>
 						<div class="content">
-							<input type="text" placeholder="请输入信息" ng-model="addAsistPerson.formInfo.xm" dir="rtl">
+							<input type="text" placeholder="请输入信息" ng-model="addAsistPerson.formInfo.xm" >
 						</div>
 					</div>
 					<div class="item border-b">
 						<div class="name">性别</div>
 						<div class="content">
-							<select name="" id="" ng-model="addAsistPerson.formInfo.xb">
+							<select name="" id="" ng-model="addAsistPerson.formInfo.xb" dir="rtl">
 								<option value=""></option>
 								<option value="男">男</option>
 								<option value="女">女</option>
@@ -36,13 +36,13 @@
 					<div class="item border-b">
 						<div class="name">证件号码</div>
 						<div class="content">
-							<input type="text" placeholder="请输入信息" ng-model="addAsistPerson.formInfo.zjhm" dir="rtl">
+							<input type="text" placeholder="请输入信息" ng-model="addAsistPerson.formInfo.zjhm" >
 						</div>
 					</div>
 					<div class="item border-b">
 						<div class="name">政治面貌</div>
 						<div class="content">
-							<select name="" id="" ng-model="addAsistPerson.formInfo.zzmm" ng-options="item.id as item.name for item in addAsistPerson.otherSelect.zzmmList" >
+							<select name="" id="" ng-model="addAsistPerson.formInfo.zzmm" ng-options="item.id as item.name for item in addAsistPerson.otherSelect.zzmmList" dir="rtl">
 								<option value=""></option>
 							</select>
 							<img src="./assets/img/icon2_11@2x.png" alt="">
@@ -51,13 +51,13 @@
 					<div class="item border-b">
 						<div class="name">帮扶单位名称</div>
 						<div class="content">
-							<input type="text" placeholder="请输入信息" ng-model="addAsistPerson.formInfo.bfdwmc" dir="rtl">
+							<input type="text" placeholder="请输入信息" ng-model="addAsistPerson.formInfo.bfdwmc">
 						</div>
 					</div>
-					<div class="item border-b">
+					<div class="item border-b" >
 						<div class="name">帮扶开始时间</div>
 						<div class="content">
-							<begin-time my-model="addAsistPerson.formInfo.kssj" first="beginTime" second="endTime" placeholder="请输入信息" style="line-height: 2.3rem;width:100%"></begin-time>
+							<begin-time my-model="addAsistPerson.formInfo.kssj" first="beginTime" second="endTime" placeholder="" style="line-height: 2.3rem;width:100%;"></begin-time>
 							<img class="rightPro" src="./assets/img/icon2_11@2x.png" alt="">
 						</div>
 					</div>
@@ -65,14 +65,14 @@
 						<div class="name">帮扶结束时间</div>
 						<div class="content">
 							<!--<input type="text" placeholder="请输入信息" ng-model="addAsistPerson.formInfo.jssj">-->
-							<over-time my-model="addAsistPerson.formInfo.jssj" first="beginTime" second="endTime" placeholder="请输入信息" style="line-height: 2.3rem;width:100%"></over-time>
+							<over-time my-model="addAsistPerson.formInfo.jssj" first="beginTime" second="endTime" placeholder="" style="line-height: 2.3rem;width:100%"></over-time>
 							<img class="rightPro" src="./assets/img/icon2_11@2x.png" alt="">
 						</div>
 					</div>
 					<div class="item border-b">
 						<div class="name">隶属关系</div>
 						<div class="content">
-							<select name="" id="" ng-model="addAsistPerson.formInfo.lsgx" ng-options="item.id as item.name for item in addAsistPerson.otherSelect.lsgxList">
+							<select name="" id="" ng-model="addAsistPerson.formInfo.lsgx" ng-options="item.id as item.name for item in addAsistPerson.otherSelect.lsgxList" dir="rtl">
 								<option value=""></option>
 							</select>
 							<img src="./assets/img/icon2_11@2x.png" alt="">
@@ -93,8 +93,25 @@
 				</form>
 			</div>
 		</div>
-		<nav class="navbar-fixed-bottom">
+		<nav class="navbar-fixed-bottom navbar-fixed-bottom" >
 			<button class="btn btnpkc" ng-click="addAsistPerson.saveForm()">保存</button>
 		</nav>
 	</section>
 </div>
+<style>
+	.content input{
+		text-align: right;
+		padding-right: .6rem;
+	}
+	.content{
+		width: 60% !important;
+	}
+	.content select{
+		width: 70%;
+	}
+	.rightPro{
+		position: absolute;
+		top: 1rem;
+		right:1rem;
+	}
+</style>
