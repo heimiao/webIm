@@ -1,5 +1,77 @@
-<div style="background: #fff;" menu>
-	<div class="contaner" ui-view></div>
+<div style="background: #fff;">
+	<div class="container-fluid pkhcj">
+		<div class="cheader " style="padding: 0;">
+			<div class="pfanhui pull-left" ng-click="lowFamilyInfo.goback()">
+				<img src="./assets/img/icon_28.png" />
+			</div>
+			<div class="pname text-center ">贫困用户信息采集</div>
+			<div class="panniu cd-nav-trigger" ng-click="lowFamilyInfo.changeMenu()">Menu<span></span></div>
+		</div>
+	</div>
+	<main ng-class="{'scale-down':lowFamilyInfo.menu}">
+		<!-- 基本信息 -->
+		<div ng-include="'./dist/template/lowFamily/lowFamilyInfo/baseInfo.html'" ng-if="lowFamilyInfo.changeCont.baseInfo" ng-controller="low_family_baseCtro">
+		</div>
+		<!-- 家庭成员信息-->
+		<div ng-include="'./dist/template/lowFamily/lowFamilyInfo/familyInfo.html'" ng-if="lowFamilyInfo.changeCont.familyMember" ng-controller="lowFamilyMemberCtro">
+		</div>
+		<!-- 致贫原因-->
+		<div ng-include="'./dist/template/lowFamily/lowFamilyInfo/povertyCauses.html'" ng-if="lowFamilyInfo.changeCont.causes" ng-controller="lowFamilyCausesCtro">
+		</div>
+		<!-- 收入情况-->
+		<div ng-include="'./dist/template/lowFamily/lowFamilyInfo/income.html'" ng-if="lowFamilyInfo.changeCont.income" ng-controller="incomeCtro">
+		</div>
+		<!-- 生产生活条件-->
+		<div ng-include="'./dist/template/lowFamily/lowFamilyInfo/lifeCondition.html'" ng-if="lowFamilyInfo.changeCont.lifeCondition" ng-controller="lifeConditionCtro">
+		</div>
+		<!-- 易地搬迁户需求-->
+		<div ng-include="'./dist/template/lowFamily/lowFamilyInfo/plantRelocation.html'" ng-if="lowFamilyInfo.changeCont.plantRelocation" ng-controller="plantRelocationCtro">
+		</div>
+		<!-- 帮扶责任人-->
+		<div ng-include="'./dist/template/lowFamily/lowFamilyInfo/assistPerson.html'" ng-if="lowFamilyInfo.changeCont.assistPerson" ng-controller="assistPersonCtro">
+		</div>
+		<!-- 扶贫成效-->
+		<div ng-include="'./dist/template/lowFamily/lowFamilyInfo/assistEffect.html'" ng-if="lowFamilyInfo.changeCont.assistEffect" ng-controller="assistEffectCtro">
+		</div>
+	</main>
+	<div>
+		<!-- 导航部分 -->
+		<nav class="cd-nav-container" ng-class="{'is-visible':lowFamilyInfo.menu}">
+			<header class="menuHeader">
+				<a href="javascript:void(0)" class="cd-close-nav" ng-click="lowFamilyInfo.changeMenu()">Close</a>
+			</header>
+			<div class="navList">
+				<div class="navListItem">
+					<a href="javascript:void(0)" ng-click="lowFamilyInfo.showForm('baseInfo')"><img src="./assets/img/icon_07.png"><span>基本信息</span></a>
+				</div>
+				<div class="navListItem">
+					<a href="javascript:void(0)" ng-click="lowFamilyInfo.showForm('familyMember')"><img src="./assets/img/icon_10.png"><span>家庭成员信息</span></a>
+				</div>
+				<div class="navListItem">
+					<a href="javascript:void(0)" ng-click="lowFamilyInfo.showForm('causes')"><img src="./assets/img/icon_12.png"><span>致贫原因</span></a>
+				</div>
+				<div class="navListItem">
+					<a href="javascript:void(0)" ng-click="lowFamilyInfo.showForm('income')"><img src="./assets/img/icon_14.png"><span>收入情况</span></a>
+				</div>
+				<div class="navListItem">
+					<a href="javascript:void(0)" ng-click="lowFamilyInfo.showForm('lifeCondition')"><img src="./assets/img/icon_16.png"><span>生产生活条件</span></a>
+				</div>
+				<div class="navListItem">
+					<a href="javascript:void(0)" ng-click="lowFamilyInfo.showForm('plantRelocation')"><img src="./assets/img/icon_18.png"><span>易地搬迁户需求</span></a>
+				</div>
+				<div class="navListItem">
+					<a href="javascript:void(0)" ng-click="lowFamilyInfo.showForm('assistPerson')"><img src="./assets/img/icon_20.png"><span>帮扶责任人</span></a>
+				</div>
+				<div class="navListItem">
+					<a href="javascript:void(0)" ng-click="lowFamilyInfo.showForm('assistEffect')"><img src="./assets/img/icon_22.png"><span>扶贫成效</span></a>
+				</div>
+			</div>
+		</nav>
+		<div class="cd-overlay" ng-class="{'is-visible':lowFamilyInfo.menu}">
+			<!-- shadow layer visible when navigation is visible -->
+		</div>
+	</div>
+
 	<nav class="navbar-fixed-bottom">
 		<button class="btn btnpkc" ng-click="lowFamilyInfo.uploadSource()">上传</button>
 	</nav>

@@ -104,7 +104,7 @@
 			//人均收入
 			var rksl = 0;
 			//判断人员变更 rybg 为（空、07、05、06）时rksl+1
-			pkhjc.map((data, i) => {
+			pkhjc.map(function(data, i) {
 				if(data.rybg == "07" || data.rybg == "" || data.rybg == "05" || data.rybg == "06") {
 					rksl = rksl + 1;
 				}
@@ -214,4 +214,4 @@
 		//		methodAlert.init(sure, cancel);
 	};
 	_w.fupin = fupin || {};
-}(window, jQuery));
+}(window, jQuery))

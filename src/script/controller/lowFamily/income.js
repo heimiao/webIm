@@ -132,28 +132,11 @@ myApp.controller("incomeCtro", ["$scope", "$rootScope", "$state", "$http", "$sta
 			fupin.saveLocalData(saveData);
 		}
 
-		income.saveCache = function() {
+		$scope.$on("$destroy", function() {
 			var data = JSON.parse(window.localStorage.getItem("low_family"));
-			angular.extend(data.income_model, income.formInfo);
+			angular.extend(data.baseInfo_model, low_family_baseInfo.formInfo);
 			fupin.localCache(JSON.stringify(data));
-		}
-		$scope.goback = function() {
-			//调用本地数据库保存
-			//保存表单
-			if(!fupin.isValid(income.formInfo) || JSON.stringify(income.oldObj) != JSON.stringify(income.formInfo)) {
-				fupin.confirm("确定保存为草稿吗？", function() {
-					income.saveForm();
-				}, function() {
-					window.history.go(-1);
-				})
-			} else {
-				window.history.go(-1);
-			}
-		}
-		$rootScope.$on('$stateChangeStart',
-			function(event, toState, toParams, fromState, fromParams) {
-				income.saveCache();
-			})
+		})
 
 		$scope.income = income;
 		//根据角色遍历响应的菜单

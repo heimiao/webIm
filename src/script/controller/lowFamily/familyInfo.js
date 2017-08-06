@@ -82,10 +82,10 @@ myApp.controller("lowFamilyMemberCtro", ["$scope", "$rootScope", "$state", "$htt
 		//保存表单为本地数据库
 		lowFamilyMember.saveForm = function() {
 			//保存对象之前判断是否是编辑
-			var saveData,formData=lowFamilyMember.list;
+			var saveData, formData = lowFamilyMember.list;
 			if(lowFamilyMember.urlParam.id) {
 				saveData = JSON.parse(window.localStorage.getItem("low_family"));
-				
+
 				$.each(formData, function(index, item) {
 					if(typeof(item.yhzgx) == "object") {
 						item.yhzgx = item.yhzgx.value;
@@ -100,25 +100,17 @@ myApp.controller("lowFamilyMemberCtro", ["$scope", "$rootScope", "$state", "$htt
 				var newId = fupin.randomChat();
 				var data = {
 					newId: newId,
-					familyInfo_model:formData,
+					familyInfo_model: formData,
 				}
 			}
 			fupin.saveLocalData(saveData);
 		}
 
-		$scope.goback = function() {
-			//调用本地数据库保存
-			//保存表单
-			if(!fupin.isValid(lowFamilyMember.list) || JSON.stringify(lowFamilyMember.oldObj) != JSON.stringify(lowFamilyMember.list)) {
-				fupin.confirm("确定保存为草稿吗？", function() {
-					lowFamilyMember.saveForm();
-				}, function() {
-					window.history.go(-1);
-				})
-			} else {
-				window.history.go(-1);
-			}
-		}
+		$scope.$on("$destroy", function() {
+			var data = JSON.parse(window.localStorage.getItem("low_family"));
+			angular.extend(data.baseInfo_model, low_family_baseInfo.formInfo);
+			fupin.localCache(JSON.stringify(data));
+		})
 
 		$scope.lowFamilyMember = lowFamilyMember;
 	}
@@ -201,7 +193,8 @@ myApp.controller("addFamilyMemberCtro", ["$scope", "$rootScope", "$state", "$htt
 				}));
 			}
 			fupin.localCache(JSON.stringify(dataAll));
-			$state.go("lowFamily.familyMember", {
+			$state.go("lowFamily", {
+				showForm: "familyMember",
 				id: addFamilyMember.urlParam.id,
 				type: addFamilyMember.urlParam.type
 			});

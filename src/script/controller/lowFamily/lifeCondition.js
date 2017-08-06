@@ -99,24 +99,12 @@ myApp.controller("lifeConditionCtro", ["$scope", "$rootScope", "$state", "$http"
 			fupin.localCache(JSON.stringify(data));
 		}
 
-		$scope.goback = function() {
-			//调用本地数据库保存
-			//保存表单
-			if(!fupin.isValid(lifeCondition.formInfo) || JSON.stringify(lifeCondition.oldObj) != JSON.stringify(lifeCondition.formInfo)) {
-				fupin.confirm("确定保存为草稿吗？", function() {
-					lifeCondition.saveForm();
-				}, function() {
-					window.history.go(-1);
-				})
-			} else {
-				window.history.go(-1);
-			}
-		}
+		$scope.$on("$destroy", function() {
+			var data = JSON.parse(window.localStorage.getItem("low_family"));
+			angular.extend(data.baseInfo_model, low_family_baseInfo.formInfo);
+			fupin.localCache(JSON.stringify(data));
+		})
 
-		$rootScope.$on('$stateChangeStart',
-			function(event, toState, toParams, fromState, fromParams) {
-				lifeCondition.saveCache();
-			})
 		$scope.lifeCondition = lifeCondition;
 	}
 ]);

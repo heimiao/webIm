@@ -96,7 +96,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="item in lowFamilyList.list" ui-sref="lowFamily.baseInfo({id:item.id,type:'net'})">
+				<tr ng-repeat="item in lowFamilyList.list" ui-sref="lowFamily({id:item.id,type:'net'})">
 					<td class="text-center" ng-bind="item.qyxz.name">张北镇</td>
 					<td class="text-center" ng-bind="item.qyxzc.name">黄土湾村</td>
 					<td class="text-center" ng-bind="item.hzxm">王翠娥</td>
@@ -107,7 +107,7 @@
 	</div>
 	<div class="foot-fill"></div>
 	<footer class="foot">
-		<a href="javascript:void(0)" ui-sref="lowFamilyDraft({id:1234})">
+		<a href="javascript:void(0)" ui-sref="lowFamilyDraft">
 			<div class="draft">草稿</div>
 		</a>
 		<!--
@@ -115,7 +115,7 @@
         	时间：2017-07-29
         	描述：href="#low_family_info"
         -->
-		<a href="#/low_family/low_family_base?id=1234" ui-sref="lowFamily.baseInfo()" class="addPoor">+ 新增贫困户</a>
+		<a ui-sref="lowFamily({id:'',type:''})" class="addPoor">+ 新增贫困户</a>
 	</footer>
 	<script>
 		// 展开 收起
