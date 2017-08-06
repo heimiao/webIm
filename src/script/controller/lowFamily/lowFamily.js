@@ -107,7 +107,7 @@ myApp.controller("lowFamilyInfoCtro", ["$scope", "$state", "$http", "$stateParam
 			} else {
 				ydb = "N";
 			}
-			angular.extend(uploadlocalData, localData.baseInfo_model, localData.assistEffect_model, localData.income_model, localData.lifeCondition_model, localData.povertyCauses_model, localData.plantRelocation_model, {
+			angular.extend(uploadData, localData.baseInfo_model, localData.assistEffect_model, localData.income_model, localData.lifeCondition_model, localData.povertyCauses_model, localData.plantRelocation_model, {
 				pkhjc: localData.familyInfo_model
 			}, {
 				bfdx: localData.assistPerson_model
