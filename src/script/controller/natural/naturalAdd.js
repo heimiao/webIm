@@ -34,7 +34,7 @@ myApp.controller("naturalAdd", ["$scope", "$state", "$http", "$stateParams",
 				zrcAdd.list = {};
 				postForm.saveFrm(config.path.addzrc,zrcAdd.sendParam)
 				.success(function(res){
-					alert(zrcAdd.sendParam.nd)
+					//alert(zrcAdd.sendParam.nd)
 					$state.go('naturalVillage'); //默认显示第一个tab
 				}).error(function(res){
 					zrcAdd.save(); //上传的失败保存到本地数据库
@@ -53,14 +53,11 @@ myApp.controller("naturalAdd", ["$scope", "$state", "$http", "$stateParams",
 			postForm.saveFrm(config.path.xingzhengName,zrcAdd.xingzheng)
 			.success(function(res){
 				zrcAdd.xingzhengcun.list=res;
-				zrcAdd.sendParam.lsxzc= zrcAdd.xingzhengcun.list[0].id 
+				// zrcAdd.sendParam.lsxzc= zrcAdd.xingzhengcun.list[0].id 
 			})
 		}
 		zrcAdd.xingzhengcun();
-		//根据点击的行政村查询自然村
-		zrcAdd.getNur=function(){ 
-			zrcAdd.zirancun12() 
-		}
+		
 
 		//获取全部自然村
 		zrcAdd.zirancun = {
@@ -74,7 +71,10 @@ myApp.controller("naturalAdd", ["$scope", "$state", "$http", "$stateParams",
 			 	zrcAdd.zirancun.list=res;
 			})
 		}
-
+		//根据点击的行政村查询自然村
+		zrcAdd.getNur=function(){ 
+			zrcAdd.zirancun12() 
+		}
 		//本地存储
 		zrcAdd.save=function() {
 				//保存，或者修改，如果有index_id则为修改没有则为添加

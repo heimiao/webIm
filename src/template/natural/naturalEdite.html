@@ -27,8 +27,8 @@
 				<label for="natualledit_lsxzc">
 					<div class="name">行政村<span class="commonStar"> *</span></div>
 					<div class="content">
-						<select name="" id="" ng-model="zrcDetails.list.lsxzc" ng-options="key.id as key.name for key in zrcDetails.xingzhengcun.list"
-						ng-change="zrcDetails.getzrc()">
+						<select name="" id="" ng-change="zrcDetails.getzrc()" ng-model="zrcDetails.list.lsxzc" ng-options="key.id as key.name for key in zrcDetails.xingzhengcun.list"
+						>
 						</select>
 						<img src="./assets/img/icon2_11@2x.png" alt="">
 					</div>
@@ -36,10 +36,10 @@
 			</div>
 
 			<div class="item border-b" >
-				<label for="natualledit_zrcmc">
+				<label >
 					<div class="name">自然村</div>
 					<div class="content">
-						<select name="" id="natualledit_zrcmc" ng-model="zrcDetails.list.zrcmc" ng-options="key.id as key.name for key in zrcDetails.zirancun.list">
+						<select name="" ng-model="zrcDetails.list.zrcmc" ng-options="key.id as key.name for key in zrcDetails.zirancun.list">
 						<option value="" class="" selected="selected">自然村</option>
 						</select>
 						<img src="./assets/img/icon2_11@2x.png" alt="">
