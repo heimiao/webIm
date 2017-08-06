@@ -1,3 +1,9 @@
+<style>
+	.villageCollection .content input{
+		text-align: right;
+    	padding-right: 1rem;
+	}
+</style>
 <div class="villageCollection projectAdd">
 		<header>
 			<div class="back" ng-click="projectAdd.back()"><img src="./assets/img/icon_28.png" alt=""></div>
@@ -48,7 +54,7 @@
 			<div class="item border-b">
 				<label for="xmleList">
 					<div class="name">项目类型</div>
-					<div class="content">
+					<div class="content" style="width: 50%;">
 						<select dir="rtl" name="" id="xmleList" ng-model="projectAdd.sendParam.xmlx" ng-options="key.id as key.name for key in projectAdd.xmleList">
 						</select>
 						<img src="./assets/img/icon2_11@2x.png" alt="">

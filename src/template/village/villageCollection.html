@@ -1,3 +1,9 @@
+<style>
+	.villageCollection .content input{
+		text-align: right;
+    	padding-right: 1rem;
+	}
+</style>
 <div class="villageCollection">
 		<header>
 			<div class="back" ng-click="villageCollection.back()"><img src="./assets/img/icon_28.png" alt=""></div>
@@ -72,7 +78,7 @@
 				<label for="cbgdh" class="labels">
 					<div class="name">村办公电话</div>
 					<div class="content">
-						<input id="cbgdh" type="number" placeholder="请输入电话" ng-model="villageCollection.situationList.cbgdh">
+						<input id="cbgdh" type="text" placeholder="请输入电话" ng-model="villageCollection.situationList.cbgdh">
 					</div>
 				</label>
 			</div>

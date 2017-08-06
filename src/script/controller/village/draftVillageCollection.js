@@ -285,7 +285,7 @@ myApp.controller("draftVillageCollection", ["$scope", "$state", "$http", "$state
 			// 	fupin.alert("请完善基本信息中的信息")
 			// 	return;
 			// }
-			if(!draftVillageCollection.developmentList.nmnrjcsr){
+			if(draftVillageCollection.developmentList.nmnrjcsr == null){
 				fupin.alert("请完善发展现状中的信息")
 				return;
 			}
