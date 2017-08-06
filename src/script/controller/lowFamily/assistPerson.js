@@ -49,6 +49,7 @@ myApp.controller("assistPersonCtro", ["$scope", "$rootScope", "$state", "$http",
 							});
 						})
 					}
+
 					if(assistPerson.urlParam.type == "local") {
 						dt.request({
 							rqstName: "low_family", //'low_family', 'low_village', 'nature_village', 'relief_project'
@@ -72,6 +73,11 @@ myApp.controller("assistPersonCtro", ["$scope", "$rootScope", "$state", "$http",
 				console.error(e);
 				console.error("获取数据来源错误")
 			}
+		} else {
+			//把data合并到表单对象中
+			var data = JSON.parse(window.localStorage.getItem("low_family"));
+			assistPerson.list = data.assistPerson_model;
+			assistPerson.oldObj = infoList;
 		}
 		//保存表单为本地数据库
 		assistPerson.saveForm = function() {
@@ -94,10 +100,14 @@ myApp.controller("assistPersonCtro", ["$scope", "$rootScope", "$state", "$http",
 			fupin.saveLocalData(saveData);
 		}
 
-		$scope.$on("$destroy", function() {
+		assistPerson.saveCache = function() {
 			var data = JSON.parse(window.localStorage.getItem("low_family"));
-			angular.extend(data.assistPerson, assistPerson.list);
+			angular.extend(data.assistPerson_model, assistPerson.list);
 			fupin.localCache(JSON.stringify(data));
+		}
+
+		$scope.$on("$destroy", function() {
+			assistPerson.saveCache();
 		})
 
 		$scope.assistPerson = assistPerson;

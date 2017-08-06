@@ -99,11 +99,17 @@ myApp.controller("assistEffectCtro", ["$scope", "$rootScope", "$state", "$http",
 			}
 			fupin.saveLocalData(saveData);
 		}
-
-		$scope.$on("$destroy", function() {
+		
+		assistEffect.saveCache = function() {
 			var data = JSON.parse(window.localStorage.getItem("low_family"));
 			angular.extend(data.assistEffect_model, assistEffect.formInfo);
 			fupin.localCache(JSON.stringify(data));
+		}
+		$scope.$watchCollection("assistEffect.formInfo", function() {
+			assistEffect.saveCache();
+		});
+		$scope.$on("$destroy", function() {
+			assistEffect.saveCache();
 		})
 
 		$scope.assistEffect = assistEffect;

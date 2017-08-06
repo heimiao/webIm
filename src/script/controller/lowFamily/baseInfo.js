@@ -95,20 +95,29 @@ myApp.controller("low_family_baseCtro", ["$scope", "$rootScope", "$state", "$htt
 									//									localData.familyInfo_model = jtcy;
 									localData.familyInfo_model = datas;
 									fupin.localCache(JSON.stringify(localData));
+									fupin.oldLocalCache(JSON.stringify(data));
 									//请求帮扶责任人
 									postForm.saveFrm(config.path.getassistPersonList, {
 										fid: low_family_baseInfo.urlParam.id
 									}).success(function(datas) {
 										localData.assistPerson_model = datas;
 										fupin.localCache(JSON.stringify(localData));
+										fupin.oldLocalCache(JSON.stringify(data));
+
+										$scope.$watchCollection("low_family_baseInfo.formInfo", function() {
+											low_family_baseInfo.saveCache();
+										});
+
 									});
 								});
 
 								fupin.localCache(JSON.stringify(localData));
+								fupin.oldLocalCache(JSON.stringify(data));
 								var infoObj = localData.baseInfo_model;
 								low_family_baseInfo.getAddress(infoObj.qyxz, infoObj.qyxzc);
 								low_family_baseInfo.formInfo = infoObj
 								low_family_baseInfo.oldObj = infoObj;
+
 							})
 						}
 					} catch(e) {
@@ -127,6 +136,10 @@ myApp.controller("low_family_baseCtro", ["$scope", "$rootScope", "$state", "$htt
 									low_family_baseInfo.getAddress(infoObj.qyxz, infoObj.qyxzc);
 									low_family_baseInfo.formInfo = infoObj;
 									fupin.localCache(JSON.stringify(data));
+									fupin.oldLocalCache(JSON.stringify(data));
+									$scope.$watchCollection("low_family_baseInfo.formInfo", function() {
+										low_family_baseInfo.saveCache();
+									});
 								},
 								'error': function(data) {
 									fupin.alert("请求本地用户详细报错");
@@ -142,14 +155,21 @@ myApp.controller("low_family_baseCtro", ["$scope", "$rootScope", "$state", "$htt
 			} catch(e) {
 				console.error("判断是否需要请求线上数据报错")
 			}
+		} else {
+			fupin.localCache(JSON.stringify(lowFamilyInfoModel));
+			fupin.oldLocalCache(JSON.stringify(lowFamilyInfoModel));
+
+			$scope.$watchCollection("low_family_baseInfo.formInfo", function() {
+				low_family_baseInfo.saveCache();
+			});
+
 		}
 
 		//保存表单为本地数据库
 		low_family_baseInfo.saveForm = function() {
 			//保存对象之前判断是否是编辑
-			var saveData, formData = low_family_baseInfo.formInfo;;
-
-			if(low_family_baseInfo.urlParam.id) {
+			var saveData, formData = low_family_baseInfo.formInfo;
+			if(window.localStorage.getItem("low_family")) {
 				saveData = JSON.parse(window.localStorage.getItem("low_family"));
 				angular.extend(saveData.baseInfo_model, formData);
 			} else {
@@ -167,22 +187,9 @@ myApp.controller("low_family_baseCtro", ["$scope", "$rootScope", "$state", "$htt
 			var data = JSON.parse(window.localStorage.getItem("low_family"));
 			angular.extend(data.baseInfo_model, low_family_baseInfo.formInfo);
 			fupin.localCache(JSON.stringify(data));
+
 		}
 
-		/*//当路由跳转的时候判断是否保存为草稿
-		$scope.$watch('$viewContentLoading', function(event, viewConfig) {
-			alert('模板加载完成前');
-		});
-		//$viewContentLoaded- 当视图加载完成，DOM渲染完成之后触发，视图所在的$scope发出该事件。  
-		$scope.$watch('$viewContentLoaded', function(event) {
-			alert('模板加载完成后');
-		});
-		$rootScope.$on('$stateChangeStart',
-			function(event, toState, toParams, fromState, fromParams) {
-				console.log(22222222);
-				//				
-			})
-		 */
 		$scope.$on("$destroy", function() {
 			low_family_baseInfo.saveCache();
 		})

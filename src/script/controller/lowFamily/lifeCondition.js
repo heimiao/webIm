@@ -94,16 +94,17 @@ myApp.controller("lifeConditionCtro", ["$scope", "$rootScope", "$state", "$http"
 			fupin.saveLocalData(saveData);
 		}
 
+		
 		lifeCondition.saveCache = function() {
 			var data = JSON.parse(window.localStorage.getItem("low_family"));
 			angular.extend(data.lifeCondition_model, lifeCondition.formInfo);
 			fupin.localCache(JSON.stringify(data));
 		}
-
+		$scope.$watchCollection("lifeCondition.formInfo", function() {
+			lifeCondition.saveCache();
+		});	
 		$scope.$on("$destroy", function() {
-			var data = JSON.parse(window.localStorage.getItem("low_family"));
-			angular.extend(data.lifeCondition_model, lifeCondition.formInfo);
-			fupin.localCache(JSON.stringify(data));
+			lifeCondition.saveCache();
 		})
 
 		$scope.lifeCondition = lifeCondition;

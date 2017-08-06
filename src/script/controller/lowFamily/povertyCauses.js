@@ -127,16 +127,19 @@ myApp.controller("lowFamilyCausesCtro", ["$scope", "$rootScope", "$state", "$htt
 
 		lowFamilyCauses.saveCache = function() {
 			var data = JSON.parse(window.localStorage.getItem("low_family"));
-			angular.extend(data.baseInfo_model, lowFamilyCauses.formInfo);
-			fupin.localCache(JSON.stringify(data));
-		}
-
-		$scope.$on("$destroy", function() {
-			var data = JSON.parse(window.localStorage.getItem("low_family"));
 			angular.extend(data.povertyCauses_model, lowFamilyCauses.formInfo);
 			fupin.localCache(JSON.stringify(data));
+		}
+		 
+		$scope.$watchCollection("lowFamilyCauses.formInfo", function() {
+			lowFamilyCauses.saveCache();
+		});
+		
+		$scope.$on("$destroy", function() {
+			lowFamilyCauses.saveCache();
 		})
-
+		 
+		
 		$scope.lowFamilyCauses = lowFamilyCauses;
 	}
 ]);

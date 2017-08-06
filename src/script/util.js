@@ -30,6 +30,9 @@
 		localCache: function(data) {
 			window.localStorage.setItem("low_family", data);
 		},
+		oldLocalCache: function(data) {
+			window.localStorage.setItem("old_low_family", data);
+		},
 		randomChat: function() {
 			var x = "0123456789qwertyuioplkjhgfdsazxcvbnm";
 			var tmp = "";
@@ -92,9 +95,7 @@
 				data: data,
 				success: function(args) {
 					if(args.type == "success") {
-						//						fupin.localCache(JSON.stringify(args));
-						window.location.href = "#/low_family_draft";
-						//						$state.go("lowFamilyDraft");
+						window.history.go(-1);
 					}
 				},
 				'error': function(data) {}
@@ -104,11 +105,13 @@
 			//人均收入
 			var rksl = 0;
 			//判断人员变更 rybg 为（空、07、05、06）时rksl+1
-			pkhjc.map(function(data, i) {
-				if(data.rybg == "07" || data.rybg == "" || data.rybg == "05" || data.rybg == "06") {
-					rksl = rksl + 1;
-				}
-			})
+			if(pkhjc) {
+				pkhjc.map(function(data, i) {
+					if(data.rybg == "07" || data.rybg == "" || data.rybg == "05" || data.rybg == "06") {
+						rksl = rksl + 1;
+					}
+				})
+			}
 			//人员变更没有值 rksl设置为 1
 			if(rksl == 0) {
 				rksl = 1;
@@ -163,7 +166,7 @@
 				'<div class="alert_footer border-t">'
 			if(type == "confirm") {
 				tpl += btn + '<div class="btn_sures determine" onclick=>保存到草稿</div>'
-			}else if(type == "confirms"){
+			} else if(type == "confirms") {
 				tpl += btn + '<div class="btn_sures determine" onclick=>确定</div>'
 			} else {
 				tpl += '<div class="btn_sures determine" style="width:100%; border-bottom-left-radius: 8px;" onclick=>确定</div>'

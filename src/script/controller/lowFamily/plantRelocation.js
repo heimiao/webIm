@@ -125,11 +125,19 @@ myApp.controller("plantRelocationCtro", ["$scope", "$rootScope", "$state", "$htt
 			angular.extend(data.plantRelocation_model, plantRelocation.formInfo);
 			fupin.localCache(JSON.stringify(data));
 		}
-
-		$scope.$on("$destroy", function() {
+		
+			
+		plantRelocation.saveCache = function() {
 			var data = JSON.parse(window.localStorage.getItem("low_family"));
 			angular.extend(data.plantRelocation_model, plantRelocation.formInfo);
 			fupin.localCache(JSON.stringify(data));
+		}
+		$scope.$watchCollection("plantRelocation.formInfo", function() {
+			plantRelocation.saveCache();
+		});	
+		
+		$scope.$on("$destroy", function() {
+			plantRelocation.saveCache();
 		})
 
 		//根据角色遍历响应的菜单

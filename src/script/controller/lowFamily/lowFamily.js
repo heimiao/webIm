@@ -30,13 +30,18 @@ myApp.controller("lowFamilyInfoCtro", ["$scope", "$state", "$http", "$stateParam
 		}
 
 		lowFamilyInfo.goback = function() {
-			var localData = JSON.parse(window.localStorage.getItem("low_family"));
+			var localData, old_localData;
+			if(window.localStorage.getItem("low_family")) {
+				localData = JSON.parse(window.localStorage.getItem("low_family"));
+			}
 			fupin.confirm("确定保存为草稿吗？", function() {
-				console.log(localData);
-				fupin.saveLocalData(localData);
+				if(localData) {
+					fupin.saveLocalData(localData);
+				}
 			}, function() {
 				window.history.go(-1);
 			})
+
 		}
 
 		//执行上传
@@ -118,26 +123,29 @@ myApp.controller("lowFamilyInfoCtro", ["$scope", "$state", "$http", "$stateParam
 			})
 
 			var _url = config.path.createLowFamily;
-			if(localData.baseInfo_model.id) {
 
-				$.each(uploadData.pkhjc, function(index, item) {
-					delete item.filegrpid;
-					delete item.pkhjc_fj_id;
-					console.log(item);
-				});
+			if(localData.baseInfo_model.id) {
+				if(uploadData.pkhjc.length > 0) {
+					$.each(uploadData.pkhjc, function(index, item) {
+						delete item.filegrpid;
+						delete item.pkhjc_fj_id;
+					});
+				}
 				_url = config.path.updateLowFamily;
 			} else {
 				_url = config.path.createLowFamily;
 			}
-
+			
 			//console.log(uploadData);
 			postForm.saveFrm(_url + "?data=" + angular.toJson(uploadData), {}).success(function(datas) {
 				if(datas.success) {
-					fupin.alert("提交陈功");
+					fupin.alert("提交成功");
+					window.location.go(-1);
 				} else {
 					fupin.alert(datas.message);
 				}
 			})
+
 			fupin.localCache(angular.toJson(localData));
 		}
 		//调用列表

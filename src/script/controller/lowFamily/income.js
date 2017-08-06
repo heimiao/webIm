@@ -17,6 +17,9 @@ myApp.controller("incomeCtro", ["$scope", "$rootScope", "$state", "$http", "$sta
 
 		$scope.$watchCollection("income.formInfo", function() {
 			income.countObj();
+			var data = JSON.parse(window.localStorage.getItem("low_family"));
+			angular.extend(data.income_model, income.formInfo);
+			fupin.localCache(JSON.stringify(data));
 		});
 
 		//整体对象
