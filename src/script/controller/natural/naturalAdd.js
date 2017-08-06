@@ -7,6 +7,7 @@ myApp.controller("naturalAdd", ["$scope", "$state", "$http", "$stateParams",
 		zrcAdd.sendParam.sftscyd='是'; //D6是否生产用电 
 		zrcAdd.sendParam.sftshyd='是'; //D6是否生活用电
 		zrcAdd.sendParam.sftkd='是'; //D6是否通宽带 
+		zrcAdd.sendParam.nd='2017';
 		//校验行政村
 		zrcAdd.lsxzc=function(){
 			if(zrcAdd.sendParam.lsxzc==''||zrcAdd.sendParam.lsxzc==null){
@@ -33,6 +34,7 @@ myApp.controller("naturalAdd", ["$scope", "$state", "$http", "$stateParams",
 				zrcAdd.list = {};
 				postForm.saveFrm(config.path.addzrc,zrcAdd.sendParam)
 				.success(function(res){
+					alert(zrcAdd.sendParam.nd)
 					$state.go('naturalVillage'); //默认显示第一个tab
 				}).error(function(res){
 					zrcAdd.save(); //上传的失败保存到本地数据库
@@ -50,7 +52,8 @@ myApp.controller("naturalAdd", ["$scope", "$state", "$http", "$stateParams",
 		zrcAdd.xingzhengcun=function(){ 
 			postForm.saveFrm(config.path.xingzhengName,zrcAdd.xingzheng)
 			.success(function(res){
-				zrcAdd.xingzhengcun.list=res;  
+				zrcAdd.xingzhengcun.list=res;
+				zrcAdd.sendParam.lsxzc= zrcAdd.xingzhengcun.list[0].id 
 			})
 		}
 		zrcAdd.xingzhengcun();
