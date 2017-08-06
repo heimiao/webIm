@@ -278,7 +278,7 @@ myApp.controller("draftVillageCollection", ["$scope", "$state", "$http", "$state
 		}
 		draftVillageCollection.uploadSave=function(){
 			if(!draftVillageCollection.situationList.cfzr){
-				fupin.alert("请完善'基本信息'后再提交数据")
+				fupin.alert("请完善基本信息后再提交数据")
 				return;
 			}
 			// if(!draftVillageCollection.situationList.cbgdh){

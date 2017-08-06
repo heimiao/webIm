@@ -98,7 +98,9 @@ myApp.controller("lowFamilyListCtro", ["$scope", "$state", "$filter", "$http", "
 
 		})
 	}
-
+	lowFamilyList.datas=function(){
+		lowFamilyList.getLowFamilyList("", 1);
+	}
 	//根据乡镇获取对应村庄
 	// lowFamilyList.getVillagesByTown = function(id) {
 	// 	lowFamilyList.sendParam.qyxzc = "";

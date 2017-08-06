@@ -31,6 +31,9 @@ myApp.controller("login", ["$scope", "$state", "$http", "$stateParams","postForm
 				if(res.success){
 					window.localStorage.setItem("token", res.message)
 					$state.go("home");
+				}else{
+					fupin.alert(res.message)
+					return;
 				}
 			})
 		}

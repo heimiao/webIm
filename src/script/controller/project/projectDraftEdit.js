@@ -160,7 +160,7 @@ myApp.controller("projectDraftEdit", ["$scope", "$state", "$http", "$stateParams
 									'index_id': parseInt(window.localStorage.getItem("projectDraftEditDraftId"))
 								},
 								success: function(args) {
-									window.history.back()
+									$state.go('project');
 								},
 								'error': function(args) {
 
@@ -203,7 +203,7 @@ myApp.controller("projectDraftEdit", ["$scope", "$state", "$http", "$stateParams
 									'index_id': parseInt(window.localStorage.getItem("projectDraftEditDraftId"))
 								},
 								success: function(args) {
-									window.history.back()
+									$state.go('project');
 								},
 								'error': function(args) {
 
