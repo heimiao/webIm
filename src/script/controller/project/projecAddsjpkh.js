@@ -59,7 +59,7 @@ myApp.controller("projectAddsjpkh", ["$scope", "$state", "$http", "$stateParams"
 			window.history.back(); 
 		}
 		projectAddsjpkh.back = function(){
-			fupin.confirm("是否保存为草稿", function() {
+			fupin.confirms("是否保存", function() {
 				projectAddsjpkh.addPkh();
 			}, function() {
 				window.history.back();

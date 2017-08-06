@@ -56,7 +56,11 @@ myApp.controller("projectEditsjpkc", ["$scope", "$state", "$http", "$stateParams
 			window.history.back() 
 		}
 		projectEditsjpkc.back = function(){
-			projectEditsjpkc.saveBtn();
+			fupin.confirms("是否保存", function() {
+					projectEditsjpkc.saveBtn();
+			}, function() {
+					window.history.back();
+			});
 		}
 		$scope.projectEditsjpkc = projectEditsjpkc;
 	}

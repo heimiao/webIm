@@ -50,9 +50,25 @@ myApp.controller("project", ["$scope", "$state", "$http", "$stateParams","postFo
 
 		project.getxmcj();
 
-
-
-
+		// 选择时间
+		project.chooseTime=function(text) {
+			$("#time .name").html(text)
+			$(".timeList").slideUp(200)
+			$("#time").removeClass("township2")
+			$("#time .name").removeClass("col-ea3c4c")
+			project.queryBtn();
+		}
+		project.chooseTownship=function(text) {
+			$("#township .name").html(text)
+			$(".townshipList").slideUp(200)
+			$("#township").removeClass("township2")
+			$("#township .name").removeClass("col-ea3c4c")
+			project.queryBtn();
+		}
+		project.queryBtn=function(){
+			project.start = 0;
+			project.getxmcj();
+		}
 
 		// 上拉加载
 		var dropload = $('.droploadTable').dropload({
