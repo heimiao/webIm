@@ -27,6 +27,20 @@
 			});
 			return aryA;
 		},
+		mapArrays: function(aryA, aryB, strA, strB) {
+			//			console.log(aryA);
+			//把数组B的字段映射合并到数组A中
+			$.each(aryA, function(index, item) {
+				$.each(aryB, function(i, m) {
+					if(item) {
+						if(item[strA] == m[strB]) {
+							item[strA+"Obj"] = m;
+						}
+					}
+				});
+			});
+			return aryA;
+		},
 		localCache: function(data) {
 			window.localStorage.setItem("low_family", data);
 		},

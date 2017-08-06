@@ -92,8 +92,9 @@ myApp.controller("plantRelocationCtro", ["$scope", "$rootScope", "$state", "$htt
 			}
 		} else {
 			if(window.localStorage.getItem("low_family")) {
+
 				var data = JSON.parse(window.localStorage.getItem("low_family"));
-				plantRelocation.formInfo = data.plantRelocation_model;
+				plantRelocation.formInfo = data;
 			} else {
 				fupin.localCache(JSON.stringify(lowFamilyInfoModel));
 				fupin.oldLocalCache(JSON.stringify(lowFamilyInfoModel));
@@ -128,15 +129,15 @@ myApp.controller("plantRelocationCtro", ["$scope", "$rootScope", "$state", "$htt
 			fupin.saveLocalData(saveData);
 		}
 
-		plantRelocation.saveCache = function() {
+		/*plantRelocation.saveCache = function() {
 			var data = JSON.parse(window.localStorage.getItem("low_family"));
-			angular.extend(data.plantRelocation_model, plantRelocation.formInfo);
+			angular.extend(data.plantRelocation_model, formData);
 			fupin.localCache(JSON.stringify(data));
 		}
-
+*/
 		plantRelocation.saveCache = function() {
 			var data = JSON.parse(window.localStorage.getItem("low_family"));
-			angular.extend(data.plantRelocation_model, plantRelocation.formInfo);
+			angular.extend(data.plantRelocation_model, data);
 			fupin.localCache(JSON.stringify(data));
 		}
 		$scope.$watchCollection("plantRelocation.formInfo", function() {

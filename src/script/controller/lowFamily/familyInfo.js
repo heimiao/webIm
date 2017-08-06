@@ -77,11 +77,12 @@ myApp.controller("lowFamilyMemberCtro", ["$scope", "$rootScope", "$state", "$htt
 		} else {
 			//把data合并到表单对象中
 			var data = JSON.parse(window.localStorage.getItem("low_family"));
-			var infoList = data.familyInfo_model; 
+			var infoList = data.familyInfo_model;
+
+			lowFamilyMember.list = fupin.mapArrays(infoList, config.sysValue.YHZGX, "yhzgx", "value");
 			
-			lowFamilyMember.list =infoList;// fupin.mapArray(infoList, config.sysValue.YHZGX, "yhzgx", "value");
-			
-			
+			// fupin.mapArray(infoList, config.sysValue.YHZGX, "yhzgx", "value");
+
 			lowFamilyMember.oldObj = infoList;
 		}
 
@@ -125,7 +126,7 @@ myApp.controller("addFamilyMemberCtro", ["$scope", "$rootScope", "$state", "$htt
 				window.history.go(-1);
 			})
 		}
-		
+
 		addFamilyMember.otherSelect = {
 			yhzgxList: config.sysValue.YHZGX,
 			mzList: config.sysValue.MZ,

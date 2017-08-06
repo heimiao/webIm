@@ -3,20 +3,12 @@ myApp.controller("naturalEdite", ["$scope", "$state", "$http", "$stateParams",
 		var zrcDetails = {} || zrcDetails;
 		zrcDetails.urlParam = $stateParams;
 		zrcDetails.sendParam = {};
+		zrcDetails.fid = null;
 		//获取详情的id 显示详情的内容 
 		zrcDetails.canshu = {
 			id:$stateParams.id,
 		}; 
 		zrcDetails.list = {};
-		$http.post(config.path.zrcDetails+"?id="+zrcDetails.canshu.id)
-		.success(function(res){
-			console.log(res);
-			zrcDetails.list=res;
-			zrcDetails.xingzhengcun();
-			zrcDetails.zirancun12();
-
-		});
-
 		//获取行政村
 		zrcDetails.xingzhengcun={};
 		zrcDetails.xingzhengcun.list = {};
@@ -24,30 +16,40 @@ myApp.controller("naturalEdite", ["$scope", "$state", "$http", "$stateParams",
 			lx:'02',
 			fid:""
 		};
-		zrcDetails.xingzhengcun=function(){ 
-			postForm.saveFrm(config.path.xingzhengName,zrcDetails.xingzheng)
-			.success(function(res){
-				console.log(res)
-				zrcDetails.xingzhengcun.list=res;  
-				console.log(zrcDetails.list.lsxzc)
-			})
-		}
+		postForm.saveFrm(config.path.xingzhengName,zrcDetails.xingzheng).success(function(res){
+		//zrcDetails.fid = res[0].id
+			
+			zrcDetails.xingzhengcun.list=res;
+			$http.post(config.path.zrcDetails+"?id="+zrcDetails.canshu.id).success(function(res){
+				zrcDetails.fid = res.lsxzc
+				zrcDetails.list=res;
+				// zrcDetails.xingzhengcun();
+				zrcDetails.zirancun12();
+			});
+		})
+		// zrcDetails.xingzhengcun=function(){ 
+			
+		// }
 		
 		
 //根据行政村关联自然村
 		zrcDetails.getzrc=function(){ 
 			zrcDetails.zirancun12() 
 		}
-		//获取全部自然村
-		zrcDetails.zirancun = {
-			lx:'03',
-			fid:''
-		};
+		
 		zrcDetails.zirancun12=function(){
-			zrcDetails.zirancun.fid=zrcDetails.list.lsxzc;
-			postForm.saveFrm(config.path.xingzhengName,zrcDetails.zirancun)
-			.success(function(res){
-			 	zrcDetails.zirancun.list=res;
+			//获取全部自然村
+			zrcDetails.zirancun = {
+				lx:'03',
+				fid: zrcDetails.fid
+			};
+			postForm.saveFrm(config.path.xingzhengName,zrcDetails.zirancun).success(function(res){
+				if(res.length!=0){
+					zrcDetails.zirancun.list=res;
+				}else{
+					zrcDetails.list.zrcmc = null;
+				}
+			 	
 			 	
 			})
 		}
@@ -78,6 +80,7 @@ myApp.controller("naturalEdite", ["$scope", "$state", "$http", "$stateParams",
 		zrcDetails.zrcEdit=function(){
 			if(zrcDetails.lsxzc()&&zrcDetails.fzr()){
 				delete zrcDetails.list.exproperty;
+				zrcDetails.list.lsxzc = zrcDetails.fid
 				postForm.saveFrm(config.path.zrcEdit,zrcDetails.list)
 				.success(function(res){
 					$state.go('naturalVillage'); 

@@ -55,13 +55,33 @@ myApp.controller("lowFamilyInfoCtro", ["$scope", "$state", "$http", "$stateParam
 			return bool;
 		}
 		lowFamilyInfo.goback = function(data) {
-			var localData, old_localData;
+			var localDatas, old_localData;
 			if(window.localStorage.getItem("low_family")) {
-				localData = JSON.parse(window.localStorage.getItem("low_family"));
+				localDatas = JSON.parse(window.localStorage.getItem("low_family"));
 			}
 			fupin.confirm("确定保存为草稿吗？", function() {
-				if(lowFamilyInfo.validate(localData)) {
-					fupin.saveLocalData(localData);
+				if(lowFamilyInfo.validate(localDatas)) {
+					var plantRelocation = localDatas.plantRelocation_model;
+					for(var item in plantRelocation) {
+						if(item != "azd" && item != "azfs" && item != "bqfs" && item != "sfbqh") {
+							if(plantRelocation[item]) {
+								plantRelocation[item] = "Y"
+							} else {
+								plantRelocation[item] = "N"
+							}
+						}
+					}
+					var povertyCauses = localDatas.povertyCauses_model;
+					for(var item in povertyCauses) {
+						if(item != "zyzpyy") {
+							if(povertyCauses[item]) {
+								povertyCauses[item] = "Y"
+							} else {
+								povertyCauses[item] = "N"
+							}
+						}
+					}
+					fupin.saveLocalData(localDatas);
 				}
 			}, function() {
 				window.history.go(-1);
@@ -136,7 +156,29 @@ myApp.controller("lowFamilyInfoCtro", ["$scope", "$state", "$http", "$stateParam
 			} else {
 				ydb = "N";
 			}
-			angular.extend(uploadData, localData.baseInfo_model, localData.assistEffect_model, localData.income_model, localData.lifeCondition_model, localData.povertyCauses_model, localData.plantRelocation_model, {
+
+			var plantRelocation = localData.plantRelocation_model;
+			for(var item in plantRelocation) {
+				if(item != "azd" && item != "azfs" && item != "bqfs" && item != "sfbqh") {
+					if(plantRelocation[item]) {
+						plantRelocation[item] = "Y"
+					} else {
+						plantRelocation[item] = "N"
+					}
+				}
+			}
+			var povertyCauses = localData.povertyCauses_model;
+			for(var item in povertyCauses) {
+				if(item != "zyzpyy") {
+					if(povertyCauses[item]) {
+						povertyCauses[item] = "Y"
+					} else {
+						povertyCauses[item] = "N"
+					}
+				}
+			}
+
+			angular.extend(uploadData, localData.baseInfo_model, localData.assistEffect_model, localData.income_model, localData.lifeCondition_model, povertyCauses, plantRelocation, {
 				pkhjc: localData.familyInfo_model
 			}, {
 				bfdx: localData.assistPerson_model
@@ -148,10 +190,6 @@ myApp.controller("lowFamilyInfoCtro", ["$scope", "$state", "$http", "$stateParam
 
 			var _url = config.path.createLowFamily;
 			//移除所有空属性
-
-			$.each(uploadData, function(index, item) {
-				//console.log(item);
-			})
 
 			if(localData.baseInfo_model.id) {
 				if(uploadData.pkhjc.length > 0) {
@@ -182,7 +220,7 @@ myApp.controller("lowFamilyInfoCtro", ["$scope", "$state", "$http", "$stateParam
 								window.history.go(-1);
 							},
 							'error': function(args) {
-							
+
 							}
 						});
 					} else {
@@ -192,7 +230,6 @@ myApp.controller("lowFamilyInfoCtro", ["$scope", "$state", "$http", "$stateParam
 					fupin.alert(datas.message);
 				}
 			})
-			//fupin.localCache(angular.toJson(lowFamilyInfoModel)); 
 		}
 		//调用列表
 		//		$state.go('lowFamily.baseInfo'); //默认显示第一个tab
