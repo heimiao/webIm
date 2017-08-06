@@ -285,26 +285,26 @@ myApp.controller("draftVillageCollection", ["$scope", "$state", "$http", "$state
 			// 	fupin.alert("请完善基本信息中的信息")
 			// 	return;
 			// }
-			// if(!draftVillageCollection.developmentList.nmnrjcsr){
-			// 	fupin.alert("请完善发展现状中的信息")
-			// 	return;
-			// }
-			// if(draftVillageCollection.taskForceList){
-			// 	if(draftVillageCollection.taskForceList.length == 0){
-			// 		fupin.alert("请完善驻村工作队的信息")
-			// 		return;
-			// 	}else{
-			// 		for(var i=0;i<draftVillageCollection.taskForceList.length;i++){
-			// 			if(!draftVillageCollection.taskForceList[i].bfdwzcgzdyxm){
-			// 				fupin.alert("请完善驻村工作队的信息")
-			// 				return;
-			// 			}
-			// 		}
-			// 	}
-			// }else{
-			// 	fupin.alert("请完善驻村工作队的信息")
-			// 	return;
-			// }
+			if(!draftVillageCollection.developmentList.nmnrjcsr){
+				fupin.alert("请完善发展现状中的信息")
+				return;
+			}
+			if(draftVillageCollection.taskForceList){
+				if(draftVillageCollection.taskForceList.length == 0){
+					fupin.alert("请完善驻村工作队的信息")
+					return;
+				}else{
+					for(var i=0;i<draftVillageCollection.taskForceList.length;i++){
+						if(!draftVillageCollection.taskForceList[i].bfdwzcgzdyxm){
+							fupin.alert("请完善驻村工作队的信息")
+							return;
+						}
+					}
+				}
+			}else{
+				fupin.alert("请完善驻村工作队的信息")
+				return;
+			}
 			draftVillageCollection.getAllData();
 			if(draftVillageCollection.editId){
 				postForm.saveFrm(config.path.updateVillage,{"data": JSON.stringify(draftVillageCollection.localData)}).success(function(res){

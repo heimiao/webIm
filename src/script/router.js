@@ -385,7 +385,7 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 			templateUrl: 'dist/template/village/workLog.html'
 		})
 		.state('workLogDetail', {
-			url: '/workLogDetail',
+			url: '/workLogDetail?idx',
 			controller: "workLogDetail",
 			templateUrl: 'dist/template/village/workLogDetail.html'
 		})
@@ -396,7 +396,7 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 			templateUrl: 'dist/template/village/notice.html'
 		})
 		.state('noticeDetail', {
-			url: '/noticeDetail',
+			url: '/noticeDetail?idx',
 			controller: "noticeDetail",
 			templateUrl: 'dist/template/village/noticeDetail.html'
 		})
