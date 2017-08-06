@@ -33,8 +33,9 @@ myApp.controller("assistPersonCtro", ["$scope", "$rootScope", "$state", "$http",
 											pkhjc_fj_id: item.filegrpid
 										});
 								});
-								var jtcy = fupin.mapArray(datas, config.sysValue.YHZGX, "yhzgx", "value");
-								localData.familyInfo_model = jtcy;
+								/*var jtcy = fupin.mapArray(datas, config.sysValue.YHZGX, "yhzgx", "value");
+								localData.familyInfo_model = jtcy;*/
+								localData.familyInfo_model = datas;
 								fupin.localCache(JSON.stringify(localData));
 								//请求帮扶责任人
 								postForm.saveFrm(config.path.getassistPersonList, {
@@ -93,19 +94,12 @@ myApp.controller("assistPersonCtro", ["$scope", "$rootScope", "$state", "$http",
 			fupin.saveLocalData(saveData);
 		}
 
-		$scope.goback = function() {
-			//调用本地数据库保存
-			//保存表单
-			if(!fupin.isValid(assistPerson.list) || JSON.stringify(assistPerson.oldObj) != JSON.stringify(assistPerson.list)) {
-				fupin.confirm("确定保存为草稿吗？", function() {
-					assistPerson.saveForm();
-				}, function() {
-					window.history.go(-1);
-				})
-			} else {
-				window.history.go(-1);
-			}
-		}
+		$scope.$on("$destroy", function() {
+			var data = JSON.parse(window.localStorage.getItem("low_family"));
+			angular.extend(data.assistPerson, assistPerson.list);
+			fupin.localCache(JSON.stringify(data));
+		})
+
 		$scope.assistPerson = assistPerson;
 	}
 ]);
@@ -139,7 +133,6 @@ myApp.controller("addAsistPersonCtro", ["$scope", "$rootScope", "$state", "$http
 				});
 			}
 		}
-
 		addAsistPerson.saveForm = function() {
 			if(addAsistPerson.urlParam.personId) {
 				//判断是否修改数据
@@ -157,7 +150,8 @@ myApp.controller("addAsistPersonCtro", ["$scope", "$rootScope", "$state", "$http
 			}
 			fupin.localCache(JSON.stringify(dataAll));
 
-			$state.go("lowFamily.assistPerson", {
+			$state.go("lowFamily", {
+				showForm: "assistPerson",
 				id: addAsistPerson.urlParam.id,
 				type: addAsistPerson.urlParam.type
 			});

@@ -1,12 +1,13 @@
-myApp.directive('menu', [function() {
+/*myApp.directive('menu', [function() {
 	return {
 		//		require: "ngModel",
 		restrict: 'ECMA',
 		link: function(scope, element, attr, ngModel) {
-			//var ue = UE.getEditor(element);
 			$(element).on("click", ".panniu", function() {
 				$(element).find("main").toggleClass("scale-down");
+				
 				$(element).find(".cd-nav-container").toggleClass("is-visible");
+				
 				$(element).find(".cd-overlay").toggleClass("is-visible");
 			});
 			$(element).on("click", ".cd-close-nav", function() {
@@ -17,7 +18,7 @@ myApp.directive('menu', [function() {
 
 		}
 	};
-}]);
+}]);*/
 //开始时间
 myApp.directive('beginTime', function() {
 	return {
@@ -206,12 +207,9 @@ myApp.directive('checkboxRadio', [function() {
 	};
 }])
 
-
-
-
 myApp.directive('checkboxRadios', [function() {
 	return {
-		
+
 		restrict: 'ECMA',
 		link: function(scope, element, attr, ngModel) {
 			$(element).on("click", ".default", function() {

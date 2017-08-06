@@ -40,8 +40,9 @@ myApp.controller("plantRelocationCtro", ["$scope", "$rootScope", "$state", "$htt
 											pkhjc_fj_id: item.filegrpid
 										});
 								});
-								var jtcy = fupin.mapArray(datas, config.sysValue.YHZGX, "yhzgx", "value");
-								localData.familyInfo_model = jtcy;
+								/*var jtcy = fupin.mapArray(datas, config.sysValue.YHZGX, "yhzgx", "value");
+								localData.familyInfo_model = jtcy;*/
+								localData.familyInfo_model = datas;
 								fupin.localCache(JSON.stringify(localData));
 								//请求帮扶责任人
 								postForm.saveFrm(config.path.getassistPersonList, {
@@ -124,23 +125,13 @@ myApp.controller("plantRelocationCtro", ["$scope", "$rootScope", "$state", "$htt
 			angular.extend(data.plantRelocation_model, plantRelocation.formInfo);
 			fupin.localCache(JSON.stringify(data));
 		}
-		$scope.goback = function() {
-			//调用本地数据库保存
-			//保存表单
-			if(!fupin.isValid(plantRelocation.formInfo) || JSON.stringify(plantRelocation.oldObj) != JSON.stringify(plantRelocation.formInfo)) {
-				fupin.confirm("确定保存为草稿吗？", function() {
-					plantRelocation.saveForm();
-				}, function() {
-					window.history.go(-1);
-				})
-			} else {
-				window.history.go(-1);
-			}
-		}
-		$rootScope.$on('$stateChangeStart',
-			function(event, toState, toParams, fromState, fromParams) {
-				plantRelocation.saveCache();
-			})
+
+		$scope.$on("$destroy", function() {
+			var data = JSON.parse(window.localStorage.getItem("low_family"));
+			angular.extend(data.plantRelocation_model, plantRelocation.formInfo);
+			fupin.localCache(JSON.stringify(data));
+		})
+
 		//根据角色遍历响应的菜单
 		$scope.plantRelocation = plantRelocation;
 	}

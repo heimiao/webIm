@@ -1,23 +1,15 @@
 var myApp = angular.module("myApp", ['ui.router', 'ngCookies', 'ngFileUpload']);
-
 //配置路由
 myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 	//添加拦截器
 	$httpProvider.interceptors.push("myInterceptor");
-
-	/*if(!$httpProvider.defaults.headers.get) {
-		$httpProvider.defaults.headers.get = {};
-	}
-	$httpProvider.defaults.headers.get['token'] = localStorage.getItem("token");
-	$httpProvider.defaults.headers.get['inter_type'] = 'app';*/
-
 	//设置默认的加载模块
 	$urlRouterProvider.otherwise('/login');
 	$stateProvider
 		//贫困户列表
 		.state('home', {
 			url: '/home',
-			//			controller: "lowFamilyListCtro",
+			//controller: "lowFamilyListCtro",
 			templateUrl: 'dist/template/home.html'
 		})
 		//贫困户列表
@@ -33,135 +25,15 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 			templateUrl: 'dist/template/lowFamily/povertyDraft.html'
 		})
 		.state('lowFamily', {
-			url: '/low_family',
+			url: '/low_family_info?id&type?showForm',
 			controller: "lowFamilyInfoCtro",
-			abstract: true,
 			templateUrl: 'dist/template/lowFamily/lowFamilyInfo.html',
 		})
-		//贫困户基本信息
-		.state('lowFamily.baseInfo', {
-			url: '/low_family_base?id&type',
-			views: {
-				'': {
-					controller: "low_family_baseCtro",
-					templateUrl: 'dist/template/lowFamily/lowFamilyInfo/container.html'
-				},
-				'form@lowFamily.baseInfo': {
-					templateUrl: 'dist/template/lowFamily/lowFamilyInfo/baseInfo.html'
-				},
-				'menu@lowFamily.baseInfo': {
-					templateUrl: 'dist/template/lowFamily/lowFamilyInfo/menu.html'
-				}
-			}
-		})
-		.state('lowFamily.familyMember', {
-			//贫困户家庭成员
-			url: '/low_family_member?id&type',
-			//			controller: "order_list",
-			//			templateUrl: 'dist/template/lowFamily/lowFamilyInfo/familyInfo.html'
-			views: {
-				'': {
-					controller: "lowFamilyMemberCtro",
-					templateUrl: 'dist/template/lowFamily/lowFamilyInfo/container.html'
-				},
-				'form@lowFamily.familyMember': {
-					templateUrl: 'dist/template/lowFamily/lowFamilyInfo/familyInfo.html'
-				},
-				'menu@lowFamily.familyMember': {
-					templateUrl: 'dist/template/lowFamily/lowFamilyInfo/menu.html'
-				}
-			}
-		})
 		.state('addFamilyMember', {
+			//添加家庭成员
 			url: '/add_family_member?id&type&memberId',
 			controller: "addFamilyMemberCtro",
 			templateUrl: 'dist/template/lowFamily/addFamilyMember.html'
-		})
-		.state('lowFamily.causes', {
-			//致贫原因
-			url: '/low_family_Causes?id&type',
-			//			controller: "order_list",
-			//			templateUrl: 'dist/template/lowFamily/lowFamilyInfo/povertyCauses.html',
-			views: {
-				'': {
-					controller: "lowFamilyCausesCtro",
-					templateUrl: 'dist/template/lowFamily/lowFamilyInfo/container.html'
-				},
-				'form@lowFamily.causes': {
-					templateUrl: 'dist/template/lowFamily/lowFamilyInfo/povertyCauses.html'
-				},
-				'menu@lowFamily.causes': {
-					templateUrl: 'dist/template/lowFamily/lowFamilyInfo/menu.html'
-				}
-			}
-		})
-		.state('lowFamily.income', {
-			//收入
-			url: '/low_family_income?id&type',
-			views: {
-				'': {
-					controller: "incomeCtro",
-					templateUrl: 'dist/template/lowFamily/lowFamilyInfo/container.html'
-				},
-				'form@lowFamily.income': {
-					templateUrl: 'dist/template/lowFamily/lowFamilyInfo/income.html'
-				},
-				'menu@lowFamily.income': {
-					templateUrl: 'dist/template/lowFamily/lowFamilyInfo/menu.html'
-				}
-			}
-		})
-		.state('lowFamily.lifeCondition', {
-			//生活条件
-			url: '/low_family_life_condition?id&type',
-			//			controller: "order_list",
-			//			templateUrl: 'dist/template/lowFamily/lowFamilyInfo/lifeCondition.html'
-			views: {
-				'': {
-					controller: "lifeConditionCtro",
-					templateUrl: 'dist/template/lowFamily/lowFamilyInfo/container.html'
-				},
-				'form@lowFamily.lifeCondition': {
-					templateUrl: 'dist/template/lowFamily/lowFamilyInfo/lifeCondition.html'
-				},
-				'menu@lowFamily.lifeCondition': {
-					templateUrl: 'dist/template/lowFamily/lowFamilyInfo/menu.html'
-				}
-			}
-		})
-		.state('lowFamily.plantRelocation', {
-			//易地搬迁需求
-			url: '/low_family_plant_relocation?id&type',
-			//			controller: "order_list",
-			//			templateUrl: 'dist/template/lowFamily/lowFamilyInfo/plantRelocation.html'
-			views: {
-				'': {
-					controller: "plantRelocationCtro",
-					templateUrl: 'dist/template/lowFamily/lowFamilyInfo/container.html'
-				},
-				'form@lowFamily.plantRelocation': {
-					templateUrl: 'dist/template/lowFamily/lowFamilyInfo/plantRelocation.html'
-				},
-				'menu@lowFamily.plantRelocation': {
-					templateUrl: 'dist/template/lowFamily/lowFamilyInfo/menu.html'
-				}
-			}
-		})
-		.state('lowFamily.assistPerson', {
-			//帮扶责任人assistPerson
-			url: '/assist_person?id&type',
-			views: {
-				'': {
-					controller: "assistPersonCtro",
-					templateUrl: 'dist/template/lowFamily/lowFamilyInfo/container.html'
-				},
-				'form@lowFamily.assistPerson': {
-					templateUrl: 'dist/template/lowFamily/lowFamilyInfo/assistPerson.html'
-				},
-				'menu@lowFamily.assistPerson': {
-					templateUrl: 'dist/template/lowFamily/lowFamilyInfo/menu.html'
-				}
-			}
 		})
 		.state('addAssistPerson', {
 			//添加帮扶责任人assistPerson
@@ -170,22 +42,6 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 			templateUrl: 'dist/template/lowFamily/addAssistPerson.html'
 		})
 
-		.state('lowFamily.assistEffect', {
-			//帮扶成效
-			url: '/assist_effect?id&type',
-			views: {
-				'': {
-					controller: "assistEffectCtro",
-					templateUrl: 'dist/template/lowFamily/lowFamilyInfo/container.html'
-				},
-				'form@lowFamily.assistEffect': {
-					templateUrl: 'dist/template/lowFamily/lowFamilyInfo/assistEffect.html'
-				},
-				'menu@lowFamily.assistEffect': {
-					templateUrl: 'dist/template/lowFamily/lowFamilyInfo/menu.html'
-				}
-			}
-		})
 		//贫困户查询页面
 		.state('querylowFamilyCondition', {
 			url: '/query_low_family_condition',
@@ -486,34 +342,4 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 			controller: "login",
 			templateUrl: 'dist/template/village/login.html'
 		})
-
-});
-
-myApp.run(function($location, $rootScope, $stateParams) {
-	//路由监听事件 
-	$rootScope.$on('$stateChangeStart',
-		function(event, toState, toParams, fromState, fromParams) {
-			/*console.log(event);
-			console.log(toState);
-			console.log(toParams);
-			console.log(fromState);
-			console.log(fromParams);*/
-			/*if(toState.name == "homePage") {
-				//获取参数之后可以调请求判断需要渲染什么页面，渲染不同的页面通过 $location 实现 
-				if(toParams.id == 10) {
-					//$location.path();//获取路由地址 
-					// $location.path('/validation').replace(); 
-					// event.preventDefault()可以阻止模板解析 
-				}
-			}*/
-		})
-	// stateChangeSuccess 当模板解析完成后触发 
-	$rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
-
-	})
-	// $stateChangeError 当模板解析过程中发生错误时触发 
-	$rootScope.$on('$stateChangeError', function(event, toState, toParams, fromState, fromParams, error) {
-
-	})
-
 });

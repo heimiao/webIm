@@ -37,8 +37,9 @@ myApp.controller("lifeConditionCtro", ["$scope", "$rootScope", "$state", "$http"
 											pkhjc_fj_id: item.filegrpid
 										});
 								});
-								var jtcy = fupin.mapArray(datas, config.sysValue.YHZGX, "yhzgx", "value");
-								localData.familyInfo_model = jtcy;
+								/*	var jtcy = fupin.mapArray(datas, config.sysValue.YHZGX, "yhzgx", "value");
+									localData.familyInfo_model = jtcy;*/
+								localData.familyInfo_model = datas;
 								fupin.localCache(JSON.stringify(localData));
 								//请求帮扶责任人
 								postForm.saveFrm(config.path.getassistPersonList, {
@@ -99,24 +100,12 @@ myApp.controller("lifeConditionCtro", ["$scope", "$rootScope", "$state", "$http"
 			fupin.localCache(JSON.stringify(data));
 		}
 
-		$scope.goback = function() {
-			//调用本地数据库保存
-			//保存表单
-			if(!fupin.isValid(lifeCondition.formInfo) || JSON.stringify(lifeCondition.oldObj) != JSON.stringify(lifeCondition.formInfo)) {
-				fupin.confirm("确定保存为草稿吗？", function() {
-					lifeCondition.saveForm();
-				}, function() {
-					window.history.go(-1);
-				})
-			} else {
-				window.history.go(-1);
-			}
-		}
+		$scope.$on("$destroy", function() {
+			var data = JSON.parse(window.localStorage.getItem("low_family"));
+			angular.extend(data.lifeCondition_model, lifeCondition.formInfo);
+			fupin.localCache(JSON.stringify(data));
+		})
 
-		$rootScope.$on('$stateChangeStart',
-			function(event, toState, toParams, fromState, fromParams) {
-				lifeCondition.saveCache();
-			})
 		$scope.lifeCondition = lifeCondition;
 	}
 ]);
