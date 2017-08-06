@@ -53,6 +53,8 @@ myApp.controller("naturalDraftEdit", ["$scope", "$state", "$http", "$stateParams
 			 	if(num == 1){
 			 		if(res.length != 0){
 						naturalDraftEditc.details.zrcmc = res[0].id
+			 		}else{
+			 			naturalDraftEditc.details.zrcmc=[];
 			 		}
 			 		
 			 	}

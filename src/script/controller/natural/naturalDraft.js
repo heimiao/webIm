@@ -36,14 +36,11 @@ myApp.controller("naturalDraft", ["$scope", "$state", "$http", "$stateParams","p
 		naturalDraft.zirancun=function(){
 			postForm.saveFrm(config.path.xingzhengName,naturalDraft.zirancun)
 			.success(function(res){
-				//alert('12')
-				returnzrcData=res;
 				naturalDraft.findAll();
+				returnzrcData=res;	
 			})
 		}
 		naturalDraft.zirancun();
-
-
 
 		//获取所有列表
 		naturalDraft.findAll=function() {

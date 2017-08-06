@@ -39,11 +39,7 @@ myApp.controller("naturalVillage", ["$scope", "$state", "$http", "$stateParams",
 				'limit': 10,
 				'start': natural.start, 
 			};
-			// natural.page = {
-			// 	limit:10,
-			// 	start:natural.start,
-			// };
-			// var sunParm=angular.extend({},natural.page,natural.sendParam)
+			
 			postForm.saveFrm(config.path.naturalVillage,natural.pages)
 			.success(function(res){
 				if(res.results){
