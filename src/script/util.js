@@ -147,7 +147,7 @@
 		},
 		createTpl: function(type) {
 			var btn = "";
-			if(type == "confirm") {
+			if(type == "confirm" || type == "confirms") {
 				btn = '<div class="btn_cancel cancel" onclick=>取消</div>';
 			}
 			var tpl = '<div class="myAlert">' +
@@ -163,6 +163,8 @@
 				'<div class="alert_footer border-t">'
 			if(type == "confirm") {
 				tpl += btn + '<div class="btn_sures determine" onclick=>保存到草稿</div>'
+			}else if(type == "confirms"){
+				tpl += btn + '<div class="btn_sures determine" onclick=>确定</div>'
 			} else {
 				tpl += '<div class="btn_sures determine" style="width:100%; border-bottom-left-radius: 8px;" onclick=>确定</div>'
 			}
@@ -183,7 +185,7 @@
 			var model = document.createElement("div");
 			$(model).append(alertObj);
 			$("body").append(model);
-			if(type == "confirm") {
+			if(type == "confirm" || type == "confirms") {
 				$(model).find(".alert_cancel,.btn_cancel").on("click", function() {
 					$(model).remove();
 					cancel();
@@ -211,6 +213,11 @@
 	fupin.confirm = function(option, sure, cancel) {
 
 		methodAlert.create(option, "confirm", sure, cancel);
+		//		methodAlert.init(sure, cancel);
+	};
+	fupin.confirms = function(option, sure, cancel) {
+
+		methodAlert.create(option, "confirms", sure, cancel);
 		//		methodAlert.init(sure, cancel);
 	};
 	_w.fupin = fupin || {};

@@ -400,6 +400,39 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 			controller: "noticeDetail",
 			templateUrl: 'dist/template/village/noticeDetail.html'
 		})
+		// 公告
+		.state('publicNotice', {
+			url: '/publicNotice',
+			controller: "publicNotice",
+			templateUrl: 'dist/template/village/publicNotice.html'
+		})
+		.state('publicNoticeDetail', {
+			url: '/publicNoticeDetail?idx',
+			controller: "publicNoticeDetail",
+			templateUrl: 'dist/template/village/publicNoticeDetail.html'
+		})
+		// 光荣榜
+		.state('glory', {
+			url: '/glory',
+			controller: "glory",
+			templateUrl: 'dist/template/village/glory.html'
+		})
+		.state('gloryDetail', {
+			url: '/gloryDetail?idx',
+			controller: "gloryDetail",
+			templateUrl: 'dist/template/village/gloryDetail.html'
+		})
+		// 扶贫政策
+		.state('policy', {
+			url: '/policy',
+			controller: "policy",
+			templateUrl: 'dist/template/village/policy.html'
+		})
+		.state('policyDetail', {
+			url: '/policyDetail?idx',
+			controller: "policyDetail",
+			templateUrl: 'dist/template/village/policyDetail.html'
+		})
 		// 扶贫数据 查询 贫困户
 		.state('queryHousehold', {
 			url: '/queryHousehold',

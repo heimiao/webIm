@@ -59,7 +59,7 @@ myApp.controller("projectAddsjpkc", ["$scope", "$state", "$http", "$stateParams"
 			window.history.back();
 		}
 		projectAddsjpkc.back = function(){
-			fupin.confirm("是否保存为草稿", function() {
+			fupin.confirms("是否保存", function() {
 				projectAddsjpkc.savebendi();
 			}, function() {
 				window.history.back();
