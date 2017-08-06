@@ -132,7 +132,7 @@ myApp.controller("lowFamilyCausesCtro", ["$scope", "$rootScope", "$state", "$htt
 
 		$scope.$on("$destroy", function() {
 			var data = JSON.parse(window.localStorage.getItem("low_family"));
-			angular.extend(data.baseInfo_model, low_family_baseInfo.formInfo);
+			angular.extend(data.povertyCauses_model, lowFamilyCauses.formInfo);
 			fupin.localCache(JSON.stringify(data));
 		})
 

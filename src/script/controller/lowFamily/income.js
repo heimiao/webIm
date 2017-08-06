@@ -134,7 +134,7 @@ myApp.controller("incomeCtro", ["$scope", "$rootScope", "$state", "$http", "$sta
 
 		$scope.$on("$destroy", function() {
 			var data = JSON.parse(window.localStorage.getItem("low_family"));
-			angular.extend(data.baseInfo_model, low_family_baseInfo.formInfo);
+			angular.extend(data.income_model, income.formInfo);
 			fupin.localCache(JSON.stringify(data));
 		})
 

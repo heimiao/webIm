@@ -101,7 +101,7 @@ myApp.controller("lifeConditionCtro", ["$scope", "$rootScope", "$state", "$http"
 
 		$scope.$on("$destroy", function() {
 			var data = JSON.parse(window.localStorage.getItem("low_family"));
-			angular.extend(data.baseInfo_model, low_family_baseInfo.formInfo);
+			angular.extend(data.lifeCondition_model, lifeCondition.formInfo);
 			fupin.localCache(JSON.stringify(data));
 		})
 

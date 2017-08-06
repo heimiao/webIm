@@ -124,10 +124,10 @@ myApp.controller("plantRelocationCtro", ["$scope", "$rootScope", "$state", "$htt
 			angular.extend(data.plantRelocation_model, plantRelocation.formInfo);
 			fupin.localCache(JSON.stringify(data));
 		}
-			
+
 		$scope.$on("$destroy", function() {
 			var data = JSON.parse(window.localStorage.getItem("low_family"));
-			angular.extend(data.baseInfo_model, low_family_baseInfo.formInfo);
+			angular.extend(data.plantRelocation_model, plantRelocation.formInfo);
 			fupin.localCache(JSON.stringify(data));
 		})
 

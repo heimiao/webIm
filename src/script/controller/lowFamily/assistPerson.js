@@ -95,7 +95,7 @@ myApp.controller("assistPersonCtro", ["$scope", "$rootScope", "$state", "$http",
 
 		$scope.$on("$destroy", function() {
 			var data = JSON.parse(window.localStorage.getItem("low_family"));
-			angular.extend(data.baseInfo_model, low_family_baseInfo.formInfo);
+			angular.extend(data.assistPerson, assistPerson.list);
 			fupin.localCache(JSON.stringify(data));
 		})
 

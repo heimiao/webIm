@@ -126,7 +126,11 @@ myApp.controller("lowFamilyInfoCtro", ["$scope", "$state", "$http", "$stateParam
 
 			//console.log(uploadData);
 			postForm.saveFrm(_url + "?data=" + angular.toJson(uploadData), {}).success(function(datas) {
-
+				if(datas.success) {
+					fupin.alert("提交陈功");
+				} else {
+					fupin.alert(datas.message);
+				}
 			})
 			fupin.localCache(angular.toJson(localData));
 		}

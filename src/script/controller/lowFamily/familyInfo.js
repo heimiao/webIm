@@ -108,7 +108,7 @@ myApp.controller("lowFamilyMemberCtro", ["$scope", "$rootScope", "$state", "$htt
 
 		$scope.$on("$destroy", function() {
 			var data = JSON.parse(window.localStorage.getItem("low_family"));
-			angular.extend(data.baseInfo_model, low_family_baseInfo.formInfo);
+			angular.extend(data.familyInfo_model, lowFamilyMember.list);
 			fupin.localCache(JSON.stringify(data));
 		})
 

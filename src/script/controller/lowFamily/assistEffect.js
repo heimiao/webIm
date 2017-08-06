@@ -102,7 +102,7 @@ myApp.controller("assistEffectCtro", ["$scope", "$rootScope", "$state", "$http",
 
 		$scope.$on("$destroy", function() {
 			var data = JSON.parse(window.localStorage.getItem("low_family"));
-			angular.extend(data.baseInfo_model, low_family_baseInfo.formInfo);
+			angular.extend(data.assistEffect_model, assistEffect.formInfo);
 			fupin.localCache(JSON.stringify(data));
 		})
 
