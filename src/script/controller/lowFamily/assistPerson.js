@@ -133,7 +133,7 @@ myApp.controller("addAsistPersonCtro", ["$scope", "$rootScope", "$state", "$http
 		var dataAll = JSON.parse(window.localStorage.getItem("low_family"));
 
 		addAsistPerson.goback = function() {
-			fupin.confirm("确定保存吗？", function() {
+			fupin.confirms("确定保存吗？", function() {
 				 addAsistPerson.saveForm();
 			}, function() {
 				window.history.go(-1);

@@ -76,14 +76,18 @@
 		getCacheData: function(id, type) {
 			var data;
 			try {
-				if(JSON.parse(localStorage.getItem("low_family"))) {
-					var localUserId = type == "net" ?
-						JSON.parse(localStorage.getItem("low_family")).baseInfo_model.id :
-						JSON.parse(localStorage.getItem("low_family")).index_id;
-					data = (localUserId == id) ?
-						JSON.parse(localStorage.getItem("low_family")) : "";
+				if(localStorage.getItem("low_family")) {
+					var catchData = JSON.parse(localStorage.getItem("low_family"))
+					if(catchData) {
+						var localUserId = type == "net" ?
+							catchData.baseInfo_model.id :
+							catchData.index_id;
+						data = (localUserId == id) ?
+							catchData : "";
+					}
 				}
 			} catch(e) {
+				console.error(e);
 				console.error("判断本地是否有数据，json转化错误")
 			}
 			return data;

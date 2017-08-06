@@ -1,10 +1,10 @@
 //经纪人列表
-myApp.controller("lowFamilyListCtro", ["$scope", "$state", "$filter", "$http", "$stateParams", "postForm", function($scope, $state, $filter, $http, $stateParams, postForm) {
+myApp.controller("lowFamilyListCtro", ["$scope", "$rootScope", "$state", "$filter", "$http", "$stateParams", "postForm", function($scope, $rootScope, $state, $filter, $http, $stateParams, postForm) {
 	var lowFamilyList = {} || lowFamilyList;
 	//获取参数
 	lowFamilyList.urlParam = $stateParams;
 	lowFamilyList.sendParam = {
-		nd: 2016
+		//		nd: new Date().getFullYear()
 	};
 	lowFamilyList.page = {
 		limit: 15,
@@ -24,7 +24,12 @@ myApp.controller("lowFamilyListCtro", ["$scope", "$state", "$filter", "$http", "
 
 	lowFamilyList.list = [];
 	window.localStorage.setItem("cont_index", "");
-	fupin.localCache("");
+
+	$scope.$watch('$viewContentLoaded', function(event) {
+		fupin.localCache(JSON.stringify(lowFamilyInfoNull));
+		fupin.oldLocalCache(JSON.stringify(lowFamilyInfoNull));
+	});
+
 	lowFamilyList.townList = {};
 	lowFamilyList.town_VillagesList = {};
 
@@ -99,7 +104,7 @@ myApp.controller("lowFamilyListCtro", ["$scope", "$state", "$filter", "$http", "
 
 		})
 	}
-	lowFamilyList.datas=function(){
+	lowFamilyList.datas = function() {
 		lowFamilyList.getLowFamilyList("", 1);
 	}
 	//根据乡镇获取对应村庄

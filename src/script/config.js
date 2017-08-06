@@ -1,5 +1,5 @@
 var baseUrl = 'http://123.58.240.75:8081/tpa';
-var baseUrl = 'http://192.168.22.182:8080/tpa';
+//var baseUrl = 'http://192.168.22.182:8080/tpa';
 
 var config = {
 	//请求路径
@@ -34,7 +34,7 @@ var config = {
 		projectaddsjpkca: "/xmxxpkc/addXmxxpkc", //添加扶贫项目涉及贫困村
 		projectaddsjpkha: "/xmxxpkh/addXmxxpkh", //添加扶贫项目贫困户
 
-		getprojectaddsjpkca:"/xmxxpkc/queryForList",//获取添加扶贫项目涉及贫困村
+		getprojectaddsjpkca: "/xmxxpkc/queryForList", //获取添加扶贫项目涉及贫困村
 		updateProject: "/xmxx/update", //更新项目信息
 		updatePkh: '/xmxxpkh/updateXmxxpkh', //更新项目贫困户信息
 		updatePkc: '/xmxxpkc/updateXmxxpkc', //更新项目贫困村信息
@@ -878,10 +878,6 @@ var config = {
 			}
 		],
 		year: [{
-				name: "2013",
-				value: "2013",
-			},
-			{
 				name: "2014",
 				value: "2014",
 			},
@@ -904,6 +900,9 @@ var config = {
 			{
 				name: "2019",
 				value: "2019",
+			}, {
+				name: "2020",
+				value: "2020",
 			},
 		]
 	}

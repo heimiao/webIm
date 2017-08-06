@@ -90,6 +90,14 @@ myApp.controller("plantRelocationCtro", ["$scope", "$rootScope", "$state", "$htt
 			} catch(e) {
 				console.error("判断是否需要请求线上数据报错")
 			}
+		} else {
+			if(window.localStorage.getItem("low_family")) {
+				var data = JSON.parse(window.localStorage.getItem("low_family"));
+				plantRelocation.formInfo = data.plantRelocation_model;
+			} else {
+				fupin.localCache(JSON.stringify(lowFamilyInfoModel));
+				fupin.oldLocalCache(JSON.stringify(lowFamilyInfoModel));
+			}
 		}
 
 		//保存表单为本地数据库
@@ -125,8 +133,7 @@ myApp.controller("plantRelocationCtro", ["$scope", "$rootScope", "$state", "$htt
 			angular.extend(data.plantRelocation_model, plantRelocation.formInfo);
 			fupin.localCache(JSON.stringify(data));
 		}
-		
-			
+
 		plantRelocation.saveCache = function() {
 			var data = JSON.parse(window.localStorage.getItem("low_family"));
 			angular.extend(data.plantRelocation_model, plantRelocation.formInfo);
@@ -134,8 +141,8 @@ myApp.controller("plantRelocationCtro", ["$scope", "$rootScope", "$state", "$htt
 		}
 		$scope.$watchCollection("plantRelocation.formInfo", function() {
 			plantRelocation.saveCache();
-		});	
-		
+		});
+
 		$scope.$on("$destroy", function() {
 			plantRelocation.saveCache();
 		})

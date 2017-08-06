@@ -76,6 +76,14 @@ myApp.controller("lifeConditionCtro", ["$scope", "$rootScope", "$state", "$http"
 			} catch(e) {
 				console.error("判断是否需要请求线上数据报错")
 			}
+		} else {
+			if(window.localStorage.getItem("low_family")) {
+				var data = JSON.parse(window.localStorage.getItem("low_family"));
+				lifeCondition.formInfo = data.lifeCondition_model;
+			} else {
+				fupin.localCache(JSON.stringify(lowFamilyInfoModel));
+				fupin.oldLocalCache(JSON.stringify(lowFamilyInfoModel));
+			}
 		}
 
 		//保存表单为本地数据库
@@ -94,7 +102,6 @@ myApp.controller("lifeConditionCtro", ["$scope", "$rootScope", "$state", "$http"
 			fupin.saveLocalData(saveData);
 		}
 
-		
 		lifeCondition.saveCache = function() {
 			var data = JSON.parse(window.localStorage.getItem("low_family"));
 			angular.extend(data.lifeCondition_model, lifeCondition.formInfo);
@@ -102,7 +109,7 @@ myApp.controller("lifeConditionCtro", ["$scope", "$rootScope", "$state", "$http"
 		}
 		$scope.$watchCollection("lifeCondition.formInfo", function() {
 			lifeCondition.saveCache();
-		});	
+		});
 		$scope.$on("$destroy", function() {
 			lifeCondition.saveCache();
 		})

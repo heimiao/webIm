@@ -17,10 +17,10 @@ myApp.controller("lowFamilyCausesCtro", ["$scope", "$rootScope", "$state", "$htt
 		};
 		//判断是否编辑
 		if(lowFamilyCauses.urlParam.id) {
-
 			try {
-				if(fupin.getCacheData(lowFamilyCauses.urlParam.id, lowFamilyCauses.urlParam.type)) {
-					var infoObj = fupin.getCacheData(lowFamilyCauses.urlParam.id, lowFamilyCauses.urlParam.type).povertyCauses_model;
+				var catchData = fupin.getCacheData(lowFamilyCauses.urlParam.id, lowFamilyCauses.urlParam.type);
+				if(catchData) {
+					var infoObj = catchData.povertyCauses_model;
 					lowFamilyCauses.formInfo = infoObj
 					lowFamilyCauses.oldObj = infoObj;
 				} else {
@@ -95,6 +95,14 @@ myApp.controller("lowFamilyCausesCtro", ["$scope", "$rootScope", "$state", "$htt
 			} catch(e) {
 				console.error("判断是否需要请求线上数据报错")
 			}
+		} else {
+			if(window.localStorage.getItem("low_family")) {
+				var data = JSON.parse(window.localStorage.getItem("low_family"));
+				lowFamilyCauses.formInfo = data.povertyCauses_model;
+			} else {
+				fupin.localCache(JSON.stringify(lowFamilyInfoModel));
+				fupin.oldLocalCache(JSON.stringify(lowFamilyInfoModel));
+			}
 		}
 		//保存表单为本地数据库
 		lowFamilyCauses.saveForm = function() {
@@ -130,16 +138,15 @@ myApp.controller("lowFamilyCausesCtro", ["$scope", "$rootScope", "$state", "$htt
 			angular.extend(data.povertyCauses_model, lowFamilyCauses.formInfo);
 			fupin.localCache(JSON.stringify(data));
 		}
-		 
+
 		$scope.$watchCollection("lowFamilyCauses.formInfo", function() {
 			lowFamilyCauses.saveCache();
 		});
-		
+
 		$scope.$on("$destroy", function() {
 			lowFamilyCauses.saveCache();
 		})
-		 
-		
+
 		$scope.lowFamilyCauses = lowFamilyCauses;
 	}
 ]);

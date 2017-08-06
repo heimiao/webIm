@@ -81,6 +81,14 @@ myApp.controller("assistEffectCtro", ["$scope", "$rootScope", "$state", "$http",
 				console.error(e);
 				console.error("判断是否需要请求线上数据报错")
 			}
+		} else {
+			if(window.localStorage.getItem("low_family")) {
+				var data = JSON.parse(window.localStorage.getItem("low_family"));
+				assistEffect.formInfo = data.assistEffect_model;
+			} else {
+				fupin.localCache(JSON.stringify(lowFamilyInfoModel));
+				fupin.oldLocalCache(JSON.stringify(lowFamilyInfoModel));
+			}
 		}
 
 		//保存表单为本地数据库
@@ -99,7 +107,7 @@ myApp.controller("assistEffectCtro", ["$scope", "$rootScope", "$state", "$http",
 			}
 			fupin.saveLocalData(saveData);
 		}
-		
+
 		assistEffect.saveCache = function() {
 			var data = JSON.parse(window.localStorage.getItem("low_family"));
 			angular.extend(data.assistEffect_model, assistEffect.formInfo);

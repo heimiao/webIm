@@ -103,9 +103,18 @@ myApp.controller("incomeCtro", ["$scope", "$rootScope", "$state", "$http", "$sta
 				income.formInfo.scjyxzc = fupin.addScjyxzc(income.formInfo);
 				//-转移性收入
 				income.formInfo.zyxsr = fupin.addZyxsr(income.formInfo);
+
 			} catch(e) {
 				console.error(e)
 				console.error("判断是否需要请求线上数据报错")
+			}
+		} else {
+			if(window.localStorage.getItem("low_family")) {
+				var data = JSON.parse(window.localStorage.getItem("low_family"));
+				income.formInfo = data.income_model;
+			} else {
+				fupin.localCache(JSON.stringify(lowFamilyInfoModel));
+				fupin.oldLocalCache(JSON.stringify(lowFamilyInfoModel));
 			}
 		}
 

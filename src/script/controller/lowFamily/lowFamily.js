@@ -169,7 +169,25 @@ myApp.controller("lowFamilyInfoCtro", ["$scope", "$state", "$http", "$stateParam
 			postForm.saveFrm(_url + "?data=" + angular.toJson(uploadData), {}).success(function(datas) {
 				if(datas.success) {
 					fupin.alert("提交成功");
-					window.location.go(-1);
+					//通过index_id判断是否要删除本地
+					var data = JSON.parse(window.localStorage.getItem("low_family"));
+					if(data.index_id) {
+						dt.request({
+							rqstName: "low_family", //'low_family', 'low_village', 'nature_village', 'relief_project'
+							type: "delete", //select,delete,put,selectById,
+							param: {
+								index_id: data.index_id
+							},
+							success: function(args) {
+								window.history.go(-1);
+							},
+							'error': function(args) {
+							
+							}
+						});
+					} else {
+						window.history.go(-1);
+					}
 				} else {
 					fupin.alert(datas.message);
 				}
