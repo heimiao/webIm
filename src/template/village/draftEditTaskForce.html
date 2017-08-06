@@ -3,6 +3,10 @@
 	.villageCollection .villageSituation .content{
 		width: 36% !important;
 	}
+	.villageCollection .villageSituation .content input{
+		text-align: right;
+		padding-right: 1rem;
+	}
 </style>
 <div class="villageCollection">
 <div class="villageSituation">
@@ -32,7 +36,7 @@
 					<label class="labels" for="zzmm">
 						<div class="name">政治面貌</div>
 						<div class="content pr">
-							<select class="selects" name="" id="zzmm" ng-model="draftEditTaskForce.zzmm">
+							<select dir="rtl" class="selects" name="" id="zzmm" ng-model="draftEditTaskForce.zzmm">
 								<option value="01">中共党员</option>
 								<option value="02">中共预备党员</option>
 								<option value="03">共青团员</option>

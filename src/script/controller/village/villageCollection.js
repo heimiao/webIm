@@ -169,14 +169,14 @@ myApp.controller("villageCollection", ["$scope", "$state", "$http", "$stateParam
 		})
 		villageCollection.uploadSave=function(){
 			if(!villageCollection.situationList.cfzr){
-				fupin.alert("请完善'基本信息'后再提交数据")
+				fupin.alert("请完善基本信息后再提交数据")
 				return;
 			}
 			// if(!villageCollection.situationList.cbgdh){
 			// 	fupin.alert("请完善基本信息中的信息")
 			// 	return;
 			// }
-			if(!villageCollection.developmentList.nmnrjcsr){
+			if(villageCollection.developmentList.nmnrjcsr == null){
 				fupin.alert("请完善发展现状中的信息")
 				return;
 			}

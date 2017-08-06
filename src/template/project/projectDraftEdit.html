@@ -1,4 +1,9 @@
-
+<style>
+	.villageCollection .content input{
+		text-align: right;
+    	padding-right: 1rem;
+	}
+</style>
 	<div class="villageCollection projectAdd">
 		<header>
 			<div class="back" ng-click="projectDraftEdit.back()"><img src="./assets/img/icon_28.png" alt=""></div>
@@ -50,33 +55,33 @@
 			<div class="item border-b" >
 				<lable for="projectDraftEditxmlx">
 					<div class="name">项目类型</div>
-					<div class="content">
-						<select name="" id="projectDraftEditxmlx" ng-model="projectDraftEdit.sendParam.xmlx" ng-options="key.id as key.name for key in projectDraftEdit.xmleList" >
+					<div class="content" style="width: 50%;">
+						<select dir="rtl" name="" id="projectDraftEditxmlx" ng-model="projectDraftEdit.sendParam.xmlx" ng-options="key.id as key.name for key in projectDraftEdit.xmleList" >
 						</select>
 						<img src="./assets/img/icon2_11@2x.png" alt="">
 					</div>
 				</lable>	
 			</div>
 
-			<div class="item">
+			<div class="item border-b">
 				<lable for="projectDraftEditxmje">
 					<div class="name">项目金额</div>
 					<div class="content">
-						<input id="projectDraftEditxmje" type="text" placeholder="请输入金额" ng-model="projectDraftEdit.sendParam.xmje">
+						<input id="projectDraftEditxmje" type="number" placeholder="请输入金额" ng-model="projectDraftEdit.sendParam.xmje">
 					</div>
 				</lable>	
 			</div>
 
-			<div class="item">
+			<div class="item border-b">
 				<lable for="projectDraftEditfpzj">
 					<div class="name">扶贫资金</div>
 					<div class="content">
-						<input id="projectDraftEditfpzj" type="text" placeholder="请输入金额" ng-model="projectDraftEdit.sendParam.fpzj">
+						<input id="projectDraftEditfpzj" type="number" placeholder="请输入金额" ng-model="projectDraftEdit.sendParam.fpzj">
 					</div>
 				</lable>	
 			</div>
 
-			<div class="item ">
+			<div class="item border-b">
 				<lable for="projectDraftEditdkje">
 					<div class="name">贷款金额</div>
 					<div class="content">
@@ -98,31 +103,31 @@
 				<lable for="projectDraftEditqyxz">
 					<div class="name">项目地点</div>
 					<div class="content" style="width: 50%;">
-						<select name="" id="projectDraftEditqyxz" ng-model="projectDraftEdit.sendParam.qyxz" ng-options="key.id as key.name for key in projectDraftEdit.townShip" ng-change="projectDraftEdit.changeTown()">
+						<select dir="rtl" name="" id="projectDraftEditqyxz" ng-model="projectDraftEdit.sendParam.qyxz" ng-options="key.id as key.name for key in projectDraftEdit.townShip" ng-change="projectDraftEdit.changeTown()">
 						</select>
 						<img src="./assets/img/icon2_11@2x.png" alt="">
 					</div>
 				</lable>
 			</div>
 
-			<div class="item">
+			<div class="item border-b">
 				<!-- <div class="name">项目地点</div> -->
 				<lable for="projectDraftEditqyxzc">
 					<div class="content" style="width: 50%;">
-						<select name="" id="projectDraftEditqyxzc" ng-model="projectDraftEdit.sendParam.qyxzc" ng-options="key.id as key.name for key in projectDraftEdit.villageListAll" >
+						<select dir="rtl" name="" id="projectDraftEditqyxzc" ng-model="projectDraftEdit.sendParam.qyxzc" ng-options="key.id as key.name for key in projectDraftEdit.villageListAll" >
 						</select>
 						<img src="./assets/img/icon2_11@2x.png" alt="">
 					</div>
 				</lable>
 			</div>			
-			<div class="item border-b" >
+			<!-- <div class="item border-b" >
 				<lable for="projectDraftEditxmdd">
 					<div class="name"></div>
 					<div class="content">
 						<input id="projectDraftEditxmdd" type="text" placeholder="请输入详细地址" ng-model="projectDraftEdit.sendParam.xmdd">
 					</div>
 				</lable>	
-			</div>
+			</div> -->
 			
 			<div class="item border-b">
 				<lable for="projectDraftEditssdw">

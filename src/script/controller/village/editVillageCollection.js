@@ -254,14 +254,14 @@ myApp.controller("editVillageCollection", ["$scope", "$state", "$http", "$stateP
 
 		editVillageCollection.uploadSave=function(){
 			if(!editVillageCollection.situationList.cfzr){
-				fupin.alert("请完善'基本信息'后再提交数据")
+				fupin.alert("请完善基本信息后再提交数据")
 				return;
 			}
 			// if(!editVillageCollection.situationList.cbgdh){
 			// 	fupin.alert("请完善基本信息中的信息")
 			// 	return;
 			// }
-			if(!editVillageCollection.developmentList.nmnrjcsr){
+			if(editVillageCollection.developmentList.nmnrjcsr == null){
 				fupin.alert("请完善发展现状中的信息")
 				return;
 			}

@@ -278,14 +278,14 @@ myApp.controller("draftVillageCollection", ["$scope", "$state", "$http", "$state
 		}
 		draftVillageCollection.uploadSave=function(){
 			if(!draftVillageCollection.situationList.cfzr){
-				fupin.alert("请完善'基本信息'后再提交数据")
+				fupin.alert("请完善基本信息后再提交数据")
 				return;
 			}
 			// if(!draftVillageCollection.situationList.cbgdh){
 			// 	fupin.alert("请完善基本信息中的信息")
 			// 	return;
 			// }
-			if(!draftVillageCollection.developmentList.nmnrjcsr){
+			if(draftVillageCollection.developmentList.nmnrjcsr == null){
 				fupin.alert("请完善发展现状中的信息")
 				return;
 			}
@@ -316,7 +316,7 @@ myApp.controller("draftVillageCollection", ["$scope", "$state", "$http", "$state
 							'index_id': parseInt(window.localStorage.getItem("draftVillageCollectionDraftId"))
 						},
 						success: function(args) {
-							window.history.back();
+							$state.go('poorVillage');
 						},
 						'error': function(args) {
 
@@ -352,7 +352,7 @@ myApp.controller("draftVillageCollection", ["$scope", "$state", "$http", "$state
 							'index_id': parseInt(window.localStorage.getItem("draftVillageCollectionDraftId"))
 						},
 						success: function(args) {
-							window.history.back();
+							$state.go('poorVillage');
 						},
 						'error': function(args) {
 

@@ -12,6 +12,9 @@ myApp.controller("naturalEdite", ["$scope", "$state", "$http", "$stateParams",
 		.success(function(res){
 			console.log(res);
 			zrcDetails.list=res;
+			zrcDetails.xingzhengcun();
+			zrcDetails.zirancun12();
+
 		});
 
 		//获取行政村
@@ -24,13 +27,17 @@ myApp.controller("naturalEdite", ["$scope", "$state", "$http", "$stateParams",
 		zrcDetails.xingzhengcun=function(){ 
 			postForm.saveFrm(config.path.xingzhengName,zrcDetails.xingzheng)
 			.success(function(res){
+				console.log(res)
 				zrcDetails.xingzhengcun.list=res;  
-				//console.log(JSON.stringify(zrcAdd.sendParam.lsxzc))
+				console.log(zrcDetails.list.lsxzc)
 			})
 		}
-		zrcDetails.xingzhengcun();
 		
-
+		
+//根据行政村关联自然村
+		zrcDetails.getzrc=function(){ 
+			zrcDetails.zirancun12() 
+		}
 		//获取全部自然村
 		zrcDetails.zirancun = {
 			lx:'03',
@@ -44,10 +51,7 @@ myApp.controller("naturalEdite", ["$scope", "$state", "$http", "$stateParams",
 			 	
 			})
 		}
-		//根据行政村关联自然村
-		zrcDetails.getzrc=function(){ 
-			zrcDetails.zirancun12() 
-		}
+		
 
 		//校验行政村
 		zrcDetails.lsxzc=function(){
@@ -81,13 +85,8 @@ myApp.controller("naturalEdite", ["$scope", "$state", "$http", "$stateParams",
 					zrcDetails.save();
 				})
 			}
-			
 		}
 		
-
-		
-
-
 		//返回时如没有上传则提示是否保存草稿
 		 zrcDetails.goback=function(){
 		 	fupin.confirm("是否保存为草稿", function() {
@@ -114,7 +113,6 @@ myApp.controller("naturalEdite", ["$scope", "$state", "$http", "$stateParams",
 				});
 			}
 			
-
 		$scope.zrcDetails = zrcDetails;
 	}
 ]);

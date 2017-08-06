@@ -1,3 +1,9 @@
+<style>
+	.villageCollection .content input{
+		text-align: right;
+    	padding-right: 1rem;
+	}
+</style>
 <div class="villageCollection projectAdd">
 		<header>
 			<div class="back" ng-click="projectAdd.back()"><img src="./assets/img/icon_28.png" alt=""></div>
@@ -48,7 +54,7 @@
 			<div class="item border-b">
 				<label for="xmleList">
 					<div class="name">项目类型</div>
-					<div class="content">
+					<div class="content" style="width: 50%;">
 						<select dir="rtl" name="" id="xmleList" ng-model="projectAdd.sendParam.xmlx" ng-options="key.id as key.name for key in projectAdd.xmleList">
 						</select>
 						<img src="./assets/img/icon2_11@2x.png" alt="">
@@ -60,7 +66,7 @@
 				<label for="xmje1">
 					<div class="name">投资金额</div>
 					<div class="content" >
-						<input id="xmje1" type="text" placeholder="请输入金额" ng-model="projectAdd.sendParam.xmje">
+						<input id="xmje1" type="number" placeholder="请输入金额" ng-model="projectAdd.sendParam.xmje">
 					</div>
 				</label>	
 			</div>
@@ -69,7 +75,7 @@
 				<label for="fpzj1">
 					<div class="name">扶贫资金</div>
 					<div class="content">
-						<input id="fpzj1" type="text" placeholder="请输入金额" ng-model="projectAdd.sendParam.fpzj">
+						<input id="fpzj1" type="number" placeholder="请输入金额" ng-model="projectAdd.sendParam.fpzj">
 					</div>
 				</label>	
 			</div>
@@ -103,7 +109,7 @@
 				</label>
 			</div>
 
-			<div class="item">
+			<div class="item border-b">
 				<!-- <div class="name">项目地点</div> -->
 				<label for="qyxzc1">
 					<div class="content" style="width: 50%;">
@@ -113,14 +119,14 @@
 					</div>
 				</label>
 			</div>			
-			<div class="item border-b">
+			<!-- <div class="item border-b">
 				<label for="xmdd1">
 					<div class="name"></div>
 					<div class="content">
 						<input id="xmdd1" type="text" placeholder="请输入详细地址" ng-model="projectAdd.sendParam.xmdd">
 					</div>
 				</label>	
-			</div>
+			</div> -->
 			
 			<div class="item border-b">
 				<label for="ssdw1">

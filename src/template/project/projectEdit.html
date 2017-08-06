@@ -1,4 +1,9 @@
-
+<style>
+	.villageCollection .content input{
+		text-align: right;
+    	padding-right: 1rem;
+	}
+</style>
 	<div class="villageCollection projectAdd">
 		<header>
 			<div class="back" ng-click="projectEdit.back()"><img src="./assets/img/icon_28.png" alt=""></div>
@@ -48,33 +53,33 @@
 			<div class="item border-b" >
 			<label for="projectEditxmleList">
 				<div class="name">项目类型</div>
-				<div class="content">
-					<select name="" id="projectEditxmleList" ng-model="projectEdit.sendParam.xmlx" ng-options="key.id as key.name for key in projectEdit.xmleList" >
+				<div class="content" style="width: 50%;">
+					<select dir="rtl" name="" id="projectEditxmleList" ng-model="projectEdit.sendParam.xmlx" ng-options="key.id as key.name for key in projectEdit.xmleList" >
 					</select>
 					<img src="./assets/img/icon2_11@2x.png" alt="">
 				</div>
 			</label>	
 			</div>
 
-			<div class="item">
+			<div class="item border-b">
 				<label for="projectEditxmje">
 					<div class="name">项目金额</div>
 					<div class="content">
-						<input id="projectEditxmje" type="text" placeholder="请输入金额" ng-model="projectEdit.sendParam.xmje">
+						<input id="projectEditxmje" type="number" placeholder="请输入金额" ng-model="projectEdit.sendParam.xmje">
 					</div>
 				</label>	
 			</div>
 
-			<div class="item">
+			<div class="item border-b">
 				<label for="projectEditfpzj">
 					<div class="name">扶贫资金</div>
 					<div class="content">
-						<input id="projectEditfpzj" type="text" placeholder="请输入金额" ng-model="projectEdit.sendParam.fpzj">
+						<input id="projectEditfpzj" type="number" placeholder="请输入金额" ng-model="projectEdit.sendParam.fpzj">
 					</div>
 				</label>	
 			</div>
 
-			<div class="item ">
+			<div class="item border-b">
 				<label for="projectEditdkje">
 					<div class="name">贷款金额</div>
 					<div class="content">
@@ -103,7 +108,7 @@
 				</label>	
 			</div>
 
-			<div class="item">
+			<div class="item border-b">
 				<!-- <div class="name">项目地点</div> -->
 				<label for="projectEditqyxzc">	
 					<div class="content" style="width: 50%;">
@@ -113,14 +118,14 @@
 					</div>
 				</label>
 			</div>			
-			<div class="item border-b" >
+			<!-- <div class="item border-b" >
 				<label for="projectEditxmdd">	
 					<div class="name"></div>
 					<div class="content">
 						<input id="projectEditxmdd" type="text" placeholder="请输入详细地址" ng-model="projectEdit.sendParam.xmdd">
 					</div>
 				</label>	
-			</div>
+			</div> -->
 			
 			<div class="item border-b">
 				<label for="projectEditssdw">

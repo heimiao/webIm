@@ -9,13 +9,21 @@ myApp.controller("projectAdd", ["$scope", "$state", "$http", "$stateParams","pos
 		// 获取所有乡镇
 		$http.post(config.path.townShip,null).success(function(res){
 			projectAdd.townShip = res;
-			projectAdd.sendParam.qyxz=res[0].id;
-			projectAdd.getVillageList(res[0].id, 1); //获取乡镇对应的行政村
+			if(window.localStorage.getItem("projectSituationList") != '' && window.localStorage.getItem("projectSituationList") != null && window.localStorage.getItem("projectSituationList") != undefined && window.localStorage.getItem("projectSituationList") != 'null'){
+
+			}else{
+				projectAdd.sendParam.qyxz=res[0].id;
+				projectAdd.getVillageList(res[0].id, 1); //获取乡镇对应的行政村
+				projectAdd.getXmList(1)
+			}
+			
 		})
 		// 获取所有行政村
 		projectAdd.getVillageList= function(id, num){
 			$http.post(config.path.villageAll+"&fid="+id,null).success(function(res){
-				projectAdd.sendParam.qyxzc = res[0].id;
+				if(num == 1){
+					projectAdd.sendParam.qyxzc = res[0].id;
+				}
 				projectAdd.villageListAll = res;
 			})
 		}
@@ -24,10 +32,16 @@ myApp.controller("projectAdd", ["$scope", "$state", "$http", "$stateParams","pos
 			projectAdd.getVillageList(projectAdd.sendParam.qyxz, 1); //获取乡镇对应的行政村
 		}
 		//从数据字典获取项目类型的选项
-		$http.post(config.path.projectsjzd,null).success(function(res){
-			projectAdd.xmleList=res;
-			projectAdd.sendParam.xmlx=projectAdd.xmleList[0].id; //默认选中第一个
-		})
+		projectAdd.getXmList=function(num){
+			$http.post(config.path.projectsjzd,null).success(function(res){
+				projectAdd.xmleList=res;
+				if(num == 1){
+					projectAdd.sendParam.xmlx=projectAdd.xmleList[0].id; //默认选中第一个
+				}
+				
+			})
+		}
+		
 		$("#tab div").click(function(){
 			$(this).addClass('bg').siblings().removeClass('bg');
 			$("#"+$(this).attr('data-type')).show().siblings().hide();
@@ -55,6 +69,8 @@ myApp.controller("projectAdd", ["$scope", "$state", "$http", "$stateParams","pos
 			projectAdd.getpkclistName = JSON.parse(window.localStorage.getItem("projectGetpkclistName"));
 			projectAdd.getPkhlist = JSON.parse(window.localStorage.getItem("projectGetpkhlist"));
 			projectAdd.getPkhlistName = JSON.parse(window.localStorage.getItem("projectGetpkhlistName"));
+			projectAdd.getVillageList(projectAdd.sendParam.qyxz)
+			projectAdd.getXmList();
 			if(projectAdd.sendParam.pkcxm == 'Y'){
 				$("#xzsjpkc").addClass('selected')
 			}else{

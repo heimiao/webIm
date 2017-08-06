@@ -9,6 +9,13 @@ myApp.controller("editAddTaskForce", ["$scope", "$state", "$http", "$stateParams
 		editAddTaskForce.sfdysj = "是"; //默认值
 		editAddTaskForce.alert = false; //弹窗显示
 		editAddTaskForce.addTask=function(){
+			if(!editAddTaskForce.bfdwzcgzdyxm){
+				fupin.alert("请您输入姓名")
+				return;
+			}
+			editAddTaskForce.addTasks();
+		}
+		editAddTaskForce.addTasks=function(){
 			if(window.localStorage.getItem("taskForceList") != 'null' && window.localStorage.getItem("taskForceList") != '' && window.localStorage.getItem("taskForceList") != undefined && window.localStorage.getItem("taskForceList") != null){
 				var taskForce= JSON.parse(window.localStorage.getItem("taskForceList"))
 			}else{
@@ -35,7 +42,7 @@ myApp.controller("editAddTaskForce", ["$scope", "$state", "$http", "$stateParams
 			editAddTaskForce.alert = true;
 		}
 		editAddTaskForce.confirm=function(){
-			editAddTaskForce.addTask();
+			editAddTaskForce.addTasks();
 			editAddTaskForce.alert = false;
 		}
 		editAddTaskForce.cancel = function(){
