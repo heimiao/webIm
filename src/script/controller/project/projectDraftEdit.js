@@ -141,6 +141,10 @@ myApp.controller("projectDraftEdit", ["$scope", "$state", "$http", "$stateParams
 				fupin.alert("请完善基本情况中的信息")
 				return;
 			}
+			if(projectDraftEdit.sendParam.pkcxm == 'N' && projectDraftEdit.sendParam.pkhxm == 'N'){
+				fupin.alert("请完善基本情况中的信息")
+				return;
+			}
 			projectDraftEdit.addAll();
 			delete projectDraftEdit.addProjectSituationList.exproperty;
 			if(projectDraftEdit.eiditId){

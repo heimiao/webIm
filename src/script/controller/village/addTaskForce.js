@@ -10,7 +10,7 @@ myApp.controller("addTaskForce", ["$scope", "$state", "$http", "$stateParams",
 		addTaskForce.alert = false; //弹窗显示
 		addTaskForce.addTask=function(){
 			if(window.localStorage.getItem("taskForceList") != 'null' && window.localStorage.getItem("taskForceList") != '' && window.localStorage.getItem("taskForceList") != undefined && window.localStorage.getItem("taskForceList") != null){
-				var taskForce= window.localStorage.getItem("taskForceList")
+				var taskForce= JSON.parse(window.localStorage.getItem("taskForceList"))
 			}else{
 				var taskForce= [];
 			}

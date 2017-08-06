@@ -18,7 +18,11 @@
 			<tbody>
 				<tr ng-repeat="item in projectDraft.list" ui-sref="projectDraftEdit({draftId:item.index_id})">
 					<td class="text-center" ng-bind="item.projectSituationList.xmmc"></td>
-					<td class="text-center" ng-bind="item.projectSituationList.pkcxm == 'Y'?'贫困村项目':item.projectSituationList.pkcxm == 'N'?' ':item.projectSituationList.pkhxm == 'Y'?'贫困户项目':''"></td>
+					<td class="text-center">
+						<span ng-if="item.projectSituationList.pkcxm=='Y'">贫困村项目</span>
+						<span ng-if="item.projectSituationList.pkcxm=='Y'&&item.projectSituationList.pkhxm=='Y'">&</span>
+						<span ng-if="item.projectSituationList.pkhxm=='Y'">贫困户项目</span>
+					</td>
 				</tr>
 				
 			</tbody>

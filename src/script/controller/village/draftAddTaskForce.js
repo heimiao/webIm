@@ -11,7 +11,7 @@ myApp.controller("draftAddTaskForce", ["$scope", "$state", "$http", "$stateParam
 		draftAddTaskForce.alert = false; //弹窗显示
 		draftAddTaskForce.addTask=function(){
 			if(window.localStorage.getItem("taskForceList") != 'null' && window.localStorage.getItem("taskForceList") != '' && window.localStorage.getItem("taskForceList") != undefined && window.localStorage.getItem("taskForceList") != null){
-				var taskForce= window.localStorage.getItem("taskForceList")
+				var taskForce= JSON.parse(window.localStorage.getItem("taskForceList"));
 			}else{
 				var taskForce= [];
 			}

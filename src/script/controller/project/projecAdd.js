@@ -66,7 +66,7 @@ myApp.controller("projectAdd", ["$scope", "$state", "$http", "$stateParams","pos
 				$("#xzsjpkh").removeClass('selected')
 			}
 		}else{
-			projectAdd.sendParam.pkcxm='Y';
+			projectAdd.sendParam.pkcxm='N';
 			projectAdd.sendParam.pkhxm='N';
 		}
 		if(window.localStorage.getItem("projectType") == "1"){
@@ -80,6 +80,10 @@ myApp.controller("projectAdd", ["$scope", "$state", "$http", "$stateParams","pos
 		//添加扶贫项目
 		projectAdd.tianjia=function(){
 			if(!projectAdd.sendParam.xmmc){
+				fupin.alert("请完善基本情况中的信息")
+				return;
+			}
+			if(projectAdd.sendParam.pkcxm == 'N' && projectAdd.sendParam.pkhxm == 'N'){
 				fupin.alert("请完善基本情况中的信息")
 				return;
 			}
