@@ -137,7 +137,16 @@
 					</div>
 				</lable>	
 			</div>
-			
+			<div class="item border-b">
+				<label for="xmjd">
+					<div class="name">项目进度</div>
+					<div class="content" style="width: 50%;">
+						<select dir="rtl" name="" id="xmjd" ng-model="projectDraftEdit.sendParam.xmjd" ng-options="key.id as key.name for key in projectDraftEdit.xmjdList">
+						</select>
+						<img src="./assets/img/icon2_11@2x.png" alt="">
+					</div>
+				</label>	
+			</div>
 			
 			<!--文本框-->
 			<div class="projectcx">
@@ -150,10 +159,10 @@
 				<textarea ng-model="projectDraftEdit.sendParam.xmjj"></textarea>
 			</div>
 
-			<div class="projectcx">
+			<!-- <div class="projectcx">
 				<div class="projectcxText">项目进度</div>
 				<textarea ng-model="projectDraftEdit.sendParam.xmjd"></textarea>
-			</div>
+			</div> -->
 			
 		</div>
 		<!-- 涉及贫困村 -->
