@@ -316,7 +316,7 @@ myApp.controller("draftVillageCollection", ["$scope", "$state", "$http", "$state
 							'index_id': parseInt(window.localStorage.getItem("draftVillageCollectionDraftId"))
 						},
 						success: function(args) {
-							window.history.back();
+							$state.go('poorVillage');
 						},
 						'error': function(args) {
 
@@ -352,7 +352,7 @@ myApp.controller("draftVillageCollection", ["$scope", "$state", "$http", "$state
 							'index_id': parseInt(window.localStorage.getItem("draftVillageCollectionDraftId"))
 						},
 						success: function(args) {
-							window.history.back();
+							$state.go('poorVillage');
 						},
 						'error': function(args) {
 

@@ -10,6 +10,13 @@ myApp.controller("draftAddTaskForce", ["$scope", "$state", "$http", "$stateParam
 		draftAddTaskForce.fid = $stateParams.fid; //
 		draftAddTaskForce.alert = false; //弹窗显示
 		draftAddTaskForce.addTask=function(){
+			if(!draftAddTaskForce.bfdwzcgzdyxm){
+				fupin.alert("请您输入姓名")
+				return;
+			}
+			draftAddTaskForce.addTasks();
+		}
+		draftAddTaskForce.addTasks=function(){
 			if(window.localStorage.getItem("taskForceList") != 'null' && window.localStorage.getItem("taskForceList") != '' && window.localStorage.getItem("taskForceList") != undefined && window.localStorage.getItem("taskForceList") != null){
 				var taskForce= JSON.parse(window.localStorage.getItem("taskForceList"));
 			}else{
@@ -52,7 +59,7 @@ myApp.controller("draftAddTaskForce", ["$scope", "$state", "$http", "$stateParam
 			draftAddTaskForce.alert = true;
 		}
 		draftAddTaskForce.confirm=function(){
-			draftAddTaskForce.addTask();
+			draftAddTaskForce.addTasks();
 			draftAddTaskForce.alert = false;
 		}
 		draftAddTaskForce.cancel = function(){

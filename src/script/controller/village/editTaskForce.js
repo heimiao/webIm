@@ -21,6 +21,13 @@ myApp.controller("editTaskForce", ["$scope", "$state", "$http", "$stateParams",
 			}
 		}
 		editTaskForce.save=function(){
+			if(!editTaskForce.bfdwzcgzdyxm){
+				fupin.alert("请您输入姓名")
+				return;
+			}
+			editTaskForce.saves();
+		}
+		editTaskForce.saves=function(){
 				editTaskForce.taskForce[editTaskForce.id].bfdwzcgzdyxm = editTaskForce.bfdwzcgzdyxm,
 				editTaskForce.taskForce[editTaskForce.id].zzmm = editTaskForce.zzmm,
 				editTaskForce.taskForce[editTaskForce.id].zjhm = editTaskForce.zjhm,
@@ -48,7 +55,7 @@ myApp.controller("editTaskForce", ["$scope", "$state", "$http", "$stateParams",
 			editTaskForce.alert = true;
 		}
 		editTaskForce.confirm=function(){
-			editTaskForce.save();
+			editTaskForce.saves();
 			editTaskForce.alert = false;
 		}
 		editTaskForce.cancel = function(){
