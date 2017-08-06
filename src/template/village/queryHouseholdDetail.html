@@ -10,10 +10,10 @@
 		<div class="container-fluid pkhcj">
 			<div class="cheader " style="padding: 0;">
 				<div class="pfanhui pull-left" onclick="javascript:history.go(-1)">
-					<img src="./assets/img/icon_28.png" />
+					<img style="width: 3.2rem" src="./assets/img/icon_28.png" />
 				</div>
 				<div class="pname text-center ">贫困户数据查询</div>
-				<div class="panniu cd-nav-trigger ">Menu<span></span></div>
+				<div class="panniu cd-nav-trigger " style="width: 2.5rem;margin-top: .5rem;">Menu<span></span></div>
 			</div>
 		</div>
 		<main>
@@ -56,7 +56,7 @@
 									<span ng-bind="queryHouseholdDetail.list.qyzrc"></span>
 								</div>
 							</div>
-							<!-- <div class="pkcList pkcListTel clearfix">
+							<!--  <div class="pkcList pkcListTel clearfix">
 								<label class="col-xs-4">联系电话</label>
 								<div class="col-xs-5 padd0 queryRight" >
 									<span>150123456789</span>
@@ -101,15 +101,16 @@
 							<div class="pkcList pkcListTel clearfix border-b">
 								<label class="">A10脱贫状态</label>
 								<div class="col-xs-5 padd0 queryRight" >
-									<span ng-bind="queryHouseholdDetail.list.tpqk"></span>
+									<span ng-bind="queryHouseholdDetail.list.tpqk == '02'?'返贫贫困户':queryHouseholdDetail.list.tpqk == '03'?'历史已脱贫贫困户':queryHouseholdDetail.list.tpqk == '04'?'未脱贫贫困户': queryHouseholdDetail.list.tpqk == '05'?'新脱贫贫困户':'无'"></span>
 								</div>
 							</div>
-							<div class="pkcList pkcListTel clearfix border-b">
+							<div class="pkcList pkcListTel clearfix">
 								<label class="">不脱贫原因</label>
-								<div class="col-xs-5 padd0 queryRight" >
-									<span ng-bind="queryHouseholdDetail.list.zyzpyy"></span>
-								</div>
+								
 							</div>
+							<div class="pkcList pkcListTel clearfix padd0  border-b" >
+									<span ng-bind="queryHouseholdDetail.list.zyzpyy == '01'?'人均纯收入超过扶贫标准，但没有实现两不愁三保障':queryHouseholdDetail.list.zyzpyy == '02'?'虽然享受了扶持政策，但当年扶贫成效不显著':queryHouseholdDetail.list.zyzpyy == '03'?'建档立卡“回头看”后新纳入':queryHouseholdDetail.list.zyzpyy == '04'?'因残致贫无固定收入':queryHouseholdDetail.list.zyzpyy == '05'?'家中有大病、重病病人，正在接受治疗':queryHouseholdDetail.list.zyzpyy == '06'?'因病因学支出明显大于收入':queryHouseholdDetail.list.zyzpyy == '07'?'收入没有稳定超过贫困退出标准':queryHouseholdDetail.list.zyzpyy == '08'?'五保贫困户':queryHouseholdDetail.list.zyzpyy == '09'?'老弱病残等无劳动能力的一类低保对象':queryHouseholdDetail.list.zyzpyy == '10'?'易地搬迁贫困人口没有取得新房钥匙':'无'"></span>
+								</div>
 						</div>
 						<div class="pkhcjTitle">
 							<p class="pull-left"></p><span>治贫原因</span>
@@ -117,49 +118,52 @@
 						<div class="pkcList pkcListTel clearfix border-b">
 							<label class="">A22主要治贫原因</label>
 							<div class="col-xs-5 padd0 queryRight" >
-								<span>自身发展动力不足</span>
+								<span ng-bind="queryHouseholdDetail.list.zyzpyy == '01'?'因病':queryHouseholdDetail.list.zyzpyy == '02'?'因残':queryHouseholdDetail.list.zyzpyy == '03'?'因学':queryHouseholdDetail.list.zyzpyy == '04'?'因灾':queryHouseholdDetail.list.zyzpyy == '05'?'缺土地':queryHouseholdDetail.list.zyzpyy == '06'?'缺水':queryHouseholdDetail.list.zyzpyy == '07'?'缺技术':queryHouseholdDetail.list.zyzpyy == '08'?'缺劳动力':queryHouseholdDetail.list.zyzpyy == '09'?'缺资金':queryHouseholdDetail.list.zyzpyy == '10'?'交通条件落后':queryHouseholdDetail.list.zyzpyy == '11'?'自身发展动力不足':'其他'"></span>
 							</div>
 						</div>
-						<div class="pkcList pkcListTel clearfix border-b">
+						<!-- <div class="pkcList pkcListTel clearfix border-b">
 							<label class="">其他治贫原因</label>
 							<div class="col-xs-5 padd0 queryRight" >
-								<span>交通条件落后</span>
+								<span ng-bind="queryHouseholdDetail.list.">交通条件落后</span>
 							</div>
-						</div>
+						</div> -->
 						<div class="pkhcjTitle">
 							<p class="pull-left"></p><span>易地搬迁户需求</span>
 						</div>
 						<div class="pkcList pkcListTel clearfix border-b">
 							<label class="">A44 是否搬迁户</label>
 							<div class="col-xs-5 padd0 queryRight" >
-								<span>是</span>
+								<span ng-bind="queryHouseholdDetail.list.sfbqh == 'y'?'是':'否'"></span>
 							</div>
 						</div>
 						<div class="pkcList pkcListTel clearfix border-b">
 							<label class="">A45 搬迁方式</label>
 							<div class="col-xs-5 padd0 queryRight" >
-								<span>行政区整体搬迁</span>
+								<span ng-bind="queryHouseholdDetail.list.bqfs == '01'?'行政区整体搬迁':queryHouseholdDetail.list.bqfs == '02'?'自然村（村民小组）整体搬迁':queryHouseholdDetail.list.bqfs == '03'?'建档立卡贫困户个别搬迁':'无'"></span>
 							</div>
 						</div>
 						<div class="pkcList pkcListTel clearfix border-b">
 							<label class="">A47 安置方式</label>
 							<div class="col-xs-5 padd0 queryRight" >
-								<span>集中安置</span>
+								<span ng-bind="queryHouseholdDetail.list.azfs == 'jz'?'集中安置':queryHouseholdDetail.list.azfs == 'fs'?'分散安置':'无'"></span>
 							</div>
 						</div>
 						<div class="pkcList pkcListTel clearfix border-b">
 							<label class="">A48 安置地</label>
 							<div class="col-xs-5 padd0 queryRight" >
-								<span>县城安置</span>
+								<span ng-bind="queryHouseholdDetail.list.azd == 'a'?'县城安置':queryHouseholdDetail.list.azd == 'b'?'乡镇安置':queryHouseholdDetail.list.azd == 'c'?'县外安置':queryHouseholdDetail.list.azd == 'd'?'村外安置':queryHouseholdDetail.list.azd == 'e'?'村内安置':'无'"></span>
 							</div>
 						</div>
 						<div class="pkcList pkcListTel clearfix border-b">
 							<label class="">A49 搬迁可能存在的困难</label>
 							<div class="col-xs-5 padd0 queryRight" >
-								<span>搬迁可能存在的困难搬迁可能存在的困难搬迁可能存在的困难</span>
+								<span ng-bind="queryHouseholdDetail.list.bqknczkn_qfzj == 'Y'?'缺乏资金':''"></span>
+								<span ng-bind="queryHouseholdDetail.list.bqknczkn_bqhzbdgz == 'Y'?'搬迁后找不到工作':''"></span>
+								<span ng-bind="queryHouseholdDetail.list.bqknczkn_bqhshmzl == 'Y'?'搬迁后生活没着落':''"></span>
+								<span ng-bind="queryHouseholdDetail.list.bqknczkn_qt == 'Y'?'其他':''"></span>
 							</div>
 						</div>
-						<div class="pkcList pkcListTel clearfix border-b">
+						<!-- <div class="pkcList pkcListTel clearfix border-b">
 							<label class="">搬迁去向</label>
 							<div class="col-xs-5 padd0 queryRight" >
 								<span>县城安县城安置县城安置县城安置县城安置置</span>
@@ -170,7 +174,7 @@
 							<div class="col-xs-5 padd0 queryRight" >
 								<span>清华大学校区清华大学校区清华大学校区</span>
 							</div>
-						</div>
+						</div> -->
 					</div> 
 					<!-- 家庭成员信息 -->
 					<section id="family" class="cd-section index cd-selected">
@@ -178,7 +182,7 @@
 							<div class="pkhcjTitle" id="pkhjbxx">
 								<p class="pull-left"></p><span>家庭成员信息</span>
 							</div>
-							<a href="queryFamily.html"><div class="pkInfoCon border-b">
+							<!-- <div class="pkInfoCon border-b">
 								<div class="imgCon">
 									<img src="./assets/img/head.png" alt="" style="width:100%;height:100%;">
 								</div>
@@ -189,8 +193,8 @@
 										<span class="infoName">户主</span>
 									</p>
 								</div>
-							</div></a>
-							<div class="pkInfoCon border-b">
+							</div> -->
+							<!-- <div class="pkInfoCon border-b">
 								<div class="imgCon">
 									<img src="./assets/img/head.png" alt="" style="width:100%;height:100%;">
 								</div>
@@ -201,16 +205,16 @@
 										<span class="infoName">户主</span>
 									</p>
 								</div>
-							</div>
-							<div class="pkInfoCon border-b">
+							</div> -->
+							<div class="pkInfoCon border-b" ng-repeat="item in queryHouseholdDetail.getLowFamilyList">
 								<div class="imgCon">
 									<img src="./assets/img/head.png" alt="" style="width:100%;height:100%;">
 								</div>
 								<div class="info">
-									<p><span class="name">王老先生</span><span class="sex">男</span><span class="age">85岁</span></p>
-									<p>联系方式: <span class="phone">153123456787</span></p>
+									<p><span class="name" ng-bind="item.xm"></span><span class="sex" ng-bind="item.xb"></span><span class="age" ng-bind="item.nl+'岁'"></span></p>
+									<p>联系方式: <span class="phone" ng-bind="item.lxdh"></span></p>
 									<p>
-										<span class="infoName">户主</span>
+										<span class="infoName" ng-bind="item.yhzgx"></span>
 									</p>
 								</div>
 							</div>
@@ -454,15 +458,10 @@
 										</tr>
 									</thead>
 									<tbody>
-										<tr onclick="queryHelp()">
-											<td class="text-center">曹操</td>
-											<td class="text-center">男</td>
-											<td class="text-center">2017-01-01</td>
-										</tr>
-										<tr>
-											<td class="text-center">貂蝉</td>
-											<td class="text-center">女</td>
-											<td class="text-center">2017-01-01</td>
+										<tr ng-repeat="item in queryHouseholdDetail.bfdxList">
+											<td class="text-center" ng-bind="item.xm"></td>
+											<td class="text-center" ng-bind="item.xb"></td>
+											<td class="text-center" ng-bind="item.kssj"></td>
 										</tr>
 									</tbody>
 								</table>
@@ -622,7 +621,7 @@
 		<!-- 导航部分 -->
 		<nav class="cd-nav-container" id="cd-nav">
 			<header class="menuHeader">
-				<a href="#0" class="cd-close-nav">Close</a>
+				<a href="#0" class="cd-close-nav" style="width: 2.5rem;height:auto">Close</a>
 			</header>
 			<div class="navList" id="navList">
 				<div class="navListItem" data-type="pkcjb">

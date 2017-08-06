@@ -10,10 +10,9 @@ myApp.controller("naturalEdite", ["$scope", "$state", "$http", "$stateParams",
 		zrcDetails.list = {};
 		$http.post(config.path.zrcDetails+"?id="+zrcDetails.canshu.id)
 		.success(function(res){
-			console.log(res);
-			zrcDetails.list=res;
 			zrcDetails.xingzhengcun();
 			zrcDetails.zirancun12();
+			zrcDetails.list=res;
 
 		});
 

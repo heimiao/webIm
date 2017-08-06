@@ -46,6 +46,7 @@ myApp.controller("naturalVillage", ["$scope", "$state", "$http", "$stateParams",
 			// var sunParm=angular.extend({},natural.page,natural.sendParam)
 			postForm.saveFrm(config.path.naturalVillage,natural.pages)
 			.success(function(res){
+				if(res.results){
 				//循环行政村id赋值
 				for(var r=0;r<res.results.length;r++){
 					for(var i=0;i<returnData.length;i++){
@@ -74,6 +75,9 @@ myApp.controller("naturalVillage", ["$scope", "$state", "$http", "$stateParams",
 					natural.list=res.results;
 				}
 				natural.start= natural.start + res.results.length;
+				}else{
+					natural.list=[];
+				}
 			})
 		
 		}
