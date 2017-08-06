@@ -36,6 +36,8 @@ myApp.controller("poorVillage", ["$scope", "$state", "$http", "$stateParams","$t
 			$(".townshipList").slideUp(200)
 			$("#township").removeClass("township2")
 			$("#township .name").removeClass("col-ea3c4c")
+			$("#village .name").html('全部行政村')
+			poorVillage.sendParam.villageListId = null;
 			$http.post(config.path.villageAll+"&fid="+id,null).success(function(res){
 				poorVillage.villageList = res;
 			})

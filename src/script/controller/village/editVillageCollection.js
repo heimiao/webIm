@@ -423,7 +423,7 @@ myApp.controller("editVillageCollection", ["$scope", "$state", "$http", "$stateP
 					'qyxzcName': editVillageCollection.qyxzcName
 				},
 				success: function(args) {
-					window.history.back();
+					$state.go('villageDraft');
 				},
 				error: function(args) {
 

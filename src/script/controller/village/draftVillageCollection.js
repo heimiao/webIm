@@ -499,7 +499,7 @@ myApp.controller("draftVillageCollection", ["$scope", "$state", "$http", "$state
 					'qyxzcName': draftVillageCollection.qyxzcName
 				},
 				success: function(args) {
-					window.history.back();
+					$state.go('villageDraft');
 				},
 				error: function(args) {
 

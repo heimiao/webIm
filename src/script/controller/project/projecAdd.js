@@ -139,7 +139,7 @@ myApp.controller("projectAdd", ["$scope", "$state", "$http", "$stateParams","pos
 					},
 					success: function(args) {
 						// console.log(args);
-						window.history.back()
+						$state.go('projectDraft');
 					},
 					'error': function(args) {
 						window.history.back()

@@ -65,6 +65,21 @@ myApp.controller("projecEditsjpkh", ["$scope", "$state", "$http", "$stateParams"
 					window.history.back();
 			});
 		}
+		projecEditsjpkh.deleteBtn = function(){
+			for(var i=0,Earr=[];i<projecEditsjpkh.projectGetpkhlist.length;i++){
+				if(i != projecEditsjpkh.idx){
+					Earr.push(projecEditsjpkh.projectGetpkhlist[i])
+				}
+			}
+			for(var i=0,Earr=[];i<projecEditsjpkh.projectGetpkhlistName.length;i++){
+				if(i != projecEditsjpkh.idx){
+					Earr.push(projecEditsjpkh.projectGetpkhlistName[i])
+				}
+			}
+			window.localStorage.setItem('projectGetpkhlist', JSON.stringify(Earr))
+			window.localStorage.setItem('projectGetpkhlistName', JSON.stringify(Earr))
+			window.history.back();
+		}
 		$scope.projecEditsjpkh = projecEditsjpkh;
 	}
 ]);

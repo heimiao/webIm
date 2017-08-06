@@ -324,9 +324,6 @@ myApp.controller("villageCollection", ["$scope", "$state", "$http", "$stateParam
 		// 弹窗
 		villageCollection.back=function(){
 			villageCollection.getAllData();
-			if(villageCollection.localData){
-				
-			}
 			villageCollection.alert = true;
 		}
 		villageCollection.confirm=function(){
@@ -340,7 +337,7 @@ myApp.controller("villageCollection", ["$scope", "$state", "$http", "$stateParam
 					'qyxzcName': villageCollection.qyxzcName
 				},
 				success: function(args) {
-					window.history.back();
+					$state.go('villageDraft');
 				},
 				error: function(args) {
 

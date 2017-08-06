@@ -209,7 +209,7 @@ myApp.controller("projectEdit", ["$scope", "$state", "$http", "$stateParams","po
 					},
 					success: function(args) {
 						// console.log(args);
-						window.history.back()
+						$state.go('projectDraft');
 					},
 					'error': function(args) {
 						window.history.back()
