@@ -20,7 +20,7 @@
 				<div class="projectqk" id="xzsjpkc" ng-model="projectEdit.sendParam.pkcxm" >贫困村项目</div>
 				<div class="projectqk" id="xzsjpkh" ng-model="projectEdit.sendParam.pkhxm">贫困户项目</div>
 			</div>
-			<div class="item border-b" >
+			<div class="item border-b" style="padding:1.2rem 0.7rem" >
 				<div class="name">年度</div>
 				<div class="content">
 					<select name="" id="" ng-model="projectEdit.sendParam.nd">
@@ -37,78 +37,98 @@
 			</div>
 
 			<div class="item border-b">
-				<div class="name">项目名称</div>
-				<div class="content">
-					<input type="text" placeholder="请输入项目名称" ng-model="projectEdit.sendParam.xmmc">
-				</div>
+				<label for="projectEditxmmc" >
+					<div class="name">项目名称</div>
+					<div class="content">
+						<input id="projectEditxmmc" type="text" placeholder="请输入项目名称" ng-model="projectEdit.sendParam.xmmc" dir="rtl" style="width: 10rem; margin-right:1rem ">
+					</div>
+				</label>	
 			</div>
 
 			<div class="item border-b" >
+			<label for="projectEditxmleList">
 				<div class="name">项目类型</div>
 				<div class="content">
-					<select name="" id="" ng-model="projectEdit.sendParam.xmlx" ng-options="key.id as key.name for key in projectEdit.xmleList" >
+					<select name="" id="projectEditxmleList" ng-model="projectEdit.sendParam.xmlx" ng-options="key.id as key.name for key in projectEdit.xmleList" >
 					</select>
 					<img src="./assets/img/icon2_11@2x.png" alt="">
 				</div>
+			</label>	
 			</div>
 
 			<div class="item">
-				<div class="name">项目金额</div>
-				<div class="content">
-					<input type="text" placeholder="请输入金额" ng-model="projectEdit.sendParam.xmje">
-				</div>
+				<label for="projectEditxmje">
+					<div class="name">项目金额</div>
+					<div class="content">
+						<input id="projectEditxmje" type="text" placeholder="请输入金额" ng-model="projectEdit.sendParam.xmje" dir="rtl">
+					</div>
+				</label>	
 			</div>
 
 			<div class="item">
-				<div class="name">扶贫资金</div>
-				<div class="content">
-					<input type="text" placeholder="请输入金额" ng-model="projectEdit.sendParam.fpzj">
-				</div>
+				<label for="projectEditfpzj">
+					<div class="name">扶贫资金</div>
+					<div class="content">
+						<input id="projectEditfpzj" type="text" placeholder="请输入金额" ng-model="projectEdit.sendParam.fpzj" dir="rtl">
+					</div>
+				</label>	
 			</div>
 
 			<div class="item ">
-				<div class="name">贷款金额</div>
-				<div class="content">
-					<input type="number" placeholder="请输入金额" ng-model="projectEdit.sendParam.dkje">
-				</div>
+				<label for="projectEditdkje">
+					<div class="name">贷款金额</div>
+					<div class="content">
+						<input id="projectEditdkje" type="number" placeholder="请输入金额" ng-model="projectEdit.sendParam.dkje" dir="rtl">
+					</div>
+				</label>	
 			</div>
 			
 			<div class="item border-b">
-				<div class="name">自筹金额</div>
-				<div class="content">
-					<input type="number" placeholder="请输入金额" ng-model="projectEdit.sendParam.zcje">
-				</div>
+				<label for="projectEditzcje">
+					<div class="name">自筹金额</div>
+					<div class="content">
+						<input id="projectEditzcje" type="number" placeholder="请输入金额" ng-model="projectEdit.sendParam.zcje" dir="rtl">
+					</div>
+				</label>
 			</div>
 	
 			<div class="item ">
-				<div class="name">项目地点</div>
-				<div class="content" style="width: 50%;">
-					<select dir="rtl" name="" id="" ng-model="projectEdit.sendParam.qyxz" ng-options="key.id as key.name for key in projectEdit.townShip" ng-change="projectEdit.changeTown()">
-					</select>
-					<img src="./assets/img/icon2_11@2x.png" alt="">
-				</div>
+				<label for="projectEditqyxz">
+					<div class="name">项目地点</div>
+					<div class="content" style="width: 50%;">
+						<select dir="rtl" name="" id="projectEditqyxz" ng-model="projectEdit.sendParam.qyxz" ng-options="key.id as key.name for key in projectEdit.townShip" ng-change="projectEdit.changeTown()">
+						</select>
+						<img src="./assets/img/icon2_11@2x.png" alt="">
+					</div>
+				</label>	
 			</div>
 
 			<div class="item">
 				<!-- <div class="name">项目地点</div> -->
-				<div class="content" style="width: 50%;">
-					<select dir="rtl" name="" id="" ng-model="projectEdit.sendParam.qyxzc" ng-options="key.id as key.name for key in projectEdit.villageListAll" >
-					</select>
-					<img src="./assets/img/icon2_11@2x.png" alt="">
-				</div>
+				<label for="projectEditqyxzc">	
+					<div class="content" style="width: 50%;">
+						<select dir="rtl" name="" id="projectEditqyxzc" ng-model="projectEdit.sendParam.qyxzc" ng-options="key.id as key.name for key in projectEdit.villageListAll" >
+						</select>
+						<img src="./assets/img/icon2_11@2x.png" alt="">
+					</div>
+				</label>
 			</div>			
 			<div class="item border-b" >
-				<div class="name"></div>
-				<div class="content">
-					<input type="text" placeholder="请输入详细地址" ng-model="projectEdit.sendParam.xmdd">
-				</div>
+				<label for="projectEditxmdd">	
+					<div class="name"></div>
+					<div class="content">
+						<input id="projectEditxmdd" type="text" placeholder="请输入详细地址" ng-model="projectEdit.sendParam.xmdd" dir="rtl">
+					</div>
+				</label>	
 			</div>
 			
 			<div class="item border-b">
-				<div class="name">实施主体</div>
-				<div class="content">
-					<input type="number" placeholder="请输入具体内容" ng-model="projectEdit.sendParam.ssdw">
-				</div>
+				<label for="projectEditssdw">
+					<div class="name">实施主体</div>
+					<div class="content">
+						<input id="projectEditssdw" type="number" placeholder="请输入具体内容" ng-model="projectEdit.sendParam.ssdw" dir="rtl">
+					</div>
+				</label>	
 			</div>
 			
 			
@@ -187,8 +207,15 @@
 		</div>
 	</div>
 	<style type="text/css">
+		label{
+			width: 100%;
+			margin-top:0.6rem 
+		}
 		.selected{
 			background-color: #ea3c4c;
 			color: #fff !important;
+		}
+		.content input{
+			padding-right: 10px
 		}
 	</style>

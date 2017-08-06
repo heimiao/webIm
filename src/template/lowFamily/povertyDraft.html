@@ -21,7 +21,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="item in lowFamilyDraft.list" ui-sref="lowFamily.baseInfo({id:item.index_id,type:'local'})">
+			<tr ng-repeat="item in lowFamilyDraft.list track by $index" ui-sref="lowFamily.baseInfo({id:item.index_id,type:'local'})">
 				<td class="text-center" ng-bind="item.baseInfo_model.qyxz.name">张北镇</td>
 				<td class="text-center" ng-bind="item.baseInfo_model.qyxzc.name">黄土湾村</td>
 				<td class="text-center" ng-bind="item.baseInfo_model.hzxm">王翠娥</td>

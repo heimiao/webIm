@@ -74,40 +74,70 @@ myApp.controller("low_family_baseCtro", ["$scope", "$rootScope", "$state", "$htt
 					low_family_baseInfo.formInfo = infoObj
 					low_family_baseInfo.oldObj = infoObj;
 				} else {
-					if(low_family_baseInfo.urlParam.type == "net") {
-						postForm.saveFrm(config.path.lowFamilyById, {
-							id: low_family_baseInfo.urlParam.id
-						}).success(function(data) {
-							var localData = fupin.lineToLocalData(data, lowFamilyInfoModel);
-							fupin.localCache(JSON.stringify(localData));
-							var infoObj = localData.baseInfo_model;
-							low_family_baseInfo.getAddress(infoObj.qyxz, infoObj.qyxzc);
-							low_family_baseInfo.formInfo = infoObj
-							low_family_baseInfo.oldObj = infoObj;
-						})
-					}
-					if(low_family_baseInfo.urlParam.type == "local") {
-						dt.request({
-							rqstName: "low_family", //'low_family', 'low_village', 'nature_village', 'relief_project'
-							type: "selectById", //select,delete,put,selectById,
-							param: {
-								index_id: low_family_baseInfo.urlParam.id
-							},
-							success: function(data) {
-								var infoObj = data.baseInfo_model;
+					try {
+						if(low_family_baseInfo.urlParam.type == "net") {
+							postForm.saveFrm(config.path.lowFamilyById, {
+								id: low_family_baseInfo.urlParam.id
+							}).success(function(data) {
+								var localData = fupin.lineToLocalData(data, lowFamilyInfoModel);
+								//请求家庭成员
+								postForm.saveFrm(config.path.getLowFamilyList, {
+									fid: low_family_baseInfo.urlParam.id
+								}).success(function(args) {
+									var datas = args;
+									$.each(datas, function(index, item) {
+										if(item.filegrpid)
+											angular.extend(item, {
+												pkhjc_fj_id: item.filegrpid
+											});
+									});
+									var jtcy = fupin.mapArray(datas, config.sysValue.YHZGX, "yhzgx", "value");
+									localData.familyInfo_model = jtcy;
+									fupin.localCache(JSON.stringify(localData));
+									//请求帮扶责任人
+									postForm.saveFrm(config.path.getassistPersonList, {
+										fid: low_family_baseInfo.urlParam.id
+									}).success(function(datas) {
+										localData.assistPerson_model = datas;
+										fupin.localCache(JSON.stringify(localData));
+									});
+								});
+
+								fupin.localCache(JSON.stringify(localData));
+								var infoObj = localData.baseInfo_model;
 								low_family_baseInfo.getAddress(infoObj.qyxz, infoObj.qyxzc);
-								low_family_baseInfo.formInfo = infoObj;
-								fupin.localCache(JSON.stringify(data));
-							},
-							'error': function(data) {
-								fupin.alert("请求本地用户详细报错");
-							}
-						});
+								low_family_baseInfo.formInfo = infoObj
+								low_family_baseInfo.oldObj = infoObj;
+							})
+						}
+					} catch(e) {
+						$.alert("请查看是否断网")
+					}
+					try {
+						if(low_family_baseInfo.urlParam.type == "local") {
+							dt.request({
+								rqstName: "low_family", //'low_family', 'low_village', 'nature_village', 'relief_project'
+								type: "selectById", //select,delete,put,selectById,
+								param: {
+									index_id: low_family_baseInfo.urlParam.id
+								},
+								success: function(data) {
+									var infoObj = data.baseInfo_model;
+									low_family_baseInfo.getAddress(infoObj.qyxz, infoObj.qyxzc);
+									low_family_baseInfo.formInfo = infoObj;
+									fupin.localCache(JSON.stringify(data));
+								},
+								'error': function(data) {
+									fupin.alert("请求本地用户详细报错");
+								}
+							});
+						}
+					} catch(e) {
+						$.alert("请查看本地数据库是否存在该数据")
 					}
 				}
 				//转化
 				low_family_baseInfo.formInfo.lxdh = parseInt(low_family_baseInfo.formInfo.lxdh);
-				
 			} catch(e) {
 				console.error("判断是否需要请求线上数据报错")
 			}
@@ -115,13 +145,15 @@ myApp.controller("low_family_baseCtro", ["$scope", "$rootScope", "$state", "$htt
 		//保存表单为本地数据库
 		low_family_baseInfo.saveForm = function() {
 			//保存对象之前判断是否是编辑
-			var saveData;
+			var saveData, formData = low_family_baseInfo.formInfo;;
+
 			if(low_family_baseInfo.urlParam.id) {
 				saveData = JSON.parse(window.localStorage.getItem("low_family"));
-				angular.extend(saveData.baseInfo_model, low_family_baseInfo.formInfo);
+				angular.extend(saveData.baseInfo_model, formData);
 			} else {
 				//保存接口
 				var newId = fupin.randomChat();
+
 				saveData = {
 					newId: newId,
 					baseInfo_model: low_family_baseInfo.formInfo,
@@ -134,6 +166,7 @@ myApp.controller("low_family_baseCtro", ["$scope", "$rootScope", "$state", "$htt
 			angular.extend(data.baseInfo_model, low_family_baseInfo.formInfo);
 			fupin.localCache(JSON.stringify(data));
 		}
+
 		/*//当路由跳转的时候判断是否保存为草稿
 		$scope.$watch('$viewContentLoading', function(event, viewConfig) {
 			alert('模板加载完成前');
@@ -149,6 +182,7 @@ myApp.controller("low_family_baseCtro", ["$scope", "$rootScope", "$state", "$htt
 			if(!fupin.isValid(low_family_baseInfo.formInfo) || JSON.stringify(low_family_baseInfo.oldObj) != JSON.stringify(low_family_baseInfo.formInfo)) {
 				fupin.confirm("确定保存为草稿吗？", function() {
 					low_family_baseInfo.saveForm();
+					//					window.history.go(-1);
 				}, function() {
 					window.history.go(-1);
 				})

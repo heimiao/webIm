@@ -242,7 +242,6 @@ myApp.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 			controller: "projectDraft",
 			templateUrl: 'dist/template/project/projectDraft.html'
 		})
-
 		//扶贫项目草稿编辑
 		.state('projectDraftEdit', {
 			url: '/projectDraftEdit?draftId',

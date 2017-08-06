@@ -29,10 +29,7 @@ myApp.controller("lowFamilyListCtro", ["$scope", "$state", "$filter", "$http", "
 
 	//映射列表专用村
 	lowFamilyList.villagesList = {};
-	//监听条件变化
-	/*$scope.$watch(lowFamilyList.sendParam, function(newValue, oldValue, scope) {
-		console.log(oldValue);
-	});*/
+
 	function isCardNo(card) {
 		// 身份证号码为15位或者18位，15位时全为数字，18位前17位为数字，最后一位是校验位，可能为数字或字符X 
 		var reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;

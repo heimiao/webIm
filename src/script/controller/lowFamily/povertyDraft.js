@@ -1,7 +1,6 @@
 //草稿箱控制器 
-myApp.controller("lowFamilyDraftCtro", ["$scope", "$state", "$filter", "$http", "$stateParams", "postForm",
-	function($scope, $state, $filter, $http, $stateParams, postForm) {
-		$scope.userId = "";
+myApp.controller("lowFamilyDraftCtro", ["$scope", "$state", "$http", "$stateParams", "postForm",
+	function($scope, $state, $http, $stateParams, postForm) {
 		var lowFamilyDraft = {} || lowFamilyDraft;
 		//获取参数
 		lowFamilyDraft.urlParam = $stateParams;
@@ -12,6 +11,9 @@ myApp.controller("lowFamilyDraftCtro", ["$scope", "$state", "$filter", "$http", 
 		lowFamilyDraft.townList = {};
 		//映射列表专用村
 		lowFamilyDraft.villagesList = {};
+
+		lowFamilyDraft.bhksxList = config.sysValue.bhksx;
+
 		//获取城镇并且实现映射
 		lowFamilyDraft.getTownVillages = function(args, name) {
 			postForm.saveFrm(config.path.townShip, {
@@ -24,40 +26,47 @@ myApp.controller("lowFamilyDraftCtro", ["$scope", "$state", "$filter", "$http", 
 				if(args == "02") {
 					lowFamilyDraft.villagesList = data;
 				}
-				lowFamilyDraft.list = lowFamilyDraft.list.map(function(item, index, array) {
+				lowFamilyDraft.list.map(function(item, index, array) {
 					return fupin.mapArray(item, dataList, name, "id");
 				})
 			})
 		}
+		
+		lowFamilyDraft.getlocalData = function() {
+			//获取当前用户信息  
+			dt.request({
+				rqstName: "low_family", //'low_family', 'low_village', 'nature_village', 'relief_project'
+				type: "select", //select,delete,put,selectById,
+				success: function(args) {
+					lowFamilyDraft.list = args;
 
-		//获取当前用户信息  
-		dt.request({
-			rqstName: "low_family", //'low_family', 'low_village', 'nature_village', 'relief_project'
-			type: "select", //select,delete,put,selectById,
-			success: function(args) {
-				console.log(args);
-				lowFamilyDraft.list = args;
-				//调用镇
-				if(JSON.stringify(lowFamilyDraft.townList) == "{}") {
-					lowFamilyDraft.getTownVillages("01", "qyxz");
-				} else {
-					lowFamilyDraft.list = lowFamilyDraft.list.map(function(item, index, array) {
-						return fupin.mapArray(item.baseInfo_model, lowFamilyDraft.townList, "qyxz", "id");
+					lowFamilyDraft.list.map(function(item, index, array) {
+						var test = fupin.mapArray(item.baseInfo_model, lowFamilyDraft.bhksxList, "bhksx", "value")
+						return fupin.mapArray(item, lowFamilyDraft.bhksxList, "bhksx", "value");
 					})
-				}
-				//调用村
-				if(JSON.stringify(lowFamilyDraft.villagesList) == "{}") {
-					lowFamilyDraft.getTownVillages("02", "qyxzc");
-				} else {
-					lowFamilyDraft.list = lowFamilyDraft.list.map(function(item, index, array) {
-						return fupin.mapArray(item.baseInfo_model, lowFamilyDraft.townList, "qyxzc", "id");
-					})
-				}
-			},
-			'error': function(args) {
 
-			}
-		});
+					//调用镇
+					if(JSON.stringify(lowFamilyDraft.townList) == "{}") {
+						lowFamilyDraft.getTownVillages("01", "qyxz");
+					} else {
+						lowFamilyDraft.list.map(function(item, index, array) {
+							return fupin.mapArray(item, lowFamilyDraft.townList, "qyxz", "id");
+						})
+					}
+					//调用村
+					if(JSON.stringify(lowFamilyDraft.villagesList) == "{}") {
+						lowFamilyDraft.getTownVillages("02", "qyxzc");
+					} else {
+						lowFamilyDraft.list.map(function(item, index, array) {
+							return fupin.mapArray(item, lowFamilyDraft.townList, "qyxzc", "id");
+						})
+					}
+				},
+				'error': function(args) {}
+			});
+		}
+
+		lowFamilyDraft.getlocalData();
 		//根据角色遍历响应的菜单
 		$scope.lowFamilyDraft = lowFamilyDraft;
 	}
