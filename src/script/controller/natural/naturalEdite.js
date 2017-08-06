@@ -18,13 +18,13 @@ myApp.controller("naturalEdite", ["$scope", "$state", "$http", "$stateParams",
 		};
 		postForm.saveFrm(config.path.xingzhengName,zrcDetails.xingzheng).success(function(res){
 		//zrcDetails.fid = res[0].id
-			zrcDetails.zirancun12();
+			
 			zrcDetails.xingzhengcun.list=res;
 			$http.post(config.path.zrcDetails+"?id="+zrcDetails.canshu.id).success(function(res){
 				zrcDetails.fid = res.lsxzc
 				zrcDetails.list=res;
 				// zrcDetails.xingzhengcun();
-
+				zrcDetails.zirancun12();
 			});
 		})
 		// zrcDetails.xingzhengcun=function(){ 
@@ -44,7 +44,12 @@ myApp.controller("naturalEdite", ["$scope", "$state", "$http", "$stateParams",
 				fid: zrcDetails.fid
 			};
 			postForm.saveFrm(config.path.xingzhengName,zrcDetails.zirancun).success(function(res){
-			 	zrcDetails.zirancun.list=res;
+				if(res.length!=0){
+					zrcDetails.zirancun.list=res;
+				}else{
+					zrcDetails.list.zrcmc = null;
+				}
+			 	
 			 	
 			})
 		}
@@ -75,6 +80,7 @@ myApp.controller("naturalEdite", ["$scope", "$state", "$http", "$stateParams",
 		zrcDetails.zrcEdit=function(){
 			if(zrcDetails.lsxzc()&&zrcDetails.fzr()){
 				delete zrcDetails.list.exproperty;
+				zrcDetails.list.lsxzc = zrcDetails.fid
 				postForm.saveFrm(config.path.zrcEdit,zrcDetails.list)
 				.success(function(res){
 					$state.go('naturalVillage'); 
