@@ -23,7 +23,8 @@ myApp.controller("lowFamilyListCtro", ["$scope", "$state", "$filter", "$http", "
 	};
 
 	lowFamilyList.list = [];
-
+	window.localStorage.setItem("cont_index", "");
+	fupin.localCache("");
 	lowFamilyList.townList = {};
 	lowFamilyList.town_VillagesList = {};
 

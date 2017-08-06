@@ -82,33 +82,6 @@ myApp.controller("lowFamilyMemberCtro", ["$scope", "$rootScope", "$state", "$htt
 			lowFamilyMember.oldObj = infoList;
 		}
 
-		//保存表单为本地数据库
-		lowFamilyMember.saveForm = function() {
-			//保存对象之前判断是否是编辑
-			var saveData, formData = lowFamilyMember.list;
-			if(lowFamilyMember.urlParam.id) {
-				saveData = JSON.parse(window.localStorage.getItem("low_family"));
-
-				$.each(formData, function(index, item) {
-					if(typeof(item.yhzgx) == "object") {
-						item.yhzgx = item.yhzgx.value;
-					}
-				});
-				angular.extend(saveData, {
-					familyInfo_model: formData
-				});
-			} else {
-				saveData = JSON.parse(window.localStorage.getItem("low_family"));
-				//保存接口
-				var newId = fupin.randomChat();
-				var data = {
-					newId: newId,
-					familyInfo_model: formData,
-				}
-			}
-			fupin.saveLocalData(saveData);
-		}
-
 		lowFamilyMember.saveCache = function() {
 			var data = JSON.parse(window.localStorage.getItem("low_family"));
 			$.each(data, function(index, item) {
@@ -116,13 +89,10 @@ myApp.controller("lowFamilyMemberCtro", ["$scope", "$rootScope", "$state", "$htt
 					item.yhzgx = item.yhzgx.value;
 				}
 			});
+
 			angular.extend(data.familyInfo_model, lowFamilyMember.list);
 			fupin.localCache(JSON.stringify(data));
 		}
-
-		/*$scope.$watchCollection("income.formInfo", function() {
-			lowFamilyMember.saveCache();
-		});	*/
 
 		$scope.$on("$destroy", function() {
 			lowFamilyMember.saveCache();
@@ -144,6 +114,14 @@ myApp.controller("addFamilyMemberCtro", ["$scope", "$rootScope", "$state", "$htt
 		addFamilyMember.formInfo = {
 			pkhjc_fj_id: "",
 		};
+
+		addFamilyMember.goback = function() {
+			fupin.confirm("确定保存吗？", function() {
+				 addFamilyMember.saveForm();
+			}, function() {
+				window.history.go(-1);
+			})
+		}
 
 		addFamilyMember.otherSelect = {
 			yhzgxList: config.sysValue.YHZGX,
@@ -207,17 +185,17 @@ myApp.controller("addFamilyMemberCtro", ["$scope", "$rootScope", "$state", "$htt
 					});
 				}
 			} else {
-
 				dataAll.familyInfo_model.push(angular.extend(addFamilyMember.formInfo, {
 					id: fupin.randomChat()
 				}));
 			}
 			fupin.localCache(JSON.stringify(dataAll));
-			$state.go("lowFamily", {
-				showForm: "familyMember",
-				id: addFamilyMember.urlParam.id,
-				type: addFamilyMember.urlParam.type
-			});
+			window.history.go(-1);
+			/*	$state.go("lowFamily", {
+					showForm: "familyMember",
+					id: addFamilyMember.urlParam.id,
+					type: addFamilyMember.urlParam.type
+				});*/
 		}
 
 		addFamilyMember.uploadPic = function() {
@@ -233,8 +211,6 @@ myApp.controller("addFamilyMemberCtro", ["$scope", "$rootScope", "$state", "$htt
 				try {
 					addFamilyMember.formInfo.pkhjc_fj_id = response.data.results.id;
 					addFamilyMember.otherSelect.headUrl = config.path.getUploadHead + "?id=" + response.data.results.id;
-					//					console.log(addFamilyMember.otherSelect.headUrl);
-					//					addFamilyMember.getHead(response.data.results.id);
 				} catch(e) {
 					//TODO handle the exception
 				}

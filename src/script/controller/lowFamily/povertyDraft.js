@@ -13,7 +13,9 @@ myApp.controller("lowFamilyDraftCtro", ["$scope", "$state", "$http", "$statePara
 		lowFamilyDraft.villagesList = {};
 
 		lowFamilyDraft.bhksxList = config.sysValue.bhksx;
-
+		
+		window.localStorage.setItem("cont_index", "");
+		fupin.localCache("");
 		//获取城镇并且实现映射
 		lowFamilyDraft.getTownVillages = function(args, name) {
 			postForm.saveFrm(config.path.townShip, {
@@ -31,7 +33,7 @@ myApp.controller("lowFamilyDraftCtro", ["$scope", "$state", "$http", "$statePara
 				})
 			})
 		}
-		
+
 		lowFamilyDraft.getlocalData = function() {
 			//获取当前用户信息  
 			dt.request({

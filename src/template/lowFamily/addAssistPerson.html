@@ -1,6 +1,6 @@
 <div class="">
 	<header>
-		<a href="javascript:history.go(-1)">
+		<a ng-click="addAsistPerson.goback()">
 			<div class="back"><img src="./assets/img/icon_28.png" alt=""></div>
 		</a>
 		<div class="collectionTitle">贫困户信息采集</div>
@@ -19,7 +19,7 @@
 					<div class="item border-b">
 						<div class="name">姓名</div>
 						<div class="content">
-							<input type="text" placeholder="请输入信息" ng-model="addAsistPerson.formInfo.xm" >
+							<input type="text" placeholder="请输入信息" ng-model="addAsistPerson.formInfo.xm">
 						</div>
 					</div>
 					<div class="item border-b">
@@ -36,7 +36,7 @@
 					<div class="item border-b">
 						<div class="name">证件号码</div>
 						<div class="content">
-							<input type="text" placeholder="请输入信息" ng-model="addAsistPerson.formInfo.zjhm" >
+							<input type="text" placeholder="请输入信息" ng-model="addAsistPerson.formInfo.zjhm">
 						</div>
 					</div>
 					<div class="item border-b">
@@ -54,7 +54,7 @@
 							<input type="text" placeholder="请输入信息" ng-model="addAsistPerson.formInfo.bfdwmc">
 						</div>
 					</div>
-					<div class="item border-b" >
+					<div class="item border-b">
 						<div class="name">帮扶开始时间</div>
 						<div class="content">
 							<begin-time my-model="addAsistPerson.formInfo.kssj" first="beginTime" second="endTime" placeholder="" style="line-height: 2.3rem;width:100%;"></begin-time>
@@ -93,25 +93,28 @@
 				</form>
 			</div>
 		</div>
-		<nav class="navbar-fixed-bottom navbar-fixed-bottom" >
+		<nav class="navbar-fixed-bottom navbar-fixed-bottom">
 			<button class="btn btnpkc" ng-click="addAsistPerson.saveForm()">保存</button>
 		</nav>
 	</section>
 </div>
 <style>
-	.content input{
+	.content input {
 		text-align: right;
 		padding-right: .6rem;
 	}
-	.content{
+	
+	.content {
 		width: 60% !important;
 	}
-	.content select{
+	
+	.content select {
 		width: 70%;
 	}
-	.rightPro{
+	
+	.rightPro {
 		position: absolute;
 		top: 1rem;
-		right:1rem;
+		right: 1rem;
 	}
 </style>

@@ -9,33 +9,58 @@ myApp.controller("lowFamilyInfoCtro", ["$scope", "$state", "$http", "$stateParam
 		$scope.userId = lowFamilyInfo.urlParam.id || "";
 		$scope.dataType = lowFamilyInfo.urlParam.type || "";
 
-		lowFamilyInfo.changeCont = {
-			//默认显示第一个基本信息表单
-			baseInfo: true
-		};
-		if(lowFamilyInfo.urlParam.showForm) {
-			lowFamilyInfo.changeCont[lowFamilyInfo.urlParam.showForm] = true;
-			lowFamilyInfo.changeCont["baseInfo"] = false;
+		lowFamilyInfo.changeCont = {};
+
+		if(window.localStorage.getItem("cont_index") == 1) {
+			lowFamilyInfo.changeCont.familyMember = true;
+		} else if(window.localStorage.getItem("cont_index") == 2) {
+			lowFamilyInfo.changeCont.assistPerson = true;
+		} else {
+			lowFamilyInfo.changeCont.baseInfo = true;
 		}
 
 		lowFamilyInfo.changeMenu = function() {
 			lowFamilyInfo.menu = lowFamilyInfo.menu ? false : true;
 			//根据菜单调用不同的formInfo
-
 		}
+
 		lowFamilyInfo.showForm = function(args) {
+			if(args == "familyMember") {
+				window.localStorage.setItem("cont_index", 1);
+			} else if(args == "assistPerson") {
+				window.localStorage.setItem("cont_index", 2);
+			} else {
+				window.localStorage.setItem("cont_index", "");
+			}
 			lowFamilyInfo.changeCont = {};
 			lowFamilyInfo.changeCont[args] = true;
 			lowFamilyInfo.changeMenu();
 		}
-
-		lowFamilyInfo.goback = function() {
+		lowFamilyInfo.validate = function(data) {
+			var bool = true;
+			console.log(data);
+			if(!data.baseInfo_model.qyxz) {
+				fupin.alert("城镇不能为空");
+				bool = false;
+			} else if(!data.baseInfo_model.qyxzc) {
+				fupin.alert("村不能为空");
+				bool = false;
+			} else if(data.baseInfo_model.familyInfo_model) {
+				fupin.alert("户主不能为空");
+				bool = false;
+			} else if(!data.baseInfo_model.bhksx) {
+				fupin.alert("贫困户类型不能为空");
+				bool = false;
+			}
+			return bool;
+		}
+		lowFamilyInfo.goback = function(data) {
 			var localData, old_localData;
 			if(window.localStorage.getItem("low_family")) {
 				localData = JSON.parse(window.localStorage.getItem("low_family"));
 			}
 			fupin.confirm("确定保存为草稿吗？", function() {
-				if(localData) {
+				if(lowFamilyInfo.validate(localData)) {
 					fupin.saveLocalData(localData);
 				}
 			}, function() {
@@ -43,7 +68,6 @@ myApp.controller("lowFamilyInfoCtro", ["$scope", "$state", "$http", "$stateParam
 			})
 
 		}
-
 		//执行上传
 		lowFamilyInfo.uploadSource = function() {
 
@@ -123,6 +147,11 @@ myApp.controller("lowFamilyInfoCtro", ["$scope", "$state", "$http", "$stateParam
 			})
 
 			var _url = config.path.createLowFamily;
+			//移除所有空属性
+
+			$.each(uploadData, function(index, item) {
+				//console.log(item);
+			})
 
 			if(localData.baseInfo_model.id) {
 				if(uploadData.pkhjc.length > 0) {
@@ -135,7 +164,7 @@ myApp.controller("lowFamilyInfoCtro", ["$scope", "$state", "$http", "$stateParam
 			} else {
 				_url = config.path.createLowFamily;
 			}
-			
+
 			//console.log(uploadData);
 			postForm.saveFrm(_url + "?data=" + angular.toJson(uploadData), {}).success(function(datas) {
 				if(datas.success) {
@@ -145,8 +174,7 @@ myApp.controller("lowFamilyInfoCtro", ["$scope", "$state", "$http", "$stateParam
 					fupin.alert(datas.message);
 				}
 			})
-
-			fupin.localCache(angular.toJson(localData));
+			//fupin.localCache(angular.toJson(lowFamilyInfoModel)); 
 		}
 		//调用列表
 		//		$state.go('lowFamily.baseInfo'); //默认显示第一个tab

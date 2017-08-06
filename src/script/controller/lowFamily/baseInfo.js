@@ -156,9 +156,13 @@ myApp.controller("low_family_baseCtro", ["$scope", "$rootScope", "$state", "$htt
 				console.error("判断是否需要请求线上数据报错")
 			}
 		} else {
-			fupin.localCache(JSON.stringify(lowFamilyInfoModel));
-			fupin.oldLocalCache(JSON.stringify(lowFamilyInfoModel));
-
+			if(window.localStorage.getItem("low_family")) {
+				var data = JSON.parse(window.localStorage.getItem("low_family"));
+				low_family_baseInfo.formInfo = data.baseInfo_model;
+			} else {
+				fupin.localCache(JSON.stringify(lowFamilyInfoModel));
+				fupin.oldLocalCache(JSON.stringify(lowFamilyInfoModel));
+			}
 			$scope.$watchCollection("low_family_baseInfo.formInfo", function() {
 				low_family_baseInfo.saveCache();
 			});

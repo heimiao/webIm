@@ -132,6 +132,14 @@ myApp.controller("addAsistPersonCtro", ["$scope", "$rootScope", "$state", "$http
 
 		var dataAll = JSON.parse(window.localStorage.getItem("low_family"));
 
+		addAsistPerson.goback = function() {
+			fupin.confirm("确定保存吗？", function() {
+				 addAsistPerson.saveForm();
+			}, function() {
+				window.history.go(-1);
+			})
+		}
+
 		//如果是编辑的话就赋值给formInfo
 		if(addAsistPerson.urlParam.personId) {
 			//判断是否修改数据
@@ -158,13 +166,14 @@ myApp.controller("addAsistPersonCtro", ["$scope", "$rootScope", "$state", "$http
 					id: fupin.randomChat()
 				}));
 			}
-			fupin.localCache(JSON.stringify(dataAll));
 
-			$state.go("lowFamily", {
+			fupin.localCache(JSON.stringify(dataAll));
+			window.history.go(-1);
+			/*$state.go("lowFamily", {
 				showForm: "assistPerson",
 				id: addAsistPerson.urlParam.id,
 				type: addAsistPerson.urlParam.type
-			});
+			});*/
 		}
 		addAsistPerson.delForm = function() {
 			var ary = [];

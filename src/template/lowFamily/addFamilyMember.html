@@ -1,7 +1,7 @@
 <div class="">
 	<header>
-		<a href="javascript:history.go(-1)">
-			<div class="back"><img src="./assets/img/icon_28.png" alt=""></div>
+		<a  ng-click="addFamilyMember.goback()">
+			<div class="back"><img src="./assets/img/icon_28.png" alt="" ></div>
 		</a>
 		<div class="collectionTitle">贫困户信息采集</div>
 		<div ng-if="addFamilyMember.urlParam.memberId" ng-click="addFamilyMember.delForm()" style="position: absolute;right: 1rem;color: #fff;z-index: 2px;top: 16px;">
