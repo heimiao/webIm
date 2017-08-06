@@ -91,8 +91,9 @@ myApp.controller("low_family_baseCtro", ["$scope", "$rootScope", "$state", "$htt
 												pkhjc_fj_id: item.filegrpid
 											});
 									});
-									var jtcy = fupin.mapArray(datas, config.sysValue.YHZGX, "yhzgx", "value");
-									localData.familyInfo_model = jtcy;
+									//									var jtcy = fupin.mapArray(datas, config.sysValue.YHZGX, "yhzgx", "value");
+									//									localData.familyInfo_model = jtcy;
+									localData.familyInfo_model = datas;
 									fupin.localCache(JSON.stringify(localData));
 									//请求帮扶责任人
 									postForm.saveFrm(config.path.getassistPersonList, {
@@ -167,7 +168,7 @@ myApp.controller("low_family_baseCtro", ["$scope", "$rootScope", "$state", "$htt
 			angular.extend(data.baseInfo_model, low_family_baseInfo.formInfo);
 			fupin.localCache(JSON.stringify(data));
 		}
-		
+
 		/*//当路由跳转的时候判断是否保存为草稿
 		$scope.$watch('$viewContentLoading', function(event, viewConfig) {
 			alert('模板加载完成前');

@@ -37,8 +37,7 @@ myApp.controller("lowFamilyMemberCtro", ["$scope", "$rootScope", "$state", "$htt
 											pkhjc_fj_id: item.filegrpid
 										});
 								});
-								var jtcy = fupin.mapArray(datas, config.sysValue.YHZGX, "yhzgx", "value");
-								localData.familyInfo_model = jtcy;
+								localData.familyInfo_model = datas;
 								lowFamilyMember.list = jtcy;
 								lowFamilyMember.oldObj = datas;
 								fupin.localCache(JSON.stringify(localData));
@@ -108,6 +107,11 @@ myApp.controller("lowFamilyMemberCtro", ["$scope", "$rootScope", "$state", "$htt
 
 		$scope.$on("$destroy", function() {
 			var data = JSON.parse(window.localStorage.getItem("low_family"));
+			$.each(data, function(index, item) {
+				if(typeof(item.yhzgx) == "object") {
+					item.yhzgx = item.yhzgx.value;
+				}
+			});
 			angular.extend(data.familyInfo_model, lowFamilyMember.list);
 			fupin.localCache(JSON.stringify(data));
 		})

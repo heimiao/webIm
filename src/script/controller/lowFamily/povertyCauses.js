@@ -42,8 +42,9 @@ myApp.controller("lowFamilyCausesCtro", ["$scope", "$rootScope", "$state", "$htt
 												pkhjc_fj_id: item.filegrpid
 											});
 									});
-									var jtcy = fupin.mapArray(datas, config.sysValue.YHZGX, "yhzgx", "value");
-									localData.familyInfo_model = jtcy;
+									/*	var jtcy = fupin.mapArray(datas, config.sysValue.YHZGX, "yhzgx", "value");
+										localData.familyInfo_model = jtcy;*/
+									localData.familyInfo_model = datas;
 									fupin.localCache(JSON.stringify(localData));
 									//请求帮扶责任人
 									postForm.saveFrm(config.path.getassistPersonList, {

@@ -119,6 +119,12 @@ myApp.controller("lowFamilyInfoCtro", ["$scope", "$state", "$http", "$stateParam
 
 			var _url = config.path.createLowFamily;
 			if(localData.baseInfo_model.id) {
+
+				$.each(uploadData.pkhjc, function(index, item) {
+					delete item.filegrpid;
+					delete item.pkhjc_fj_id;
+					console.log(item);
+				});
 				_url = config.path.updateLowFamily;
 			} else {
 				_url = config.path.createLowFamily;
