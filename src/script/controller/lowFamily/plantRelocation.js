@@ -18,9 +18,10 @@ myApp.controller("plantRelocationCtro", ["$scope", "$rootScope", "$state", "$htt
 		//判断是否编辑
 		if(plantRelocation.urlParam.id) {
 			try {
-				if(fupin.getCacheData(plantRelocation.urlParam.id, plantRelocation.urlParam.type)) {
+				var catchData = fupin.getCacheData(plantRelocation.urlParam.id, plantRelocation.urlParam.type);
+				if(catchData) {
 					//把data合并到表单对象中
-					var infoObj = fupin.getCacheData(plantRelocation.urlParam.id, plantRelocation.urlParam.type).plantRelocation_model;
+					var infoObj = catchData.plantRelocation_model;
 					plantRelocation.formInfo = infoObj
 					plantRelocation.oldObj = infoObj;
 				} else {
@@ -94,7 +95,7 @@ myApp.controller("plantRelocationCtro", ["$scope", "$rootScope", "$state", "$htt
 			if(window.localStorage.getItem("low_family")) {
 
 				var data = JSON.parse(window.localStorage.getItem("low_family"));
-				plantRelocation.formInfo = data;
+				plantRelocation.formInfo = data.plantRelocation_model;
 			} else {
 				fupin.localCache(JSON.stringify(lowFamilyInfoModel));
 				fupin.oldLocalCache(JSON.stringify(lowFamilyInfoModel));
@@ -129,17 +130,13 @@ myApp.controller("plantRelocationCtro", ["$scope", "$rootScope", "$state", "$htt
 			fupin.saveLocalData(saveData);
 		}
 
-		/*plantRelocation.saveCache = function() {
+		plantRelocation.saveCache = function() {
 			var data = JSON.parse(window.localStorage.getItem("low_family"));
+			var formData = plantRelocation.formInfo;
 			angular.extend(data.plantRelocation_model, formData);
 			fupin.localCache(JSON.stringify(data));
 		}
-*/
-		plantRelocation.saveCache = function() {
-			var data = JSON.parse(window.localStorage.getItem("low_family"));
-			angular.extend(data.plantRelocation_model, data);
-			fupin.localCache(JSON.stringify(data));
-		}
+
 		$scope.$watchCollection("plantRelocation.formInfo", function() {
 			plantRelocation.saveCache();
 		});

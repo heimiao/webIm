@@ -13,7 +13,7 @@ myApp.controller("lowFamilyDraftCtro", ["$scope", "$state", "$http", "$statePara
 		lowFamilyDraft.villagesList = {};
 
 		lowFamilyDraft.bhksxList = config.sysValue.bhksx;
-		
+
 		window.localStorage.setItem("cont_index", "");
 		fupin.localCache("");
 		//获取城镇并且实现映射
@@ -41,9 +41,15 @@ myApp.controller("lowFamilyDraftCtro", ["$scope", "$state", "$http", "$statePara
 				type: "select", //select,delete,put,selectById,
 				success: function(args) {
 					lowFamilyDraft.list = args;
-
+					
+					/*$.each(item.familyInfo_model, function(i, n) {
+							if(n["yhzgx"] == "01") {
+								item.baseInfo_model.hzxm = n["xm"];
+								console.log(item.baseInfo_model.hzxm);
+							}
+						})*/
+					
 					lowFamilyDraft.list.map(function(item, index, array) {
-						var test = fupin.mapArray(item.baseInfo_model, lowFamilyDraft.bhksxList, "bhksx", "value")
 						return fupin.mapArray(item, lowFamilyDraft.bhksxList, "bhksx", "value");
 					})
 

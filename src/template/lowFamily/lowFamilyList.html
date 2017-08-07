@@ -74,7 +74,7 @@
 	<div class="screen-con2" id="screen-con2">
 		<my-select my-ng-click="lowFamilyList.datas" my-ng-model="lowFamilyList.sendParam.sjzt" source="lowFamilyList.otherSelect.dataStatusObj" my-init="数据状态"></my-select>
 		<my-select my-ng-click="lowFamilyList.datas" my-ng-model="lowFamilyList.sendParam.tpqk" source="lowFamilyList.otherSelect.tpqkObj" my-init="脱贫情况"></my-select>
-		<my-select my-ng-click="lowFamilyList.datas" my-ng-model="lowFamilyList.sendParam.nd" source="lowFamilyList.otherSelect.yearObj" my-init="年度"></my-select>
+		<my-select my-ng-click="lowFamilyList.datas" my-ng-model="lowFamilyList.sendParam.nd" source="lowFamilyList.otherSelect.yearObj" my-init="2017"></my-select>
 	</div>
 	<div class="townshipList listShip">
 		<div ng-repeat="item in lowFamilyList.townList" ng-click='lowFamilyList.getVillagesByTown(item.name,item.id)' ng-bind="item.name"></div>

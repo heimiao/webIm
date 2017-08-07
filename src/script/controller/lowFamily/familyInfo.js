@@ -16,7 +16,9 @@ myApp.controller("lowFamilyMemberCtro", ["$scope", "$rootScope", "$state", "$htt
 				if(fupin.getCacheData(lowFamilyMember.urlParam.id, lowFamilyMember.urlParam.type)) {
 					//把data合并到表单对象中
 					var infoList = fupin.getCacheData(lowFamilyMember.urlParam.id, lowFamilyMember.urlParam.type).familyInfo_model;
-					lowFamilyMember.list = fupin.mapArray(infoList, config.sysValue.YHZGX, "yhzgx", "value");
+					lowFamilyMember.list = fupin.mapArrays(infoList, config.sysValue.YHZGX, "yhzgx", "value");
+
+					console.log(lowFamilyMember.list);
 					lowFamilyMember.oldObj = infoList;
 				} else {
 					if(lowFamilyMember.urlParam.type == "net") {
@@ -36,6 +38,7 @@ myApp.controller("lowFamilyMemberCtro", ["$scope", "$rootScope", "$state", "$htt
 										});
 								});
 								localData.familyInfo_model = datas;
+								var jtcy = fupin.mapArrays(datas, config.sysValue.YHZGX, "yhzgx", "value");
 								lowFamilyMember.list = jtcy;
 								lowFamilyMember.oldObj = datas;
 								fupin.localCache(JSON.stringify(localData));
@@ -59,8 +62,9 @@ myApp.controller("lowFamilyMemberCtro", ["$scope", "$rootScope", "$state", "$htt
 								index_id: lowFamilyMember.urlParam.id
 							},
 							success: function(data) {
-								var infoList = data.familyInfo_model;
-								lowFamilyMember.list = infoList;
+								var infoLists = data.familyInfo_model;
+								var jtcy = fupin.mapArrays(infoLists, config.sysValue.YHZGX, "yhzgx", "value");
+								lowFamilyMember.list = jtcy;
 								fupin.localCache(JSON.stringify(data));
 								$scope.$apply();
 							},
@@ -78,11 +82,8 @@ myApp.controller("lowFamilyMemberCtro", ["$scope", "$rootScope", "$state", "$htt
 			//把data合并到表单对象中
 			var data = JSON.parse(window.localStorage.getItem("low_family"));
 			var infoList = data.familyInfo_model;
-
 			lowFamilyMember.list = fupin.mapArrays(infoList, config.sysValue.YHZGX, "yhzgx", "value");
-			
 			// fupin.mapArray(infoList, config.sysValue.YHZGX, "yhzgx", "value");
-
 			lowFamilyMember.oldObj = infoList;
 		}
 
@@ -176,6 +177,7 @@ myApp.controller("addFamilyMemberCtro", ["$scope", "$rootScope", "$state", "$htt
 		}
 
 		addFamilyMember.saveForm = function() {
+			localDatas = JSON.parse(window.localStorage.getItem("low_family"));
 			if(addFamilyMember.urlParam.memberId) {
 				//判断是否修改数据
 				if(dataAll.familyInfo_model.length > 0) {
@@ -188,11 +190,16 @@ myApp.controller("addFamilyMemberCtro", ["$scope", "$rootScope", "$state", "$htt
 						}
 					});
 				}
+				if(addFamilyMember.urlParam.memberId = "local") {
+					localDatas.baseInfo_model.hzxm = addFamilyMember.formInfo.xm;
+				}
 			} else {
 				dataAll.familyInfo_model.push(angular.extend(addFamilyMember.formInfo, {
 					id: fupin.randomChat()
 				}));
+				localDatas.baseInfo_model.hzxm=addFamilyMember.formInfo.xm;
 			}
+
 			fupin.localCache(JSON.stringify(dataAll));
 			window.history.go(-1);
 			/*	$state.go("lowFamily", {

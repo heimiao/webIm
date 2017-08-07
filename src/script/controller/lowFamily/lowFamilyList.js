@@ -4,7 +4,7 @@ myApp.controller("lowFamilyListCtro", ["$scope", "$rootScope", "$state", "$filte
 	//获取参数
 	lowFamilyList.urlParam = $stateParams;
 	lowFamilyList.sendParam = {
-		//		nd: new Date().getFullYear()
+		nd: 2017
 	};
 	lowFamilyList.page = {
 		limit: 15,
@@ -45,10 +45,8 @@ myApp.controller("lowFamilyListCtro", ["$scope", "$rootScope", "$state", "$filte
 			return true;
 		}
 	}
-	//获取总列表  
-	lowFamilyList.getLowFamilyList = function(me, start) {
-		lowFamilyList.page.start = start == 1 ? start - 1 : lowFamilyList.page.start;
-		//lowFamilyList.sendParam.search//判断该字段类型
+
+	$scope.$watch("lowFamilyList.sendParam.search", function() {
 		if(lowFamilyList.sendParam.search) {
 			if(isCardNo(lowFamilyList.sendParam.search)) {
 				lowFamilyList.sendParam.hzsfz = lowFamilyList.sendParam.search;
@@ -58,6 +56,12 @@ myApp.controller("lowFamilyListCtro", ["$scope", "$rootScope", "$state", "$filte
 				lowFamilyList.sendParam.hzsfz = "";
 			}
 		}
+	})
+	//获取总列表  
+	lowFamilyList.getLowFamilyList = function(me, start) {
+		lowFamilyList.page.start = start == 1 ? start - 1 : lowFamilyList.page.start;
+		//lowFamilyList.sendParam.search//判断该字段类型
+
 		var sumSendParam = angular.extend({}, lowFamilyList.page, lowFamilyList.sendParam)
 		//获取当前用户信息   
 		postForm.saveFrm(config.path.lowFamilyList, sumSendParam).success(function(data) {

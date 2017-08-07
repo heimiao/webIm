@@ -72,6 +72,7 @@ myApp.controller("lowFamilyInfoCtro", ["$scope", "$state", "$http", "$stateParam
 						}
 					}
 					var povertyCauses = localDatas.povertyCauses_model;
+					
 					for(var item in povertyCauses) {
 						if(item != "zyzpyy") {
 							if(povertyCauses[item]) {
@@ -81,6 +82,7 @@ myApp.controller("lowFamilyInfoCtro", ["$scope", "$state", "$http", "$stateParam
 							}
 						}
 					}
+
 					fupin.saveLocalData(localDatas);
 				}
 			}, function() {
@@ -167,6 +169,7 @@ myApp.controller("lowFamilyInfoCtro", ["$scope", "$state", "$http", "$stateParam
 					}
 				}
 			}
+
 			var povertyCauses = localData.povertyCauses_model;
 			for(var item in povertyCauses) {
 				if(item != "zyzpyy") {
@@ -189,9 +192,9 @@ myApp.controller("lowFamilyInfoCtro", ["$scope", "$state", "$http", "$stateParam
 			})
 
 			var _url = config.path.createLowFamily;
-			//移除所有空属性
-
+			//移除所有空属性 
 			if(localData.baseInfo_model.id) {
+				//修改
 				if(uploadData.pkhjc.length > 0) {
 					$.each(uploadData.pkhjc, function(index, item) {
 						delete item.filegrpid;
@@ -203,6 +206,9 @@ myApp.controller("lowFamilyInfoCtro", ["$scope", "$state", "$http", "$stateParam
 				_url = config.path.createLowFamily;
 			}
 
+			$.each(uploadData.pkhjc, function(index, item) {
+				delete item["yhzgxObj"];
+			});
 			//console.log(uploadData);
 			postForm.saveFrm(_url + "?data=" + angular.toJson(uploadData), {}).success(function(datas) {
 				if(datas.success) {

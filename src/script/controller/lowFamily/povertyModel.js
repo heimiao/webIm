@@ -11,6 +11,7 @@ lowFamilyInfoModel = {
 		sfjls: "",
 		sfdsznh: "",
 		sfsnh: "",
+		nd: "",
 		tpqk: "",
 		hzxm: "",
 	},
@@ -122,6 +123,7 @@ lowFamilyInfoModel = {
 lowFamilyInfoNull = {
 	baseInfo_model: {
 		id: "",
+		nd: "",
 		qyxz: "",
 		qyxzc: "",
 		qyzrc: "",

@@ -11,10 +11,12 @@ myApp.controller("assistPersonCtro", ["$scope", "$rootScope", "$state", "$http",
 		//判断是否编辑
 		if(assistPerson.urlParam.id) {
 			try {
-				if(fupin.getCacheData(assistPerson.urlParam.id, assistPerson.urlParam.type)) {
+				var catchData = fupin.getCacheData(assistPerson.urlParam.id, assistPerson.urlParam.type)
+				if(catchData) {
 					//把data合并到表单对象中
-					var infoList = fupin.getCacheData(assistPerson.urlParam.id, assistPerson.urlParam.type).assistPerson_model;
-					assistPerson.list = fupin.mapArray(infoList, config.sysValue.YHZGX, "yhzgx", "value");
+					var infoList = catchData.assistPerson_model;
+					//assistPerson.list = fupin.mapArray(infoList, config.sysValue.YHZGX, "yhzgx", "value");
+					assistPerson.list = infoList;
 					assistPerson.oldObj = infoList;
 				} else {
 					if(assistPerson.urlParam.type == "net") {
@@ -35,6 +37,7 @@ myApp.controller("assistPersonCtro", ["$scope", "$rootScope", "$state", "$http",
 								});
 								/*var jtcy = fupin.mapArray(datas, config.sysValue.YHZGX, "yhzgx", "value");
 								localData.familyInfo_model = jtcy;*/
+
 								localData.familyInfo_model = datas;
 								fupin.localCache(JSON.stringify(localData));
 								//请求帮扶责任人
@@ -134,7 +137,7 @@ myApp.controller("addAsistPersonCtro", ["$scope", "$rootScope", "$state", "$http
 
 		addAsistPerson.goback = function() {
 			fupin.confirms("确定保存吗？", function() {
-				 addAsistPerson.saveForm();
+				addAsistPerson.saveForm();
 			}, function() {
 				window.history.go(-1);
 			})

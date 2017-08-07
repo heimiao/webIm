@@ -14,7 +14,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="item in lowFamilyMember.list" ui-sref="addFamilyMember({id:lowFamilyMember.urlParam.id,type:lowFamilyMember.urlParam.type,memberId:item.id})">
+				<tr ng-repeat="item in lowFamilyMember.list track by $index" ui-sref="addFamilyMember({id:lowFamilyMember.urlParam.id,type:lowFamilyMember.urlParam.type,memberId:item.id})">
 					<td class="text-center" ng-bind="item.xm">曹操</td>
 					<td class="text-center" ng-bind="item.xb">男</td>
 					<td class="text-center" ng-bind="item.nl">85</td>

@@ -24,7 +24,6 @@ myApp.controller("lowFamilyCausesCtro", ["$scope", "$rootScope", "$state", "$htt
 					lowFamilyCauses.formInfo = infoObj
 					lowFamilyCauses.oldObj = infoObj;
 				} else {
-					console.log("从数据库获取数据");
 					if(lowFamilyCauses.urlParam.type == "net") {
 						try {
 							postForm.saveFrm(config.path.lowFamilyById, {
@@ -42,8 +41,10 @@ myApp.controller("lowFamilyCausesCtro", ["$scope", "$rootScope", "$state", "$htt
 												pkhjc_fj_id: item.filegrpid
 											});
 									});
+
 									/*	var jtcy = fupin.mapArray(datas, config.sysValue.YHZGX, "yhzgx", "value");
 										localData.familyInfo_model = jtcy;*/
+
 									localData.familyInfo_model = datas;
 									fupin.localCache(JSON.stringify(localData));
 									//请求帮扶责任人
@@ -81,24 +82,33 @@ myApp.controller("lowFamilyCausesCtro", ["$scope", "$rootScope", "$state", "$htt
 						});
 					}
 				}
+
 				var linshi = lowFamilyCauses.formInfo;
 				for(var item in linshi) {
 					if(item != "zyzpyy") {
-						if(linshi[item] == "Y") {
-							linshi[item] = true;
-						} else {
-							linshi[item] = false;
+						if(typeof(item) == "string") {
+							if(linshi[item] == "Y") {
+								linshi[item] = true;
+							} else {
+								linshi[item] = false;
+							}
 						}
 					}
 				}
+				
+					
 				lowFamilyCauses.formInfo = linshi;
+				/*	$scope.$watch("lowFamilyCauses.formInfo", function(n, o) {
+//					lowFamilyCauses.saveCache();
+				})*/
 			} catch(e) {
 				console.error("判断是否需要请求线上数据报错")
 			}
+
 		} else {
 			if(window.localStorage.getItem("low_family")) {
 				var data = JSON.parse(window.localStorage.getItem("low_family"));
-				lowFamilyCauses.formInfo = data;
+				lowFamilyCauses.formInfo = data.povertyCauses_model;
 			} else {
 				fupin.localCache(JSON.stringify(lowFamilyInfoModel));
 				fupin.oldLocalCache(JSON.stringify(lowFamilyInfoModel));
@@ -108,8 +118,7 @@ myApp.controller("lowFamilyCausesCtro", ["$scope", "$rootScope", "$state", "$htt
 		//保存表单为本地数据库
 		lowFamilyCauses.saveForm = function() {
 			//保存对象之前判断是否是编辑
-			var saveData, formData;
-
+			var saveData, formData; 
 			formData = lowFamilyCauses.formInfo;
 			for(var item in formData) {
 				if(item != "zyzpyy") {
@@ -119,8 +128,8 @@ myApp.controller("lowFamilyCausesCtro", ["$scope", "$rootScope", "$state", "$htt
 						formData[item] = "N"
 					}
 				}
-			}
-
+			} 
+			
 			if(lowFamilyCauses.urlParam.id) {
 				saveData = JSON.parse(window.localStorage.getItem("low_family"));
 				angular.extend(saveData.baseInfo_model, formData);
@@ -136,15 +145,13 @@ myApp.controller("lowFamilyCausesCtro", ["$scope", "$rootScope", "$state", "$htt
 		}
 
 		lowFamilyCauses.saveCache = function() {
-			var data = JSON.parse(window.localStorage.getItem("low_family"));
-			var formData = lowFamilyCauses.formInfo;
-			angular.extend(data.povertyCauses_model, formData);
-			fupin.localCache(JSON.stringify(data));
+			if(!lowFamilyCauses.urlParam.id) {
+				var data = JSON.parse(window.localStorage.getItem("low_family"));
+				var formData = lowFamilyCauses.formInfo;
+				angular.extend(data.povertyCauses_model, formData);
+				fupin.localCache(JSON.stringify(data));
+			}
 		}
-
-		$scope.$watchCollection("lowFamilyCauses.formInfo", function() {
-			lowFamilyCauses.saveCache();
-		});
 
 		$scope.$on("$destroy", function() {
 			lowFamilyCauses.saveCache();

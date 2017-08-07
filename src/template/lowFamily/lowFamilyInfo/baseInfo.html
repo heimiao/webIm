@@ -27,10 +27,19 @@
 						</select>
 					</div>
 				</div>
+
+				<div class="pkcList clearfix">
+					<div class="col-xs-4">年度</div>
+					<div class="col-xs-5 padd0 pkcRight">
+						<select class="form-control" ng-model="low_family_baseInfo.formInfo.nd" ng-options="item.value as item.name for item in low_family_baseInfo.otherSelect.yearList">
+						</select>
+					</div>
+				</div>
+
 				<div class="pkcList pkcListTel clearfix">
 					<div class="col-xs-4">联系电话</div>
 					<div class="col-xs-5 padd0 pkcRight">
-						<input type="number" placeholder="请输入电话号码" ng-model="low_family_baseInfo.formInfo.lxdh" />
+						<input type="text" placeholder="请输入电话号码" ng-model="low_family_baseInfo.formInfo.lxdh" />
 					</div>
 				</div>
 				<div class="pkcList pkcListTel clearfix">
@@ -88,7 +97,7 @@
 						</select>
 					</div>
 				</div>
-				
+
 				<!--<div class="pkcList clearfix">
 					<div class="col-xs-4">不脱贫原因</div>
 					<div class="col-xs-5 padd0 pkcRight">

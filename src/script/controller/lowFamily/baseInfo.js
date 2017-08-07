@@ -5,7 +5,7 @@ myApp.controller("low_family_baseCtro", ["$scope", "$rootScope", "$state", "$htt
 		low_family_baseInfo.urlParam = $stateParams;
 		low_family_baseInfo.sendParam = {};
 		low_family_baseInfo.formInfo = {};
-
+		
 		$scope.userId = low_family_baseInfo.urlParam.id || "";
 		$scope.dataType = low_family_baseInfo.urlParam.type || "";
 
@@ -13,6 +13,7 @@ myApp.controller("low_family_baseCtro", ["$scope", "$rootScope", "$state", "$htt
 			townList: [],
 			villagesList: [],
 			naturalVillageList: [],
+			yearList: config.sysValue.year,
 			bhksxList: config.sysValue.bhksx, //贫困户属性
 			tpqkList: config.sysValue.tpqk, //脱贫情况
 			khyhList: config.sysValue.khyh, //开户银行

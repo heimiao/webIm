@@ -42,8 +42,8 @@
 					<div class="item border-b">
 						<div class="name">政治面貌</div>
 						<div class="content">
-							<select name="" id="" ng-model="addAsistPerson.formInfo.zzmm" ng-options="item.id as item.name for item in addAsistPerson.otherSelect.zzmmList" dir="rtl">
-								<option value=""></option>
+							<select name="" id="" ng-model="addAsistPerson.formInfo.zzmm" ng-options="item.value as item.name for item in addAsistPerson.otherSelect.zzmmList" dir="rtl">
+								<!--<option value=""></option>-->
 							</select>
 							<img src="./assets/img/icon2_11@2x.png" alt="">
 						</div>
@@ -72,8 +72,8 @@
 					<div class="item border-b">
 						<div class="name">隶属关系</div>
 						<div class="content">
-							<select name="" id="" ng-model="addAsistPerson.formInfo.lsgx" ng-options="item.id as item.name for item in addAsistPerson.otherSelect.lsgxList" dir="rtl">
-								<option value=""></option>
+							<select name="" id="" ng-model="addAsistPerson.formInfo.lsgx" ng-options="item.value as item.name for item in addAsistPerson.otherSelect.lsgxList" dir="rtl">
+								<!--<option value=""></option>-->
 							</select>
 							<img src="./assets/img/icon2_11@2x.png" alt="">
 						</div>
@@ -87,7 +87,7 @@
 					<div class="item border-b" style="margin-bottom:3.5rem">
 						<div class="name">联系电话</div>
 						<div class="content">
-							<input type="number" placeholder="请输入信息" ng-model="addAsistPerson.formInfo.lxdh">
+							<input type="text" placeholder="请输入信息" ng-model="addAsistPerson.formInfo.lxdh">
 						</div>
 					</div>
 				</form>

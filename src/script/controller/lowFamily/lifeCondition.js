@@ -73,6 +73,7 @@ myApp.controller("lifeConditionCtro", ["$scope", "$rootScope", "$state", "$http"
 						});
 					}
 				}
+				lifeCondition.formInfo.ywzf = lifeCondition.formInfo.ywzf.toString();
 			} catch(e) {
 				console.error("判断是否需要请求线上数据报错")
 			}
