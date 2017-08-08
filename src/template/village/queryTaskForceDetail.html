@@ -23,7 +23,7 @@
 				<div class="item border-b">
 					<div class="name">政治面貌</div>
 					<div class="content">
-						<span ng-bind="queryTaskForceDetail.taskForceList.zzmm"></span>
+						<span ng-bind="queryTaskForceDetail.taskForceList.zzmm == '01'?'中共党员':queryTaskForceDetail.taskForceList.zzmm == '02'?'中共预备党员':queryTaskForceDetail.taskForceList.zzmm == '03'?'共青团员':queryTaskForceDetail.taskForceList.zzmm == '04'?'民革会员':queryTaskForceDetail.taskForceList.zzmm == '05'?'民盟盟员':queryTaskForceDetail.taskForceList.zzmm == '06'?'民建会员':queryTaskForceDetail.taskForceList.zzmm == '07'?'民进会员':queryTaskForceDetail.taskForceList.zzmm == '08'?'农工党党员':queryTaskForceDetail.taskForceList.zzmm == '09'?'致公党党员':queryTaskForceDetail.taskForceList.zzmm == '10'?'九三学社社员':queryTaskForceDetail.taskForceList.zzmm == '11'?'台盟盟员':queryTaskForceDetail.taskForceList.zzmm == '12'?'无党派民主人士':'群众'"></span>
 					</div>
 				</div>
 				<div class="item border-b">
@@ -41,7 +41,7 @@
 				<div class="item border-b">
 					<div class="name">单位隶属关系</div>
 					<div class="content">
-						<span ng-bind="queryTaskForceDetail.taskForceList.dwlsgx"></span>
+						<span ng-bind="queryTaskForceDetail.taskForceList.dwlsgx == '01'?'中央':queryTaskForceDetail.taskForceList.dwlsgx == '02'?'省':queryTaskForceDetail.taskForceList.dwlsgx == '03'?'市':queryTaskForceDetail.taskForceList.dwlsgx == '04'?'县':queryTaskForceDetail.taskForceList.dwlsgx == '05'?'乡镇':queryTaskForceDetail.taskForceList.dwlsgx == '06'?'部队':'其他'"></span>
 					</div>
 				</div>
 				<div class="item border-b">
