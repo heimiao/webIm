@@ -42,36 +42,37 @@ myApp.controller("naturalVillage", ["$scope", "$state", "$http", "$stateParams",
 			
 			postForm.saveFrm(config.path.naturalVillage,natural.pages)
 			.success(function(res){
+				//判断是否有数据
 				if(res.results){
-				//循环行政村id赋值
-				for(var r=0;r<res.results.length;r++){
-					for(var i=0;i<returnData.length;i++){
-						if(res.results[r].lsxzc == returnData[i].id){
-							res.results[r].lsxzc = returnData[i].name;
+					//循环行政村id赋值
+					for(var r=0;r<res.results.length;r++){
+						for(var i=0;i<returnData.length;i++){
+							if(res.results[r].lsxzc == returnData[i].id){
+								res.results[r].lsxzc = returnData[i].name;
+							}
+						}
+					};
+					//循环自然村id赋值
+					for(var r=0;r<res.results.length;r++){
+						for(var i=0;i<returnzrcData.length;i++){
+							if(res.results[r].zrcmc == returnzrcData[i].id){
+								res.results[r].zrcmc = returnzrcData[i].name;
+							}
 						}
 					}
-				};
-				//循环自然村id赋值
-				for(var r=0;r<res.results.length;r++){
-					for(var i=0;i<returnzrcData.length;i++){
-						if(res.results[r].zrcmc == returnzrcData[i].id){
-							res.results[r].zrcmc = returnzrcData[i].name;
-						}
+					if(num == 1){
+						$timeout(function(){
+							for(var r=0;r<res.results.length;r++){
+								natural.list.push(res.results[r]);
+							}
+		             		// 每次数据加载完，必须重置
+		             		me.resetload();
+		           		},1000);
+					}else{
+						natural.list=res.results;
 					}
-				}
-				if(num == 1){
-					$timeout(function(){
-						for(var r=0;r<res.results.length;r++){
-							natural.list.push(res.results[r]);
-						}
-	             		// 每次数据加载完，必须重置
-	             		me.resetload();
-	           		},1000);
-				}else{
-					natural.list=res.results;
-				}
-				natural.start= natural.start + res.results.length;
-				}else{
+					natural.start= natural.start + res.results.length;
+				}else{ //没有数据时列表为空
 					natural.list=[];
 				}
 			})
