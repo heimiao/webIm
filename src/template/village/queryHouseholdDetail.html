@@ -87,7 +87,7 @@
 								</div>
 							</div>
 							<div class="pkcList pkcListTel clearfix border-b">
-								<label class="">A20是否独生子女</label>
+								<label class="">A20是否独生子女户</label>
 								<div class="col-xs-5 padd0 queryRight" >
 									<span ng-bind="queryHouseholdDetail.list.sfdsznh"></span>
 								</div>
@@ -99,7 +99,7 @@
 								</div>
 							</div>
 							<div class="pkcList pkcListTel clearfix border-b">
-								<label class="">A10脱贫状态</label>
+								<label class="">H10脱贫状态</label>
 								<div class="col-xs-5 padd0 queryRight" >
 									<span ng-bind="queryHouseholdDetail.list.tpqk == '02'?'返贫贫困户':queryHouseholdDetail.list.tpqk == '03'?'历史已脱贫贫困户':queryHouseholdDetail.list.tpqk == '04'?'未脱贫贫困户': queryHouseholdDetail.list.tpqk == '05'?'新脱贫贫困户':'无'"></span>
 								</div>
@@ -114,16 +114,16 @@
 								</div> -->
 						</div>
 						<div class="pkhcjTitle">
-							<p class="pull-left"></p><span>治贫原因</span>
+							<p class="pull-left"></p><span>致贫原因</span>
 						</div>
 						<div class="pkcList pkcListTel clearfix border-b">
-							<label class="">A22主要治贫原因</label>
+							<label class="">A22主要致贫原因</label>
 							<div class="col-xs-5 padd0 queryRight" >
 								<span ng-bind="queryHouseholdDetail.list.zyzpyy == '01'?'因病':queryHouseholdDetail.list.zyzpyy == '02'?'因残':queryHouseholdDetail.list.zyzpyy == '03'?'因学':queryHouseholdDetail.list.zyzpyy == '04'?'因灾':queryHouseholdDetail.list.zyzpyy == '05'?'缺土地':queryHouseholdDetail.list.zyzpyy == '06'?'缺水':queryHouseholdDetail.list.zyzpyy == '07'?'缺技术':queryHouseholdDetail.list.zyzpyy == '08'?'缺劳动力':queryHouseholdDetail.list.zyzpyy == '09'?'缺资金':queryHouseholdDetail.list.zyzpyy == '10'?'交通条件落后':queryHouseholdDetail.list.zyzpyy == '11'?'自身发展动力不足':'其他'"></span>
 							</div>
 						</div>
 						<!-- <div class="pkcList pkcListTel clearfix border-b">
-							<label class="">其他治贫原因</label>
+							<label class="">其他致贫原因</label>
 							<div class="col-xs-5 padd0 queryRight" >
 								<span ng-bind="queryHouseholdDetail.list.">交通条件落后</span>
 							</div>

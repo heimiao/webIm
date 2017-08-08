@@ -22,11 +22,12 @@ myApp.controller("queryProjectResult", ["$scope", "$state", "$http", "$statePara
 							}else{
 								res.results[i].pkcxm = "";
 							}
-							if(res.results[i].pkhxm == "N"){
+							if(res.results[i].pkhxm == "Y"){
 								res.results[i].pkhxm = "贫困户项目";	
 							}else{
 								res.results[i].pkhxm = "";
 							}
+							
 						}
 						if(num == 1){
 							$timeout(function(){
