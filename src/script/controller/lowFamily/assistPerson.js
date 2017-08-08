@@ -1,4 +1,4 @@
-myApp.controller("assistPersonCtro", ["$scope", "$rootScope", "$state", "$http", "$stateParams", "postForm",
+/*myApp.controller("assistPersonCtro", ["$scope", "$rootScope", "$state", "$http", "$stateParams", "postForm",
 	function($scope, $rootScope, $state, $http, $stateParams, postForm) {
 		var assistPerson = {} || assistPerson;
 		assistPerson.urlParam = $stateParams;
@@ -35,9 +35,6 @@ myApp.controller("assistPersonCtro", ["$scope", "$rootScope", "$state", "$http",
 											pkhjc_fj_id: item.filegrpid
 										});
 								});
-								/*var jtcy = fupin.mapArray(datas, config.sysValue.YHZGX, "yhzgx", "value");
-								localData.familyInfo_model = jtcy;*/
-
 								localData.familyInfo_model = datas;
 								fupin.localCache(JSON.stringify(localData));
 								//请求帮扶责任人
@@ -115,7 +112,7 @@ myApp.controller("assistPersonCtro", ["$scope", "$rootScope", "$state", "$http",
 
 		$scope.assistPerson = assistPerson;
 	}
-]);
+]);*/
 
 myApp.controller("addAsistPersonCtro", ["$scope", "$rootScope", "$state", "$http", "$stateParams", "Upload", "$timeout", "postForm",
 	function($scope, $rootScope, $state, $http, $stateParams, Upload, $timeout, postForm) {

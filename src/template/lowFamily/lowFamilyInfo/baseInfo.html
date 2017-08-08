@@ -9,21 +9,21 @@
 				<div class="pkcList clearfix">
 					<div for="pkcxz" class="col-xs-4">镇(乡、苏木)</div>
 					<div class="col-xs-5 padd0 pkcRight">
-						<select class="form-control" id="pkcxz" ng-model="low_family_baseInfo.formInfo.qyxz" ng-options="item.id as item.name for item in low_family_baseInfo.otherSelect.townList" ng-change="low_family_baseInfo.getVillagesByTown()">
+						<select class="form-control" id="pkcxz" ng-model="lowFamilyInfo.formMap.low_family_baseInfo.formInfo.qyxz" ng-options="item.id as item.name for item in lowFamilyInfo.formMap.low_family_baseInfo.otherSelect.townList" ng-change="lowFamilyInfo.formMap.low_family_baseInfo.getVillagesByTown()">
 						</select>
 					</div>
 				</div>
 				<div class="pkcList clearfix">
 					<div class="col-xs-4">行政村</div>
 					<div class="col-xs-5 padd0 pkcRight">
-						<select class="form-control" ng-model="low_family_baseInfo.formInfo.qyxzc" ng-options="item.id as item.name for item in low_family_baseInfo.otherSelect.villagesList" ng-change="low_family_baseInfo.getNaturalVillagesByTown()">
+						<select class="form-control" ng-model="lowFamilyInfo.formMap.low_family_baseInfo.formInfo.qyxzc" ng-options="item.id as item.name for item in lowFamilyInfo.formMap.low_family_baseInfo.otherSelect.villagesList" ng-change="lowFamilyInfo.formMap.low_family_baseInfo.getNaturalVillagesByTown()">
 						</select>
 					</div>
 				</div>
 				<div class="pkcList clearfix">
 					<div class="col-xs-4">自然村(屯)</div>
 					<div class="col-xs-5 padd0 pkcRight">
-						<select class="form-control" ng-model="low_family_baseInfo.formInfo.qyzrc" ng-options="item.id as item.name for item in low_family_baseInfo.otherSelect.naturalVillageList">
+						<select class="form-control" ng-model="lowFamilyInfo.formMap.low_family_baseInfo.formInfo.qyzrc" ng-options="item.id as item.name for item in lowFamilyInfo.formMap.low_family_baseInfo.otherSelect.naturalVillageList">
 						</select>
 					</div>
 				</div>
@@ -31,7 +31,7 @@
 				<div class="pkcList clearfix">
 					<div class="col-xs-4">年度</div>
 					<div class="col-xs-5 padd0 pkcRight">
-						<select class="form-control" ng-model="low_family_baseInfo.formInfo.nd" ng-options="item.value as item.name for item in low_family_baseInfo.otherSelect.yearList">
+						<select class="form-control" ng-model="lowFamilyInfo.formMap.low_family_baseInfo.formInfo.nd" ng-options="item.value as item.name for item in lowFamilyInfo.formMap.low_family_baseInfo.otherSelect.yearList">
 						</select>
 					</div>
 				</div>
@@ -39,52 +39,52 @@
 				<div class="pkcList pkcListTel clearfix">
 					<div class="col-xs-4">联系电话</div>
 					<div class="col-xs-5 padd0 pkcRight">
-						<input type="text" placeholder="请输入电话号码" ng-model="low_family_baseInfo.formInfo.lxdh" />
+						<input type="text" placeholder="请输入电话号码" ng-model="lowFamilyInfo.formMap.low_family_baseInfo.formInfo.lxdh" />
 					</div>
 				</div>
 				<div class="pkcList pkcListTel clearfix">
 					<div class="col-xs-4">开户银行</div>
 					<div class="col-xs-5 padd0 pkcRight">
-						<input type="text" placeholder="开户银行" ng-model="low_family_baseInfo.formInfo.khyh" />
-						<!--<select class="form-control" ng-model="low_family_baseInfo.formInfo.khyh" ng-options="item.id as item.name for item in low_family_baseInfo.otherSelect.khyhList"></select>-->
+						<input type="text" placeholder="开户银行" ng-model="lowFamilyInfo.formMap.low_family_baseInfo.formInfo.khyh" />
+						<!--<select class="form-control" ng-model="lowFamilyInfo.formMap.low_family_baseInfo.formInfo.khyh" ng-options="item.id as item.name for item in lowFamilyInfo.formMap.low_family_baseInfo.otherSelect.khyhList"></select>-->
 					</div>
 				</div>
 				<div class="pkcList pkcListTel clearfix">
 					<div class="col-xs-4">银行账号</div>
 					<div class="col-xs-5 padd0 pkcRight">
-						<input type="text" placeholder="银行账号" ng-model="low_family_baseInfo.formInfo.yhzh" />
+						<input type="text" placeholder="银行账号" ng-model="lowFamilyInfo.formMap.low_family_baseInfo.formInfo.yhzh" />
 					</div>
 				</div>
 				<div class="pkcList clearfix">
-					<div class="col-xs-4">A18贫困用户属性</div>
+					<div class="col-xs-4" style="min-width:12rem">A18贫困户属性</div>
 					<div class="col-xs-5 padd0 pkcRight">
-						<select class="form-control" ng-model="low_family_baseInfo.formInfo.bhksx" ng-options="item.value as item.name for item in low_family_baseInfo.otherSelect.bhksxList">
+						<select class="form-control" ng-model="lowFamilyInfo.formMap.low_family_baseInfo.formInfo.bhksx" ng-options="item.value as item.name for item in lowFamilyInfo.formMap.low_family_baseInfo.otherSelect.bhksxList">
 							<!--<option value=""></option>-->
 						</select>
 					</div>
 				</div>
 				<div class="pkcList clearfix">
-					<div class="col-xs-4">A19是否军烈属</div>
+					<div class="col-xs-4" style="min-width:12rem">A19是否军烈属</div>
 					<div class="col-xs-5 padd0 pkcRight">
-						<select class="form-control" ng-model="low_family_baseInfo.formInfo.sfjls">
+						<select class="form-control" ng-model="lowFamilyInfo.formMap.low_family_baseInfo.formInfo.sfjls">
 							<option value="y">是</option>
 							<option value="n">否</option>
 						</select>
 					</div>
 				</div>
 				<div class="pkcList clearfix">
-					<div class="col-xs-4">A20是否独生子女</div>
-					<div class="col-xs-5 padd0 pkcRight">
-						<select class="form-control" ng-model="low_family_baseInfo.formInfo.sfdsznh">
+					<div class="col-xs-4" style="min-width:14rem">A20是否独生子女</div>
+					<div class="col-xs-5 padd0 pkcRight" style="max-width:11rem">
+						<select class="form-control" ng-model="lowFamilyInfo.formMap.low_family_baseInfo.formInfo.sfdsznh">
 							<option value="y">是</option>
 							<option value="n">否</option>
 						</select>
 					</div>
 				</div>
 				<div class="pkcList clearfix">
-					<div class="col-xs-4">A21是否双女户</div>
-					<div class="col-xs-5 padd0 pkcRight">
-						<select class="form-control" ng-model="low_family_baseInfo.formInfo.sfsnh">
+					<div class="col-xs-4" style="min-width:13rem">A21是否双女户</div>
+					<div class="col-xs-5 padd0 pkcRight" style="max-width:11rem">
+						<select class="form-control" ng-model="lowFamilyInfo.formMap.low_family_baseInfo.formInfo.sfsnh">
 							<option value="y">是</option>
 							<option value="n">否</option>
 						</select>
@@ -93,19 +93,10 @@
 				<div class="pkcList clearfix">
 					<div class="col-xs-4">A10脱贫状态</div>
 					<div class="col-xs-5 padd0 pkcRight">
-						<select class="form-control" ng-model="low_family_baseInfo.formInfo.tpqk" ng-options="item.value as item.name for item in low_family_baseInfo.otherSelect.tpqkList">
+						<select class="form-control" ng-model="lowFamilyInfo.formMap.low_family_baseInfo.formInfo.tpqk" ng-options="item.value as item.name for item in lowFamilyInfo.formMap.low_family_baseInfo.otherSelect.tpqkList">
 						</select>
 					</div>
 				</div>
-
-				<!--<div class="pkcList clearfix">
-					<div class="col-xs-4">不脱贫原因</div>
-					<div class="col-xs-5 padd0 pkcRight">
-						<select class="form-control">
-							<option>不脱贫原因</option>
-						</select>
-					</div>
-				</div>-->
 				<div class="pkctips">注：已达到脱贫指标，但实际未脱贫的填此项</div>
 			</div>
 		</div>

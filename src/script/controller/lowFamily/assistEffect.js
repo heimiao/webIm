@@ -1,4 +1,4 @@
-//帮扶成效
+/*//帮扶成效
 myApp.controller("assistEffectCtro", ["$scope", "$rootScope", "$state", "$http", "$stateParams", "postForm",
 	function($scope, $rootScope, $state, $http, $stateParams, postForm) {
 		var assistEffect = {} || assistEffect;
@@ -122,4 +122,4 @@ myApp.controller("assistEffectCtro", ["$scope", "$rootScope", "$state", "$http",
 
 		$scope.assistEffect = assistEffect;
 	}
-]);
+]);*/

@@ -1,4 +1,4 @@
-myApp.controller("incomeCtro", ["$scope", "$rootScope", "$state", "$http", "$stateParams", "postForm",
+/*myApp.controller("incomeCtro", ["$scope", "$rootScope", "$state", "$http", "$stateParams", "postForm",
 	function($scope, $rootScope, $state, $http, $stateParams, postForm) {
 		var income = income || {};
 		income.oldObj = {};
@@ -56,8 +56,7 @@ myApp.controller("incomeCtro", ["$scope", "$rootScope", "$state", "$http", "$sta
 												pkhjc_fj_id: item.filegrpid
 											});
 									});
-									/*var jtcy = fupin.mapArray(datas, config.sysValue.YHZGX, "yhzgx", "value");
-									income.sumData.familyInfo_model = jtcy;*/
+									 
 									localData.familyInfo_model = datas;
 									fupin.localCache(JSON.stringify(income.sumData));
 									//请求帮扶责任人
@@ -154,4 +153,4 @@ myApp.controller("incomeCtro", ["$scope", "$rootScope", "$state", "$http", "$sta
 		$scope.income = income;
 		//根据角色遍历响应的菜单
 	}
-]);
+]);*/

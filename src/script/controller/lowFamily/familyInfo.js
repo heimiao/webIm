@@ -1,4 +1,4 @@
-//家庭成员
+/*//家庭成员
 myApp.controller("lowFamilyMemberCtro", ["$scope", "$rootScope", "$state", "$http", "$stateParams", "postForm",
 	function($scope, $rootScope, $state, $http, $stateParams, postForm) {
 		var lowFamilyMember = {} || lowFamilyMember;
@@ -105,7 +105,7 @@ myApp.controller("lowFamilyMemberCtro", ["$scope", "$rootScope", "$state", "$htt
 
 		$scope.lowFamilyMember = lowFamilyMember;
 	}
-]);
+]);*/
 
 myApp.controller("addFamilyMemberCtro", ["$scope", "$rootScope", "$state", "$http", "$stateParams", "Upload", "$timeout", "postForm",
 	function($scope, $rootScope, $state, $http, $stateParams, Upload, $timeout, postForm) {
@@ -177,31 +177,21 @@ myApp.controller("addFamilyMemberCtro", ["$scope", "$rootScope", "$state", "$htt
 		}
 
 		addFamilyMember.saveForm = function() {
-			localDatas = JSON.parse(window.localStorage.getItem("low_family"));
 			if(addFamilyMember.urlParam.memberId) {
-				//判断是否修改数据
 				if(dataAll.familyInfo_model.length > 0) {
 					$.each(dataAll.familyInfo_model, function(index, item) {
 						if(item.id == addFamilyMember.urlParam.memberId) {
-							if(typeof(item.yhzgx) == "object") {
-								item.yhzgx = item.yhzgx.value;
-							}
 							angular.extend(item, addFamilyMember.formInfo)
 						}
 					});
-				}
-				if(addFamilyMember.urlParam.memberId = "local") {
-					localDatas.baseInfo_model.hzxm = addFamilyMember.formInfo.xm;
 				}
 			} else {
 				dataAll.familyInfo_model.push(angular.extend(addFamilyMember.formInfo, {
 					id: fupin.randomChat()
 				}));
-				localDatas.baseInfo_model.hzxm=addFamilyMember.formInfo.xm;
 			}
-
 			fupin.localCache(JSON.stringify(dataAll));
-			window.history.go(-1);
+						window.history.go(-1);
 			/*	$state.go("lowFamily", {
 					showForm: "familyMember",
 					id: addFamilyMember.urlParam.id,

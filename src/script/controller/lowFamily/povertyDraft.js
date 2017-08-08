@@ -15,7 +15,10 @@ myApp.controller("lowFamilyDraftCtro", ["$scope", "$state", "$http", "$statePara
 		lowFamilyDraft.bhksxList = config.sysValue.bhksx;
 
 		window.localStorage.setItem("cont_index", "");
-		fupin.localCache("");
+
+		//清楚缓存
+		fupin.clearCacheByName();
+
 		//获取城镇并且实现映射
 		lowFamilyDraft.getTownVillages = function(args, name) {
 			postForm.saveFrm(config.path.townShip, {
@@ -40,24 +43,21 @@ myApp.controller("lowFamilyDraftCtro", ["$scope", "$state", "$http", "$statePara
 				rqstName: "low_family", //'low_family', 'low_village', 'nature_village', 'relief_project'
 				type: "select", //select,delete,put,selectById,
 				success: function(args) {
-					lowFamilyDraft.list = args;
-					
-					/*$.each(item.familyInfo_model, function(i, n) {
-							if(n["yhzgx"] == "01") {
-								item.baseInfo_model.hzxm = n["xm"];
-								console.log(item.baseInfo_model.hzxm);
+					var datas = args;
+					datas.map(function(item, index, array) {
+						$.each(item.familyInfo_model, function(i, j) {
+							if(j["yhzgx"] == "01") {
+								item.baseInfo_model.hzxm = j.xm;
 							}
-						})*/
-					
-					lowFamilyDraft.list.map(function(item, index, array) {
-						return fupin.mapArray(item, lowFamilyDraft.bhksxList, "bhksx", "value");
+						});
+						return fupin.mapArray(item, lowFamilyDraft.bhksxList, "bhksx", "value");;
 					})
 
 					//调用镇
 					if(JSON.stringify(lowFamilyDraft.townList) == "{}") {
 						lowFamilyDraft.getTownVillages("01", "qyxz");
 					} else {
-						lowFamilyDraft.list.map(function(item, index, array) {
+						datas.map(function(item, index, array) {
 							return fupin.mapArray(item, lowFamilyDraft.townList, "qyxz", "id");
 						})
 					}
@@ -65,10 +65,11 @@ myApp.controller("lowFamilyDraftCtro", ["$scope", "$state", "$http", "$statePara
 					if(JSON.stringify(lowFamilyDraft.villagesList) == "{}") {
 						lowFamilyDraft.getTownVillages("02", "qyxzc");
 					} else {
-						lowFamilyDraft.list.map(function(item, index, array) {
+						datas.map(function(item, index, array) {
 							return fupin.mapArray(item, lowFamilyDraft.townList, "qyxzc", "id");
 						})
 					}
+					lowFamilyDraft.list = datas;
 				},
 				'error': function(args) {}
 			});

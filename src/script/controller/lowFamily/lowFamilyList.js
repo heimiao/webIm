@@ -5,7 +5,7 @@ myApp.controller("lowFamilyListCtro", ["$scope", "$rootScope", "$state", "$filte
 	lowFamilyList.urlParam = $stateParams;
 	lowFamilyList.sendParam = {
 		nd: 2017
-	};
+	}, bool = true;;
 	lowFamilyList.page = {
 		limit: 15,
 		pageSize: 10,
@@ -25,11 +25,14 @@ myApp.controller("lowFamilyListCtro", ["$scope", "$rootScope", "$state", "$filte
 	lowFamilyList.list = [];
 	window.localStorage.setItem("cont_index", "");
 
-	$scope.$watch('$viewContentLoaded', function(event) {
+	/*$scope.$watch('$viewContentLoaded', function(event) {
 		fupin.localCache(JSON.stringify(lowFamilyInfoNull));
 		fupin.oldLocalCache(JSON.stringify(lowFamilyInfoNull));
-	});
+	});*/
 
+	//清楚缓存
+	fupin.clearCacheByName();
+	
 	lowFamilyList.townList = {};
 	lowFamilyList.town_VillagesList = {};
 
@@ -56,39 +59,43 @@ myApp.controller("lowFamilyListCtro", ["$scope", "$rootScope", "$state", "$filte
 				lowFamilyList.sendParam.hzsfz = "";
 			}
 		}
+		bool = true;
 	})
+
 	//获取总列表  
 	lowFamilyList.getLowFamilyList = function(me, start) {
-		lowFamilyList.page.start = start == 1 ? start - 1 : lowFamilyList.page.start;
-		//lowFamilyList.sendParam.search//判断该字段类型
+		if(bool) {
+			bool = false;
+			lowFamilyList.page.start = start == 1 ? start - 1 : lowFamilyList.page.start;
+			//lowFamilyList.sendParam.search//判断该字段类型
 
-		var sumSendParam = angular.extend({}, lowFamilyList.page, lowFamilyList.sendParam)
-		//获取当前用户信息   
-		postForm.saveFrm(config.path.lowFamilyList, sumSendParam).success(function(data) {
-			var pretreatmentAry = data.results;
-			pretreatmentAry = fupin.mapArray(pretreatmentAry, config.sysValue.bhksx, "bhksx", "value");
-			//调用镇
-			if(JSON.stringify(lowFamilyList.townList) == "{}") {
-				lowFamilyList.getTownVillages("01", "qyxz");
-			} else {
-				pretreatmentAry = fupin.mapArray(pretreatmentAry, lowFamilyList.townList, "qyxz", "id");
-				//console.log(pretreatmentAry);
-			}
-			//调用村
-			if(JSON.stringify(lowFamilyList.villagesList) == "{}") {
-				lowFamilyList.getTownVillages("02", "qyxzc");
-			} else {
-				pretreatmentAry = fupin.mapArray(pretreatmentAry, lowFamilyList.villagesList, "qyxzc", "id");
-			}
-			lowFamilyList.list = lowFamilyList.list.concat(pretreatmentAry);
-
-			if(me)
-				me.resetload();
-		})
-
-		lowFamilyList.page.start += lowFamilyList.page.pageSize * lowFamilyList.page.nowPage;
-		if(start == 1)
-			lowFamilyList.list = [];
+			var sumSendParam = angular.extend({}, lowFamilyList.page, lowFamilyList.sendParam)
+			//获取当前用户信息   
+			postForm.saveFrm(config.path.lowFamilyList, sumSendParam).success(function(data) {
+				var pretreatmentAry = data.results;
+				pretreatmentAry = fupin.mapArray(pretreatmentAry, config.sysValue.bhksx, "bhksx", "value");
+				//调用镇
+				if(JSON.stringify(lowFamilyList.townList) == "{}") {
+					lowFamilyList.getTownVillages("01", "qyxz");
+				} else {
+					pretreatmentAry = fupin.mapArray(pretreatmentAry, lowFamilyList.townList, "qyxz", "id");
+					//console.log(pretreatmentAry);
+				}
+				//调用村
+				if(JSON.stringify(lowFamilyList.villagesList) == "{}") {
+					lowFamilyList.getTownVillages("02", "qyxzc");
+				} else {
+					pretreatmentAry = fupin.mapArray(pretreatmentAry, lowFamilyList.villagesList, "qyxzc", "id");
+				}
+				lowFamilyList.list = lowFamilyList.list.concat(pretreatmentAry);
+				bool = true;
+				if(me)
+					me.resetload();
+			})
+			lowFamilyList.page.start += lowFamilyList.page.pageSize * lowFamilyList.page.nowPage;
+			if(start == 1)
+				lowFamilyList.list = [];
+		}
 	}
 
 	//获取城镇

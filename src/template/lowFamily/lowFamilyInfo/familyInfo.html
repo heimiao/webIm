@@ -14,7 +14,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="item in lowFamilyMember.list track by $index" ui-sref="addFamilyMember({id:lowFamilyMember.urlParam.id,type:lowFamilyMember.urlParam.type,memberId:item.id})">
+				<tr ng-repeat="item in lowFamilyInfo.formMap.lowFamilyMember.list track by $index" ui-sref="addFamilyMember({id:lowFamilyInfo.urlParam.id,type:lowFamilyInfo.urlParam.type,memberId:item.id})">
 					<td class="text-center" ng-bind="item.xm">曹操</td>
 					<td class="text-center" ng-bind="item.xb">男</td>
 					<td class="text-center" ng-bind="item.nl">85</td>
@@ -23,7 +23,7 @@
 			</tbody>
 		</table>
 		<div class="addMember">
-			<button type="button" class="btn_add" ui-sref="addFamilyMember({id:lowFamilyMember.urlParam.id,type:lowFamilyMember.urlParam.type,memberId:''})">+添加家庭成员</button>
+			<button type="button" class="btn_add" ui-sref="addFamilyMember({id:lowFamilyInfo.urlParam.id,type:lowFamilyInfo.urlParam.type,memberId:''})">+添加家庭成员</button>
 		</div>
 	</div>
 </section>

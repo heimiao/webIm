@@ -1,4 +1,4 @@
-myApp.controller("lowFamilyCausesCtro", ["$scope", "$rootScope", "$state", "$http", "$stateParams", "postForm",
+/*myApp.controller("lowFamilyCausesCtro", ["$scope", "$rootScope", "$state", "$http", "$stateParams", "postForm",
 	function($scope, $rootScope, $state, $http, $stateParams, postForm) {
 		$scope.userId = "";
 		$scope.dataType = "";
@@ -41,9 +41,6 @@ myApp.controller("lowFamilyCausesCtro", ["$scope", "$rootScope", "$state", "$htt
 												pkhjc_fj_id: item.filegrpid
 											});
 									});
-
-									/*	var jtcy = fupin.mapArray(datas, config.sysValue.YHZGX, "yhzgx", "value");
-										localData.familyInfo_model = jtcy;*/
 
 									localData.familyInfo_model = datas;
 									fupin.localCache(JSON.stringify(localData));
@@ -95,12 +92,8 @@ myApp.controller("lowFamilyCausesCtro", ["$scope", "$rootScope", "$state", "$htt
 						}
 					}
 				}
-				
 					
 				lowFamilyCauses.formInfo = linshi;
-				/*	$scope.$watch("lowFamilyCauses.formInfo", function(n, o) {
-//					lowFamilyCauses.saveCache();
-				})*/
 			} catch(e) {
 				console.error("判断是否需要请求线上数据报错")
 			}
@@ -159,4 +152,4 @@ myApp.controller("lowFamilyCausesCtro", ["$scope", "$rootScope", "$state", "$htt
 
 		$scope.lowFamilyCauses = lowFamilyCauses;
 	}
-]);
+]);*/

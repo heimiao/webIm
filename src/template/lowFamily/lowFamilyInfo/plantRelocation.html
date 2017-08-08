@@ -10,7 +10,7 @@
 				<div class="item border-b">
 					<div class="name">A44 是否搬迁户</div>
 					<div class="content">
-						<select name="" id="" ng-model="plantRelocation.formInfo.sfbqh">
+						<select name="" id="" ng-model="lowFamilyInfo.formMap.plantRelocation.formInfo.sfbqh">
 							<!--<option value=""></option>-->
 							<option value="y">是</option>
 							<option value="n">否</option>
@@ -21,7 +21,7 @@
 				<div class="item border-b">
 					<div class="name">A45 搬迁方式</div>
 					<div class="content" style="width: 20rem;">
-						<select name="" id="" ng-model="plantRelocation.formInfo.bqfs" ng-options="item.value as item.name for item in plantRelocation.otherSelect.bqfsList" style=" width: 85%; " dir="rtl">
+						<select name="" id="" ng-model="lowFamilyInfo.formMap.plantRelocation.formInfo.bqfs" ng-options="item.value as item.name for item in lowFamilyInfo.formMap.plantRelocation.otherSelect.bqfsList" style=" width: 85%; " dir="rtl">
 							<!--<option value=""></option>-->
 						</select>
 						<img src="./assets/img/icon2_11@2x.png" alt="">
@@ -30,7 +30,7 @@
 				<div class="item border-b">
 					<div class="name">A47 安置方式 </div>
 					<div class="content">
-						<select name="" id="" ng-model="plantRelocation.formInfo.azfs" ng-options="item.value as item.name for item in plantRelocation.otherSelect.azfsList">
+						<select name="" id="" ng-model="lowFamilyInfo.formMap.plantRelocation.formInfo.azfs" ng-options="item.value as item.name for item in lowFamilyInfo.formMap.plantRelocation.otherSelect.azfsList">
 							<!--<option value=""></option>-->
 						</select>
 						<img src="./assets/img/icon2_11@2x.png" alt="">
@@ -39,7 +39,7 @@
 				<div class="item border-b">
 					<div class="name">A48 安置地 </div>
 					<div class="content">
-						<select name="" id="" ng-model="plantRelocation.formInfo.azd" ng-options="item.value as item.name for item in plantRelocation.otherSelect.azdList">
+						<select name="" id="" ng-model="lowFamilyInfo.formMap.plantRelocation.formInfo.azd" ng-options="item.value as item.name for item in lowFamilyInfo.formMap.plantRelocation.otherSelect.azdList">
 							<!--<option value=""></option>-->
 						</select>
 						<img src="./assets/img/icon2_11@2x.png" alt="">
@@ -52,10 +52,10 @@
 					</div>
 					<div class="item border-b">
 						<div class="check_radio" checkbox-radio>
-							<label class="default" ng-class="{cked:plantRelocation.formInfo.bqknczkn_qfzj}"><input type="checkbox" value="y"  ng-model="plantRelocation.formInfo.bqknczkn_qfzj" />缺乏资金</label>
-							<label class="default" ng-class="{cked:plantRelocation.formInfo.bqknczkn_bqhzbdgz}"><input type="checkbox" value="y" ng-model="plantRelocation.formInfo.bqknczkn_bqhzbdgz"/>搬迁后找不到工作</label>
-							<label class="default" ng-class="{cked:plantRelocation.formInfo.bqknczkn_bqhshmzl}"><input type="checkbox" value="y" ng-model="plantRelocation.formInfo.bqknczkn_bqhshmzl"/>搬迁后生活没着落</label>
-							<label class="default" ng-class="{cked:plantRelocation.formInfo.bqknczkn_qt}"><input type="checkbox" value="y" ng-model="plantRelocation.formInfo.bqknczkn_qt"/>其他</label>
+							<label class="default" ng-class="{cked:lowFamilyInfo.formMap.plantRelocation.formInfo.bqknczkn_qfzj}"><input type="checkbox" value="y"  ng-model="lowFamilyInfo.formMap.plantRelocation.formInfo.bqknczkn_qfzj" />缺乏资金</label>
+							<label class="default" ng-class="{cked:lowFamilyInfo.formMap.plantRelocation.formInfo.bqknczkn_bqhzbdgz}"><input type="checkbox" value="y" ng-model="lowFamilyInfo.formMap.plantRelocation.formInfo.bqknczkn_bqhzbdgz"/>搬迁后找不到工作</label>
+							<label class="default" ng-class="{cked:lowFamilyInfo.formMap.plantRelocation.formInfo.bqknczkn_bqhshmzl}"><input type="checkbox" value="y" ng-model="lowFamilyInfo.formMap.plantRelocation.formInfo.bqknczkn_bqhshmzl"/>搬迁后生活没着落</label>
+							<label class="default" ng-class="{cked:lowFamilyInfo.formMap.plantRelocation.formInfo.bqknczkn_qt}"><input type="checkbox" value="y" ng-model="lowFamilyInfo.formMap.plantRelocation.formInfo.bqknczkn_qt"/>其他</label>
 						</div>
 					</div>
 				</div>

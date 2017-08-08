@@ -47,8 +47,8 @@ myApp.directive('beginTime', function() {
 					startYear: (new Date()).getFullYear() - 1900, //开始年份
 					endYear: (new Date()).getFullYear() + 100, //结束年份
 					onSelect: function(valueText, inst) {
-						console.log(valueText);
-						console.log(inst);
+						//						console.log(valueText);
+						//						console.log(inst);
 					}
 				});
 			}

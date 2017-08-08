@@ -34,7 +34,7 @@
 				$.each(aryB, function(i, m) {
 					if(item) {
 						if(item[strA] == m[strB]) {
-							item[strA+"Obj"] = m;
+							item[strA + "Obj"] = m;
 						}
 					}
 				});
@@ -43,6 +43,9 @@
 		},
 		localCache: function(data) {
 			window.localStorage.setItem("low_family", data);
+		},
+		clearCacheByName: function(args) {
+			window.localStorage.removeItem(args || "low_family");
 		},
 		oldLocalCache: function(data) {
 			window.localStorage.setItem("old_low_family", data);
@@ -89,6 +92,7 @@
 		},
 		getCacheData: function(id, type) {
 			var data;
+			console.log(id, type);
 			try {
 				if(localStorage.getItem("low_family")) {
 					var catchData = JSON.parse(localStorage.getItem("low_family"))

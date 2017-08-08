@@ -1,4 +1,4 @@
-myApp.controller("lifeConditionCtro", ["$scope", "$rootScope", "$state", "$http", "$stateParams", "postForm",
+/*myApp.controller("lifeConditionCtro", ["$scope", "$rootScope", "$state", "$http", "$stateParams", "postForm",
 	function($scope, $rootScope, $state, $http, $stateParams, postForm) {
 		var lifeCondition = lifeCondition || {};
 		lifeCondition.oldObj = {};
@@ -37,8 +37,7 @@ myApp.controller("lifeConditionCtro", ["$scope", "$rootScope", "$state", "$http"
 											pkhjc_fj_id: item.filegrpid
 										});
 								});
-								/*	var jtcy = fupin.mapArray(datas, config.sysValue.YHZGX, "yhzgx", "value");
-									localData.familyInfo_model = jtcy;*/
+								 
 								localData.familyInfo_model = datas;
 								fupin.localCache(JSON.stringify(localData));
 								//请求帮扶责任人
@@ -117,4 +116,4 @@ myApp.controller("lifeConditionCtro", ["$scope", "$rootScope", "$state", "$http"
 
 		$scope.lifeCondition = lifeCondition;
 	}
-]);
+]);*/
