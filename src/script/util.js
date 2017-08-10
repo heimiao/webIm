@@ -92,7 +92,7 @@
 		},
 		getCacheData: function(id, type) {
 			var data;
-			console.log(id, type);
+			//			console.log(id, type);
 			try {
 				if(localStorage.getItem("low_family")) {
 					var catchData = JSON.parse(localStorage.getItem("low_family"))
