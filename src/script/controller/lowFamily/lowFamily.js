@@ -272,6 +272,23 @@ myApp.controller("lowFamilyInfoCtro", ["$scope", "$state", "$http", "$stateParam
 				low_family_baseInfo.formInfo.qyzrc = low_family_baseInfo.formInfo.qyzrc;
 			})
 		}
+
+		$scope.$watch("lowFamilyInfo.formMap.low_family_baseInfo.formInfo.yhzh", function(newValue, oldValue) {
+			if(newValue) {
+				if(newValue.length >= 6) {
+					var nowCarId = newValue.substring(0, 6);
+					var cardId_index = bankBin.indexOf(nowCarId);
+					if(cardId_index > 0) {
+						lowFamilyInfo.formMap.low_family_baseInfo.formInfo.khyh = bankName[cardId_index];
+					} else {
+						lowFamilyInfo.formMap.low_family_baseInfo.formInfo.khyh = "该银行不存在";
+					}
+				} else {
+					lowFamilyInfo.formMap.low_family_baseInfo.formInfo.khyh = "";
+				}
+			}
+		})
+
 		//初始化所有级联地址
 		low_family_baseInfo.getAddress = function(townId, villagesId) {
 			if(low_family_baseInfo.otherSelect.townList)
@@ -432,7 +449,6 @@ myApp.controller("lowFamilyInfoCtro", ["$scope", "$state", "$http", "$stateParam
 								index_id: lowFamilyInfo.urlParam.id
 							},
 							success: function(data) {
-								console.log(data);
 								try {
 									lowFamilyInfo.bindObj(data);
 									//单独绑定家庭成员和帮扶人
