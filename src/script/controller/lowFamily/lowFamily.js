@@ -131,7 +131,7 @@ myApp.controller("lowFamilyInfoCtro", ["$scope", "$state", "$http", "$stateParam
 			}*/
 			//总得分
 			//console.log(pkhzbObj.rjcsrdf, pkhzbObj.scshyddf, pkhzbObj.ywzfdf, pkhzbObj.ypcxdf, pkhzbObj.hzyldf, pkhzbObj.ylbxdf);
-			pkhzbObj.zdf = pkhzbObj.rjcsrdf + pkhzbObj.scshyddf + pkhzbObj.ywzfdf + pkhzbObj.ypcxdf + pkhzbObj.hzyldf + pkhzbObj.ylbxdf;
+			pkhzbObj.zdf = pkhzbObj.rjcsrdf + pkhzbObj.scshyddf + pkhzbObj.ywzfdf + pkhzbObj.ypcxdf + pkhzbObj.hzyldf + pkhzbObj.ylbxdf || 0;
 			if(pkhzbObj.zdf >= 80 && localData.lifeCondition_model.ywzf == "有" && pkhzbObj.ypcxdf == 15 && pkhzbObj.hzyldf == 15) {
 				if((localData.baseInfo_model.tpqk == "01" || localData.baseInfo_model.tpqk == "02" || localData.baseInfo_model.tpqk == "04")) {
 					ydb = "N";
@@ -280,9 +280,10 @@ myApp.controller("lowFamilyInfoCtro", ["$scope", "$state", "$http", "$stateParam
 					var cardId_index = bankBin.indexOf(nowCarId);
 					if(cardId_index > 0) {
 						lowFamilyInfo.formMap.low_family_baseInfo.formInfo.khyh = bankName[cardId_index];
-					} else {
-						lowFamilyInfo.formMap.low_family_baseInfo.formInfo.khyh = "该银行不存在";
 					}
+					/*else {
+						lowFamilyInfo.formMap.low_family_baseInfo.formInfo.khyh = "该银行不存在";
+					}*/
 				} else {
 					lowFamilyInfo.formMap.low_family_baseInfo.formInfo.khyh = "";
 				}
@@ -416,9 +417,11 @@ myApp.controller("lowFamilyInfoCtro", ["$scope", "$state", "$http", "$stateParam
 							id: lowFamilyInfo.urlParam.id
 						}).success(function(data) {
 							//转化成本地对象
-							var localData = fupin.lineToLocalData(data, lowFamilyInfoModel);
+							var localData = fupin.lineToLocalData(data, new lowFamilyNull());
+							//localData.lifeCondition_model.ywzf = localData.lifeCondition_model.ywzf.toString();
 							lowFamilyInfo.bindObj(localData);
 						})
+
 						//获取家庭成员
 						postForm.saveFrm(config.path.getLowFamilyList, {
 							fid: lowFamilyInfo.urlParam.id
@@ -486,22 +489,23 @@ myApp.controller("lowFamilyInfoCtro", ["$scope", "$state", "$http", "$stateParam
 			if(args == 1) {
 				//保存草稿
 				if(lowFamilyInfo.urlParam.id && lowFamilyInfo.urlParam.type == "local") {
-					localDatas = angular.extend(lowFamilyInfoModel, localDatas, {
+					localDatas = angular.extend(new lowFamilyNull(), localDatas, {
 						index_id: parseInt(lowFamilyInfo.urlParam.id),
 					})
 				} else {
 					//走新增接口
-					localDatas = angular.extend(lowFamilyInfoModel, localDatas)
+					localDatas = angular.extend(new lowFamilyNull(), localDatas)
 				}
 				lowFamilyInfo.goback(localDatas);
 			}
 			if(args == 2) {
 				if(lowFamilyInfo.validate(localDatas)) {
-					localDatas = angular.extend(lowFamilyInfoModel, localDatas)
+					localDatas = angular.extend(new lowFamilyNull(), localDatas)
 					lowFamilyInfo.uploadSource(localDatas);
 				}
 			}
 		}
+
 		/*lowFamilyInfo.newFormMap = function() {
 			var newId = fupin.randomChat();
 		}*/

@@ -120,8 +120,9 @@ lowFamilyInfoModel = {
 
 	}
 };
-lowFamilyInfoNull = {
-	baseInfo_model: {
+
+function lowFamilyNull() {
+	this.baseInfo_model = {
 		id: "",
 		nd: "",
 		qyxz: "",
@@ -136,8 +137,8 @@ lowFamilyInfoNull = {
 		sfsnh: "",
 		tpqk: "",
 		hzxm: "",
-	},
-	assistEffect_model: {
+	};
+	this.assistEffect_model = {
 		//帮扶成效
 		fjybfj: "",
 		fdbj: "",
@@ -152,12 +153,12 @@ lowFamilyInfoNull = {
 		flszhzb: "",
 		ftghlbt: "",
 		fcyjb: "",
-	},
-	familyInfo_model: [] //家庭成员
-		,
-	assistPerson_model: [] //帮扶责任人
-		,
-	income_model: {
+	};
+	this.familyInfo_model = []; //家庭成员
+
+	this.assistPerson_model = []; //帮扶责任人
+
+	this.income_model = {
 		//收入
 		gzxsr: "",
 		scjyxsr: "",
@@ -175,8 +176,8 @@ lowFamilyInfoNull = {
 		jtjyfyzc: "",
 		sfzc: "",
 		qtscjyxzc: "",
-	},
-	lifeCondition_model: {
+	};
+	this.lifeCondition_model = {
 		//生产生活方式
 		gdmj: "",
 		yxgkmj: "",
@@ -195,8 +196,8 @@ lowFamilyInfoNull = {
 		zyrllx: "",
 		sfjrnmzyhzs: "",
 		ywwscs: "",
-	},
-	povertyCauses_model: {
+	};
+	this.povertyCauses_model = {
 		//贫困原因
 		zyzpyy: "",
 		zpyy_q_yb: "",
@@ -210,8 +211,8 @@ lowFamilyInfoNull = {
 		zpyy_q_yqldl: "",
 		zpyy_q_yjttjlh: "",
 		zpyy_q_yzsfzdlbz: "",
-	},
-	plantRelocation_model: {
+	};
+	this.plantRelocation_model = {
 		//易地搬迁
 		sfbqh: "",
 		bqfs: "",
@@ -221,8 +222,8 @@ lowFamilyInfoNull = {
 		bqknczkn_bqhzbdgz: "",
 		bqknczkn_bqhshmzl: "",
 		bqknczkn_qt: "",
-	},
-	pkhzb_model: {
+	}
+	this.pkhzb_model = {
 		//计算所得表单
 		rjcsr: "", //人均纯收入计算公式见说明文档01
 		rjcsrdf: "", //人均纯收入得分=rjcsr > 3026 ? 30 : 0
@@ -239,6 +240,5 @@ lowFamilyInfoNull = {
 		ylbx: "", //医疗保险 sfcjcxjmjbylbx=是时ylbx=参
 		ylbxdf: "", //ylbx=参加 ylbxdf=10，ylbx=不参加 
 		zdf: "", //rjsrdf + scshyddf + aqysdf + ypcxdf + 
-
 	}
 };
