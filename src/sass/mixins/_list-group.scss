@@ -1,0 +1,27 @@
+@import "badge";
+@mixin list-group($hr:#2E323A, $badgeTop:10px, $badgeRight:5px, $bgColor:#2E323A, $color:#fff) {
+    width: 100%;
+    background: $bgColor;
+    .list-group-item {
+        cursor: pointer;
+        position: relative;
+        border: 0px;
+        border-bottom: $hr 1px solid;
+        background: transparent;
+        width: 100%;
+        color: $color;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        &.active,
+        &:active,
+        &:hover {
+            background-color: darken($bgColor, 5%);
+            color: darken($color, 15%);
+        }
+        .badge {
+            position: absolute;
+            @include badge(red, $badgeTop, $badgeRight)
+        }
+    }
+}

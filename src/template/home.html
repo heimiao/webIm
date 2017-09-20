@@ -1,81 +1,281 @@
-<div class="container-fluid smain">
-	<!-- header部分  -->
-	<div class="sheader text-center navbar-fixed-top" >张家口市精准扶贫大数据平台</div>
-	<!--banner-->
-	<div class="container-fluid banner">
-		<div class="sbanner">
-			<img class="img-responsive" src="./assets/img/banner.jpg">
+<div class="chatbox">
+	<div class="container chat-contrainer">
+		<div class="chat-side">
+			<div class="me-info">
+				<div class="me-head pull-left">
+					<img class="media-object" src="../../assets/img/53f44283a4347.jpg" alt="...">
+					<span>黑猫</span>
+				</div>
+				<div class="operation pull-right">
+					<div class="dropdown dropdown-directive">
+						<div class="dropdown-toggle">
+							<span class="glyphicon glyphicon-align-justify"></span>
+							<span class="caret"></span>
+						</div>
+						<ul class="dropdown-menu">
+							<li>
+								<a href="javascript:void(0)">取消声音</a>
+							</li>
+							<li role="separator" class="divider"></li>
+							<li>
+								<a href="javascript:void(0)">一键反馈</a>
+							</li>
+							<li role="separator" class="divider"></li>
+							<li>
+								<a href="javascript:void(0)">发起聊天</a>
+							</li>
+							<li role="separator" class="divider"></li>
+							<li>
+								<a href="javascript:void(0)">退出</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+			<div class="search">
+				<div class="input-group">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+					<input type="text" class="form-control" placeholder="搜索">
+				</div>
+			</div>
+			<div class="tabBox">
+				<div class="tab-content tab-directive">
+					<ul class="nav-tab">
+						<li class="active">
+							<a href="javascript:void(0)">灵兰</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)">群</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)">医生列表</a>
+						</li>
+					</ul>
+					<div class="tab-pane active">
+						<div class="crowd-one pull-left">
+							<ul class="list-group">
+								<li class="list-group-item ">娜可露露<span class="badge">1</span> </li>
+								<li class="list-group-item">安其拉<span class="badge">2</span></li>
+								<li class="list-group-item active">貂蝉<span class="badge">3</span></li>
+								<li class="list-group-item">吕布<span class="badge">4</span></li>
+								<li class="list-group-item">项羽<span class="badge">5</span></li>
+							</ul>
+						</div>
+						<div class="crowd-two pull-right">
+							<ul class="list-group">
+								<li class="list-group-item">诸葛亮<span class="badge">14</span></li>
+								<li class="list-group-item active">妲己</li>
+								<li class="list-group-item">张飞</li>
+								<li class="list-group-item">赵云</li>
+								<li class="list-group-item">刘备</li>
+							</ul>
+							<!--<div class="media active">
+								<div class="media-left media-middle">
+									<a href="javascript:void(0)">
+										<img class="media-object" src="../../assets/img/53f44283a4347.jpg" alt="...">
+									</a>
+								</div>
+								<div class="media-body">
+									<h4 class="media-heading">黑猫</h4>
+									<p>消息超出文本自动隐藏多余的内容</p>
+								</div>
+								<span class="badge">42</span>
+							</div>
+							<div class="media">
+								<div class="media-left media-middle">
+									<a href="javascript:void(0)">
+										<img class="media-object" src="../../assets/img/53f44283a4347.jpg" alt="...">
+									</a>
+								</div>
+								<div class="media-body">
+									<h4 class="media-heading">黑猫</h4>
+									<p>消息超出文本自动隐藏多余的内容</p>
+								</div>
+								<span class="badge">42</span>
+							</div>-->
+
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="tab-pane">
+						<div class="media active">
+							<div class="media-left media-middle">
+								<a href="javascript:void(0)">
+									<img class="media-object" src="../../assets/img/53f44283a4347.jpg" alt="...">
+								</a>
+							</div>
+							<div class="media-body">
+								<h4 class="media-heading">黑猫</h4>
+								<p>消息超出文本自动隐藏多余的内容</p>
+							</div>
+							<span class="badge">42</span>
+						</div>
+						<div class="media">
+							<div class="media-left media-middle">
+								<a href="javascript:void(0)">
+									<img class="media-object" src="../../assets/img/53f44283a4347.jpg" alt="...">
+								</a>
+							</div>
+							<div class="media-body">
+								<h4 class="media-heading">黑猫</h4>
+								<p>消息记录消息记录消息</p>
+							</div>
+						</div>
+					</div>
+					<div class="tab-pane" id="doctor">
+						没有
+					</div>
+				</div>
+			</div>
 		</div>
-	</div>
-	<div class="container slist">
-		<div class="sItem">
-			<div class="dataAcquisition">
-				<img src="./assets/img/Android_index_icon_03.png">
-				<span class="Acquisitioncj">数据采集</span>
-				<!-- <span class="Acquisitionen">DATA ACQUISITION</span> -->
+
+		<div class="chat-window" record-directive>
+			<div class="chatView">
+				<div class="chat-title">
+					<div class="dropdown dropdown-directive">
+						<div class="dropdown-toggle">
+							成员
+							<span class="caret"></span>
+						</div>
+						<ul class="dropdown-menu">
+							<li>
+								<div class="media">
+									<div class="media-left media-middle">
+										<a href="javascript:void(0)">
+											<img class="media-object" src="../../assets/img/53f44283a4347.jpg" alt="...">
+										</a>
+									</div>
+									<div class="media-body">
+										<h4 class="media-heading">貂蝉</h4>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="media">
+									<div class="media-left media-middle">
+										<a href="javascript:void(0)">
+											<img class="media-object" src="../../assets/img/53f44283a4347.jpg" alt="...">
+										</a>
+									</div>
+									<div class="media-body">
+										<h4 class="media-heading">吕布</h4>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="media">
+									<div class="media-left media-middle">
+										<a href="javascript:void(0)">
+											<img class="media-object" src="../../assets/img/53f44283a4347.jpg" alt="...">
+										</a>
+									</div>
+									<div class="media-body">
+										<h4 class="media-heading">妲己</h4>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="chat-box">
+					<div class="he-group">
+						<img class="head-img" src="../../assets/img/53f44283a4347.jpg" />
+						<div class="msg">
+							<div class="baseInfo">貂蝉&nbsp;&nbsp;<time class="time">2017-02-04 12:02:
+							05</time></div>
+							<pre class="cont">貂蝉发话了貂蝉发话了貂蝉发话了貂蝉发话了貂蝉发话了貂蝉发话了</pre>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="me-group">
+						<img class="head-img" src="../../assets/img/53f44283a4347.jpg" />
+						<div class="msg">
+							<div class="baseInfo">貂蝉&nbsp;&nbsp;<time class="time">2017-02-04 12:02:
+							05</time></div>
+							<pre class="cont">貂蝉发话了貂蝉发话了貂蝉发话了貂蝉发话了貂蝉发话了貂蝉发话了</pre>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="me-group">
+						<img class="head-img" src="../../assets/img/53f44283a4347.jpg" />
+						<div class="msg">
+							<div class="baseInfo">貂蝉&nbsp;&nbsp;<time class="time">2017-02-04 12:02:
+							05</time></div>
+							<pre class="cont">貂蝉发话了貂蝉发话了貂蝉发话了貂蝉发话了貂蝉发话了貂蝉发话了</pre>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+
+				</div>
+				<div class="chat-tool">
+					<div class="icon">
+						<i class="glyphicon glyphicon-picture"></i>
+						<input type="file" />
+					</div>
+					<div class="icon">
+						<div class="sendMsg_icon">
+							<ul class="sendNote">
+								<li>医生您好,您有新患者请求得到您的帮助！
+									<a href="">发送短信</a>
+								</li>
+								<li>医生您好,您有新患者请求得到您的帮助！
+									<a href="">发送短信</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="icon">
+						<div class="sendMsg_icon patient">
+							<ul class="sendNote">
+								<li>医生您好,您有新患者请求得到您的帮助！
+									<a href="">发送短信</a>
+								</li>
+								<li>医生您好,您有新患者请求得到您的帮助！
+									<a href="">发送短信</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="icon">
+						<i>✂</i>
+					</div>
+					<div class="icon pull-right">
+						<span class="RecordBtn">聊天记录</span>
+					</div>
+				</div>
+				<div class="chat-input">
+					<textarea name="" rows="" cols="" draggable="false" placeholder="ctrl+enter发送"></textarea>
+					<div class="chat-operation">
+						<button>发送</button>
+					</div>
+				</div>
 			</div>
-			<div class="row AcquisitionItem text-center">
-				<div class="text-center ">
-					<a href="#/low_family_list">贫困户</a>
+			<div class="chatRecord">
+				<div class="recordTitle">
+					聊天记录
 				</div>
-				<div class="text-center pkcball">
-					<a href="#/poorVillage">贫困村</a>
+				<div class="recordCont">
+					<div class="he-group">
+						<img class="head-img" src="../../assets/img/53f44283a4347.jpg" />
+						<div class="msg">
+							<div class="baseInfo">貂蝉&nbsp;&nbsp;<time class="time">2017-02-04 12:02:
+							05</time></div>
+							<pre class="cont">貂蝉发话了貂蝉发话了貂蝉发话了貂蝉发话了貂蝉发话了貂蝉发话了</pre>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="me-group">
+						<img class="head-img" src="../../assets/img/53f44283a4347.jpg" />
+						<div class="msg">
+							<div class="baseInfo">貂蝉&nbsp;&nbsp;<time class="time">2017-02-04 12:02:
+							05</time></div>
+							<pre class="cont">貂蝉发话了貂蝉发话了貂蝉发话了貂蝉发话了貂蝉发话了貂蝉发话了</pre>
+						</div>
+						<div class="clearfix"></div>
+					</div>
 				</div>
-				<div class="text-center pkcbr">
-					<a href="#/natural_village">自然村</a>
-				</div>
-				<div class="text-center pkczh">
-					<a href="#/project">扶贫项目</a>
-				</div>
-			</div>
-		</div>
-		<div class="sItem">
-			<div class="dataAcquisition">
-				<img src="./assets/img/Android_index_icon_07.png">
-				<span class="Acquisitioncj">扶贫数据</span>
-				<!-- <span class="Acquisitionen">POVERTY ALLEVIATION DATA</span> -->
-			</div>
-			<div class="row AcquisitionItem text-center">
-				<div class="text-center ">
-					<a href="#/queryHousehold">贫困户</a>
-				</div>
-				<div class="text-center pkcball">
-					<a href="#/queryVillage">贫困村</a>
-				</div>
-				<div class="text-center pkcbr">
-					<a href="#/query_Natural">自然村</a>
-				</div>
-				<div class="text-center pkczh">
-					<a href="#/query_Project">扶贫项目</a>
-				</div>
-			</div>
-		</div>
-		<div class="sItem">
-			<div class="dataAcquisition">
-				<img src="./assets/img/Android_index_icon_10.png">
-				<span class="Acquisitioncj">信息推送</span>
-				<!-- <span class="Acquisitionen">INFORMATION PUSH</span> -->
-			</div>
-			<div class="row AcquisitionItem text-center">
-				<div class="text-center " ui-sref="notice">
-					通知
-				</div>
-				<div class="text-center pkcball" ui-sref="publicNotice">
-					公告
-				</div>
-				<div class="text-center pkcbr" ui-sref="glory">
-					光荣榜
-				</div>
-				<div class="text-center pkczh" ui-sref="policy">
-					扶贫政策
-				</div>
-			</div>
-		</div>
-		<div class="sItem sItemRecord" ui-sref="workLog">
-			<div class="dataAcquisition">
-				<img src="./assets/img/Android_index_icon_16.png">
-				<span class="Acquisitioncj">工作日志</span>
-				<!-- <span class="Acquisitionen">WOEK LOG</span> -->
+				<div class="recordPage">1</div>
 			</div>
 		</div>
 	</div>
