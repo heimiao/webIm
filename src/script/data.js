@@ -6,7 +6,7 @@ var userList = [{
 	cked: true,
 	state: "",
 }, {
-	username: "uazanf8p59c22a42abd91b66",
+	username: "                                                                                 ",
 	pwd: "0f6e850ca4001fb4c6538d28",
 	name: "医助一",
 	count: "1",
