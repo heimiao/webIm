@@ -28,11 +28,16 @@
     @include radius(25px);
 }
 
-//.btn_add {
-//  @include data-btn(auto, auto, #ea3c4c);
-//  @include radius(25px);
-//  outline: none;
-//}
+.ngTip {
+    width: 600px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -300px;
+    z-index: 99999;
+    text-align: center;
+}
+
 //导入模块样式
 @import "component/home";
 @import "component/login";

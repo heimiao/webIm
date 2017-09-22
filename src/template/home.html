@@ -14,19 +14,19 @@
 						</div>
 						<ul class="dropdown-menu">
 							<li>
-								<a href="javascript:void(0)">取消声音</a>
+								取消声音
 							</li>
 							<li role="separator" class="divider"></li>
 							<li>
-								<a href="javascript:void(0)">一键反馈</a>
+								一键反馈
 							</li>
 							<li role="separator" class="divider"></li>
 							<li>
-								<a href="javascript:void(0)">发起聊天</a>
+								同步聊天记录
 							</li>
 							<li role="separator" class="divider"></li>
-							<li>
-								<a href="javascript:void(0)">退出</a>
+							<li ng-click="baseInfo.loginOut()">
+								退出
 							</li>
 						</ul>
 					</div>
@@ -43,10 +43,10 @@
 				<div class="tab-content tab-directive">
 					<ul class="nav-tab">
 						<li class="active">
-							<a href="javascript:void(0)">灵兰</a>
+							<a href="javascript:void(0)">群</a>
 						</li>
 						<li>
-							<a href="javascript:void(0)">群</a>
+							<a href="javascript:void(0)">灵兰</a>
 						</li>
 						<li>
 							<a href="javascript:void(0)">医生列表</a>
@@ -54,47 +54,30 @@
 					</ul>
 					<div class="tab-pane active">
 						<div class="crowd-one pull-left">
-							<ul class="list-group">
-								<li class="list-group-item ">娜可露露<span class="badge">1</span> </li>
-								<li class="list-group-item">安其拉<span class="badge">2</span></li>
-								<li class="list-group-item active">貂蝉<span class="badge">3</span></li>
-								<li class="list-group-item">吕布<span class="badge">4</span></li>
-								<li class="list-group-item">项羽<span class="badge">5</span></li>
+							<ul class="list-group" ng-if='baseInfo.userInfo.grouplist.doctorList'>
+								<li class="list-group-item {{item.cked?'active':''}}" ng-repeat="item in baseInfo.userInfo.grouplist.doctorList" ng-click="baseInfo.userInfo.grouplist.changedoctor(item)">
+									<span ng-bind="item.name">貂蝉</span><span class="badge" ng-if="item.count!=0" ng-bind="item.count">1</span> </li>
 							</ul>
 						</div>
+						
 						<div class="crowd-two pull-right">
-							<ul class="list-group">
-								<li class="list-group-item">诸葛亮<span class="badge">14</span></li>
-								<li class="list-group-item active">妲己</li>
-								<li class="list-group-item">张飞</li>
-								<li class="list-group-item">赵云</li>
-								<li class="list-group-item">刘备</li>
+							<ul class="list-group" ng-if="!baseInfo.userInfo.sysSet.showHead">
+								<li class="list-group-item {{item.cked?'active':''}}" ng-repeat="item in baseInfo.userInfo.grouplist.patientList" ng-click="baseInfo.userInfo.grouplist.changepatient()">
+									<span ng-bind="item.patient.name">貂蝉</span>
+									<span class="badge" ng-if="item.count!=0" ng-bind="item.count">14</span></li>
 							</ul>
-							<!--<div class="media active">
+							<div ng-if="baseInfo.userInfo.sysSet.showHead" class="media {{item.cked?'active':''}}" ng-repeat="item in baseInfo.userInfo.grouplist.patientList" ng-click="baseInfo.userInfo.grouplist.changepatient(item)">
 								<div class="media-left media-middle">
 									<a href="javascript:void(0)">
 										<img class="media-object" src="../../assets/img/53f44283a4347.jpg" alt="...">
 									</a>
 								</div>
 								<div class="media-body">
-									<h4 class="media-heading">黑猫</h4>
-									<p>消息超出文本自动隐藏多余的内容</p>
+									<h4 class="media-heading" ng-bind="item.patient.name">黑猫</h4>
+									<p ng-bind="item.patient.newMsg">消息超出文本自动隐藏多余的内容</p>
 								</div>
-								<span class="badge">42</span>
+								<span class="badge" ng-if="item.count!=0" ng-bind="item.count">42</span>
 							</div>
-							<div class="media">
-								<div class="media-left media-middle">
-									<a href="javascript:void(0)">
-										<img class="media-object" src="../../assets/img/53f44283a4347.jpg" alt="...">
-									</a>
-								</div>
-								<div class="media-body">
-									<h4 class="media-heading">黑猫</h4>
-									<p>消息超出文本自动隐藏多余的内容</p>
-								</div>
-								<span class="badge">42</span>
-							</div>-->
-
 						</div>
 						<div class="clearfix"></div>
 					</div>
@@ -193,20 +176,20 @@
 						<div class="msg">
 							<div class="baseInfo">貂蝉&nbsp;&nbsp;<time class="time">2017-02-04 12:02:
 							05</time></div>
-							<pre class="cont">貂蝉发话了貂蝉发话了貂蝉发话了貂蝉发话了貂蝉发话了貂蝉发话了</pre>
+							<pre class="cont">貂蝉发话了貂蝉发话了貂蝉发话了貂蝉发话了貂蝉发话了貂蝉发话了貂蝉发话了貂蝉发话了
+								貂蝉发话了貂蝉发话了貂蝉发话了貂蝉发话了貂蝉发话了貂蝉发话了貂蝉发话了貂蝉发话了貂蝉发话了貂蝉发话了</pre>
 						</div>
 						<div class="clearfix"></div>
 					</div>
-					<div class="me-group">
+					<div class="he-group">
 						<img class="head-img" src="../../assets/img/53f44283a4347.jpg" />
 						<div class="msg">
 							<div class="baseInfo">貂蝉&nbsp;&nbsp;<time class="time">2017-02-04 12:02:
 							05</time></div>
-							<pre class="cont">貂蝉发话了貂蝉发话了貂蝉发话了貂蝉发话了貂蝉发话了貂蝉发话了</pre>
+							<pre class="cont"><img src="../../assets/img/expression/1003.gif"/></pre>
 						</div>
 						<div class="clearfix"></div>
 					</div>
-
 				</div>
 				<div class="chat-tool">
 					<div class="icon">
@@ -247,7 +230,7 @@
 				<div class="chat-input">
 					<textarea name="" rows="" cols="" draggable="false" placeholder="ctrl+enter发送"></textarea>
 					<div class="chat-operation">
-						<button>发送</button>
+						<button ng-click="baseInfo.sendMsg()">发送</button>
 					</div>
 				</div>
 			</div>

@@ -60,6 +60,16 @@ body {
                     .dropdown-toggle {
                         cursor: pointer;
                     }
+                    .dropdown-menu {
+                        >li {
+                            color: #000;
+                            padding: 0px 15px;
+                            cursor: pointer;
+                            &:hover {
+                                color: #21a0e8;
+                            }
+                        }
+                    }
                 }
             }
             .search {

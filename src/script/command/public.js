@@ -55,3 +55,24 @@ myApp.directive('recordDirective', function() {
 		}
 	};
 });
+
+myApp.directive('alertBar', [function() {
+	return {
+		restrict: 'EA',
+		//		templateUrl: '../template/component/alertBar.html',
+		template: '<div class="alert alert-{{type || \'info\'}} ngTip" ng-show="message">' +
+			'<button type="button" class="close"  ng-click="hideAlert()">' +
+			'<span class="glyphicon glyphicon-remove"></span></button> {{message}}</div>',
+		scope: {
+			message: "=",
+			type: "="
+		},
+		link: function(scope, element, attrs) {
+			scope.hideAlert = function() {
+				scope.message = null;
+				scope.type = null;
+			};
+
+		}
+	};
+}]);

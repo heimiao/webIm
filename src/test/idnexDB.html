@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+		<meta content="yes" name="apple-mobile-web-app-capable" />
+		<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+		<meta content="telephone=no" name="format-detection" />
+		<link rel="stylesheet" href="../assets/lib/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="../dist/style/index_sass.css" />
+	</head>
+
+	<body>
+		<button onclick="save()">添加</button>
+		<button onclick="delById(1)">删除index_id为1的数据</button>
+		<button onclick="update()">通过id修改数据</button>
+		<button onclick="byId()">通过id获取数据</button>
+		<button onclick="findAll()">获取列表</button>
+
+		<button onclick="myAlert()">普通弹框</button>
+		<button onclick="myconfirm()">confirm弹框</button>
+
+		<script src="../assets/lib/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../assets/lib/angular/angular.min.js" type="text/javascript"></script>
+		<script src="../assets/lib/angular/angular-ui-router.js" type="text/javascript"></script>
+		<script src="../assets/lib/angular/angular-cookies.min.js" type="text/javascript"></script>
+		<script src="../assets/lib/angular/ng-file-upload-all.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="../dist/script/all.min.js"></script>
+		<script type="text/javascript">
+			function save() {
+				//保存，或者修改，如果有index_id则为修改没有则为添加
+				dt.request({
+					rqstName: "low_family", //'low_family', 'low_village', 'nature_village', 'relief_project'
+					type: "put", //select,delete,put,selectById,
+					data: {
+						name: "娜可露露",
+						age: 258,
+						address: "河北"
+					},
+					success: function(args) {
+						console.log(args);
+					},
+					'error': function(args) {
+
+					}
+				});
+			}
+
+			function update() {
+				//保存，或者修改，如果有index_id则为修改没有则为添加
+				dt.request({
+					rqstName: "low_family", //'low_family', 'low_village', 'nature_village', 'relief_project'
+					type: "put", //select,delete,put,selectById,
+					data: {
+						index_id: 2,
+						name: "娜可露露",
+						age: 258,
+						address: "河北"
+					},
+					success: function(args) {
+						console.log(args);
+					},
+					'error': function(args) {
+
+					}
+				});
+			}
+
+			function byId() {
+				//根据id获取详细信息
+				dt.request({
+					rqstName: "low_family", //'low_family', 'low_village', 'nature_village', 'relief_project'
+					type: "selectById", //select,delete,put,selectById,
+					param: {
+						index_id: 4
+					},
+					success: function(args) {
+						console.log(args);
+					},
+					'error': function(args) {
+
+					}
+				});
+			}
+
+			function findAll() {
+				//获取所有列表列表
+				dt.request({
+					rqstName: "low_family", //'low_family', 'low_village', 'nature_village', 'relief_project'
+					type: "select", //select,delete,put,selectById,
+					success: function(args) {
+						console.log(args);
+					},
+					'error': function(args) {
+						console.log(args);
+					}
+				});
+			}
+
+			function delById(id) {
+				//根据id删除
+				dt.request({
+					rqstName: "low_family", //'low_family', 'low_village', 'nature_village', 'relief_project'
+					type: "delete", //select,delete,put,selectById,
+					param: {
+						index_id: id
+					},
+					success: function(args) {
+						console.log(args);
+					},
+					'error': function(args) {
+
+					}
+				});
+			}
+
+			function myAlert() {
+				fupin.alert("提示框");
+			}
+
+			function myconfirm() {
+				fupin.confirm("内容框框", function() {
+					console.log("确定按钮");
+				}, function() {
+					console.log("取消按钮");
+				});
+			}
+		</script>
+	</body>
+
+</html>

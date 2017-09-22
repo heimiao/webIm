@@ -1,38 +1,46 @@
 <!DOCTYPE html>
 <html ng-app="myApp">
 
-<head>
-    <meta charset="UTF-8">
-    <title>灵兰医助</title>
-    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
-    <meta content="yes" name="apple-mobile-web-app-capable" />
-    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
-    <meta content="telephone=no" name="format-detection" />
+	<head>
+		<meta charset="UTF-8">
+		<title>灵兰医助</title>
+		<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+		<meta content="yes" name="apple-mobile-web-app-capable" />
+		<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+		<meta content="telephone=no" name="format-detection" />
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./assets/lib/bootstrap/css/bootstrap.min.css">
-    <!--[if IE]>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="./assets/lib/bootstrap/css/bootstrap.min.css">
+		<!--[if IE]>
 		<script src="http://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 	<![endif]-->
 
-    <link rel="stylesheet" href="./dist/style/index_sass.min.css">
+		<link rel="stylesheet" href="./dist/style/index_sass.min.css">
 
-    <script src="./assets/sdk/browser-polyfill.min.js"></script>
-</head>
+		<script src="./assets/sdk/browser-polyfill.min.js"></script>
+	</head>
 
-<body>
+	<body>
 
-    <div ui-view> </div>
-    <!--环信sdk-->
-    <script type='text/javascript' src='./assets/sdk/webim.config.js'></script>
-    <script type='text/javascript' src='./assets/sdk/dist/strophe-1.2.8.min.js'></script>
-    <script src='http://downloads.easemob.com/downloads/cdn/websdk-1.4.8.min.js'></script>
-     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-    <script src="./assets/lib/angular/angular.min.js" type="text/javascript"></script>
-    <script src="./assets/lib/angular/angular-ui-router.js" type="text/javascript"></script>
-    <script src="./assets/lib/angular/angular-cookies.min.js" type="text/javascript"></script>
-    <script src="./assets/lib/angular/ng-file-upload-all.min.js" type="text/javascript" charset="utf-8"></script>
-    <script type="text/javascript" src="./dist/script/all.js"></script>
-</body>
+		<div ui-view> </div>
+
+		<alert-bar class="alert_bar" message="tipService.message" type="tipService.type"></alert-bar>
+
+		<!--环信sdk-->
+		<script type='text/javascript' src='./assets/sdk/webim.config.js'></script>
+		<script type='text/javascript' src='./assets/sdk/dist/strophe-1.2.8.min.js'></script>
+		<!--<script src='http://downloads.easemob.com/downloads/cdn/websdk-1.4.8.min.js'></script>-->
+
+		<script type='text/javascript' src='./assets/sdk/dist/websdk-1.4.8.js'></script>
+		<script src='./assets/lib/webrtc/dist/adapter.js'></script>
+		<script src='./assets/lib/webrtc/dist/webrtc-1.4.8.js'></script>
+
+		<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+		<script src="./assets/lib/angular/angular.min.js" type="text/javascript"></script>
+		<script src="./assets/lib/angular/angular-ui-router.js" type="text/javascript"></script>
+		<script src="./assets/lib/angular/angular-cookies.min.js" type="text/javascript"></script>
+		<script src="./assets/lib/angular/ng-file-upload-all.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="./dist/script/all.js"></script>
+	</body>
 
 </html>

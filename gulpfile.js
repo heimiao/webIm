@@ -105,7 +105,7 @@ gulp.task('webserver', function() {
         .pipe(glp_server({
             livereload: true,
             port: '3000',
-            host: '192.168.170.253',
+            host: '192.168.171.112',
             directoryListing: false,
             gdefaultFile: "index.html",
             open: true
